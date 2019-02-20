@@ -9,8 +9,8 @@ onready var camera = $camera
 
 #params
 const camera_speed = 420
-const max_zoom = Vector2(0.5,0.5)
-const min_zoom = Vector2(2,2)
+const max_zoom = Vector2(0.2,0.2)
+const min_zoom = Vector2(1,1)
 const target_zoom = Vector2(0.1,0.1)
 
 #init
