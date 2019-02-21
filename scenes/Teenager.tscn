@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/TeenageAI.gd" type="Script" id=1]
-[ext_resource path="res://sprites/prototype/characters/male.png" type="Texture" id=2]
-[ext_resource path="res://sprites/prototype/characters/female.png" type="Texture" id=3]
+[ext_resource path="res://sprites/prototype/characters/female_iteration1_side.png" type="Texture" id=2]
+[ext_resource path="res://scripts/states/AIFSM.gd" type="Script" id=3]
+[ext_resource path="res://scripts/states/ai/Idle.gd" type="Script" id=4]
+[ext_resource path="res://scripts/states/ai/Moving.gd" type="Script" id=5]
+[ext_resource path="res://scripts/states/ai/Wait.gd" type="Script" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -13,7 +16,7 @@ animations = [ {
 "name": "MaleNormal",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "FemaleNormal",
 "speed": 5.0
@@ -31,5 +34,22 @@ shape = SubResource( 1 )
 frames = SubResource( 2 )
 animation = "MaleNormal"
 
+[node name="DebugState" type="Label" parent="KinematicTeenager"]
+margin_left = -20.4689
+margin_top = -27.9031
+margin_right = 22.5311
+margin_bottom = -13.9031
+text = "_STATE"
+
 [node name="States" type="Node" parent="."]
+script = ExtResource( 3 )
+
+[node name="Idle" type="Node" parent="States"]
+script = ExtResource( 4 )
+
+[node name="Moving" type="Node" parent="States"]
+script = ExtResource( 5 )
+
+[node name="Waiting" type="Node" parent="States"]
+script = ExtResource( 6 )
 
