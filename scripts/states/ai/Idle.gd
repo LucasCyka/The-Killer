@@ -6,7 +6,7 @@ extends Node
 
 signal finished
 
-func init(state_position,state_time):
+func init(base,state_position,state_time):
 	pass
 	
 func update(delta):

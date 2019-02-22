@@ -7,9 +7,6 @@ extends "res://scripts/FSM.gd"
 #certain states deactivate routines
 var _on_routine = false
 
-#teenager base node
-onready var teenager = get_parent()
-
 #initialize state machine
 func _ready():
 	var states = {
@@ -23,6 +20,11 @@ func _ready():
 			state.connect("finished",self,"finish_state")
 	
 	current_state = $Idle
+	state_timer = $StateTimer
+	#timeout signal
+	state_timer.connect("timeout",self,"timeout")
+	
+	teenager = get_parent()
 	init()
 
 func get_current_state():
@@ -43,7 +45,7 @@ func finish_state():
 		_on_routine = false
 		teenager.next_routine()
 	else:
-		#external events will prevent this teenager from executing
+		#external events will prevent this teenag3er from executing
 		#routine state.
 		pass
 		

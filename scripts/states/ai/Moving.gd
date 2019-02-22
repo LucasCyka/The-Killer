@@ -6,12 +6,15 @@ extends Node
 
 signal finished
 
+var base
 var teenager = null
 var position = null
 
-func init(state_position,state_time):
-	teenager = get_parent().get_parent()
+func init(base,state_position,state_time):
+	teenager = base.teenager
 	position = state_position
+	self.base = base
+	
 	
 func update(delta):
 	if teenager == null:

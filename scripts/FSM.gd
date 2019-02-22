@@ -5,7 +5,11 @@ extends Node
 	It change, update and initialize states.
 """
 
+signal timer_finished
+
 var current_state = null
+var state_timer = null
+var teenager = null
 
 #if the state has a location where it should be performed.
 #each state deals with it in a different way
@@ -15,7 +19,14 @@ var state_position = Vector2(0,0)
 var state_time = 10
 
 func init():
-	current_state.init(state_position,state_time)
+	state_timer.set_wait_time(state_time)
+	state_timer.start()
+	
+	current_state.init(self,state_position,state_time)
+	
+	#debug progress
+	teenager.get_node("KinematicTeenager/Animations/StateProgress").set_value(0)
+	teenager.get_node("KinematicTeenager/Animations/StateProgress").set_max(state_time)
 
 #update the state process function
 func _physics_process(delta):
@@ -23,8 +34,15 @@ func _physics_process(delta):
 		return
 		
 	current_state.update(delta)
+	
+	#debug progress
+	teenager.get_node("KinematicTeenager/Animations/StateProgress").set_value(state_time - state_timer.get_time_left())
 
 #change to a new state
 func change(state):
 	current_state = state
 	self.init()
+
+#the time for a given state is over
+func timeout():
+	emit_signal("timer_finished")
