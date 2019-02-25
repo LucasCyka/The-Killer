@@ -23,10 +23,13 @@ var routines = {
 var animations = {}
 var current_routine = 0
 
-export (GENDER) var gender = GENDER.MALE
+#teenager's modifiers
+var curiosity = 0 setget set_curiosity,get_curiosity
+var fear = 0 setget set_fear,get_fear
+
+export (GENDER) var gender = GENDER.MALE setget , get_gender
 export var id = 0
 export var speed = 70
-
 #world nodes
 onready var state_machine = $States
 onready var kinematic_teenager = $KinematicTeenager
@@ -91,9 +94,25 @@ func update_animations():
 	else:
 		teenager_anims.play("FemaleNormal")
 
+#return a string according to the gender
+func get_gender():
+	if gender == GENDER.MALE:
+		return "MALE"
+	else:
+		return "FEMALE"
 
+func set_curiosity(value):
+	curiosity = value
 
+func get_curiosity():
+	return curiosity
 
+func set_fear(value):
+	fear = value
+	pass
+
+func get_fear():
+	return fear
 
 
 

@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://scripts/GameUI.gd" type="Script" id=1]
 [ext_resource path="res://scripts/TeenagerInfo.gd" type="Script" id=2]
 [ext_resource path="res://sprites/gui/teenager_info_panel_prototype.png" type="Texture" id=3]
+[ext_resource path="res://sprites/gui/close.png" type="Texture" id=4]
+[ext_resource path="res://sprites/gui/lurebtn_prototype.png" type="Texture" id=5]
+[ext_resource path="res://sprites/gui/bumobtn_prototype.png" type="Texture" id=6]
+[ext_resource path="res://sprites/gui/vicebtn_prototype.png" type="Texture" id=7]
+[ext_resource path="res://sprites/gui/miscbtn_prototype.png" type="Texture" id=8]
 
 [node name="GameUI" type="Control"]
 anchor_right = 1.0
@@ -12,6 +17,7 @@ script = ExtResource( 1 )
 [node name="Canvas" type="CanvasLayer" parent="."]
 
 [node name="TeenagerInfo" type="Control" parent="Canvas"]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 2 )
@@ -26,15 +32,69 @@ margin_bottom = 287.0
 rect_pivot_offset = Vector2( 50, 50 )
 
 [node name="background" type="Sprite" parent="Canvas/TeenagerInfo/Panel"]
+editor/display_folded = true
 position = Vector2( 50, 50 )
 texture = ExtResource( 3 )
 
-[node name="Label" type="Label" parent="Canvas/TeenagerInfo/Panel"]
+[node name="Close" type="TextureButton" parent="Canvas/TeenagerInfo/Panel/background"]
+margin_left = 40.2675
+margin_top = -60.1648
+margin_right = 50.2675
+margin_bottom = -50.1648
+texture_normal = ExtResource( 4 )
+
+[node name="Gender" type="Label" parent="Canvas/TeenagerInfo/Panel"]
 margin_left = 2.0
 margin_top = 3.0
 margin_right = 86.0
 margin_bottom = 34.0
-text = "GENDER:
-FEAR: 0
-CURIOSITY: 0"
+text = "GENDER:"
 
+[node name="Fear" type="Label" parent="Canvas/TeenagerInfo/Panel"]
+margin_left = 2.0
+margin_top = 23.0
+margin_right = 86.0
+margin_bottom = 54.0
+text = "FEAR:"
+
+[node name="Curiosity" type="Label" parent="Canvas/TeenagerInfo/Panel"]
+margin_left = 2.0
+margin_top = 43.0
+margin_right = 86.0
+margin_bottom = 74.0
+text = "CURIOSITY:"
+
+[node name="TrapsUI" type="Control" parent="Canvas"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="TrapsPanel" type="Container" parent="Canvas/TrapsUI"]
+margin_left = 202.0
+margin_top = 320.0
+margin_right = 398.0
+margin_bottom = 369.0
+
+[node name="LureBtn" type="TextureButton" parent="Canvas/TrapsUI/TrapsPanel"]
+margin_right = 40.0
+margin_bottom = 40.0
+texture_normal = ExtResource( 5 )
+
+[node name="BumpBtn" type="TextureButton" parent="Canvas/TrapsUI/TrapsPanel"]
+margin_left = 50.0
+margin_right = 95.0
+margin_bottom = 45.0
+texture_normal = ExtResource( 6 )
+
+[node name="ViceBtn" type="TextureButton" parent="Canvas/TrapsUI/TrapsPanel"]
+margin_left = 100.0
+margin_right = 145.0
+margin_bottom = 45.0
+texture_normal = ExtResource( 7 )
+
+[node name="MiscBtn" type="TextureButton" parent="Canvas/TrapsUI/TrapsPanel"]
+margin_left = 150.0
+margin_right = 195.0
+margin_bottom = 45.0
+texture_normal = ExtResource( 8 )
+
+[connection signal="pressed" from="Canvas/TeenagerInfo/Panel/background/Close" to="Canvas/TeenagerInfo" method="hide_panel"]
