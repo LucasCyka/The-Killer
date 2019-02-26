@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/GameUI.gd" type="Script" id=1]
 [ext_resource path="res://scripts/TeenagerInfo.gd" type="Script" id=2]
 [ext_resource path="res://sprites/gui/teenager_info_panel_prototype.png" type="Texture" id=3]
 [ext_resource path="res://sprites/gui/close.png" type="Texture" id=4]
-[ext_resource path="res://sprites/gui/lurebtn_prototype.png" type="Texture" id=5]
-[ext_resource path="res://sprites/gui/bumobtn_prototype.png" type="Texture" id=6]
-[ext_resource path="res://sprites/gui/vicebtn_prototype.png" type="Texture" id=7]
-[ext_resource path="res://sprites/gui/miscbtn_prototype.png" type="Texture" id=8]
+[ext_resource path="res://scripts/TrapsUI.gd" type="Script" id=5]
+[ext_resource path="res://sprites/gui/lurebtn_prototype.png" type="Texture" id=6]
+[ext_resource path="res://sprites/gui/bumobtn_prototype.png" type="Texture" id=7]
+[ext_resource path="res://sprites/gui/vicebtn_prototype.png" type="Texture" id=8]
+[ext_resource path="res://sprites/gui/miscbtn_prototype.png" type="Texture" id=9]
 
 [node name="GameUI" type="Control"]
 anchor_right = 1.0
@@ -23,7 +24,6 @@ margin_bottom = 40.0
 script = ExtResource( 2 )
 
 [node name="Panel" type="Container" parent="Canvas/TeenagerInfo"]
-editor/display_folded = true
 visible = false
 margin_left = 300.0
 margin_top = 187.0
@@ -67,6 +67,7 @@ text = "CURIOSITY:"
 [node name="TrapsUI" type="Control" parent="Canvas"]
 margin_right = 40.0
 margin_bottom = 40.0
+script = ExtResource( 5 )
 
 [node name="TrapsPanel" type="Container" parent="Canvas/TrapsUI"]
 margin_left = 202.0
@@ -77,24 +78,25 @@ margin_bottom = 369.0
 [node name="LureBtn" type="TextureButton" parent="Canvas/TrapsUI/TrapsPanel"]
 margin_right = 40.0
 margin_bottom = 40.0
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 6 )
 
 [node name="BumpBtn" type="TextureButton" parent="Canvas/TrapsUI/TrapsPanel"]
 margin_left = 50.0
 margin_right = 95.0
 margin_bottom = 45.0
-texture_normal = ExtResource( 6 )
+texture_normal = ExtResource( 7 )
 
 [node name="ViceBtn" type="TextureButton" parent="Canvas/TrapsUI/TrapsPanel"]
 margin_left = 100.0
 margin_right = 145.0
 margin_bottom = 45.0
-texture_normal = ExtResource( 7 )
+texture_normal = ExtResource( 8 )
 
 [node name="MiscBtn" type="TextureButton" parent="Canvas/TrapsUI/TrapsPanel"]
 margin_left = 150.0
 margin_right = 195.0
 margin_bottom = 45.0
-texture_normal = ExtResource( 8 )
+texture_normal = ExtResource( 9 )
 
 [connection signal="pressed" from="Canvas/TeenagerInfo/Panel/background/Close" to="Canvas/TeenagerInfo" method="hide_panel"]
+[connection signal="pressed" from="Canvas/TrapsUI/TrapsPanel/LureBtn" to="Canvas/TrapsUI" method="lure_btn"]

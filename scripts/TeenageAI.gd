@@ -114,6 +114,6 @@ func set_fear(value):
 func get_fear():
 	return fear
 
-
-
-
+#returns the teenager's positon
+func get_position():
+	return kinematic_teenager.global_position
