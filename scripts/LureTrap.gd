@@ -9,24 +9,34 @@ extends "res://scripts/Traps.gd"
 var id = 0
 var size = 10
 var current_position = Vector2(0,0)
-var traps = []
+var trail = [] setget , get_trail
 var previous_texture = null
 #space between two traps
-var spacement = 115
+var spacement = 210
+#if the trap is already being used by one or two teenagers
+var is_used = false
 
 #world nodes 
 onready var current_texture = $Texture
+onready var detection_radius = $Texture/DetectionRadius
 
-#the tilemap where luretraps can be placed
-var tilemap = null
+#TODO: params like what kind of trap this is. Who can be affect by it?
+#how many points does it cost? detection radius? etc...
 
 #start animations
 func _ready():
 	current_texture.set_animation(str(id))
+	#TODO: change the trap modifiers according to its id
 
-#move the trap around the map
+#move the trap around the map and call the draw function
 func _process(delta):
-	if base == null or traps.size() == size:
+	if base == null:
+		update()
+		return
+	elif trail.size() == size:
+		#this trap is set and finished
+		set_process(false)
+		detection_radius.connect("body_entered",self,"on_radius")
 		update()
 		return
 		
@@ -37,8 +47,9 @@ func _process(delta):
 #place or cancel traps
 func _input(event):
 	if event is InputEventKey or event is InputEventMouseButton:
+		#place traps
 		if Input.is_action_just_pressed("ok_input"):
-			if traps.size() < size:
+			if trail.size() < size:
 				if previous_texture != null:
 					#check if the distance between placements isn't too big
 					if current_texture.global_position.distance_to(previous_texture.global_position) > spacement:
@@ -50,26 +61,27 @@ func _input(event):
 						if trap != current_texture and trap.global_position == current_texture.global_position:
 							return
 				#add traps
-				traps.append(current_texture.global_position)
+				trail.append(current_texture.global_position)
 				previous_texture = current_texture
 				current_texture = current_texture.duplicate()
 				add_child(current_texture)
+		#cancel traps
 		elif Input.is_action_just_pressed("cancel_input"):
-			if traps.size() != size:
+			if trail.size() != size:
 				self.queue_free()
 
 #draw lines between each trap placed, showing the path the player should walk
 func _draw():
-	if previous_texture == null: return
+	if previous_texture == null or is_used: return
 	if current_texture.global_position.distance_to(previous_texture.global_position) > spacement:
 		#the spacemenet between the two are too big, show it tothe player.
 		
 		return
-	elif traps.size() >1 and traps.size() < size:
-		for trap in range(traps.size()):
-			if traps[trap] != traps.back(): 
-				var from = traps[trap]
-				var to = traps[trap+1]
+	elif trail.size() >1 and trail.size() < size:
+		for trap in range(trail.size()):
+			if trail[trap] != trail.back(): 
+				var from = trail[trap]
+				var to = trail[trap+1]
 				
 				draw_line(from,to,Color.red)
 				
@@ -78,6 +90,22 @@ func _draw():
 	var to = current_texture.global_position
 	draw_line(from,to,Color.red)
 
+#check if the teenager entered the radius of the trap so he can be lured
+func on_radius(body):
+	if body.name == "KinematicTeenager" and !is_used:
+		var teenager = body.get_parent()
+		teenager.set_trap(self)
+		lure_teenager(teenager)
 
+func get_trail():
+	return trail
 
-
+#remove a piece from the trail according to a position
+#end return an updated trail
+func remove_piece(pos):
+	for piece in get_children():
+		if piece.global_position == pos:
+			piece.queue_free()
+			trail.erase(pos)
+			break
+	return trail

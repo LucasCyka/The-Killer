@@ -27,6 +27,9 @@ var current_routine = 0
 var curiosity = 0 setget set_curiosity,get_curiosity
 var fear = 0 setget set_fear,get_fear
 
+#the trap the teenagers has just falled to. Null is no trap.
+var trap = null
+
 export (GENDER) var gender = GENDER.MALE setget , get_gender
 export var id = 0
 export var speed = 70
@@ -109,7 +112,6 @@ func get_curiosity():
 
 func set_fear(value):
 	fear = value
-	pass
 
 func get_fear():
 	return fear
@@ -117,3 +119,22 @@ func get_fear():
 #returns the teenager's positon
 func get_position():
 	return kinematic_teenager.global_position
+
+#this teenager has fall into a trap, change his modifers and update it.
+func set_trap(value):
+	if value == null:
+		#this trap is no more!
+		trap.queue_free()
+		trap = value
+		return
+	trap = value
+		
+	#apply modifiers
+	set_fear(get_fear() + trap.fear)
+	set_curiosity(get_curiosity() + trap.curiosity)
+
+func get_trap():
+	return trap
+	
+	
+#TODO: the AI modifiers needs to decrease automatically

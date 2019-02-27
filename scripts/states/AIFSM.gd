@@ -7,12 +7,18 @@ extends "res://scripts/FSM.gd"
 #certain states deactivate routines
 var _on_routine = false
 
+#this will be true when the player placed traps in  a chain reaction
+#without chaing reactions, teenagers that are not in panic mode, will just 
+#go back to their routines.
+var is_chain_reaction = false
+
 #initialize state machine
 func _ready():
 	var states = {
 		$Idle:$Idle.name,
 		$Moving:$Moving.name,
-		$Waiting: $Waiting.name
+		$Waiting: $Waiting.name,
+		$Lured: $Lured.name
 	}
 	
 	for state in states:
@@ -41,12 +47,12 @@ func execute_routine(state,position,time):
 #if is following a routine, tell the player base AI that this step is over
 #otherwise, just follow to the next
 func finish_state():
-	if _on_routine == true:
+	if _on_routine == true and is_chain_reaction == false:
 		_on_routine = false
 		teenager.next_routine()
 	else:
-		#external events will prevent this teenag3er from executing
-		#routine state.
+		#external events will prevent this teenager from executing
+		#routine states.
 		pass
 		
 
@@ -56,7 +62,12 @@ func force_new_routine():
 
 #force a new state change. Generally used by traps or the player.
 func force_state(state):
-	pass
+	_on_routine = false
+	current_state.exit()
+	change(get_node(state))
+	
+	#TODO: before changing the state, check if it's possible.
+	#some states  cannot be connected to the state the ai is trying to change.
 
 #detect transitions between states
 func state_transitions():

@@ -19,6 +19,10 @@ config/name="The Killer"
 run/main_scene="res://scenes/prototype.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+common="*res://scripts/singletons/common.gd"
+
 [display]
 
 window/size/width=600

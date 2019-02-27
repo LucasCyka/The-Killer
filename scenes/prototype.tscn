@@ -31,6 +31,7 @@ gender = 1
 id = 1
 
 [node name="Tiles" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Floor" type="TileMap" parent="Tiles"]
 z_index = -2
