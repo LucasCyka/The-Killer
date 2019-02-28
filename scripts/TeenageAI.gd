@@ -27,8 +27,8 @@ var current_routine = 0
 var curiosity = 0 setget set_curiosity,get_curiosity
 var fear = 0 setget set_fear,get_fear
 
-#the trap the teenagers has just falled to. Null is no trap.
-var trap = null
+#the traps the teenagers has just falled to. Null is no trap.
+var traps = []
 
 export (GENDER) var gender = GENDER.MALE setget , get_gender
 export var id = 0
@@ -122,19 +122,45 @@ func get_position():
 
 #this teenager has fall into a trap, change his modifers and update it.
 func set_trap(value):
+	traps.append(value)
+	
+	
+	#apply modifiers
+	set_fear(get_fear() + traps[0].fear)
+	set_curiosity(get_curiosity() + traps[0].curiosity)
+	"""
 	if value == null:
 		#this trap is no more!
-		trap.queue_free()
-		trap = value
+		trap[0].queue_free()
+		trap.append(value)
 		return
 	trap = value
 		
 	#apply modifiers
 	set_fear(get_fear() + trap.fear)
 	set_curiosity(get_curiosity() + trap.curiosity)
+	#TODO: the AI modifiers needs to decrease automatically
+	"""
 
-func get_trap():
-	return trap
+func get_traps():
+	if traps == []:
+		return []
+	else:
+		return traps
 	
-	
-#TODO: the AI modifiers needs to decrease automatically
+func remove_trap(value,free):
+	for trap in traps:
+		if trap == value:
+			
+			if free:
+				trap.queue_free()
+			traps.erase(trap)
+			break
+
+
+
+
+
+
+
+

@@ -36,7 +36,9 @@ func _process(delta):
 	elif trail.size() == size:
 		#this trap is set and finished
 		set_process(false)
+		#signals
 		detection_radius.connect("body_entered",self,"on_radius")
+		detection_radius.connect("body_exited",self,"out_radius")
 		update()
 		return
 		
@@ -49,7 +51,7 @@ func _input(event):
 	if event is InputEventKey or event is InputEventMouseButton:
 		#place traps
 		if Input.is_action_just_pressed("ok_input"):
-			if trail.size() < size:
+			if trail.size() < size and !is_used:
 				if previous_texture != null:
 					#check if the distance between placements isn't too big
 					if current_texture.global_position.distance_to(previous_texture.global_position) > spacement:
@@ -67,7 +69,7 @@ func _input(event):
 				add_child(current_texture)
 		#cancel traps
 		elif Input.is_action_just_pressed("cancel_input"):
-			if trail.size() != size:
+			if trail.size() != size and !is_used:
 				self.queue_free()
 
 #draw lines between each trap placed, showing the path the player should walk
@@ -96,6 +98,14 @@ func on_radius(body):
 		var teenager = body.get_parent()
 		teenager.set_trap(self)
 		lure_teenager(teenager)
+
+#check if the teenager is leaving the trap radius
+func out_radius(body):
+	if is_used: return
+	
+	if body.name == "KinematicTeenager" and !is_used:
+		var teenager = body.get_parent()
+		teenager.remove_trap(self,false)
 
 func get_trail():
 	return trail

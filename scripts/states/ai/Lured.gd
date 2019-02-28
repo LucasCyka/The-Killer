@@ -18,10 +18,9 @@ var _timer
 #warning-ignore:unused_argument
 func init(base,state_position,state_time):
 	#TODO: check if the teenager can be affect by this kind of trap
-	
 	self.base = base
 	teenager = base.teenager
-	trap = teenager.get_trap()
+	trap = teenager.get_traps()[0]
 	trap.is_used = true #TODO: only do this if there's two teenagers using it
 	trail = trap.get_trail()
 	
@@ -50,20 +49,21 @@ func update(delta):
 
 #destructor
 func exit():
-	if is_connected("timeout",self,"start_following_trail"):
+	if _timer.is_connected("timeout",self,"start_following_trail"):
 		_timer.disconnect("timeout",self,"start_following_trail")
 		
-	if is_connected("timeout",self,"exit"):
+	if _timer.is_connected("timeout",self,"exit"):
 		_timer.disconnect("timeout",self,"exit")
 	
-	base.get_node("lure_timer").queue_free()
+	if base.has_node("lure_timer"):
+		base.get_node("lure_timer").queue_free()
 	
-	if not base.is_chain_reaction:
-		base._on_routine = true
-	
-	teenager.set_trap(null)
+	#if not base.is_chain_reaction:
+	base._on_routine = true
+	teenager.remove_trap(trap,true)
 	following_trail = false
 	emit_signal("finished")
+	
 	
 #when the teenager starts to follow the trail again
 func start_following_trail():

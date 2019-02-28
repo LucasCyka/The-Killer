@@ -14,5 +14,5 @@ func init(base):
 func lure_btn():
 	#only spawn the first lure trap for now...
 	var lure = preload("res://scenes/traps/LureTrap.tscn").instance()
-	lure.init(base.game,base.get_lure_tilemap())
+	lure.init(base.game,base.get_lure_tilemap(),lure)
 	base.game.add_child(lure)
