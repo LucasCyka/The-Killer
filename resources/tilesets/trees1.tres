@@ -1,20 +1,16 @@
-[gd_resource type="TileSet" load_steps=3 format=2]
+[gd_resource type="TileSet" load_steps=2 format=2]
 
 [ext_resource path="res://sprites/tilesets/trees.png" type="Texture" id=1]
-
-[sub_resource type="OccluderPolygon2D" id=1]
-polygon = PoolVector2Array( -16.5185, 10.7605, 4.17852, 16.3067, 0.5261, 25.0996, -19.224, 20.365 )
 
 [resource]
 0/name = "Sprite"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 50, 50 )
+0/region = Rect2( 0, 0, 65, 50 )
 0/tile_mode = 0
-0/occluder_offset = Vector2( 25, 25 )
-0/occluder = SubResource( 1 )
-0/navigation_offset = Vector2( 25, 25 )
+0/occluder_offset = Vector2( 32.5, 25 )
+0/navigation_offset = Vector2( 32.5, 25 )
 0/shapes = [  ]
 0/z_index = 0
 

@@ -1,7 +1,28 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://sprites/tilesets/prototype2_map.png" type="Texture" id=1]
 [ext_resource path="res://sprites/tilesets/autotile1_grass.png" type="Texture" id=2]
+
+[sub_resource type="TileSet" id=1]
+0/name = "autotile1_grass.png 0"
+0/texture = ExtResource( 2 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 75, 75 )
+0/tile_mode = 1
+0/autotile/bitmask_mode = 0
+0/autotile/bitmask_flags = [ Vector2( 0, 0 ), 256, Vector2( 0, 1 ), 260, Vector2( 0, 2 ), 4, Vector2( 1, 0 ), 320, Vector2( 1, 1 ), 325, Vector2( 1, 2 ), 5, Vector2( 2, 0 ), 64, Vector2( 2, 1 ), 65, Vector2( 2, 2 ), 1 ]
+0/autotile/icon_coordinate = Vector2( 0, 0 )
+0/autotile/tile_size = Vector2( 25, 25 )
+0/autotile/spacing = 0
+0/autotile/occluder_map = [  ]
+0/autotile/navpoly_map = [  ]
+0/autotile/priority_map = [  ]
+0/autotile/z_index_map = [  ]
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [  ]
+0/z_index = 0
 
 [node name="Tilemap" type="Node2D"]
 
@@ -17,6 +38,7 @@ region_enabled = true
 region_rect = Rect2( 0, 0, 25, 25 )
 
 [node name="WoodenFloor" type="Sprite" parent="."]
+light_mask = 2
 position = Vector2( 30, 0 )
 texture = ExtResource( 1 )
 region_enabled = true
@@ -33,4 +55,11 @@ position = Vector2( 90, 0 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 75, 0, 25, 25 )
+
+[node name="Autotile" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 25, 25 )
+cell_quadrant_size = 1
+format = 1
+tile_data = PoolIntArray( 196611, 0, 0, 196612, 0, 1, 196613, 0, 1, 196614, 0, 1, 196615, 0, 1, 196616, 0, 2, 262147, 0, 65536, 262148, 0, 65537, 262149, 0, 65537, 262150, 0, 65537, 262151, 0, 65537, 262152, 0, 65538, 327683, 0, 131072, 327684, 0, 131073, 327685, 0, 131073, 327686, 0, 131073, 327687, 0, 131073, 327688, 0, 131074 )
 

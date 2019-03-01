@@ -37,8 +37,10 @@ func _process(delta):
 		#this trap is set and finished
 		set_process(false)
 		#signals
-		detection_radius.connect("body_entered",self,"on_radius")
-		detection_radius.connect("body_exited",self,"out_radius")
+		detection_radius = $Texture.get_children()
+		for radius in detection_radius:
+			radius.connect("body_entered",self,"on_radius")
+			radius.connect("body_exited",self,"out_radius")
 		update()
 		return
 		
