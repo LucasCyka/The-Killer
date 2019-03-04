@@ -100,3 +100,4 @@ texture_normal = ExtResource( 9 )
 
 [connection signal="pressed" from="Canvas/TeenagerInfo/Panel/background/Close" to="Canvas/TeenagerInfo" method="hide_panel"]
 [connection signal="pressed" from="Canvas/TrapsUI/TrapsPanel/LureBtn" to="Canvas/TrapsUI" method="lure_btn"]
+[connection signal="pressed" from="Canvas/TrapsUI/TrapsPanel/MiscBtn" to="Canvas/TrapsUI" method="misc_btn"]

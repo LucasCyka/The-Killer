@@ -6,6 +6,8 @@ extends "res://scripts/Traps.gd"
 	making them follow a different path.
 """
 
+
+
 var id = 0
 var size = 10
 var current_position = Vector2(0,0)
@@ -27,7 +29,8 @@ onready var detection_radius = $Texture/DetectionRadius
 func _ready():
 	current_texture.set_animation(str(id))
 	#TODO: change the trap modifiers according to its id
-
+	
+	
 #move the trap around the map and call the draw function
 func _process(delta):
 	if base == null:
@@ -41,6 +44,9 @@ func _process(delta):
 		for radius in detection_radius:
 			radius.connect("body_entered",self,"on_radius")
 			radius.connect("body_exited",self,"out_radius")
+		
+		ui.disconnect("new_trap",self,"exit")
+			
 		update()
 		return
 		
