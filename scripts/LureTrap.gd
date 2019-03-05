@@ -50,7 +50,10 @@ func _process(delta):
 		update()
 		return
 		
-	var closest = base.get_closest_tile(tiles,get_global_mouse_position(),10000)
+	var closest = base.get_closest_tile(tiles,get_global_mouse_position(),20)
+	if closest == get_global_mouse_position():
+		set_is_invalid_tile(true)
+	else: set_is_invalid_tile(false)
 	current_texture.global_position = Vector2(closest.x,closest.y)
 	update()
 	
@@ -59,7 +62,7 @@ func _input(event):
 	if event is InputEventKey or event is InputEventMouseButton:
 		#place traps
 		if Input.is_action_just_pressed("ok_input"):
-			if trail.size() < size and !is_used:
+			if trail.size() < size and !is_used and !is_invalid_tile:
 				if previous_texture != null:
 					#check if the distance between placements isn't too big
 					if current_texture.global_position.distance_to(previous_texture.global_position) > spacement:

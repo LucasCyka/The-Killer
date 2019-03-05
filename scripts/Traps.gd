@@ -11,6 +11,9 @@ var base = null
 var child = null
 var ui = null
 
+#if the trap is placed in an invalid location this will be true
+var is_invalid_tile = false setget set_is_invalid_tile
+
 #teenager modifiers
 var curiosity = 10
 var fear = 1
@@ -24,9 +27,10 @@ func init(base,tiles,child,ui):
 	
 	#replace traps, needs to diconnect this when the trap is placed
 	ui.connect("new_trap",self,"exit")
-
+	
 ##traps effects##
 func enter_panic():
+	print("aaaaa")
 	pass
 
 func increase_fear():
@@ -42,6 +46,14 @@ func cripple():
 #make the teenager enters on the 'lured state'
 func lure_teenager(teenager):
 	teenager.state_machine.force_state('Lured')
+
+#the trap becomes transparent when is in an invalid location
+func set_is_invalid_tile(value):
+	is_invalid_tile = value
+	if is_invalid_tile:
+		child.get_node("Texture").set_self_modulate(Color(1,1,1,0.5))
+	else: child.get_node("Texture").set_self_modulate(Color(1,1,1,1))
+		
 
 #destructor
 func exit():

@@ -18,12 +18,12 @@ func get_player_controller():
 	return get_node("PlayerController")
 	
 #get the closest tile from 'pos' in a given 'tileset'.
-#if the closest tile is higher than limit, then it will return null.
+#if the closest tile is higher than limit, then it will return pos.
 func get_closest_tile(tilemap,pos,limit=100):
 	var map_tiles = tilemap.get_used_cells()
 	var world_tiles = []
 	var distance = [] 
-	var closest = null
+	var closest = pos
 	
 	#convert all tiles map positions their positions in the real world
 	for tile in map_tiles:
