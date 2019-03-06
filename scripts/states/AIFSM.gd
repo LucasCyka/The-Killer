@@ -18,7 +18,9 @@ func _ready():
 		$Idle:$Idle.name,
 		$Moving:$Moving.name,
 		$Waiting: $Waiting.name,
-		$Lured: $Lured.name
+		$Lured: $Lured.name,
+		$Panic: $Panic.name,
+		$Escaping: $Escaping.name
 	}
 	
 	for state in states:
@@ -62,12 +64,19 @@ func force_new_routine():
 
 #force a new state change. Generally used by traps or the player.
 func force_state(state):
+	#check if this state is compatible
+	#TODO: before changing the state, check if it's possible.
+	#some states  cannot be connected to the state the ai is trying to change.
+	if state == 'Panic' and current_state.name == 'Panic':
+		return
+	if state == 'Panic' and current_state.name == 'Escaping':
+		return
+	
 	_on_routine = false
 	current_state.exit()
 	change(get_node(state))
 	
-	#TODO: before changing the state, check if it's possible.
-	#some states  cannot be connected to the state the ai is trying to change.
+	#TODO: check if the AI isn't already in the current state
 
 #detect transitions between states
 func state_transitions():

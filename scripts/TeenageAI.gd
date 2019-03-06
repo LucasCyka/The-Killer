@@ -16,7 +16,9 @@ enum GENDER {
 var routines = {
 	0:{"state":['Moving','Waiting','Moving'],"pos":[Vector2(430,344),Vector2(563,364),Vector2(100,100)],"time":[10,10,10]},
 	
-	1:{"state":['Moving','Moving'],"pos":[Vector2(490,341),Vector2(448,65)],"time":[10,10]}
+	1:{"state":['Moving','Moving'],"pos":[Vector2(490,341),Vector2(448,65)],"time":[10,10]},
+	
+	2:{"state":['Waiting','Waiting'],"pos":[Vector2(490,341),Vector2(448,65)],"time":[5,5]}
 }
 
 #animations for wich teenager
@@ -112,6 +114,8 @@ func get_curiosity():
 
 func set_fear(value):
 	fear = value
+	
+	#TODO: check if this new fear level will not trigger the panic mode
 
 func get_fear():
 	return fear

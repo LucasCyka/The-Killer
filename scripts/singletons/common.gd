@@ -6,7 +6,7 @@ extends Node2D
 	Godot native code.
 """
 
-#order an array (in natural order) of positions according to their distances
+#order (in natural order) an array of positions according to their distances
 #to a given point.
 func order_by_distance(positions,point):
 	var distances = []

@@ -29,9 +29,8 @@ func init(base,tiles,child,ui):
 	ui.connect("new_trap",self,"exit")
 	
 ##traps effects##
-func enter_panic():
-	print("aaaaa")
-	pass
+func enter_panic(teenager):
+	teenager.state_machine.force_state('Panic')
 
 func increase_fear():
 	pass

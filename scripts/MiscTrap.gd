@@ -9,6 +9,7 @@ extends "res://scripts/Traps.gd"
 var id = 0
 var is_placed = false
 var is_used = false
+var is_one_shot = false #if this trap can be used several times
 
 #world nodes
 onready var current_texture = $Texture
@@ -55,7 +56,7 @@ func on_radius(body):
 	if body.name == "KinematicTeenager" and !is_used:
 		for effect in effects[id]:
 			#apply each effect of this trap
-			effect.call_func()
+			effect.call_func(body.get_parent())
 
 
 
