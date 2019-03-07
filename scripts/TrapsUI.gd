@@ -31,3 +31,4 @@ func misc_btn():
 	var misc = preload("res://scenes/traps/MiscTrap.tscn").instance()
 	misc.init(base.game,base.get_lure_tilemap(),misc,self)
 	base.game.add_child(misc)
+	

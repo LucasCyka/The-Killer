@@ -1,0 +1,26 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://sprites/prototype/characters/slahser_prototype.png" type="Texture" id=1]
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 16.0834
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "prototype",
+"speed": 5.0
+} ]
+
+[node name="PlayerHunter" type="Node2D"]
+
+[node name="Player" type="KinematicBody2D" parent="."]
+
+[node name="Collision" type="CollisionShape2D" parent="Player"]
+shape = SubResource( 2 )
+
+[node name="PlayerAnims" type="AnimatedSprite" parent="Player"]
+frames = SubResource( 1 )
+animation = "prototype"
+

@@ -11,14 +11,32 @@ enum GENDER {
 }
 
 #AI Routine according to his ID
-#notice that this routine can be blocken any time of the AI is lured
+#notice that this routine can be blocken any time the AI is lured
 #or the state machine decides so.
 var routines = {
-	0:{"state":['Moving','Waiting','Moving'],"pos":[Vector2(430,344),Vector2(563,364),Vector2(100,100)],"time":[10,10,10]},
+	0:{"state":[],"pos":[],"time":[]},
 	
-	1:{"state":['Moving','Moving'],"pos":[Vector2(490,341),Vector2(448,65)],"time":[10,10]},
+	1:{"state":[],"pos":[],"time":[]},
 	
-	2:{"state":['Waiting','Waiting'],"pos":[Vector2(490,341),Vector2(448,65)],"time":[5,5]}
+	2:{"state":[],"pos":[],"time":[]}
+}
+
+#dictionary for the tilemap that will genearate new routines
+var routine_dictionary = {
+	"state":{
+		
+		26:"Moving",
+		27:"Waiting"
+		
+	},
+	"time":{
+		28:2,
+		29:5,
+		30:10,
+		31:15,
+		32:20
+	}
+	
 }
 
 #animations for wich teenager
@@ -43,8 +61,10 @@ onready var teenager_anims = $KinematicTeenager/Animations
 #initialize
 func _ready():
 	#start this npc routine
+	generate_routine(get_node("Routine"))
 	init_routine()
 	update_animations()
+	
 	
 func _process(delta):
 	#updates the debug label
@@ -77,6 +97,35 @@ func next_routine():
 	state_machine.execute_routine(routines[id]["state"][current_routine],
 	routines[id]["pos"][current_routine],
 	routines[id]["time"][current_routine])
+
+#create a routine for this teenager using a 'routine tilemap'
+func generate_routine(routine_map):
+	if routine_map.get_used_cells().size() < 2:
+		print("not enough tiles on the routine tilemap.")
+		return
+		
+	#get the number of actions in this routine
+	var num = routine_map.get_used_cells().size() / 3
+	
+	#generate each routine according to their ids
+	for _id in range(num):
+		for tile in routine_map.get_used_cells():
+			if routine_map.get_cell(tile.x,tile.y) == _id:
+				#the tiles for this routine had been found, generate it!
+				#routine tilamap configuration:
+				#CENTER: routine
+				#LEFT: id
+				#RIGHT: time
+				var _routine = routine_map.get_cell(tile.x+1,tile.y)
+				var _time = routine_map.get_cell(tile.x+2,tile.y)
+				var _position = routine_map.map_to_world(Vector2(tile.x+1,tile.y))
+				
+				#insert each action in their routine spot
+				routines[id]["state"].insert(_id,routine_dictionary["state"][_routine])
+				routines[id]["time"].insert(_id,routine_dictionary["time"][_time])
+				routines[id]["pos"].insert(_id,_position)
+				
+				break
 
 #move to a given position.
 #returns true if the player arrived at the destination.
@@ -160,11 +209,4 @@ func remove_trap(value,free):
 				trap.queue_free()
 			traps.erase(trap)
 			break
-
-
-
-
-
-
-
 

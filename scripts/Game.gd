@@ -5,6 +5,14 @@ extends Node2D
 	Things like game over events, points distribution, world information etc...
 """
 
+enum MODE {
+	PLANNING,
+	HUNTING,
+	PAUSED
+}
+
+var current_mode = MODE.PLANNING setget set_current_mode, get_current_mode
+
 #TODO: INITIALIZE
 func _ready():
 	pass
@@ -48,6 +56,28 @@ func get_floor_tile():
 	return $Tiles/Floor
 
 #TODO: return also A* tiles
+
+#change the current game mode
+func set_current_mode(value):
+	current_mode = value
+	
+	if current_mode == MODE.HUNTING:
+		#init the hunting mode
+		#TODO: lock the UI
+		pass
+	else:
+		#TODO: check if there's any hunter in game
+		pass
+
+func get_current_mode():
+	return current_mode
+
+
+
+
+
+
+
 
 
 

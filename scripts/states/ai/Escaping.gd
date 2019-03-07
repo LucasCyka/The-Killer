@@ -14,7 +14,6 @@ var teenagers
 #constructor
 func init(base,state_position,state_time):
 	regroup_point = state_position
-	print(regroup_point)
 	self.base = base
 	self.teenagers = get_tree().get_nodes_in_group("AI")
 	self.base.teenager.speed *= 2 
