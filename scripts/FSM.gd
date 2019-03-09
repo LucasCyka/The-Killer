@@ -10,6 +10,7 @@ signal timer_finished
 var current_state = null
 var state_timer = null
 var teenager = null
+var player = null
 
 #if the state has a location where it should be performed.
 #each state deals with it in a different way
@@ -24,10 +25,11 @@ func init():
 	
 	current_state.init(self,state_position,state_time)
 	
-	#debug progress
-	teenager.get_node("KinematicTeenager/Animations/StateProgress").set_value(0)
-	teenager.get_node("KinematicTeenager/Animations/StateProgress").set_max(state_time)
-
+	if teenager != null:
+		#teenager debug progress
+		teenager.get_node("KinematicTeenager/Animations/StateProgress").set_value(0)
+		teenager.get_node("KinematicTeenager/Animations/StateProgress").set_max(state_time)
+	
 #update the state process function
 func _physics_process(delta):
 	if current_state == null:
@@ -35,8 +37,9 @@ func _physics_process(delta):
 		
 	current_state.update(delta)
 	
-	#debug progress
-	teenager.get_node("KinematicTeenager/Animations/StateProgress").set_value(state_time - state_timer.get_time_left())
+	if teenager != null:
+		#teenager debug progress
+		teenager.get_node("KinematicTeenager/Animations/StateProgress").set_value(state_time - state_timer.get_time_left())
 
 #change to a new state
 func change(state):

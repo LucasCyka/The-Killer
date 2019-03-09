@@ -67,7 +67,6 @@ margin_bottom = 74.0
 text = "CURIOSITY:"
 
 [node name="TrapsUI" type="Control" parent="Canvas"]
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 5 )
@@ -103,18 +102,24 @@ margin_bottom = 45.0
 texture_normal = ExtResource( 9 )
 
 [node name="MiscUI" type="Control" parent="Canvas"]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 10 )
 
-[node name="HuntBtn" type="TextureButton" parent="Canvas/MiscUI"]
-margin_left = 370.147
+[node name="MiscPanel" type="Container" parent="Canvas/MiscUI"]
+margin_left = 370.0
 margin_top = 320.0
-margin_right = 415.147
-margin_bottom = 365.0
+margin_right = 415.0
+margin_bottom = 369.0
+
+[node name="HuntBtn" type="TextureButton" parent="Canvas/MiscUI/MiscPanel"]
+margin_left = 0.147003
+margin_right = 45.147
+margin_bottom = 45.0
 texture_normal = ExtResource( 11 )
 
 [connection signal="pressed" from="Canvas/TeenagerInfo/Panel/background/Close" to="Canvas/TeenagerInfo" method="hide_panel"]
 [connection signal="pressed" from="Canvas/TrapsUI/TrapsPanel/LureBtn" to="Canvas/TrapsUI" method="lure_btn"]
 [connection signal="pressed" from="Canvas/TrapsUI/TrapsPanel/MiscBtn" to="Canvas/TrapsUI" method="misc_btn"]
-[connection signal="pressed" from="Canvas/MiscUI/HuntBtn" to="Canvas/MiscUI" method="hunt"]
+[connection signal="pressed" from="Canvas/MiscUI/MiscPanel/HuntBtn" to="Canvas/MiscUI" method="hunt"]

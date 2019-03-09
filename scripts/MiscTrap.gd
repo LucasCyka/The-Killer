@@ -41,7 +41,7 @@ func _process(delta):
 #place or cancel traps
 func _input(event):
 	if Input.is_action_just_pressed("ok_input"):
-		if not is_invalid_tile and not is_placed:
+		if not is_invalid_tile and not is_placed and not ui.is_ui_occupied:
 			is_placed = true
 			ui.disconnect("new_trap",self,"exit")
 			#on radius  signal

@@ -30,7 +30,6 @@ func _ready():
 	current_texture.set_animation(str(id))
 	#TODO: change the trap modifiers according to its id
 	
-	
 #move the trap around the map and call the draw function
 func _process(delta):
 	if base == null:
@@ -40,10 +39,10 @@ func _process(delta):
 		#this trap is set and finished
 		set_process(false)
 		#signals
-		detection_radius = $Texture.get_children()
+		detection_radius = get_children()
 		for radius in detection_radius:
-			radius.connect("body_entered",self,"on_radius")
-			radius.connect("body_exited",self,"out_radius")
+			radius.get_child(0).connect("body_entered",self,"on_radius")
+			radius.get_child(0).connect("body_exited",self,"out_radius")
 		
 		ui.disconnect("new_trap",self,"exit")
 			
@@ -62,7 +61,7 @@ func _input(event):
 	if event is InputEventKey or event is InputEventMouseButton:
 		#place traps
 		if Input.is_action_just_pressed("ok_input"):
-			if trail.size() < size and !is_used and !is_invalid_tile:
+			if trail.size() < size and !is_used and !is_invalid_tile and !ui.is_ui_occupied:
 				if previous_texture != null:
 					#check if the distance between placements isn't too big
 					if current_texture.global_position.distance_to(previous_texture.global_position) > spacement:

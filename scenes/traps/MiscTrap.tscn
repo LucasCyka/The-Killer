@@ -15,7 +15,6 @@ animations = [ {
 radius = 82.7231
 
 [node name="MiscTrap" type="Node2D"]
-editor/display_folded = true
 script = ExtResource( 1 )
 
 [node name="Texture" type="AnimatedSprite" parent="."]

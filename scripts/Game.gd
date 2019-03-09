@@ -72,9 +72,19 @@ func set_current_mode(value):
 func get_current_mode():
 	return current_mode
 
-
-
-
+#show all the spawn points and return an array containing their position
+func enable_spawn_points():
+	var spawn = $Tiles/SpawnPoints
+	
+	spawn.show()
+	
+	var positions = []
+	
+	for tile in spawn.get_used_cells():
+		positions.append(spawn.map_to_world(tile))
+		
+	return positions
+	
 
 
 
