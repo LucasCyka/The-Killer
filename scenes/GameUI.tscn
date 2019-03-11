@@ -102,7 +102,6 @@ margin_bottom = 45.0
 texture_normal = ExtResource( 9 )
 
 [node name="MiscUI" type="Control" parent="Canvas"]
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 10 )

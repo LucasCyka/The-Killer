@@ -13,6 +13,9 @@ enum MODE {
 
 var current_mode = MODE.PLANNING setget set_current_mode, get_current_mode
 
+#user interface
+onready var ui = $GameUI
+
 #TODO: INITIALIZE
 func _ready():
 	pass
@@ -63,10 +66,14 @@ func set_current_mode(value):
 	
 	if current_mode == MODE.HUNTING:
 		#init the hunting mode
-		#TODO: lock the UI
+		disable_spawn_points()
+		ui.lock()
+	elif current_mode == MODE.PLANNING:
+		#TODO: check if there's any hunter in game
+		#TODO: unlock the ui
 		pass
 	else:
-		#TODO: check if there's any hunter in game
+		#the game is paused...
 		pass
 
 func get_current_mode():
@@ -84,8 +91,9 @@ func enable_spawn_points():
 		positions.append(spawn.map_to_world(tile))
 		
 	return positions
-	
 
+func disable_spawn_points():
+	$Tiles/SpawnPoints.hide()
 
 
 

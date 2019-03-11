@@ -4,15 +4,18 @@ extends "res://scripts/FSM.gd"
 	The Finite state machine for the player (hunter).
 """
 
-onready var stack = [$Deployment]
 
 #initialize
 func _ready():
 	var states = {
-		$Deployment:$Deployment.name
+		$Deployment:$Deployment.name,
+		$Spawning:$Spawning.name,
+		$Idle:$Idle.name,
+		$Moving:$Moving.name
 	}
 	player = get_parent()
 	
+	stack = [$Deployment]
 	current_state = stack[0]
 	state_timer = $StateTimer
 	#timeout signal

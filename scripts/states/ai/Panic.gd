@@ -16,7 +16,7 @@ var kinematic_teenager
 #constructor
 func init(base,state_position,state_time):
 	self.base = base
-	self.base.teenager.speed *= 2 
+	self.base.teenager.speed += 10
 	self.teenagers = get_tree().get_nodes_in_group("AI")
 	self.base.teenager.set_fear(100)
 	self.kinematic_teenager = base.teenager.get_child(0)
