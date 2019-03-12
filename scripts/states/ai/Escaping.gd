@@ -16,7 +16,7 @@ func init(base,state_position,state_time):
 	regroup_point = state_position
 	self.base = base
 	self.teenagers = get_tree().get_nodes_in_group("AI")
-	self.base.teenager.speed *= 2 
+	self.base.teenager.speed += 10
 	
 	#check if this is the first teenager to start escaping
 	#if so, then alert the others

@@ -95,9 +95,9 @@ func enable_spawn_points():
 func disable_spawn_points():
 	$Tiles/SpawnPoints.hide()
 
-
-
-
+#get current level path
+func get_level():
+	return self.filename
 
 
 

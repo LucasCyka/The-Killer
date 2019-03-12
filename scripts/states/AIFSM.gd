@@ -20,7 +20,8 @@ func _ready():
 		$Waiting: $Waiting.name,
 		$Lured: $Lured.name,
 		$Panic: $Panic.name,
-		$Escaping: $Escaping.name
+		$Escaping: $Escaping.name,
+		$Dead:$Dead.name
 	}
 	
 	for state in states:

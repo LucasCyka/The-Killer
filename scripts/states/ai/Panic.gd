@@ -37,6 +37,7 @@ func update(delta):
 	#TODO: irregular movements, nerf the running effect etc
 	#TODO: check if the closest teenager still alive
 	#TODO: check if theres any teenager alive
+	#TODO: check if he's seeing the player and try to avoid him
 	
 	var distance = closest_teenager.get_child(0).global_position.distance_to(kinematic_teenager.global_position) 
 	if base.teenager.walk(closest_teenager.get_child(0).global_position) or distance < 60:
@@ -71,5 +72,5 @@ func exit():
 			_timer.disconnect("timeout",self,"set_is_running")
 		_timer.queue_free()
 		_timer = null
-		self.base.teenager.speed /= 2 
+		self.base.teenager.speed -= 10 
 	emit_signal("finished")

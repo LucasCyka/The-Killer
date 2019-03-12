@@ -19,20 +19,27 @@ func init(base,state_position,state_time):
 	self.game.set_current_mode(game.MODE.HUNTING)
 	
 func update(delta):
-	pass
+	if base.player.target != null:
+		transitions()
 
 func input(event):
-	if event is InputEventMouseButton:
-		if Input.is_action_just_pressed("ok_input"):
-			transitions()
+	if Input.is_action_just_pressed("ok_input"):
+		transitions()
 		#TODO: check if he's not attacking someone in range
 
 #detect transitions between states
 func transitions():
 	### IDLE TO MOVING ###
-	base.stack.append(base.get_node("Moving"))
-	base.state_position = base.player.mouse_position
-	exit()
+	if base.player.target == null:
+		base.stack.append(base.get_node("Moving"))
+		base.state_position = base.player.mouse_position
+		exit()
+		
+	else:
+	### IDLE TO ATTACKING ###
+		base.stack.append(base.get_node("Attacking"))
+		base.state_position = base.player.target.kinematic_teenager.global_position
+		exit()
 
 func exit():
 	emit_signal("finished")

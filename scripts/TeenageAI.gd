@@ -164,6 +164,12 @@ func get_curiosity():
 func set_fear(value):
 	fear = value
 	
+	#increase score
+	var fear_modifier = 2.5
+	var level = get_parent().get_parent().get_level()
+	var points = (score.get_score(level) + value * fear_modifier)
+	score.set_score(level,int(points))
+	print(points)
 	#TODO: check if this new fear level will not trigger the panic mode
 
 func get_fear():

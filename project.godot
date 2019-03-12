@@ -22,6 +22,7 @@ config/icon="res://icon.png"
 [autoload]
 
 common="*res://scripts/singletons/common.gd"
+score="*res://scripts/singletons/score.gd"
 
 [debug]
 

@@ -19,16 +19,25 @@ func update(delta):
 	if base.player.walk(target):
 		transitions()
 	
+	#check if he wants to attack someone
+	if base.player.target != null:
+		transitions()
+	
 func input(event):
-	if event is InputEventMouseButton:
-		if Input.is_action_just_pressed("ok_input"):
-			target = base.player.mouse_position
-
+	if Input.is_action_just_pressed("ok_input"):
+		target = base.player.mouse_position
+	
 #detect transitions between states
 func transitions():
 	### MOVING TO IDLE ###
-	base.stack.append(base.get_node("Idle"))
-	exit()
+	if base.player.target == null:
+		base.stack.append(base.get_node("Idle"))
+		exit()
+	## MOVING TO ATTACKING ##
+	else:
+		base.stack.append(base.get_node("Attacking"))
+		base.state_position = base.player.target.kinematic_teenager.global_position
+		exit()
 
 #destructor
 func exit():

@@ -51,7 +51,7 @@ func input(event):
 #detect transitiosn between states
 func transitions():
 	### DEPLOYMENT TO SPAWNING ###
-	base.state_time = 4 #time to spawn
+	base.state_time = 2 #time to spawn
 	base.stack.append(base.get_node("Spawning"))
 
 #destructor

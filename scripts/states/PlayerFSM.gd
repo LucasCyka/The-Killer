@@ -11,7 +11,8 @@ func _ready():
 		$Deployment:$Deployment.name,
 		$Spawning:$Spawning.name,
 		$Idle:$Idle.name,
-		$Moving:$Moving.name
+		$Moving:$Moving.name,
+		$Attacking:$Attacking.name
 	}
 	player = get_parent()
 	

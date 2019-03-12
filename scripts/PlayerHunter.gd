@@ -9,6 +9,8 @@ signal removed
 
 var base = null
 var ui = null
+var _selected_teenager = null
+var target = null
 var is_deployed = false setget set_is_deployed
 var mouse_position = Vector2(0,0)
 var speed = 60
@@ -24,6 +26,11 @@ func init(base,ui):
 	self.ui = ui
 	
 	ui.connect("element_toggle",self,"_free")
+	#teenager signals. Used to target teenagers
+	for teenager in base.get_teenagers():
+		var _btn = teenager.get_node("KinematicTeenager/TeenagerButton")
+		_btn.connect("mouse_entered",self,"select_target",[teenager])
+		_btn.connect("mouse_exited",self,"select_target",[null])
 
 func _process(delta):
 	#input info
@@ -34,9 +41,13 @@ func _process(delta):
 	if state_machine.get_current_state() == 'Spawning':
 		$KinematicPlayer/StateProgress.show()
 	else: $KinematicPlayer/StateProgress.hide()
-	
+
+#click on teenagers to attack them
 func _input(event):
-	pass
+	if Input.is_action_just_pressed("cancel_input"):
+		target = _selected_teenager
+	elif Input.is_action_just_pressed("ok_input"):
+		target = null
 
 #move the player to a given location. Returns true when he arrives.
 func walk(to):
@@ -47,10 +58,15 @@ func walk(to):
 		var dir = to - kinematic_player.global_position
 		dir = dir.normalized()
 		kinematic_player.move_and_slide(dir * speed)
-		
 		return false
 	else: 
 		return true
+
+#start to attack the teenager
+func attack(teenager):
+	#TODO: check if the teenager is fighting before killig him
+	#TODO: check if he's not dead yet
+	teenager.state_machine.force_state("Dead")
 
 #remove the player hunter
 func _free():
@@ -70,3 +86,7 @@ func set_is_deployed(value):
 	else:
 		if !ui.is_connected("element_toggle",self,"_free"):
 			ui.connect("element_toggle",self,"_free")
+			
+#the teenager target this player selected with right click
+func select_target(target):
+	_selected_teenager = target
