@@ -24,6 +24,7 @@ radius = 16.0834
 script = ExtResource( 1 )
 
 [node name="KinematicPlayer" type="KinematicBody2D" parent="."]
+editor/display_folded = true
 
 [node name="StateLabel" type="Label" parent="KinematicPlayer"]
 margin_left = -40.3924
@@ -35,7 +36,7 @@ align = 1
 valign = 1
 
 [node name="PlayerAnims" type="AnimatedSprite" parent="KinematicPlayer"]
-z_index = 2
+z_index = 3
 frames = SubResource( 1 )
 animation = "prototype"
 
@@ -50,6 +51,7 @@ margin_right = 24.0
 margin_bottom = -34.0
 
 [node name="States" type="Node" parent="."]
+editor/display_folded = true
 script = ExtResource( 3 )
 
 [node name="Deployment" type="Node" parent="States"]

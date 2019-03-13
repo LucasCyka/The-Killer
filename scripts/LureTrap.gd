@@ -105,6 +105,7 @@ func _draw():
 #check if the teenager entered the radius of the trap so he can be lured
 func on_radius(body):
 	if body.name == "KinematicTeenager" and !is_used:
+		is_used = true
 		var teenager = body.get_parent()
 		teenager.set_trap(self)
 		lure_teenager(teenager)

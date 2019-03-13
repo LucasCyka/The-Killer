@@ -69,8 +69,7 @@ func set_current_mode(value):
 		disable_spawn_points()
 		ui.lock()
 	elif current_mode == MODE.PLANNING:
-		#TODO: check if there's any hunter in game
-		#TODO: unlock the ui
+		ui.unlock()
 		pass
 	else:
 		#the game is paused...

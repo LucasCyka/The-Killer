@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/spawn_point.png-87dc5cec568977acca8245d27f8a08b8.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

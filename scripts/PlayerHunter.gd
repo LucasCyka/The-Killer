@@ -4,9 +4,6 @@ extends Node2D
 	Player/hunter. This what the player controlls in the hunter mode
 """
 
-#when the player is removed from the game
-signal removed
-
 var base = null
 var ui = null
 var _selected_teenager = null
@@ -41,11 +38,19 @@ func _process(delta):
 	if state_machine.get_current_state() == 'Spawning':
 		$KinematicPlayer/StateProgress.show()
 	else: $KinematicPlayer/StateProgress.hide()
+	
 
 #click on teenagers to attack them
 func _input(event):
 	if Input.is_action_just_pressed("cancel_input"):
 		target = _selected_teenager
+		
+		
+		if state_machine.get_current_state() != 'Spawning' and state_machine.get_current_state() != 'Deployment':
+			#exit the hunter mode when the player hits 'escape'
+			if Input.is_key_pressed(KEY_ESCAPE):
+				#TODO: confirm if the player really wants to exit
+				_free()
 	elif Input.is_action_just_pressed("ok_input"):
 		target = null
 
@@ -73,7 +78,7 @@ func _free():
 	game.disable_spawn_points()
 	#this signal is used by the 'Game' script to detect when to exit the 
 	#hunter mode.
-	emit_signal("removed")
+	base.set_current_mode(base.MODE.PLANNING)
 	queue_free()
 	
 func set_is_deployed(value):

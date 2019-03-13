@@ -18,6 +18,7 @@ func init(base,state_position,state_time):
 	self.teenagers = get_tree().get_nodes_in_group("AI")
 	self.base.teenager.speed += 10
 	
+	#print(regroup_point)
 	#check if this is the first teenager to start escaping
 	#if so, then alert the others
 	var teenagers_escaping = []
@@ -28,13 +29,13 @@ func init(base,state_position,state_time):
 		return
 	
 	for teenager in teenagers:
-		#TODO: check if there's no any teenager at panic mode or dead
+		#TODO: check if there's not any teenager at panic mode or dead
 		if teenager.state_machine.get_current_state() != 'Escaping':
 			#all the teenagers will regroup and start to run off
 			#change all the teenagers state
 			regroup_point = base.teenager.kinematic_teenager.global_position
+			teenager.state_machine.is_routine_over = true
 			teenager.state_machine.state_position = regroup_point
-			
 			teenager.state_machine.force_state('Escaping')
 			
 func update(delta):

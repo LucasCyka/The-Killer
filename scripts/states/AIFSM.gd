@@ -12,6 +12,10 @@ var _on_routine = false
 #go back to their routines.
 var is_chain_reaction = false
 
+#replaces is_chain_reaction. When true that means that this teenager can't
+#go back to his routines. Must be activated when he's escaping or in panic
+var is_routine_over = false
+
 #initialize state machine
 func _ready():
 	var states = {
@@ -21,7 +25,8 @@ func _ready():
 		$Lured: $Lured.name,
 		$Panic: $Panic.name,
 		$Escaping: $Escaping.name,
-		$Dead:$Dead.name
+		$Dead:$Dead.name,
+		$OnVice:$OnVice.name
 	}
 	
 	for state in states:
@@ -45,12 +50,13 @@ func execute_routine(state,position,time):
 	state_time = time
 	_on_routine = true
 	change(get_node(state))
+	
 	#state information
 
 #if is following a routine, tell the player base AI that this step is over
 #otherwise, just follow to the next
 func finish_state():
-	if _on_routine == true and is_chain_reaction == false:
+	if _on_routine == true and is_routine_over == false:
 		_on_routine = false
 		teenager.next_routine()
 	else:
@@ -72,9 +78,11 @@ func force_state(state):
 		return
 	if state == 'Panic' and current_state.name == 'Escaping':
 		return
+	if state == 'OnVice' and current_state.name == 'Panic' or  current_state.name == 'Escaping':
+		return
 	
-	_on_routine = false
 	current_state.exit()
+	_on_routine = false
 	change(get_node(state))
 	
 	#TODO: check if the AI isn't already in the current state

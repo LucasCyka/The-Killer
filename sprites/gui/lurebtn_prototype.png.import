@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/lurebtn_prototype.png-dd72d5e1a0b744a165d2ab9fd290b6e6.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

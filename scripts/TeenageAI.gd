@@ -46,13 +46,20 @@ var current_routine = 0
 #teenager's modifiers
 var curiosity = 0 setget set_curiosity,get_curiosity
 var fear = 0 setget set_fear,get_fear
+var slow = false setget set_slow
+var fast = false
+var horny = false
+
+const slow_modifier = 0.5
+const fast_modifier = 1.5
+const base_speed = 60
 
 #the traps the teenagers has just falled to. Null is no trap.
 var traps = []
 
 export (GENDER) var gender = GENDER.MALE setget , get_gender
 export var id = 0
-export var speed = 70
+export var speed = base_speed
 #world nodes
 onready var state_machine = $States
 onready var kinematic_teenager = $KinematicTeenager
@@ -71,6 +78,8 @@ func _process(delta):
 	$KinematicTeenager/Animations/DebugState.text = state_machine.get_current_state()
 	#debug progress bar
 	if state_machine.get_current_state() == 'Waiting':
+		$KinematicTeenager/Animations/StateProgress.show()
+	elif state_machine.get_current_state() == 'OnVice':
 		$KinematicTeenager/Animations/StateProgress.show()
 	else: $KinematicTeenager/Animations/StateProgress.hide()
 
@@ -169,7 +178,6 @@ func set_fear(value):
 	var level = get_parent().get_parent().get_level()
 	var points = (score.get_score(level) + value * fear_modifier)
 	score.set_score(level,int(points))
-	print(points)
 	#TODO: check if this new fear level will not trigger the panic mode
 
 func get_fear():
@@ -182,7 +190,6 @@ func get_position():
 #this teenager has fall into a trap, change his modifers and update it.
 func set_trap(value):
 	traps.append(value)
-	
 	
 	#apply modifiers
 	set_fear(get_fear() + traps[0].fear)
@@ -216,3 +223,14 @@ func remove_trap(value,free):
 			traps.erase(trap)
 			break
 
+#enable/unable slow modifier
+func set_slow(value):
+	slow = value
+	
+	if slow:
+		speed -= speed * slow_modifier
+	else:
+		speed = base_speed
+	
+	
+	

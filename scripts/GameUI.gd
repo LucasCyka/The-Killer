@@ -68,9 +68,9 @@ func lock():
 		if btn is TextureButton:
 			btn.set_disabled(true)
 		
-#enable all elements of the user interface
-func enable():
-	#enable buttons
+#unlock all elements of the user interface
+func unlock():
+	#unlock buttons
 	for btn in get_buttons():
 		if btn is TextureButton:
 			btn.set_disabled(false)

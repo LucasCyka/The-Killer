@@ -54,9 +54,12 @@ func _input(event):
 #check if a teenager activated this trap
 func on_radius(body):
 	if body.name == "KinematicTeenager" and !is_used:
+		#body.get_parent().set_trap(self)
 		for effect in effects[id]:
 			#apply each effect of this trap
 			effect.call_func(body.get_parent())
+			if is_one_shot:
+				is_used = true
 
 
 

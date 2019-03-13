@@ -58,8 +58,8 @@ func exit():
 	if base.has_node("lure_timer"):
 		base.get_node("lure_timer").queue_free()
 	
-	#if not base.is_chain_reaction:
-	base._on_routine = true
+	if not base.is_routine_over:
+		base._on_routine = true
 	teenager.remove_trap(trap,true)
 	following_trail = false
 	emit_signal("finished")

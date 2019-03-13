@@ -14,7 +14,7 @@ var ui = null
 #if the trap is placed in an invalid location this will be true
 var is_invalid_tile = false setget set_is_invalid_tile
 
-#teenager modifiers
+#trap modifiers
 var curiosity = 10
 var fear = 1
 
@@ -28,9 +28,14 @@ func init(base,tiles,child,ui):
 	#replace traps, needs to diconnect this when the trap is placed
 	ui.connect("new_trap",self,"exit")
 	
+	#TODO: change trap modifiers according to their ids.
+	
 ##traps effects##
 func enter_panic(teenager):
 	teenager.state_machine.force_state('Panic')
+
+func decrease_speed(teenager):
+	teenager.set_slow(true)
 
 func increase_fear():
 	pass
@@ -40,6 +45,11 @@ func increase_curiosity():
 
 func cripple():
 	pass
+
+func cause_vice(teenager):
+	teenager.state_machine.force_state('OnVice')
+	teenager.state_machine.state_time = 4 #TODO: maybe take this number from the trap?
+
 ##
 #TODO: check if the teenager isn't in panic mode
 #make the teenager enters on the 'lured state'

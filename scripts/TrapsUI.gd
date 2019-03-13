@@ -30,6 +30,13 @@ func misc_btn():
 	misc.init(base.game,base.get_lure_tilemap(),misc,self)
 	base.game.add_child(misc)
 
+#TODO: open a panel showing all the vice traps available for this level
+func vice_btn():
+	#only spawn the first misc trap for now...
+	var vice = preload("res://scenes/traps/ViceTrap.tscn").instance()
+	vice.init(base.game,base.get_lure_tilemap(),vice,self)
+	base.game.add_child(vice)
+
 #when the player is using the ui interface
 func set_is_ui_occupied(value):
 	is_ui_occupied = value

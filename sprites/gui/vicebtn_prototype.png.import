@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/vicebtn_prototype.png-9ad9f1d14a0f5604624386503c6b940c.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 

@@ -3,6 +3,9 @@
 importer="texture"
 type="StreamTexture"
 path="res://.import/shadow_tile.png-c9b28edafa99ffcec5d09361f2d35a3e.stex"
+metadata={
+"vram_texture": false
+}
 
 [deps]
 
