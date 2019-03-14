@@ -73,7 +73,6 @@ margin_bottom = 40.0
 script = ExtResource( 5 )
 
 [node name="TrapsPanel" type="Container" parent="Canvas/TrapsUI"]
-editor/display_folded = true
 margin_left = 170.147
 margin_top = 320.0
 margin_right = 415.148
@@ -139,6 +138,7 @@ text = "00000000"
 
 [connection signal="pressed" from="Canvas/TeenagerInfo/Panel/background/Close" to="Canvas/TeenagerInfo" method="hide_panel"]
 [connection signal="pressed" from="Canvas/TrapsUI/TrapsPanel/LureBtn" to="Canvas/TrapsUI" method="lure_btn"]
+[connection signal="pressed" from="Canvas/TrapsUI/TrapsPanel/BumpBtn" to="Canvas/TrapsUI" method="bump_btn"]
 [connection signal="pressed" from="Canvas/TrapsUI/TrapsPanel/ViceBtn" to="Canvas/TrapsUI" method="vice_btn"]
 [connection signal="pressed" from="Canvas/TrapsUI/TrapsPanel/MiscBtn" to="Canvas/TrapsUI" method="misc_btn"]
 [connection signal="pressed" from="Canvas/MiscUI/MiscPanel/HuntBtn" to="Canvas/MiscUI" method="hunt"]

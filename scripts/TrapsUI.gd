@@ -37,6 +37,12 @@ func vice_btn():
 	vice.init(base.game,base.get_lure_tilemap(),vice,self)
 	base.game.add_child(vice)
 
+#TODO: open a panel showing all the bump traps available for this level
+func bump_btn():
+	var bump = preload("res://scenes/traps/BumpTrap.tscn").instance()
+	bump.init(base.game,base.get_bump_tilemap(),bump,self)
+	base.game.add_child(bump)
+
 #when the player is using the ui interface
 func set_is_ui_occupied(value):
 	is_ui_occupied = value

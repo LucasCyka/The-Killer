@@ -26,7 +26,8 @@ func _ready():
 		$Panic: $Panic.name,
 		$Escaping: $Escaping.name,
 		$Dead:$Dead.name,
-		$OnVice:$OnVice.name
+		$OnVice:$OnVice.name,
+		$Startled:$Startled.name
 	}
 	
 	for state in states:
@@ -78,11 +79,12 @@ func force_state(state):
 		return
 	if state == 'Panic' and current_state.name == 'Escaping':
 		return
-	if state == 'OnVice' and current_state.name == 'Panic' or  current_state.name == 'Escaping':
+	if state == 'OnVice' and current_state.name == 'Panic' or  (current_state.name == 'Escaping' and state == 'OnVice'):
 		return
 	
-	current_state.exit()
+	
 	_on_routine = false
+	current_state.exit()
 	change(get_node(state))
 	
 	#TODO: check if the AI isn't already in the current state

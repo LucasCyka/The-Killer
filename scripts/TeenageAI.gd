@@ -142,13 +142,13 @@ func walk(to):
 	#TODO: use an A* algorithm
 	var dir = to - kinematic_teenager.global_position
 	dir = dir.normalized()
-	kinematic_teenager.move_and_slide(dir * speed)
 	
 	
 	if kinematic_teenager.global_position.distance_to(to) < 4:
 		return true
 	else:
-		 return false
+		kinematic_teenager.move_and_slide(dir * speed)
+		return false
 
 #TODO: update animations according to its state, id etc...
 func update_animations():

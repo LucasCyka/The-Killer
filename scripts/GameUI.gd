@@ -50,6 +50,9 @@ func get_lure_tilemap():
 	return game.get_floor_tile()
 	#TODO: return instead the A* tilemap
 
+func get_bump_tilemap():
+	return game.get_wall_tile()
+
 #return all the buttons used in the ui
 func get_buttons():
 	var buttons = traps_ui.get_child(0).get_children() 

@@ -30,7 +30,7 @@ func init(base,tiles,child,ui):
 	
 	#TODO: change trap modifiers according to their ids.
 	
-##traps effects##
+##traps effects - most used by misc and vice traps##
 func enter_panic(teenager):
 	teenager.state_machine.force_state('Panic')
 
@@ -46,15 +46,17 @@ func increase_curiosity():
 func cripple():
 	pass
 
-func cause_vice(teenager):
-	teenager.state_machine.force_state('OnVice')
+func activate_vice(teenager):
 	teenager.state_machine.state_time = 4 #TODO: maybe take this number from the trap?
+	teenager.state_machine.force_state('OnVice')
 
 ##
-#TODO: check if the teenager isn't in panic mode
 #make the teenager enters on the 'lured state'
 func lure_teenager(teenager):
 	teenager.state_machine.force_state('Lured')
+
+func startle_teenager(teenager):
+	teenager.state_machine.force_state('Startled')
 
 #the trap becomes transparent when is in an invalid location
 func set_is_invalid_tile(value):

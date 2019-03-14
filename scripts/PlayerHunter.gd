@@ -70,7 +70,7 @@ func walk(to):
 #start to attack the teenager
 func attack(teenager):
 	#TODO: check if the teenager is fighting before killig him
-	#TODO: check if he's not dead yet
+	#TODO: check if he's not dead already
 	teenager.state_machine.force_state("Dead")
 
 #remove the player hunter

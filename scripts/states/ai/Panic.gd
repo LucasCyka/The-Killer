@@ -64,7 +64,6 @@ func set_is_running(value):
 			if teenager.get_child(0).global_position == positions.front():
 				closest_teenager = teenager
 				break
-
 #destructor
 func exit():
 	if _timer != null:

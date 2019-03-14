@@ -8,7 +8,7 @@ extends "res://scripts/Traps.gd"
 var id = 0
 
 var effects = {
-	0:[funcref(funcref(self,"cause_vice"),self,"decrease_speed")],
+	0:[funcref(self,"decrease_speed")],
 	1:[funcref(self,"decrease_speed")]
 	
 }
@@ -55,9 +55,11 @@ func _input(event):
 func _on_radius(body):
 	if body.name == "KinematicTeenager":
 		is_used = true
-		for effect in effects[id]:
+		body.get_parent().set_trap(self)
+		activate_vice(body.get_parent())
+		
+		#for effect in effects[id]:
 			#apply each effect of this trap
 			#TODO: those effects should be applied inside the OnVice State
-			effect.call_func(body.get_parent())
-	body.get_parent().set_trap(self)
+			#effect.call_func(body.get_parent())
 

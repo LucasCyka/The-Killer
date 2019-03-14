@@ -54,11 +54,15 @@ func get_closest_tile(tilemap,pos,limit=100):
 	
 	return closest
 
-#return the tilemap that things can be put
+#return the tilemap of containing floor tiles. It's used by traps.
 func get_floor_tile():
+	#TODO: return also A* tiles
 	return $Tiles/Floor
 
-#TODO: return also A* tiles
+#return walls of buildings in the map
+func get_wall_tile():
+	#TODO: this will also return some floor tiles, change this later...
+	return $Tiles/Buildings
 
 #change the current game mode
 func set_current_mode(value):
