@@ -23,3 +23,18 @@ func order_by_distance(positions,point):
 				break
 				
 	return final_array
+
+#place a sprite in a given position and scene
+func place_sprite(pos,scene):
+	var spr = Sprite.new()
+	spr.name = "Spr1"
+	spr.set_z_index(10)
+	spr.texture = preload("res://icon.png")
+	spr.global_position = pos
+	scene.add_child(spr)
+	
+
+
+
+
+

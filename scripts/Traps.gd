@@ -55,7 +55,8 @@ func activate_vice(teenager):
 func lure_teenager(teenager):
 	teenager.state_machine.force_state('Lured')
 
-func startle_teenager(teenager):
+func startle_teenager(teenager,pos):
+	teenager.state_machine.state_position = pos
 	teenager.state_machine.force_state('Startled')
 
 #the trap becomes transparent when is in an invalid location

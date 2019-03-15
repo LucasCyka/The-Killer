@@ -9,6 +9,8 @@ var id = 0
 
 #the detection radius of the sound
 var radius = [150]
+#defines how much far the teenager will look for the sound
+const effect_area = [150]
 
 #world nodes
 onready var texture = $Texture
@@ -49,12 +51,21 @@ func _input(event):
 			var distance = teen_pos.distance_to(texture.global_position)
 			if distance < radius[id]:
 				#TODO: check if he's inside a building
-				startle_teenager(teenager)
+				startle_teenager(teenager,get_bump_position(teen_pos))
+				teenager.set_trap(self)
+		queue_free()
 
 func on_free():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
-
+#get the position the teenager will search for the bump
+func get_bump_position(teenager_pos):
+	var direction = teenager_pos - texture.global_position
+	direction = direction.normalized()
+	
+	var final_pos = (teenager_pos - direction*effect_area[0])
+	
+	return final_pos
 
 
 
