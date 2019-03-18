@@ -53,7 +53,7 @@ func _process(delta):
 	if closest == get_global_mouse_position():
 		set_is_invalid_tile(true)
 	else: set_is_invalid_tile(false)
-	current_texture.global_position = Vector2(closest.x,closest.y)
+	current_texture.global_position = Vector2(closest.x+25/2,closest.y+25/2)
 	update()
 	
 #place or cancel traps

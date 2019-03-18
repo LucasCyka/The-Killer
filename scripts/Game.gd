@@ -82,6 +82,14 @@ func set_current_mode(value):
 func get_current_mode():
 	return current_mode
 
+#get traps that are placed on the map
+func get_placed_traps():
+	var traps = get_tree().get_nodes_in_group("Misc")
+	traps = traps + get_tree().get_nodes_in_group("Vice")
+	traps = traps + get_tree().get_nodes_in_group("Lure")
+	
+	return traps
+
 #show all the spawn points and return an array containing their position
 func enable_spawn_points():
 	var spawn = $Tiles/SpawnPoints

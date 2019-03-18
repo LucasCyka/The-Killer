@@ -10,6 +10,7 @@ var id = 0
 var is_placed = false
 var is_used = false
 var is_one_shot = false #if this trap can be used several times
+var body_on_radius = null
 
 #world nodes
 onready var current_texture = $Texture
@@ -23,11 +24,18 @@ var effects = {
 
 func _ready():
 	#TODO: change the textures acording to its ID
-	pass
+	#detection signals
+	detection_radius.connect("body_entered",self,"on_radius")
+	detection_radius.connect("body_exited",self,"on_radius")
 
 #move the trap around the map
 func _process(delta):
 	if base == null or is_placed:
+		if is_placed and base != null and body_on_radius != null:
+			#if the teenager are in the same region, emit the signal
+			if body_on_radius.get_parent().is_indoor == is_indoor:
+				on_radius(body_on_radius)
+				body_on_radius = null
 		return
 	
 	var closest = base.get_closest_tile(tiles,get_global_mouse_position(),20)
@@ -36,7 +44,7 @@ func _process(delta):
 		set_is_invalid_tile(true)
 	else: set_is_invalid_tile(false)
 	
-	current_texture.global_position = Vector2(closest.x,closest.y)
+	current_texture.global_position = Vector2(closest.x+25/2,closest.y+25/2)
 		
 #place or cancel traps
 func _input(event):
@@ -45,7 +53,7 @@ func _input(event):
 			is_placed = true
 			ui.disconnect("new_trap",self,"exit")
 			#on radius  signal
-			detection_radius.connect("body_entered",self,"on_radius")
+			#detection_radius.connect("body_entered",self,"on_radius")
 			
 	elif Input.is_action_just_pressed("cancel_input"):
 		if not is_placed:
@@ -53,13 +61,42 @@ func _input(event):
 
 #check if a teenager activated this trap
 func on_radius(body):
-	if body.name == "KinematicTeenager" and !is_used:
+	if body.name == "KinematicTeenager" and !is_used and is_placed:
+		#check if the teenager can see the trap
+		if body.get_parent().is_indoor != is_indoor:
+			#he can't see the trap now, but lets wait if he can see it later
+			body_on_radius = body
+			return
+		
+		#TODO: raycast from the teenager to the trap to ensure he really can 
+		#see it...
 		#body.get_parent().set_trap(self)
 		for effect in effects[id]:
 			#apply each effect of this trap
 			effect.call_func(body.get_parent())
 			if is_one_shot:
 				is_used = true
+	elif body.name == "KinematicTeenager" and !is_used and !is_placed:
+		#await for it to be placed then...
+		body_on_radius = body
+		
+				
+func out_radius(body):
+	if body == body_on_radius:
+		body_on_radius = null
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

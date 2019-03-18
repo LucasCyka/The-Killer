@@ -42,6 +42,7 @@ var routine_dictionary = {
 #animations for wich teenager
 var animations = {}
 var current_routine = 0
+var is_indoor = false setget set_is_indoor
 
 #teenager's modifiers
 var curiosity = 0 setget set_curiosity,get_curiosity
@@ -68,7 +69,7 @@ onready var teenager_anims = $KinematicTeenager/Animations
 #initialize
 func _ready():
 	#start this npc routine
-	generate_routine(get_node("Routine"))
+	generate_routine(get_node("Routines/Routine"))
 	init_routine()
 	update_animations()
 	
@@ -231,6 +232,13 @@ func set_slow(value):
 		speed -= speed * slow_modifier
 	else:
 		speed = base_speed
+
+func set_is_indoor(value):
+	is_indoor = value
 	
-	
+	#debug labels
+	if is_indoor:
+		$KinematicTeenager/Animations/DebugState2.text = "indoor"
+	else:
+		$KinematicTeenager/Animations/DebugState2.text = "outdoor"
 	

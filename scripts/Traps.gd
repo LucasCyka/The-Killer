@@ -14,6 +14,9 @@ var ui = null
 #if the trap is placed in an invalid location this will be true
 var is_invalid_tile = false setget set_is_invalid_tile
 
+#if the trap is inside a building or not
+var is_indoor = false setget set_is_indoor
+
 #trap modifiers
 var curiosity = 10
 var fear = 1
@@ -66,6 +69,8 @@ func set_is_invalid_tile(value):
 		child.get_node("Texture").set_self_modulate(Color(1,1,1,0.5))
 	else: child.get_node("Texture").set_self_modulate(Color(1,1,1,1))
 		
+func set_is_indoor(value):
+	is_indoor = value
 
 #destructor
 func exit():

@@ -14,7 +14,9 @@ animations = [ {
 
 [sub_resource type="CircleShape2D" id=2]
 
-[node name="BumpTrap" type="Node2D"]
+[node name="BumpTrap" type="Node2D" groups=[
+"Bump",
+]]
 script = ExtResource( 1 )
 
 [node name="Texture" type="AnimatedSprite" parent="."]
