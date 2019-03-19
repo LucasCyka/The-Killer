@@ -25,6 +25,10 @@ func update(delta):
 		exit()
 	
 func exit():
+	if base.is_forced_state:
+		base._on_routine = false
+	else: base._on_routine = true
+	
 	teenager = null
 	position = null
 	emit_signal("finished")

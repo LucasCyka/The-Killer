@@ -20,6 +20,7 @@ var stage_timer
 #constructor
 func init(base,state_position,state_time):
 	self.base = base
+	self.base.is_forced_state = false
 	self.bump_position = state_position
 	
 	stage_timer = Timer.new()
@@ -31,6 +32,9 @@ func init(base,state_position,state_time):
 func update(delta):
 	if base == null:
 		return
+	
+	if base.teenager.traps.size() > 0:
+		 base.teenager.traps.remove(0)
 		
 	if stage == 1:
 		stage_timer.stop()
@@ -47,10 +51,12 @@ func next_stage():
 #destructor
 func exit():
 	if stage_timer != null:
+		#base.teenager.traps.remove(0)
 		stage_timer.disconnect("timeout",self,"next_stage")
 		stage_timer.queue_free()
 		stage_timer = null
-	stage = 0
-	base._on_routine = true
-	base.teenager.traps = []
-	emit_signal("finished")
+		stage = 0
+		if base.is_forced_state:
+			base._on_routine = false
+		else: base._on_routine = true
+		emit_signal("finished")

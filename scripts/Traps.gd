@@ -50,7 +50,7 @@ func cripple():
 	pass
 
 func activate_vice(teenager):
-	teenager.state_machine.state_time = 4 #TODO: maybe take this number from the trap?
+	teenager.state_machine.state_time = 6 #TODO: maybe take this number from the trap?
 	teenager.state_machine.force_state('OnVice')
 
 ##

@@ -269,7 +269,7 @@ tile_set = SubResource( 3 )
 cell_size = Vector2( 25, 25 )
 cell_quadrant_size = 1
 format = 1
-tile_data = PoolIntArray( -720888, 0, 0, 262140, 0, 0, 393285, 0, 0, 524333, 0, 0, 1638411, 0, 0, 2097184, 0, 0 )
+tile_data = PoolIntArray( -1310698, 0, 0, -720888, 0, 0, -524210, 0, 0, 262140, 0, 0, 393285, 0, 0, 458780, 0, 0, 524333, 0, 0, 1441783, 0, 0, 1638411, 0, 0, 2097184, 0, 0, 2555970, 0, 0 )
 
 [node name="IndoorDetection" type="TileMap" parent="Tiles"]
 visible = false
@@ -351,7 +351,7 @@ texture = ExtResource( 19 )
 position = Vector2( 799.806, 848.917 )
 z_index = 1
 frames = SubResource( 4 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="GameUI" parent="." instance=ExtResource( 26 )]

@@ -17,5 +17,9 @@ func update(delta):
 	pass
 	
 func exit():
+	if base.is_forced_state:
+		base._on_routine = false
+	else: base._on_routine = true
+	
 	base.disconnect("timer_finished",self,"exit")
 	emit_signal("finished")

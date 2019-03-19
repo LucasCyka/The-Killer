@@ -16,6 +16,7 @@ var kinematic_teenager
 #constructor
 func init(base,state_position,state_time):
 	self.base = base
+	self.base.is_routine_over = true
 	self.base.teenager.speed += 10
 	self.teenagers = get_tree().get_nodes_in_group("AI")
 	self.base.teenager.set_fear(100)

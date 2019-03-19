@@ -86,7 +86,7 @@ func get_current_mode():
 func get_placed_traps():
 	var traps = get_tree().get_nodes_in_group("Misc")
 	traps = traps + get_tree().get_nodes_in_group("Vice")
-	traps = traps + get_tree().get_nodes_in_group("Lure")
+	#traps = traps + get_tree().get_nodes_in_group("Lure")
 	
 	return traps
 

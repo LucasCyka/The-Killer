@@ -36,12 +36,13 @@ var routine_dictionary = {
 		31:15,
 		32:20
 	}
-	
 }
 
 #animations for wich teenager
 var animations = {}
 var current_routine = 0
+var last_routine = 0
+var is_routine_paused = false
 var is_indoor = false setget set_is_indoor
 
 #teenager's modifiers
@@ -75,6 +76,7 @@ func _ready():
 	
 	
 func _process(delta):
+#	print(traps)
 	#updates the debug label
 	$KinematicTeenager/Animations/DebugState.text = state_machine.get_current_state()
 	#debug progress bar
@@ -107,6 +109,19 @@ func next_routine():
 	state_machine.execute_routine(routines[id]["state"][current_routine],
 	routines[id]["pos"][current_routine],
 	routines[id]["time"][current_routine])
+
+#save the current routine for when it's resumed
+func pause_routine():
+	is_routine_paused = true
+	last_routine = current_routine
+
+#resume the last routine
+func resume_routine():
+	is_routine_paused = false
+	
+	state_machine.execute_routine(routines[id]["state"][last_routine],
+	routines[id]["pos"][last_routine],
+	routines[id]["time"][last_routine])
 
 #create a routine for this teenager using a 'routine tilemap'
 func generate_routine(routine_map):

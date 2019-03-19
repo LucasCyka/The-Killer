@@ -11,6 +11,9 @@ var is_placed = false
 var is_used = false
 var is_one_shot = false #if this trap can be used several times
 var body_on_radius = null
+#priotity system. This will replace other traps area of effect. 
+#It goes from 0 to 10.
+var priotity = [10]
 
 #world nodes
 onready var current_texture = $Texture

@@ -35,8 +35,6 @@ func _process(delta):
 			if body_on_radius.get_parent().is_indoor == is_indoor:
 				_on_radius(body_on_radius)
 				body_on_radius = null
-			else:
-				print("waiting")
 		return
 	
 	var closest = base.get_closest_tile(tiles,get_global_mouse_position(),20)
@@ -72,6 +70,7 @@ func _on_radius(body):
 			body_on_radius = body
 			return
 		is_used = true
+		set_process(false)
 		body.get_parent().set_trap(self)
 		activate_vice(body.get_parent())
 	elif body.name == "KinematicTeenager" and !is_placed:
