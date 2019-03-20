@@ -16,9 +16,10 @@ var current_mode = MODE.PLANNING setget set_current_mode, get_current_mode
 #user interface
 onready var ui = $GameUI
 
-#TODO: INITIALIZE
+#INITIALIZE
 func _ready():
-	pass
+	#A* pathfinding
+	star.init($Tiles/Path,Vector2(25,25),false)
 
 #return all the teenagers in the game
 func get_teenagers():

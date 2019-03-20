@@ -6,7 +6,8 @@ extends Node
 
 #score for each level
 var scores = {
-	"res://scenes/prototype.tscn":0
+	"res://scenes/prototype.tscn":0,
+	"res://scenes/prototype2.tscn":0
 	
 } 
 

@@ -16,13 +16,14 @@ _global_script_class_icons={
 [application]
 
 config/name="The Killer"
-run/main_scene="res://scenes/prototype.tscn"
+run/main_scene="res://scenes/prototype2.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 common="*res://scripts/singletons/common.gd"
 score="*res://scripts/singletons/score.gd"
+star="*res://scripts/Pathfinding.gd"
 
 [debug]
 

@@ -92,7 +92,6 @@ script = ExtResource( 1 )
 [node name="PlayerController" parent="." instance=ExtResource( 2 )]
 
 [node name="AI" type="YSort" parent="."]
-editor/display_folded = true
 
 [node name="Teenager" parent="AI" instance=ExtResource( 3 )]
 editor/display_folded = true
@@ -197,7 +196,6 @@ format = 1
 tile_data = PoolIntArray( -655328, 0, 0, -655327, 27, 0, -655326, 32, 0, -589792, 1, 0, -589791, 27, 0, -589790, 30, 0, -524256, 3, 0, -524255, 26, 0, -524254, 30, 0, 65579, 30, 0, 2293791, 2, 0, 2293792, 26, 0, 2293793, 30, 0 )
 
 [node name="Teenager8" parent="AI" instance=ExtResource( 3 )]
-editor/display_folded = true
 position = Vector2( 506.218, -200.909 )
 gender = 1
 
@@ -212,6 +210,7 @@ format = 1
 tile_data = PoolIntArray( -589803, 0, 0, -589802, 27, 0, -589801, 31, 0, -524267, 3, 0, -524266, 26, 0, -524265, 30, 0, -196537, 1, 0, -196536, 26, 0, -196535, 30, 0, -131001, 2, 0, -131000, 27, 0, -130999, 32, 0, 65579, 30, 0 )
 
 [node name="Tiles" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Floor" type="TileMap" parent="Tiles"]
 z_index = -2

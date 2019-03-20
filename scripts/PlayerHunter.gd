@@ -11,6 +11,9 @@ var target = null
 var is_deployed = false setget set_is_deployed
 var mouse_position = Vector2(0,0)
 var speed = 60
+var exiting = false
+var current_path = []
+var current_target = Vector2(0,0)
 
 #world nodes
 onready var state_machine = $States
@@ -56,15 +59,40 @@ func _input(event):
 
 #move the player to a given location. Returns true when he arrives.
 func walk(to):
-	#TODO: use A* algorithm for this
+	#TODO: this is very spaghetti, I need to fix it later.
 	var distance = kinematic_player.global_position.distance_to(to)
 	
 	if distance > 10:
-		var dir = to - kinematic_player.global_position
+		var path = current_path
+		#find a path to the location if dindn't found already
+		if current_path == []:
+			path = star.find_path(kinematic_player.global_position,to)
+			current_path = path
+			current_target = to
+		else:
+			if current_target != to:
+				path = star.find_path(kinematic_player.global_position,to)
+				current_path = path
+		
+		var dir = Vector2(0,0)
+		if path.size() == 0:
+			current_path = []
+			return true
+		elif path.size() < 2:
+			current_path = []
+			return true
+		else:
+			if path[1].distance_to(kinematic_player.global_position) <2:
+				path.remove(1)
+				return false
+				
+		dir = path[1] - kinematic_player.global_position	
 		dir = dir.normalized()
 		kinematic_player.move_and_slide(dir * speed)
+		
 		return false
 	else: 
+		current_path = []
 		return true
 
 #start to attack the teenager
@@ -76,6 +104,7 @@ func attack(teenager):
 #remove the player hunter
 func _free():
 	game.disable_spawn_points()
+	exiting = true
 	#this signal is used by the 'Game' script to detect when to exit the 
 	#hunter mode.
 	base.set_current_mode(base.MODE.PLANNING)

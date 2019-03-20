@@ -34,3 +34,4 @@ func finish_state():
 	
 func get_current_state():
 	return current_state.name
+	
