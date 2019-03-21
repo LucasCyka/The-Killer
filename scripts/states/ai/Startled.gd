@@ -33,8 +33,13 @@ func update(delta):
 	if base == null:
 		return
 	
-	if base.teenager.traps.size() > 0:
-		 base.teenager.traps.remove(0)
+	#remove all bump traps
+	for trap in base.teenager.traps:
+		if trap.type == trap.TYPES.BUMP:
+			base.teenager.remove_trap(trap,true)
+			break
+	
+	#if base.teenager.traps.size() == 1:
 		
 	if stage == 1:
 		stage_timer.stop()

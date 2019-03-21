@@ -21,6 +21,7 @@ func _ready():
 	#TODO: change the type of detection radius here...
 	
 	#I guess this won't work on the web version...
+	type = TYPES.BUMP
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 #move the trap around
@@ -52,7 +53,7 @@ func _input(event):
 			if distance < radius[id]:
 				#TODO: check if he's inside a building
 				startle_teenager(teenager,get_bump_position(teen_pos))
-				teenager.set_trap(self)
+				#teenager.set_trap(self)
 		queue_free()
 
 func on_free():

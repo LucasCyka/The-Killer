@@ -63,7 +63,7 @@ func _input(event):
 #its effects
 #TODO: raycast to see if the player can really see the trap
 func _on_radius(body):
-	if body.name == "KinematicTeenager" and is_placed:
+	if body.name == "KinematicTeenager" and is_placed and !is_used:
 		#check if the teenager can see the trap
 		if body.get_parent().is_indoor != is_indoor:
 			#he can't see the trap now, but lets wait if he can see it later
@@ -73,7 +73,7 @@ func _on_radius(body):
 		set_process(false)
 		body.get_parent().set_trap(self)
 		activate_vice(body.get_parent())
-	elif body.name == "KinematicTeenager" and !is_placed:
+	elif body.name == "KinematicTeenager" and !is_placed and !is_used:
 		#this trap has not been placed yet, but let's wait if it does later on
 		body_on_radius = body
 		#for effect in effects[id]:

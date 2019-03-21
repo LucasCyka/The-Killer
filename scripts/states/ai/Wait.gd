@@ -7,14 +7,26 @@ extends Node
 signal finished
 
 var base
+var position 
 
 #CONSTRUCTOR
 func init(base,state_position,state_time):
 	self.base = base
+	self.position = state_position
 	base.connect("timer_finished",self,"exit")
 	
 func update(delta):
-	pass
+	if base == null:
+		return
+	
+	#only continue this state if he's on the right position
+	if self.position.distance_to(base.teenager.kinematic_teenager.global_position) > 20:
+		if not base.state_timer.is_stopped():
+			base.state_timer.stop()
+		base.teenager.walk(self.position)
+	else:
+		if base.state_timer.is_stopped():
+			base.state_timer.start()
 	
 func exit():
 	if base.is_forced_state:

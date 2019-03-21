@@ -5,6 +5,15 @@ extends Node2D
 	All traps will delivery from this class
 """
 
+enum TYPES{
+	BUMP,
+	LURE,
+	MISC,
+	VICE,
+	NULL
+}
+var type = TYPES.NULL
+
 #the tileset the trap will lay
 var tiles = null
 var base = null
@@ -56,11 +65,19 @@ func activate_vice(teenager):
 ##
 #make the teenager enters on the 'lured state'
 func lure_teenager(teenager):
-	teenager.state_machine.force_state('Lured')
+	#check if the teenager can be lured
+	if teenager.state_machine.check_forced_state('Lured'):
+		#TODO: check if this trap is compatible with the teenager
+		teenager.set_trap(self)
+		teenager.state_machine.force_state('Lured')
+		
+		return true
 
 func startle_teenager(teenager,pos):
-	teenager.state_machine.state_position = pos
-	teenager.state_machine.force_state('Startled')
+	if teenager.state_machine.check_forced_state('Startled'):
+		teenager.set_trap(self)
+		teenager.state_machine.state_position = pos
+		teenager.state_machine.force_state('Startled')
 
 #the trap becomes transparent when is in an invalid location
 func set_is_invalid_tile(value):

@@ -14,13 +14,12 @@ var teenager
 var _timer
 
 #constructor
-#warning-ignore:unused_argument
-#warning-ignore:unused_argument
 func init(base,state_position,state_time):
 	#TODO: check if the teenager can be affect by this kind of trap
 	self.base = base
+	self.base.is_forced_state = false
 	teenager = base.teenager
-	trap = teenager.get_traps()[0]
+	trap = teenager.get_traps()[teenager.current_trap]
 	trap.is_used = true #TODO: only do this if there's two teenagers using it
 	trail = trap.get_trail()
 	
@@ -58,9 +57,12 @@ func exit():
 	if base.has_node("lure_timer"):
 		base.get_node("lure_timer").queue_free()
 	
-	if not base.is_routine_over:
+	if not base.is_routine_over and not self.base.is_forced_state:
 		base._on_routine = true
-	teenager.remove_trap(trap,true)
+		teenager.remove_trap(trap,true)
+	elif self.base.is_forced_state:
+		base._on_routine = false
+	
 	following_trail = false
 	emit_signal("finished")
 	

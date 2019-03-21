@@ -44,6 +44,9 @@ var current_routine = 0
 var last_routine = 0
 var is_routine_paused = false
 var is_indoor = false setget set_is_indoor
+#used for pathfinding:
+var current_path = []
+var current_target = Vector2(-666,-666)
 
 #teenager's modifiers
 var curiosity = 0 setget set_curiosity,get_curiosity
@@ -58,6 +61,7 @@ const base_speed = 60
 
 #the traps the teenagers has just falled to. Null is no trap.
 var traps = []
+var current_trap = 0
 
 export (GENDER) var gender = GENDER.MALE setget , get_gender
 export var id = 0
@@ -155,16 +159,35 @@ func generate_routine(routine_map):
 #move to a given position.
 #returns true if the player arrived at the destination.
 func walk(to):
-	#TODO: use an A* algorithm
-	var dir = to - kinematic_teenager.global_position
-	dir = dir.normalized()
+	var distance = kinematic_teenager.global_position.distance_to(to)
+	var from = kinematic_teenager.global_position
+	var dir = Vector2(0,0)
 	
-	
-	if kinematic_teenager.global_position.distance_to(to) < 4:
-		return true
-	else:
+	if distance > 10:
+		if current_target != to:
+			current_target =  to
+			current_path = star.find_path(from,to)
+		
+		if current_path.size() == 0:
+			current_target = Vector2(-666,-666)
+			current_path = []
+			return true
+		elif current_path.size() < 2:
+			current_path = []
+			return true
+		else:
+			if current_path[1].distance_to(from) < 2:
+				current_path.remove(1)
+				return false
+				
+		dir = current_path[1] - from
+		dir = dir.normalized()
+		
 		kinematic_teenager.move_and_slide(dir * speed)
+		
 		return false
+	else:
+		return true
 
 #TODO: update animations according to its state, id etc...
 func update_animations():
@@ -206,10 +229,11 @@ func get_position():
 #this teenager has fall into a trap, change his modifers and update it.
 func set_trap(value):
 	traps.append(value)
+	current_trap = traps.size()-1
 	
 	#apply modifiers
-	set_fear(get_fear() + traps[0].fear)
-	set_curiosity(get_curiosity() + traps[0].curiosity)
+	set_fear(get_fear() + traps[current_trap].fear)
+	set_curiosity(get_curiosity() + traps[current_trap].curiosity)
 	"""
 	if value == null:
 		#this trap is no more!
@@ -229,14 +253,14 @@ func get_traps():
 		return []
 	else:
 		return traps
-	
+		
 func remove_trap(value,free):
 	for trap in traps:
 		if trap == value:
-			
 			if free:
 				trap.queue_free()
 			traps.erase(trap)
+			current_trap -= 1 
 			break
 
 #enable/unable slow modifier

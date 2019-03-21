@@ -76,13 +76,8 @@ func force_new_routine():
 
 #force a new state change. Generally used by traps or the player.
 func force_state(state):
-	#check if this state is compatible
-	#some states  cannot be connected to the state the ai is trying to change.
-	if state == current_state.name:
-		return false
-	if state == 'Panic' and current_state.name == 'Escaping':
-		return false
-	if state == 'OnVice' and current_state.name == 'Panic' or (current_state.name == 'Escaping' and state == 'OnVice'):
+	if not check_forced_state(state):
+		#this state cannot be forced at the moment
 		return false
 	
 	if not teenager.is_routine_paused:
@@ -92,4 +87,19 @@ func force_state(state):
 	current_state.exit()
 	_on_routine = false
 	change(get_node(state))
+	
+	return true
+
+#check if a given state can be forced on this teenager
+func check_forced_state(state):
+	#check if this state is compatible
+	#some states  cannot be connected to the state the ai is trying to change.
+	if state == current_state.name or current_state.name == 'Dead':
+		return false
+	if state == 'Panic' and current_state.name == 'Escaping':
+		return false
+	if state == 'OnVice' and current_state.name == 'Panic' or (current_state.name == 'Escaping' and state == 'OnVice'):
+		return false
+		
+	return true
 
