@@ -55,16 +55,21 @@ func execute_routine(state,position,time):
 #if is following a routine, tell the player base AI that this step is over
 #otherwise, just follow to the next
 func finish_state():
+	if not is_forced_state and teenager.get_traps().size() > 0:
+		teenager.get_traps()[teenager.current_trap].activate_trap(teenager)
+		#print("STACKED TRAPS:")
+		#print(teenager.traps.size())
+	
 	if _on_routine == true and is_routine_over == false:
 		#TODO: check if the routine is paused, if so then resume it instead
 		#of going to the next one
 		if teenager.is_routine_paused:
-			print("resuming routine...")
+			#print("resuming routine...")
 			teenager.resume_routine()
 			return
 		teenager.next_routine()
 	else:
-		print("is forced")
+		#print("is forced")
 		#external events will prevent this teenager from executing
 		#routine states.
 		pass
@@ -94,7 +99,9 @@ func force_state(state):
 func check_forced_state(state):
 	#check if this state is compatible
 	#some states  cannot be connected to the state the ai is trying to change.
-	if state == current_state.name or current_state.name == 'Dead':
+	if current_state.name == 'Panic' and state == 'Panic':
+		return
+	if current_state.name == 'Dead':
 		return false
 	if state == 'Panic' and current_state.name == 'Escaping':
 		return false

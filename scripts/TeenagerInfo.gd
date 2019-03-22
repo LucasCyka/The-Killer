@@ -27,6 +27,8 @@ func _process(delta):
 	$Panel/Gender.text = str(selected_teenager.get_gender())
 	$Panel/Fear.text = "FEAR: " + str(selected_teenager.get_fear())
 	$Panel/Curiosity.text = "CURIOSITY: " + str(selected_teenager.get_curiosity())
+	$Panel/Traps.text = "TRAPS: " + str(selected_teenager.traps.size())
+	$Panel/TrapsID.text = "TRAP ID: " + str(selected_teenager.current_trap)
 	
 	#drawing function
 	update()

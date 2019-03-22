@@ -66,8 +66,9 @@ func next_stage():
 		#apply each effect of the trap
 		for effect in base.teenager.get_traps()[current_trap].effects[base.teenager.get_traps()[current_trap].id]:
 			effect.call_func(base.teenager)
-		base.teenager.get_traps()[current_trap].queue_free()
-		base.teenager.traps = []
+		base.teenager.remove_trap(base.teenager.get_traps()[current_trap],true)
+		#base.teenager.get_traps()[current_trap].queue_free()
+		#base.teenager.traps = []
 	elif stage == 2:
 		_timer.disconnect("timeout",self,"next_stage")
 		_timer.queue_free()

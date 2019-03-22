@@ -5,6 +5,9 @@ extends Node2D
 	All traps will delivery from this class
 """
 
+#TODO: make curiosity modifiers act more at traps? Maybe a trap is too dull
+#and the teenager can only fall for it if he has an certain curiosity level.
+
 enum TYPES{
 	BUMP,
 	LURE,
@@ -59,14 +62,26 @@ func cripple():
 	pass
 
 func activate_vice(teenager):
-	teenager.state_machine.state_time = 6 #TODO: maybe take this number from the trap?
-	teenager.state_machine.force_state('OnVice')
+	#check if the teenager can be OnVice state
+	if teenager.state_machine.check_forced_state('OnVice'):
+		teenager.state_machine.state_time = 6 #TODO: maybe take this number from the trap?
+		teenager.set_trap(self)
+		teenager.state_machine.force_state('OnVice')
+		
+		return true
 
 ##
 #make the teenager enters on the 'lured state'
 func lure_teenager(teenager):
 	#check if the teenager can be lured
 	if teenager.state_machine.check_forced_state('Lured'):
+		if teenager.get_traps().size()> 0:
+			#remove any other lure trap
+			for lure in teenager.get_traps():
+				if lure != child:
+					lure.is_used = false
+					teenager.remove_trap(lure,true)
+		
 		#TODO: check if this trap is compatible with the teenager
 		teenager.set_trap(self)
 		teenager.state_machine.force_state('Lured')
@@ -88,6 +103,39 @@ func set_is_invalid_tile(value):
 		
 func set_is_indoor(value):
 	is_indoor = value
+
+#activate a trap again
+func activate_trap(teenager):
+	if type == TYPES.VICE:
+		child.set_process(true)
+		child.is_used = false
+		var pos = child.texture.global_position
+		
+		#check if the trap is close enough to the teenager to be activated
+		#right away
+		if teenager.kinematic_teenager.global_position.distance_to(pos) < 30:
+			if teenager.state_machine.check_forced_state('OnVice'):
+				teenager.state_machine.force_state('OnVice')
+		else:
+			teenager.remove_trap(self,false)
+		
+	elif type == TYPES.LURE:
+		child.is_used = false
+		#check if it can be activated right away
+		if teenager.state_machine.check_forced_state('Lured'):
+			teenager.state_machine.force_state('Lured')
+			child.is_used = true
+		else:
+			#can't be activated again? remove it from the teenager trap list
+			#then.
+			teenager.remove_trap(self,false)
+
+func deactivate_trap():
+	if type == TYPES.VICE:
+		child.set_process(false)
+		child.is_used = true
+	else:
+		child.is_used = true
 
 #destructor
 func exit():

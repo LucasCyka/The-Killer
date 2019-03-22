@@ -27,6 +27,7 @@ onready var detection_radius = $Texture/DetectionRadius
 
 #start animations
 func _ready():
+	type = TYPES.LURE
 	current_texture.set_animation(str(id))
 	#TODO: change the trap modifiers according to its id
 	
@@ -108,7 +109,8 @@ func on_radius(body):
 		var teenager = body.get_parent()
 		#teenager.set_trap(self)
 		if lure_teenager(teenager):
-			is_used = true
+			deactivate_trap()
+			#is_used = true
 
 #check if the teenager is leaving the trap radius
 func out_radius(body):

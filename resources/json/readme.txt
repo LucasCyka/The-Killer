@@ -1,0 +1,3 @@
+traps.json - All trap's information. Texture, animations, Modifiers etc...
+
+traps_by_level.json - The traps available in each level. Referenced by its ID.

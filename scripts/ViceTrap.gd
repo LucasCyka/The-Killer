@@ -23,6 +23,7 @@ onready var radius = $Texture/DetectionRadius
 func _ready():
 	#TODO: change the textures acording to its ID
 	#on radius signal
+	type = TYPES.VICE
 	radius.connect("body_entered",self,"_on_radius")
 	radius.connect("body_exited",self,"_out_radius")
 
@@ -69,10 +70,14 @@ func _on_radius(body):
 			#he can't see the trap now, but lets wait if he can see it later
 			body_on_radius = body
 			return
-		is_used = true
-		set_process(false)
-		body.get_parent().set_trap(self)
-		activate_vice(body.get_parent())
+		#is_used = true
+		#set_process(false)
+#		body.get_parent().set_trap(self)
+		if activate_vice(body.get_parent()):
+			deactivate_trap()
+			#is_used = true
+			#set_process(false)
+			#TODO: custom function to deactivate a trap
 	elif body.name == "KinematicTeenager" and !is_placed and !is_used:
 		#this trap has not been placed yet, but let's wait if it does later on
 		body_on_radius = body

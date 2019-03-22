@@ -1,0 +1,35 @@
+{"Traps":{
+  
+  "BUMP":{
+    "ID": [],
+    "Icon":[],
+	"Fear":[],
+	"Curiosity":[],
+    "Price": []
+  },
+  
+  "LURE":{
+    "ID": ["0"],
+    "Icon":["/lure1.png"],
+	"Fear":["1"],
+	"Curiosity":["15"],
+    "Price": ["4"]
+  },
+  
+  "MISC":{
+    "ID": [],
+    "Icon":[],
+	"Fear":[],
+	"Curiosity":[],
+    "Price": []
+  },
+  
+  "VICE":{
+    "ID": [],
+    "Icon":[],
+	"Fear":[],
+	"Curiosity":[],
+    "Price": []
+  }
+  
+}}

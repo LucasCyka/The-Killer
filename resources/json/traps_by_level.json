@@ -1,0 +1,20 @@
+{"Traps":{
+	
+	"res://scenes/prototype2.tscn":{
+		"BUMP":[],
+		"LURE":["0"],
+		"MISC":[],
+		"VICE":[]
+		
+	},
+	
+	"res://scenes/prototype.tscn":{
+		"BUMP":[],
+		"LURE":[],
+		"MISC":[],
+		"VICE":[]
+		
+	}
+	
+	
+}}

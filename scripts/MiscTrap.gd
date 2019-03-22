@@ -4,6 +4,9 @@ extends "res://scripts/Traps.gd"
 	Miscellaneous traps. They are placed in the world but they cause different
 	reactions in the teenagers. They can scare, increase curiosity,
 	hurt etc...
+	
+	Misc traps are not added to the teenager 'traps' array. They only cause
+	effects like, enter panic, increase fear, curiosity etc...
 """
 
 var id = 0
@@ -28,6 +31,7 @@ var effects = {
 func _ready():
 	#TODO: change the textures acording to its ID
 	#detection signals
+	type = TYPES.MISC
 	detection_radius.connect("body_entered",self,"on_radius")
 	detection_radius.connect("body_exited",self,"on_radius")
 
