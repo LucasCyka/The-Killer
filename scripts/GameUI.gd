@@ -15,14 +15,17 @@ var misc_ui = null
 var info_ui = null
 var game = null
 
-#instantiate and initialize ui elements
+#only initialize the UI when the game is fully loaded
 func _ready():
+	game = get_parent()
+	game.connect("loaded",self,"init")
+
+#instantiate and initialize ui elements
+func init():
 	teenager_panel = get_node("Canvas/TeenagerInfo")
 	traps_ui = get_node("Canvas/TrapsUI")
 	misc_ui = get_node("Canvas/MiscUI")
 	info_ui = get_node("Canvas/InfoUI")
-	
-	game = get_parent()
 	
 	teenager_panel.init(self)
 	traps_ui.init(self)
@@ -35,7 +38,7 @@ func _ready():
 		button.connect("pressed",self,"_on_toggle")
 		button.connect("mouse_entered",self,"_on_hover")
 		button.connect("mouse_exited",self,"_on_exit")
-	
+
 #return an array containing selection buttons for each teenager
 func get_teenagers_buttons():
 	var teenagers = []
@@ -56,6 +59,7 @@ func get_bump_tilemap():
 #return all the buttons used in the ui
 func get_buttons():
 	var buttons = traps_ui.get_child(0).get_children() 
+	buttons = buttons + traps_ui.get_child(1).get_child(0).get_children()
 	buttons = buttons + misc_ui.get_child(0).get_children()
 	
 	for element in buttons:

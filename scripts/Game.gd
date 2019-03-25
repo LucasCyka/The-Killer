@@ -1,9 +1,12 @@
 extends Node2D
 
 """
-	Control lots of the aspects about the gameplay.
+	Control several aspects of the gameplay.
 	Things like game over events, points distribution, world information etc...
 """
+
+#the game has been loaded
+signal loaded
 
 enum MODE {
 	PLANNING,
@@ -12,15 +15,23 @@ enum MODE {
 }
 
 var current_mode = MODE.PLANNING setget set_current_mode, get_current_mode
+#traps on this level
+var traps_data = {}
 
 #user interface
 onready var ui = $GameUI
+#types of traps
+onready var trap_enum = preload("res://scripts/Traps.gd").TYPES
 
 #INITIALIZE
 func _ready():
 	#A* pathfinding
 	star.init($Tiles/Path,Vector2(25,25),false)
-
+	#loads traps information for this level
+	load_trap_info()
+	
+	emit_signal("loaded")
+	
 #return all the teenagers in the game
 func get_teenagers():
 	return get_tree().get_nodes_in_group("AI")
@@ -111,6 +122,65 @@ func disable_spawn_points():
 func get_level():
 	return self.filename
 
+#return the traps (for this level) of a given type
+func get_traps(type):
+	return traps_data[type]
 
-
-
+#loads data from all traps available in this level
+func load_trap_info():
+	var traps = {} #traps.json 
+	var traps_in_level = {} #traps_by_level.json
+	
+	#dictionary structury
+	traps_data = {
+	trap_enum.BUMP:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[]},
+	trap_enum.LURE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[]},
+	trap_enum.MISC:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[]},
+	trap_enum.VICE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[]}
+	}
+	
+	#all traps
+	var file = File.new()
+	file.open("res://resources/json/traps.json",File.READ)
+	traps = file.get_as_text()
+	file.close()
+	traps = parse_json(traps)
+	
+	#traps in this level
+	file.open("res://resources/json/traps_by_level.json",File.READ)
+	traps_in_level = file.get_as_text()
+	file.close()
+	traps_in_level = parse_json(traps_in_level)
+	
+	#assign the traps for this level to the dictionary
+	for type in traps_in_level['Traps'][get_level()]:
+		if traps_in_level['Traps'][get_level()][type].size()>= 1:
+			for trap in traps_in_level['Traps'][get_level()][type]:
+				
+				#trap data
+				var _type = type 
+				var id = int(trap)
+				var icon = traps['Traps'][type]['Icon'][id]
+				var fear = int(traps['Traps'][type]['Fear'][id])
+				var curiosity = int(traps['Traps'][type]['Curiosity'][id])
+				var price = int(traps['Traps'][type]['Price'][id])
+				
+				#change the trap type to an enum
+				match type:
+					"BUMP":
+							_type = trap_enum.BUMP
+					"LURE":
+							_type = trap_enum.LURE
+					"MISC":
+							_type = trap_enum.MISC
+					"VICE":
+							_type = trap_enum.VICE
+					_:
+							_type = trap_enum.NULL
+				
+				#assign data
+				traps_data[_type]['ID'].append(id)
+				traps_data[_type]['Icon'].append(icon)
+				traps_data[_type]['Fear'].append(fear)
+				traps_data[_type]['Curiosity'].append(curiosity)
+				traps_data[_type]['Price'].append(price)

@@ -1,11 +1,11 @@
 {"Traps":{
   
   "BUMP":{
-    "ID": [],
-    "Icon":[],
-	"Fear":[],
-	"Curiosity":[],
-    "Price": []
+    "ID": ["0"],
+    "Icon":["/knock1.png"],
+	"Fear":["2"],
+	"Curiosity":["20"],
+    "Price": ["4"]
   },
   
   "LURE":{
@@ -17,19 +17,19 @@
   },
   
   "MISC":{
-    "ID": [],
-    "Icon":[],
-	"Fear":[],
-	"Curiosity":[],
-    "Price": []
+    "ID": ["0"],
+    "Icon":["/misc1.png"],
+	"Fear":["100"],
+	"Curiosity":["0"],
+    "Price": ["10"]
   },
   
   "VICE":{
-    "ID": [],
-    "Icon":[],
-	"Fear":[],
-	"Curiosity":[],
-    "Price": []
+    "ID": ["0"],
+    "Icon":["/cigarette1.png"],
+	"Fear":["1"],
+	"Curiosity":["10"],
+    "Price": ["4"]
   }
   
 }}

@@ -23,7 +23,7 @@ script = ExtResource( 1 )
 "lure",
 ]]
 editor/display_folded = true
-z_index = 1
+z_index = 2
 frames = SubResource( 1 )
 animation = "0"
 
