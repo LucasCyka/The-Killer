@@ -123,24 +123,24 @@ func add_trap(price,type,id,fear,curiosity):
 		trap_enum.BUMP:
 			
 			var bump = preload("res://scenes/traps/BumpTrap.tscn").instance()
-			bump.init(base.game,base.get_bump_tilemap(),bump,self)
+			bump.init(id,base.game,base.get_bump_tilemap(),bump,self,curiosity,fear)
 			base.game.add_child(bump)
 			
 		trap_enum.LURE:
 			
 			var lure = preload("res://scenes/traps/LureTrap.tscn").instance()
-			lure.init(base.game,base.get_lure_tilemap(),lure,self)
+			lure.init(id,base.game,base.get_lure_tilemap(),lure,self,curiosity,fear)
 			base.game.add_child(lure)
 			
 		trap_enum.MISC:
 			
 			var misc = preload("res://scenes/traps/MiscTrap.tscn").instance()
-			misc.init(base.game,base.get_lure_tilemap(),misc,self)
+			misc.init(id,base.game,base.get_lure_tilemap(),misc,self,curiosity,fear)
 			base.game.add_child(misc)
 			
 		trap_enum.VICE:
 			var vice = preload("res://scenes/traps/ViceTrap.tscn").instance()
-			vice.init(base.game,base.get_lure_tilemap(),vice,self)
+			vice.init(id,base.game,base.get_lure_tilemap(),vice,self,curiosity,fear)
 			base.game.add_child(vice)
 
 #enable the selection panel

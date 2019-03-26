@@ -5,8 +5,6 @@ extends "res://scripts/Traps.gd"
 	modifiers.
 """
 
-var id = 0
-
 var effects = {
 	0:[funcref(self,"decrease_speed")],
 	1:[funcref(self,"decrease_speed")]

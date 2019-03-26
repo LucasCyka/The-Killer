@@ -9,7 +9,6 @@ extends "res://scripts/Traps.gd"
 	effects like, enter panic, increase fear, curiosity etc...
 """
 
-var id = 0
 var is_placed = false
 var is_used = false
 var is_one_shot = false #if this trap can be used several times

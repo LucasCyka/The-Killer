@@ -2,7 +2,7 @@
 	
 	"res://scenes/prototype2.tscn":{
 		"BUMP":["0"],
-		"LURE":["0","0"],
+		"LURE":["0","1"],
 		"MISC":["0"],
 		"VICE":["0"]
 		

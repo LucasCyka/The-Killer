@@ -17,6 +17,8 @@ enum TYPES{
 }
 var type = TYPES.NULL
 
+var id = 0
+
 #the tileset the trap will lay
 var tiles = null
 var base = null
@@ -34,11 +36,14 @@ var curiosity = 10
 var fear = 1
 
 #constructor
-func init(base,tiles,child,ui):
+func init(id,base,tiles,child,ui,curiosity,fear):
+	self.id = id
 	self.base = base
 	self.tiles = tiles
 	self.child = child
 	self.ui = ui
+	self.curiosity = curiosity
+	self.fear = fear
 	
 	#replace traps, needs to diconnect this when the trap is placed
 	ui.connect("new_trap",self,"exit")

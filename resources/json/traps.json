@@ -9,11 +9,11 @@
   },
   
   "LURE":{
-    "ID": ["0"],
-    "Icon":["/lure1.png"],
-	"Fear":["1"],
-	"Curiosity":["15"],
-    "Price": ["4"]
+    "ID": ["0","1"],
+    "Icon":["/lure1.png","/porn.png"],
+	"Fear":["1","1"],
+	"Curiosity":["15","40"],
+    "Price": ["4","10"]
   },
   
   "MISC":{

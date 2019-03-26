@@ -7,8 +7,6 @@ extends "res://scripts/Traps.gd"
 """
 
 
-
-var id = 0
 var size = 10
 var current_position = Vector2(0,0)
 var trail = [] setget , get_trail

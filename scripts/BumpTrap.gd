@@ -5,8 +5,6 @@ extends "res://scripts/Traps.gd"
 	It can be screams, 'bumps' on the wall etc...
 """
 
-var id = 0
-
 #the detection radius of the sound
 var radius = [150]
 #defines how much far the teenager will look for the sound
