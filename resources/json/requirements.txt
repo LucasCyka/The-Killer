@@ -1,0 +1,5 @@
+NULL = No requirements for this trap
+
+MEN = This trap can only affect men.
+WOMEN = This trap can only affect women.
+PANIC = This trap can only affect a person in panic.

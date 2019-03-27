@@ -105,10 +105,10 @@ func _draw():
 func on_radius(body):
 	if body.name == "KinematicTeenager" and !is_used:
 		var teenager = body.get_parent()
-		#teenager.set_trap(self)
-		if lure_teenager(teenager):
-			deactivate_trap()
-			#is_used = true
+		
+		if check_requirements(teenager):
+			if lure_teenager(teenager):
+				deactivate_trap()
 
 #check if the teenager is leaving the trap radius
 func out_radius(body):

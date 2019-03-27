@@ -5,7 +5,8 @@
     "Icon":["/knock1.png"],
 	"Fear":["2"],
 	"Curiosity":["20"],
-    "Price": ["4"]
+    "Price": ["4"],
+	"Requirements":[["NULL"],["NULL"]]
   },
   
   "LURE":{
@@ -13,7 +14,8 @@
     "Icon":["/lure1.png","/porn.png"],
 	"Fear":["1","1"],
 	"Curiosity":["15","40"],
-    "Price": ["4","10"]
+    "Price": ["4","10"],
+	"Requirements":[["MEN"],["MEN"]]
   },
   
   "MISC":{
@@ -21,7 +23,8 @@
     "Icon":["/misc1.png"],
 	"Fear":["100"],
 	"Curiosity":["0"],
-    "Price": ["10"]
+    "Price": ["10"],
+	"Requirements":[["NULL"],["NULL"]]
   },
   
   "VICE":{
@@ -29,7 +32,8 @@
     "Icon":["/cigarette1.png"],
 	"Fear":["1"],
 	"Curiosity":["10"],
-    "Price": ["4"]
+    "Price": ["4"],
+	"Requirements":[["NULL"],["MEN"]]
   }
   
 }}

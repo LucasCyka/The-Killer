@@ -62,6 +62,9 @@ func _input(event):
 #its effects
 #TODO: raycast to see if the player can really see the trap
 func _on_radius(body):
+	if body.name == "KinematicTeenager":
+		if !check_requirements(body.get_parent()): return
+	
 	if body.name == "KinematicTeenager" and is_placed and !is_used:
 		#check if the teenager can see the trap
 		if body.get_parent().is_indoor != is_indoor:

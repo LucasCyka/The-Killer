@@ -50,8 +50,8 @@ func _input(event):
 			var distance = teen_pos.distance_to(texture.global_position)
 			if distance < radius[id]:
 				#TODO: check if he's inside a building
-				startle_teenager(teenager,get_bump_position(teen_pos))
-				#teenager.set_trap(self)
+				if check_requirements(teenager):
+					startle_teenager(teenager,get_bump_position(teen_pos))
 		queue_free()
 
 func on_free():

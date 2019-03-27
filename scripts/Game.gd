@@ -133,10 +133,10 @@ func load_trap_info():
 	
 	#dictionary structury
 	traps_data = {
-	trap_enum.BUMP:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[]},
-	trap_enum.LURE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[]},
-	trap_enum.MISC:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[]},
-	trap_enum.VICE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[]}
+	trap_enum.BUMP:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[]},
+	trap_enum.LURE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[]},
+	trap_enum.MISC:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[]},
+	trap_enum.VICE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[]}
 	}
 	
 	#all traps
@@ -164,6 +164,7 @@ func load_trap_info():
 				var fear = int(traps['Traps'][type]['Fear'][id])
 				var curiosity = int(traps['Traps'][type]['Curiosity'][id])
 				var price = int(traps['Traps'][type]['Price'][id])
+				var requirements = traps['Traps'][type]['Requirements'][id]
 				
 				#change the trap type to an enum
 				match type:
@@ -184,3 +185,4 @@ func load_trap_info():
 				traps_data[_type]['Fear'].append(fear)
 				traps_data[_type]['Curiosity'].append(curiosity)
 				traps_data[_type]['Price'].append(price)
+				traps_data[_type]['Requirements'].append(requirements)

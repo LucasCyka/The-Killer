@@ -103,44 +103,45 @@ func fill_grid(data,type):
 		var price = data['Price'][trap]
 		var fear = data['Fear'][trap]
 		var curiosity = data['Curiosity'][trap]
+		var requirements = data['Requirements'][trap]
 		
 		#button's texture
 		buttons[row].texture_normal = texture
 		
 		#signals
-		buttons[row].connect("pressed",self,"add_trap",[price,type,trap,fear,curiosity])
+		buttons[row].connect("pressed",self,"add_trap",[price,type,trap,fear,curiosity,
+		requirements])
 		
 		row += 1 
 
 #check if the player has the points to 'buy' a given trap, if so, then
 #instantiate it.
-func add_trap(price,type,id,fear,curiosity):
+func add_trap(price,type,id,fear,curiosity,requirements):
 	#TODO: check the price before adding the trap
 	#TODO: pass all the parameters for the trap
-	
 	
 	match type:
 		trap_enum.BUMP:
 			
 			var bump = preload("res://scenes/traps/BumpTrap.tscn").instance()
-			bump.init(id,base.game,base.get_bump_tilemap(),bump,self,curiosity,fear)
+			bump.init(id,base.game,base.get_bump_tilemap(),bump,self,curiosity,fear,requirements)
 			base.game.add_child(bump)
 			
 		trap_enum.LURE:
 			
 			var lure = preload("res://scenes/traps/LureTrap.tscn").instance()
-			lure.init(id,base.game,base.get_lure_tilemap(),lure,self,curiosity,fear)
+			lure.init(id,base.game,base.get_lure_tilemap(),lure,self,curiosity,fear,requirements)
 			base.game.add_child(lure)
 			
 		trap_enum.MISC:
 			
 			var misc = preload("res://scenes/traps/MiscTrap.tscn").instance()
-			misc.init(id,base.game,base.get_lure_tilemap(),misc,self,curiosity,fear)
+			misc.init(id,base.game,base.get_lure_tilemap(),misc,self,curiosity,fear,requirements)
 			base.game.add_child(misc)
 			
 		trap_enum.VICE:
 			var vice = preload("res://scenes/traps/ViceTrap.tscn").instance()
-			vice.init(id,base.game,base.get_lure_tilemap(),vice,self,curiosity,fear)
+			vice.init(id,base.game,base.get_lure_tilemap(),vice,self,curiosity,fear,requirements)
 			base.game.add_child(vice)
 
 #enable the selection panel

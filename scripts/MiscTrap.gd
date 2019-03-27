@@ -67,6 +67,8 @@ func _input(event):
 
 #check if a teenager activated this trap
 func on_radius(body):
+	if body.name == "KinematicTeenager":
+		if !check_requirements(body.get_parent()): return
 	if body.name == "KinematicTeenager" and !is_used and is_placed:
 		#check if the teenager can see the trap
 		if body.get_parent().is_indoor != is_indoor:

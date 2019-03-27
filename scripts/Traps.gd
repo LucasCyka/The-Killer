@@ -31,12 +31,13 @@ var is_invalid_tile = false setget set_is_invalid_tile
 #if the trap is inside a building or not
 var is_indoor = false setget set_is_indoor
 
-#trap modifiers
+#trap modifiers/requirements
 var curiosity = 10
 var fear = 1
+var requirements = []
 
 #constructor
-func init(id,base,tiles,child,ui,curiosity,fear):
+func init(id,base,tiles,child,ui,curiosity,fear,requirements):
 	self.id = id
 	self.base = base
 	self.tiles = tiles
@@ -44,6 +45,7 @@ func init(id,base,tiles,child,ui,curiosity,fear):
 	self.ui = ui
 	self.curiosity = curiosity
 	self.fear = fear
+	self.requirements = requirements
 	
 	#replace traps, needs to diconnect this when the trap is placed
 	ui.connect("new_trap",self,"exit")
@@ -141,6 +143,28 @@ func deactivate_trap():
 		child.is_used = true
 	else:
 		child.is_used = true
+
+#return true if this trap can be activated by the given teenager
+func check_requirements(teenager):
+	if requirements[0] == 'NULL':
+		return true
+		
+	#teenager data
+	var gender_enum = teenager.GENDER
+	var teenager_state = teenager.state_machine.get_current_state()
+	
+	for requirement in requirements:
+		if requirement == 'MEN' and teenager.gender != 'MALE':
+			#wrong gender
+			return false
+		elif requirement == 'WOMEN' and teenager.gender != 'FEMALE':
+			#wrong gender
+			return false
+		elif requirement == 'PANIC' and teenager_state != 'Panic':
+			#isn't in panic
+			return false
+			
+	return true
 
 #destructor
 func exit():
