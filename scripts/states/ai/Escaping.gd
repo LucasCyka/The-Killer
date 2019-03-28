@@ -5,6 +5,7 @@ extends Node
 """
 
 signal finished
+signal entered
 
 var base
 var regroup_point
@@ -37,7 +38,9 @@ func init(base,state_position,state_time):
 			teenager.state_machine.is_routine_over = true
 			teenager.state_machine.state_position = regroup_point
 			teenager.state_machine.force_state('Escaping')
-			
+	
+	emit_signal("entered")
+	
 func update(delta):
 	if regroup_point == null:
 		return

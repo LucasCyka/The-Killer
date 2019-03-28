@@ -9,6 +9,7 @@ extends Node
 """
 
 signal finished
+signal entered
 
 var base
 var consuming_time
@@ -31,6 +32,8 @@ func init(base,state_position,state_time):
 	base.add_child(_timer)
 	_timer.connect("timeout",self,"next_stage")
 	_timer.start()
+	
+	emit_signal("entered")
 	
 func update(delta):
 	pass

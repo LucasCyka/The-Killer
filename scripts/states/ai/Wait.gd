@@ -5,6 +5,7 @@ extends Node
 """
 
 signal finished
+signal entered
 
 var base
 var position 
@@ -14,6 +15,8 @@ func init(base,state_position,state_time):
 	self.base = base
 	self.position = state_position
 	base.connect("timer_finished",self,"exit")
+	
+	emit_signal("entered")
 	
 func update(delta):
 	if base == null:

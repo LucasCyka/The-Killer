@@ -5,6 +5,7 @@ extends Node
 """
 
 signal finished
+signal entered
 
 var base
 var teenagers
@@ -31,6 +32,8 @@ func init(base,state_position,state_time):
 	_timer.set_one_shot(true)
 	base.add_child(_timer)
 	_timer.start()
+	
+	emit_signal("entered")
 	
 func update(delta):
 	if not is_running:

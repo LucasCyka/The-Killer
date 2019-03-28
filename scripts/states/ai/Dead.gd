@@ -5,10 +5,11 @@ extends Node
 """
 
 signal finished
+signal entered
 
 #constructor
 func init(base,state_position,state_time):
-	pass
+	emit_signal("entered")
 	
 func update(delta):
 	#TODO: sync dead animation with player attacking animation

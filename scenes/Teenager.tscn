@@ -1,8 +1,8 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/TeenageAI.gd" type="Script" id=1]
-[ext_resource path="res://sprites/prototype/characters/female.png" type="Texture" id=2]
-[ext_resource path="res://sprites/prototype/characters/male.png" type="Texture" id=3]
+[ext_resource path="res://sprites/prototype/characters/male.png" type="Texture" id=2]
+[ext_resource path="res://sprites/prototype/characters/female.png" type="Texture" id=3]
 [ext_resource path="res://scripts/states/AIFSM.gd" type="Script" id=4]
 [ext_resource path="res://scripts/states/ai/Idle.gd" type="Script" id=5]
 [ext_resource path="res://scripts/states/ai/Moving.gd" type="Script" id=6]
@@ -12,7 +12,8 @@
 [ext_resource path="res://scripts/states/ai/Escaping.gd" type="Script" id=10]
 [ext_resource path="res://scripts/states/ai/OnVice.gd" type="Script" id=11]
 [ext_resource path="res://scripts/states/ai/Startled.gd" type="Script" id=12]
-[ext_resource path="res://scripts/states/ai/Dead.gd" type="Script" id=13]
+[ext_resource path="res://scripts/states/ai/Crippled.gd" type="Script" id=13]
+[ext_resource path="res://scripts/states/ai/Dead.gd" type="Script" id=14]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 14.1088
@@ -21,12 +22,12 @@ radius = 14.1088
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "FemaleNormal",
+"name": "MaleNormal",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "MaleNormal",
+"name": "FemaleNormal",
 "speed": 5.0
 } ]
 
@@ -105,8 +106,11 @@ script = ExtResource( 11 )
 [node name="Startled" type="Node" parent="States"]
 script = ExtResource( 12 )
 
-[node name="Dead" type="Node" parent="States"]
+[node name="Crippled" type="Node" parent="States"]
 script = ExtResource( 13 )
+
+[node name="Dead" type="Node" parent="States"]
+script = ExtResource( 14 )
 
 [node name="StateTimer" type="Timer" parent="States"]
 one_shot = true

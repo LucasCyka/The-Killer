@@ -5,6 +5,7 @@ extends Node
 """
 
 signal finished
+signal entered
 
 var base
 var bump_position
@@ -28,6 +29,8 @@ func init(base,state_position,state_time):
 	stage_timer.connect("timeout",self,"next_stage")
 	base.add_child(stage_timer)
 	stage_timer.start()
+	
+	emit_signal("entered")
 	
 func update(delta):
 	if base == null:

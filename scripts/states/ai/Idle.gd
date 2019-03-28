@@ -5,12 +5,13 @@ extends Node
 """
 
 signal finished
+signal entered
 
 var base
 
 func init(base,state_position,state_time):
 	self.base = base
-	pass
+	emit_signal("entered")
 	
 func update(delta):
 	pass

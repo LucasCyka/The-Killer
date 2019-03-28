@@ -5,6 +5,7 @@ extends Node
 """
 
 signal finished
+signal entered
 
 var base
 var trap
@@ -15,7 +16,6 @@ var _timer
 
 #constructor
 func init(base,state_position,state_time):
-	#TODO: check if the teenager can be affect by this kind of trap
 	self.base = base
 	self.base.is_forced_state = false
 	teenager = base.teenager
@@ -37,7 +37,8 @@ func init(base,state_position,state_time):
 	#some pieces from this trail
 	trail = common.order_by_distance(trail,teenager.kinematic_teenager.global_position)
 	
-#warning-ignore:unused_argument
+	emit_signal("entered")
+	
 func update(delta):
 	if !following_trail or trail.size() == 0:
 		return

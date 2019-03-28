@@ -10,21 +10,21 @@
   },
   
   "LURE":{
-    "ID": ["0","1"],
-    "Icon":["/lure1.png","/porn.png"],
-	"Fear":["1","1"],
-	"Curiosity":["15","40"],
-    "Price": ["4","10"],
-	"Requirements":[["MEN"],["MEN"]]
+    "ID": ["0","1","2"],
+    "Icon":["/lure1.png","/porn.png","/blood.png"],
+	"Fear":["1","1","40"],
+	"Curiosity":["15","40","6"],
+    "Price": ["4","10","15"],
+	"Requirements":[["MEN"],["MEN"],["NULL"]]
   },
   
   "MISC":{
-    "ID": ["0"],
-    "Icon":["/misc1.png"],
-	"Fear":["100"],
-	"Curiosity":["0"],
-    "Price": ["10"],
-	"Requirements":[["NULL"],["NULL"]]
+    "ID": ["0","1"],
+    "Icon":["/misc1.png","/bear_trap.png"],
+	"Fear":["100","50"],
+	"Curiosity":["0","0"],
+    "Price": ["10","30"],
+	"Requirements":[["NULL"],["PANIC"],["PANIC"]]
   },
   
   "VICE":{

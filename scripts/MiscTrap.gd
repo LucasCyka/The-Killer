@@ -23,12 +23,15 @@ onready var detection_radius = $Texture/Area2D
 
 var effects = {
 	0:[funcref(self,"enter_panic")],
-	1:[funcref(self,"enter_panic")]
+	1:[funcref(self,"cripple")],
+	2:[funcref(self,"cripple")]
 	
 }
 
 func _ready():
-	#TODO: change the textures acording to its ID
+	#change the textures acording to its ID
+	current_texture.set_animation(str(id))
+	
 	#detection signals
 	type = TYPES.MISC
 	detection_radius.connect("body_entered",self,"on_radius")

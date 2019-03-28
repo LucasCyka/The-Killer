@@ -15,6 +15,8 @@ var is_forced_state = false
 #go back to his routines. Must be activated when he's escaping or in panic
 var is_routine_over = false
 
+#the next state that will be executed when the current one isn't occupied.
+var state_on_queue = null setget set_state_queue
 
 #initialize state machine
 func _ready():
@@ -27,12 +29,16 @@ func _ready():
 		$Escaping: $Escaping.name,
 		$Dead:$Dead.name,
 		$OnVice:$OnVice.name,
-		$Startled:$Startled.name
+		$Startled:$Startled.name,
+		$Crippled:$Crippled.name
 	}
 	
 	for state in states:
 		if not state.is_connected("finished",self,"finish_state"):
 			state.connect("finished",self,"finish_state")
+			
+		if not state.is_connected("entered",self,"_queue_state"):
+			state.connect("entered",self,"_queue_state")
 	
 	current_state = $Idle
 	state_timer = $StateTimer
@@ -95,6 +101,33 @@ func force_state(state):
 	
 	return true
 
+#this will check if there's any state on queue to be executed
+func _queue_state():
+	if state_on_queue == null:
+		#there's no state on queue, just continue the current one
+		return
+	
+	if not check_forced_state(state_on_queue.name):
+		#this state cannot be executed at the moment
+		state_on_queue = null
+		return false
+	
+	if not teenager.is_routine_paused:
+		teenager.pause_routine()
+	
+	var next_state = get_node(state_on_queue.name)
+	state_on_queue = null
+	
+	is_forced_state = true
+	current_state.exit()
+	_on_routine = false
+	change(next_state)
+	
+	return true
+	
+func set_state_queue(state):
+	state_on_queue = get_node(state)
+
 #check if a given state can be forced on this teenager
 func check_forced_state(state):
 	#check if this state is compatible
@@ -107,6 +140,8 @@ func check_forced_state(state):
 		return false
 	if state == 'OnVice' and current_state.name == 'Panic' or (current_state.name == 'Escaping' and state == 'OnVice'):
 		return false
-		
+	if state =='Panic' and current_state.name == 'Crippled':
+		return false 
+	
 	return true
 

@@ -217,8 +217,11 @@ func set_fear(value):
 	var level = get_parent().get_parent().get_level()
 	var points = (score.get_score(level) + value * fear_modifier)
 	score.set_score(level,int(points))
-	#TODO: check if this new fear level will not trigger the panic mode
-
+	
+	if get_fear() > get_curiosity():
+		if state_machine.check_forced_state('Panic'):
+			state_machine.set_state_queue('Panic')
+	
 func get_fear():
 	return fear
 
@@ -232,8 +235,8 @@ func set_trap(value):
 	current_trap = traps.size()-1
 	
 	#apply modifiers
-	set_fear(get_fear() + traps[current_trap].fear)
 	set_curiosity(get_curiosity() + traps[current_trap].curiosity)
+	set_fear(get_fear() + traps[current_trap].fear)
 	"""
 	if value == null:
 		#this trap is no more!
@@ -280,4 +283,4 @@ func set_is_indoor(value):
 		$KinematicTeenager/Animations/DebugState2.text = "indoor"
 	else:
 		$KinematicTeenager/Animations/DebugState2.text = "outdoor"
-	
+

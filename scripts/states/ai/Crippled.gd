@@ -1,37 +1,25 @@
 extends Node
 
 """
-	Teenager Moving state
+	Teenager Crippled state
 """
 
 signal finished
 signal entered
 
 var base
-var teenager = null
-var position = null
 
 func init(base,state_position,state_time):
-	teenager = base.teenager
-	position = state_position
 	self.base = base
-	
 	emit_signal("entered")
-	
+	print("Crippled")
 	
 func update(delta):
-	if teenager == null:
-		return
-	
-	#walk to that location
-	if teenager.walk(position):
-		exit()
+	pass
 	
 func exit():
+	print("whattt???")
 	if base.is_forced_state:
 		base._on_routine = false
 	else: base._on_routine = true
-	
-	teenager = null
-	position = null
 	emit_signal("finished")

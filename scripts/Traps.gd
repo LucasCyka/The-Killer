@@ -38,13 +38,13 @@ var requirements = []
 
 #constructor
 func init(id,base,tiles,child,ui,curiosity,fear,requirements):
+	self.curiosity = curiosity
+	self.fear = fear
 	self.id = id
 	self.base = base
 	self.tiles = tiles
 	self.child = child
 	self.ui = ui
-	self.curiosity = curiosity
-	self.fear = fear
 	self.requirements = requirements
 	
 	#replace traps, needs to diconnect this when the trap is placed
@@ -65,8 +65,13 @@ func increase_fear():
 func increase_curiosity():
 	pass
 
-func cripple():
-	pass
+#put the teenager on the crippled state
+func cripple(teenager):
+	#check if the teenager can be OnVice state
+	if teenager.state_machine.check_forced_state('Crippled'):
+		teenager.set_trap(self)
+		teenager.state_machine.force_state('Crippled')
+		
 
 func activate_vice(teenager):
 	#check if the teenager can be OnVice state
@@ -89,7 +94,6 @@ func lure_teenager(teenager):
 					lure.is_used = false
 					teenager.remove_trap(lure,true)
 		
-		#TODO: check if this trap is compatible with the teenager
 		teenager.set_trap(self)
 		teenager.state_machine.force_state('Lured')
 		
