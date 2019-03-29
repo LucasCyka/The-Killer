@@ -34,6 +34,20 @@ func _process(delta):
 		if closest != pos:
 			trap.set_is_indoor(true)
 		else: trap.set_is_indoor(false)
+		
+	#check if the player is inside a building
+	var player =  game.get_player()
+	if player != null:
+		player = game.get_player()
+		var pos = player.kinematic_player.global_position
+		
+		var closest = game.get_closest_tile(self,pos,20)
+		
+		#the trap's close, thus indoor
+		if closest != pos:
+			player.set_is_indoor(true)
+		else: player.set_is_indoor(false)
+		
 
 
 

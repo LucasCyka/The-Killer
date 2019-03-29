@@ -36,6 +36,13 @@ func _ready():
 func get_teenagers():
 	return get_tree().get_nodes_in_group("AI")
 
+#get the player if the game is on the hunting mode
+func get_player():
+	if get_tree().get_nodes_in_group("Player").size() != 0:
+		return $AI.get_node("PlayerHunter")
+	else:
+		return null
+
 #return the current player controller
 func get_player_controller():
 	return get_node("PlayerController")

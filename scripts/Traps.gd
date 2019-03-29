@@ -167,6 +167,9 @@ func check_requirements(teenager):
 		elif requirement == 'PANIC' and teenager_state != 'Panic':
 			#isn't in panic
 			return false
+		elif requirement == 'MIN10' and teenager.get_curiosity() < 10:
+			#not enough curiosity points
+			return false
 			
 	return true
 

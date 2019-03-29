@@ -44,6 +44,7 @@ var current_routine = 0
 var last_routine = 0
 var is_routine_paused = false
 var is_indoor = false setget set_is_indoor
+var facing_direction = Vector2(1,0)
 #used for pathfinding:
 var current_path = []
 var current_target = Vector2(-666,-666)
@@ -80,6 +81,11 @@ func _ready():
 	
 	
 func _process(delta):
+	if not is_routine_paused:
+		#decrease the teenager's modifiers when he's in routine mode.
+		decrease_modifiers()
+	
+	
 #	print(traps)
 	#updates the debug label
 	$KinematicTeenager/Animations/DebugState.text = state_machine.get_current_state()
@@ -185,6 +191,12 @@ func walk(to):
 		
 		kinematic_teenager.move_and_slide(dir * speed)
 		
+		#get the direction the teenager is facing
+		facing_direction = dir.round()
+		#for some reason godot is returning '-0' sometimes... why?
+		if facing_direction.x == -0: facing_direction.x = 0
+		elif facing_direction.y == -0: facing_direction.y = 0
+		
 		return false
 	else:
 		return true
@@ -228,6 +240,16 @@ func get_fear():
 #returns the teenager's positon
 func get_position():
 	return kinematic_teenager.global_position
+
+func decrease_modifiers():
+	if get_fear() > 0:
+		set_fear(get_fear() - 0.01)
+	
+	if get_curiosity() > 0:
+		set_curiosity(get_curiosity() - 0.01)
+		
+	#TODO: set a proper timer for decreasing modifiers
+	#TODO: decrease other modifiers like, slow, horny etc...
 
 #this teenager has fall into a trap, change his modifers and update it.
 func set_trap(value):

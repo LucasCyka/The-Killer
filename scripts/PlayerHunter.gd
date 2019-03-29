@@ -9,16 +9,19 @@ var ui = null
 var _selected_teenager = null
 var target = null
 var is_deployed = false setget set_is_deployed
+var is_indoor = false setget set_is_indoor
 var mouse_position = Vector2(0,0)
 var speed = 60
 var exiting = false
 var current_path = []
+var teenager_on_sight = []
 var current_target = Vector2(0,0)
 
 #world nodes
 onready var state_machine = $States
 onready var kinematic_player = $KinematicPlayer
 onready var game = get_parent().get_parent()
+onready var sight_area = $KinematicPlayer/SightArea
 
 #constructor
 func init(base,ui):
@@ -35,6 +38,10 @@ func init(base,ui):
 func _process(delta):
 	#input info
 	mouse_position = get_global_mouse_position()
+	
+	#check if the teenager can see the player
+	if teenager_on_sight.size() != 0:
+		check_teenager_sight()
 	
 	#debug state
 	get_node("KinematicPlayer/StateLabel").text = state_machine.get_current_state()
@@ -117,10 +124,64 @@ func set_is_deployed(value):
 	if !is_deployed == false:
 		if ui.is_connected("element_toggle",self,"_free"):
 			ui.disconnect("element_toggle",self,"_free")
+			
 	else:
 		if !ui.is_connected("element_toggle",self,"_free"):
 			ui.connect("element_toggle",self,"_free")
 			
+#this will tell if the player is inside a building or not
+func set_is_indoor(value):
+	is_indoor = value
+	
+	if is_indoor:
+		$KinematicPlayer/IndoorLabel.text = "Indoor"
+	else:
+		$KinematicPlayer/IndoorLabel.text = "Outdoor"
+
 #the teenager target this player selected with right click
 func select_target(target):
 	_selected_teenager = target
+	
+#check if the teenager can see the player hunter
+func check_teenager_sight():
+	if not is_deployed:
+		return
+		
+	for teen in teenager_on_sight:
+		var teen_pos = teen.kinematic_teenager.global_position.normalized()
+		var player_pos = kinematic_player.global_position.normalized()
+		var distance = teen.kinematic_teenager.global_position.distance_to(kinematic_player.global_position)
+		var dir = teen_pos - player_pos
+		
+		#TODO: check if he didn't see the player before
+		#TODO: cause 'shock' if he's in panic and didn't see the player before
+		#TODO: raycast to ensure that the teen can really see him
+		var facing = dir.dot(teen.facing_direction)
+		if distance < 80:
+			#he's close enough to be in panic or in shock
+			teen.state_machine.force_state('Panic')
+		else:
+			if floor(facing) == -1 and is_indoor == teen.is_indoor:
+				#he's not so close to the player, but he is facing the same direction
+				teen.state_machine.force_state('Panic')
+
+#check if the teenager entered the player sight area
+func on_sight_area(body):
+	if body.name == 'KinematicTeenager':
+		if teenager_on_sight.find(body.get_parent()) == -1:
+			teenager_on_sight.append(body.get_parent())
+
+
+#check if teenager left the player sight area
+func out_sight_area(body):
+	if body.name == 'KinematicTeenager':
+		if teenager_on_sight.find(body.get_parent()) != -1:
+			teenager_on_sight.remove(teenager_on_sight.find(body.get_parent()))
+
+
+
+
+
+
+
+

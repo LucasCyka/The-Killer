@@ -3,3 +3,5 @@ NULL = No requirements for this trap
 MEN = This trap can only affect men.
 WOMEN = This trap can only affect women.
 PANIC = This trap can only affect a person in panic.
+MIN10 = This trap can only affect a person with 10 curiosity points.
+MIN30 = This trap can only affect a person with 30 curiosity points.

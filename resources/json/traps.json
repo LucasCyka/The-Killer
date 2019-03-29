@@ -15,7 +15,7 @@
 	"Fear":["1","1","40"],
 	"Curiosity":["15","40","6"],
     "Price": ["4","10","15"],
-	"Requirements":[["MEN"],["MEN"],["NULL"]]
+	"Requirements":[["MEN","MIN10"],["MEN"],["NULL"]]
   },
   
   "MISC":{
