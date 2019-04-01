@@ -313,7 +313,7 @@ texture = ExtResource( 23 )
 position = Vector2( 799.806, 848.917 )
 z_index = 1
 frames = SubResource( 5 )
-frame = 4
+frame = 1
 playing = true
 
 [node name="Sprite3" type="Sprite" parent="WorldSprites"]

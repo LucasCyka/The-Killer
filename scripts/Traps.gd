@@ -24,6 +24,8 @@ var tiles = null
 var base = null
 var child = null
 var ui = null
+var oneshot = false setget , is_one_shot
+var trapped_teenagers = []
 
 #if the trap is placed in an invalid location this will be true
 var is_invalid_tile = false setget set_is_invalid_tile
@@ -37,7 +39,7 @@ var fear = 1
 var requirements = []
 
 #constructor
-func init(id,base,tiles,child,ui,curiosity,fear,requirements):
+func init(id,base,tiles,child,ui,curiosity,fear,requirements,oneshot):
 	self.curiosity = curiosity
 	self.fear = fear
 	self.id = id
@@ -46,6 +48,7 @@ func init(id,base,tiles,child,ui,curiosity,fear,requirements):
 	self.child = child
 	self.ui = ui
 	self.requirements = requirements
+	self.oneshot = oneshot
 	
 	#replace traps, needs to diconnect this when the trap is placed
 	ui.connect("new_trap",self,"exit")
@@ -140,6 +143,9 @@ func activate_trap(teenager):
 			#can't be activated again? remove it from the teenager trap list
 			#then.
 			teenager.remove_trap(self,false)
+
+func is_one_shot():
+	return oneshot
 
 func deactivate_trap():
 	if type == TYPES.VICE:

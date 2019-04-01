@@ -11,7 +11,6 @@ extends "res://scripts/Traps.gd"
 
 var is_placed = false
 var is_used = false
-var is_one_shot = false #if this trap can be used several times
 var body_on_radius = null
 #priotity system. This will replace other traps area of effect. 
 #It goes from 0 to 10.
@@ -85,8 +84,9 @@ func on_radius(body):
 		for effect in effects[id]:
 			#apply each effect of this trap
 			effect.call_func(body.get_parent())
-			if is_one_shot:
+			if oneshot:
 				is_used = true
+			#TODO: remove this trap?
 	elif body.name == "KinematicTeenager" and !is_used and !is_placed:
 		#await for it to be placed then...
 		body_on_radius = body

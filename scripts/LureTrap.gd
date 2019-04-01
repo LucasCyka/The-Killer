@@ -106,9 +106,15 @@ func on_radius(body):
 	if body.name == "KinematicTeenager" and !is_used:
 		var teenager = body.get_parent()
 		
+		if trapped_teenagers.find(teenager) != -1:
+			#the teenager has already been lured by this trap
+			return
+			
 		if check_requirements(teenager):
 			if lure_teenager(teenager):
-				deactivate_trap()
+				trapped_teenagers.append(teenager)
+				if is_one_shot():
+					 deactivate_trap()
 
 #check if the teenager is leaving the trap radius
 func out_radius(body):
