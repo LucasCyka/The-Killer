@@ -153,17 +153,19 @@ func check_teenager_sight():
 		var distance = teen.kinematic_teenager.global_position.distance_to(kinematic_player.global_position)
 		var dir = teen_pos - player_pos
 		
-		#TODO: check if he didn't see the player before
-		#TODO: cause 'shock' if he's in panic and didn't see the player before
 		#TODO: raycast to ensure that the teen can really see him
-		var facing = dir.dot(teen.facing_direction)
-		if distance < 80:
-			#he's close enough to be in panic or in shock
-			teen.state_machine.force_state('Panic')
-		else:
-			if floor(facing) == -1 and is_indoor == teen.is_indoor:
-				#he's not so close to the player, but he is facing the same direction
+		#check if he didn't see the player before
+		if not teen.saw_player:
+			var facing = dir.dot(teen.facing_direction)
+			if distance < 80:
+				#he's close enough to be in panic or in shock
 				teen.state_machine.force_state('Panic')
+				teen.saw_player = true
+			else:
+				if floor(facing) == -1 and is_indoor == teen.is_indoor:
+					#he's not so close to the player, but he is facing the same direction
+					teen.state_machine.force_state('Panic')
+					teen.saw_player = true
 
 #check if the teenager entered the player sight area
 func on_sight_area(body):

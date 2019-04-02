@@ -21,7 +21,7 @@ func init(base,state_position,state_time):
 	self.base.is_routine_over = true
 	self.base.teenager.speed += 10
 	self.teenagers = get_tree().get_nodes_in_group("AI")
-	self.base.teenager.set_fear(100)
+	self.base.teenager.set_fear(100,false)
 	self.kinematic_teenager = base.teenager.get_child(0)
 	
 	#the teenager only start running after this timer

@@ -30,7 +30,8 @@ func _ready():
 		$Dead:$Dead.name,
 		$OnVice:$OnVice.name,
 		$Startled:$Startled.name,
-		$Crippled:$Crippled.name
+		$Crippled:$Crippled.name,
+		$Shock:$Shock.name
 	}
 	
 	for state in states:
@@ -133,7 +134,8 @@ func check_forced_state(state):
 	#check if this state is compatible
 	#some states  cannot be connected to the state the ai is trying to change.
 	if current_state.name == 'Panic' and state == 'Panic':
-		return
+		force_state("Shock")
+		return false
 	if current_state.name == 'Dead':
 		return false
 	if state == 'Panic' and current_state.name == 'Escaping':

@@ -18,7 +18,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 82.7231
+radius = 109.237
 
 [node name="MiscTrap" type="Node2D" groups=[
 "Misc",

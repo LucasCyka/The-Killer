@@ -43,6 +43,7 @@ var animations = {}
 var current_routine = 0
 var last_routine = 0
 var is_routine_paused = false
+var saw_player = false
 var is_indoor = false setget set_is_indoor
 var facing_direction = Vector2(1,0)
 #used for pathfinding:
@@ -79,12 +80,10 @@ func _ready():
 	init_routine()
 	update_animations()
 	
-	
 func _process(delta):
 	if not is_routine_paused:
 		#decrease the teenager's modifiers when he's in routine mode.
 		decrease_modifiers()
-	
 	
 #	print(traps)
 	#updates the debug label
@@ -221,7 +220,10 @@ func set_curiosity(value):
 func get_curiosity():
 	return curiosity
 
-func set_fear(value):
+#params:
+#value = amount of fear points
+#cause_panic = if this new value can cause panic on the teenager.
+func set_fear(value,cause_panic=true):
 	fear = value
 	
 	#increase score
@@ -230,6 +232,7 @@ func set_fear(value):
 	var points = (score.get_score(level) + value * fear_modifier)
 	score.set_score(level,int(points))
 	
+	if not cause_panic: return
 	if get_fear() > get_curiosity():
 		if state_machine.check_forced_state('Panic'):
 			state_machine.set_state_queue('Panic')

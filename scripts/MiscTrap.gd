@@ -71,6 +71,9 @@ func _input(event):
 func on_radius(body):
 	if body.name == "KinematicTeenager":
 		if !check_requirements(body.get_parent()): return
+		
+		#check if the teenager has already falled for this trap.
+		if trapped_teenagers.find(body.get_parent()) != -1: return
 	if body.name == "KinematicTeenager" and !is_used and is_placed:
 		#check if the teenager can see the trap
 		if body.get_parent().is_indoor != is_indoor:
@@ -86,6 +89,7 @@ func on_radius(body):
 			effect.call_func(body.get_parent())
 			if oneshot:
 				is_used = true
+		trapped_teenagers.append(body.get_parent())
 			#TODO: remove this trap?
 	elif body.name == "KinematicTeenager" and !is_used and !is_placed:
 		#await for it to be placed then...
