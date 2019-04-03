@@ -83,6 +83,10 @@ func get_wall_tile():
 	#TODO: this will also return some floor tiles, change this later...
 	return $Tiles/Buildings
 
+#returns the tilemap for the pathfinding algorithm
+func get_pathfinding_tile():
+	return $Tiles/Path
+
 #change the current game mode
 func set_current_mode(value):
 	current_mode = value

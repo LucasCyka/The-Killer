@@ -24,6 +24,15 @@ func order_by_distance(positions,point):
 				
 	return final_array
 
+#convert the map positions in an array to world position
+func convert_to_world(tiles,tilemap):
+	var final_array = []
+	
+	for tile in tiles:
+		final_array.append(tilemap.map_to_world(tile))
+	
+	return final_array
+
 #place a sprite in a given position and scene
 func place_sprite(pos,scene):
 	var spr = Sprite.new()

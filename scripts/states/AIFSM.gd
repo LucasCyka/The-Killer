@@ -134,6 +134,7 @@ func check_forced_state(state):
 	#check if this state is compatible
 	#some states  cannot be connected to the state the ai is trying to change.
 	if current_state.name == 'Panic' and state == 'Panic':
+		state_time = 2
 		force_state("Shock")
 		return false
 	if current_state.name == 'Dead':

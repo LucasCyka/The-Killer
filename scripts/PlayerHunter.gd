@@ -157,7 +157,7 @@ func check_teenager_sight():
 		#check if he didn't see the player before
 		if not teen.saw_player:
 			var facing = dir.dot(teen.facing_direction)
-			if distance < 80:
+			if distance < 80 and is_indoor == teen.is_indoor:
 				#he's close enough to be in panic or in shock
 				teen.state_machine.force_state('Panic')
 				teen.saw_player = true
@@ -172,6 +172,7 @@ func on_sight_area(body):
 	if body.name == 'KinematicTeenager':
 		if teenager_on_sight.find(body.get_parent()) == -1:
 			teenager_on_sight.append(body.get_parent())
+			#body.get_parent().saw_player = false
 
 
 #check if teenager left the player sight area
