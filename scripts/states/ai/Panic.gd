@@ -60,26 +60,35 @@ func update(delta):
 		if player == null or game.get_current_mode() != game.MODE.HUNTING:
 			#the player is not in the game
 			is_avoiding_player = false
-		elif player.kinematic_player.global_position.distance_to(teen_pos) > 200:
+		elif player.kinematic_player.global_position.distance_to(teen_pos) > 300:
 			#the teen is too far from the player
+			base.teenager.saw_player = false
 			is_avoiding_player = false
 		else:
 			if is_path_free(closest_teenager.kinematic_teenager.global_position):
-				print("walk to the teenager")
+				pass#print("walk to the teenager")
 			else:
 				#TODO: check if he can enter inside a building
-				#TODO: check if he's too close to the player
+
+				#check if he's too close to the player
+				if player.kinematic_player.global_position.distance_to(teen_pos) < 10:
+					print("fight or die")
+					return
 				#try to escape, avoiding the player
 				if avoidant_tile == null:
 					avoidant_tile = get_avoidant_tile()
+					if avoidant_tile == null:
+						get_tree().quit()
 				else:
-					base.teenager.walk(avoidant_tile)
+					#common.place_sprite(avoidant_tile,game)
+					if base.teenager.walk(avoidant_tile):
+						#print("new path brother")
+						pass
 					
 					if not is_path_free(avoidant_tile):
-						print("time for a new path")
+					#	print("time for a new path")
 						pass
 				return
-			
 			
 			"""
 			#run in the opposite direction
@@ -97,6 +106,7 @@ func update(delta):
 			"""
 	
 	var distance = closest_teenager.get_child(0).global_position.distance_to(kinematic_teenager.global_position) 
+	avoidant_tile = null
 	if base.teenager.walk(closest_teenager.get_child(0).global_position) or distance < 60:
 		is_running = false
 		#start the escape
@@ -138,25 +148,25 @@ func is_path_free(pos):
 	return true
 
 #return a tile in the map that can be reach while avoiding the player
-func get_avoidant_tile(random=true,position=Vector2(0,0)):
-	#TODO: not random path
-	
+func get_avoidant_tile():
 	var final_tile = null
-	
-	#random path
+	#pathfinding tilemap
 	var tilemap = game.get_pathfinding_tile()
-	var tiles_position = common.convert_to_world(tilemap.get_used_cells(),tilemap)
-	tiles_position = common.order_by_distance(tiles_position,kinematic_teenager.global_position)
+	var teenager_map_position = tilemap.world_to_map(teen_pos)
+	var cells = tilemap.get_used_cells()
 	
-	#check if there's a tile that can avoid the player.
-	#the tile must have a path to the player bigger than 20
-	#and should also be free from the player interference
-	for tile in tiles_position:
-		#the path to this tile
-		#var path = star.find_path(kinematic_teenager.global_position,tile)
-		
-		if tile.distance_to(kinematic_teenager.global_position) > 300:
-			if is_path_free(tile):
+	#possible alternatives
+	var tiles = [
+		Vector2(teenager_map_position.x+8,teenager_map_position.y),
+		Vector2(teenager_map_position.x-8,teenager_map_position.y),
+		Vector2(teenager_map_position.x,teenager_map_position.y+8),
+		Vector2(teenager_map_position.x,teenager_map_position.y-8)
+	]
+	
+	#check if the teenager can escape throught the alternatives above
+	for tile in tiles:
+		if cells.find(tile) != -1:
+			if is_path_free(tilemap.map_to_world(tile)):
 				final_tile = tile
 				break
 	
