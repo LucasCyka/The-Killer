@@ -31,7 +31,8 @@ func _ready():
 		$OnVice:$OnVice.name,
 		$Startled:$Startled.name,
 		$Crippled:$Crippled.name,
-		$Shock:$Shock.name
+		$Shock:$Shock.name,
+		$Fighting:$Fighting.name
 	}
 	
 	for state in states:
