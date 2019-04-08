@@ -22,6 +22,7 @@ onready var state_machine = $States
 onready var kinematic_player = $KinematicPlayer
 onready var game = get_parent().get_parent()
 onready var sight_area = $KinematicPlayer/SightArea
+onready var wall_cast = $KinematicPlayer/WallCast
 
 #constructor
 func init(base,ui):
@@ -49,7 +50,6 @@ func _process(delta):
 		$KinematicPlayer/StateProgress.show()
 	else: $KinematicPlayer/StateProgress.hide()
 	
-
 #click on teenagers to attack them
 func _input(event):
 	if Input.is_action_just_pressed("cancel_input"):
@@ -152,10 +152,19 @@ func check_teenager_sight():
 		var player_pos = kinematic_player.global_position.normalized()
 		var distance = teen.kinematic_teenager.global_position.distance_to(kinematic_player.global_position)
 		var dir = teen_pos - player_pos
+		var behind_wall = false
 		
-		#TODO: raycast to ensure that the teen can really see him
+		#raycast to ensure that the teen can really see him
+		wall_cast.set_cast_to(teen.kinematic_teenager.global_position - wall_cast.global_position)
+		wall_cast.force_raycast_update()
+		
+		if wall_cast.is_colliding():
+			if wall_cast.get_collider().name != 'KinematicTeenager':
+				#the teen is behind a wall and can't see the player
+				behind_wall = true
+		
 		#check if he didn't see the player before
-		if not teen.saw_player:
+		if not teen.saw_player and not behind_wall:
 			var facing = dir.dot(teen.facing_direction)
 			if distance < 80 and is_indoor == teen.is_indoor:
 				#he's close enough to be in panic or in shock

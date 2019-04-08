@@ -69,6 +69,10 @@ editor/display_folded = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicPlayer/SightArea"]
 shape = SubResource( 3 )
 
+[node name="WallCast" type="RayCast2D" parent="KinematicPlayer"]
+enabled = true
+collision_mask = 5
+
 [node name="States" type="Node" parent="."]
 script = ExtResource( 3 )
 

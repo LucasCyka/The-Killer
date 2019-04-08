@@ -49,7 +49,8 @@ func update(delta):
 	#TODO: irregular movements, nerf the running effect etc
 	#TODO: check if the closest teenager still alive
 	#TODO: check if theres any teenager alive
-	
+	#TODO: make some teenagers more likely to start fighting than running
+	#or screaming
 	
 	#check if he's seeing the player and try to avoid/escape from him
 	if base.teenager.saw_player: is_avoiding_player = true
@@ -60,34 +61,40 @@ func update(delta):
 		if player == null or game.get_current_mode() != game.MODE.HUNTING:
 			#the player is not in the game
 			is_avoiding_player = false
-		elif player.kinematic_player.global_position.distance_to(teen_pos) > 300:
+		elif player.kinematic_player.global_position.distance_to(teen_pos) > 700:
 			#the teen is too far from the player
 			base.teenager.saw_player = false
 			is_avoiding_player = false
+		#elif player.is_indoor != base.teenager.is_indoor:
+		#	base.teenager.saw_player = false
+		#	is_avoiding_player = false
 		else:
 			if is_path_free(closest_teenager.kinematic_teenager.global_position):
-				pass#print("walk to the teenager")
+				pass
+				#print("walk to the teenager")
 			else:
 				#TODO: check if he can enter inside a building
 
 				#check if he's too close to the player
-				if player.kinematic_player.global_position.distance_to(teen_pos) < 10:
-					print("fight or die")
+				if player.kinematic_player.global_position.distance_to(teen_pos) < 30:
+					base.force_state('Cornered')
 					return
 				#try to escape, avoiding the player
 				if avoidant_tile == null:
 					avoidant_tile = get_avoidant_tile()
 					if avoidant_tile == null:
-						get_tree().quit()
+						#he's cornered by the player
+						base.force_state('Cornered')
+						return
+						#print("fight or die")
 				else:
-					#common.place_sprite(avoidant_tile,game)
 					if base.teenager.walk(avoidant_tile):
-						#print("new path brother")
-						pass
-					
+						avoidant_tile = null
+						return
+					#print("he's avoiding...")
 					if not is_path_free(avoidant_tile):
-					#	print("time for a new path")
-						pass
+						avoidant_tile = null
+						return
 				return
 			
 			"""
@@ -155,22 +162,26 @@ func get_avoidant_tile():
 	var teenager_map_position = tilemap.world_to_map(teen_pos)
 	var cells = tilemap.get_used_cells()
 	
-	#possible alternatives
+	#possible alternatives, 12 tiles away from the teen
 	var tiles = [
-		Vector2(teenager_map_position.x+8,teenager_map_position.y),
-		Vector2(teenager_map_position.x-8,teenager_map_position.y),
-		Vector2(teenager_map_position.x,teenager_map_position.y+8),
-		Vector2(teenager_map_position.x,teenager_map_position.y-8)
+		Vector2(teenager_map_position.x+12,teenager_map_position.y),
+		Vector2(teenager_map_position.x-12,teenager_map_position.y),
+		Vector2(teenager_map_position.x,teenager_map_position.y+12),
+		Vector2(teenager_map_position.x,teenager_map_position.y-12)
 	]
 	
 	#check if the teenager can escape throught the alternatives above
 	for tile in tiles:
 		if cells.find(tile) != -1:
 			if is_path_free(tilemap.map_to_world(tile)):
-				final_tile = tile
+				final_tile = tilemap.map_to_world(tile)
 				break
 	
 	return final_tile
+
+#return the closest teenager
+func get_closest_teenager():
+	pass
 
 #destructor
 func exit():

@@ -206,3 +206,4 @@ func load_trap_info():
 				traps_data[_type]['Price'].append(price)
 				traps_data[_type]['OneShot'].append(oneshot)
 				traps_data[_type]['Requirements'].append(requirements)
+				
