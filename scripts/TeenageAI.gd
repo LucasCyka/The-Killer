@@ -45,6 +45,7 @@ var last_routine = 0
 var is_routine_paused = false
 var saw_player = false
 var is_indoor = false setget set_is_indoor
+var is_escaping = false
 var facing_direction = Vector2(1,0)
 #used for pathfinding:
 var current_path = []
@@ -72,6 +73,7 @@ export var speed = base_speed
 onready var state_machine = $States
 onready var kinematic_teenager = $KinematicTeenager
 onready var teenager_anims = $KinematicTeenager/Animations
+onready var wall_cast = $KinematicTeenager/WallCast
 
 #initialize
 func _ready():
@@ -308,4 +310,26 @@ func set_is_indoor(value):
 		$KinematicTeenager/Animations/DebugState2.text = "indoor"
 	else:
 		$KinematicTeenager/Animations/DebugState2.text = "outdoor"
+
+#check if the teen can see an object. Will return false if the object is being
+#obstructed by walls.
+func is_object_visible(object):
+	wall_cast.set_cast_to(object.global_position - wall_cast.global_position)
+	wall_cast.force_raycast_update()
+	
+	if wall_cast.is_colliding():
+		return wall_cast.get_collider().name == object.name
+
+
+
+
+
+
+
+
+
+
+
+
+
 

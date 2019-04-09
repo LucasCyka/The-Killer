@@ -8,17 +8,22 @@ signal finished
 signal entered
 
 var base
-var regroup_point
+var escape_point
 var is_group_ready = false
 var teenagers
+var game
 
 #constructor
 func init(base,state_position,state_time):
-	regroup_point = state_position
+	#regroup_point = state_position
 	self.base = base
+	self.base.teenager.is_escaping = true
 	self.teenagers = get_tree().get_nodes_in_group("AI")
 	self.base.teenager.speed += 10
+	self.game = self.base.teenager.get_parent().get_parent()
+	self.escape_point = game.get_escaping_point()
 	
+	"""
 	#print(regroup_point)
 	#check if this is the first teenager to start escaping
 	#if so, then alert the others
@@ -38,10 +43,21 @@ func init(base,state_position,state_time):
 			teenager.state_machine.is_routine_over = true
 			teenager.state_machine.state_position = regroup_point
 			teenager.state_machine.force_state('Escaping')
-	
+	"""
 	emit_signal("entered")
 	
 func update(delta):
+	if game == null:
+		return
+	
+	var teen_pos = base.teenager.kinematic_teenager.global_position
+	
+	if base.teenager.walk(escape_point) or teen_pos.distance_to(escape_point) < 80:
+		base.force_state('Escaped')
+	
+	#TODO: player avoidance algorithm
+	#TODO: call other teens into escaping aswell.
+	"""
 	if regroup_point == null:
 		return
 	
@@ -72,8 +88,12 @@ func update(delta):
 		else:
 			return
 	base.teenager.walk(Vector2(-5000,-5000))
-	
+	"""
+
+#destructor
 func exit():
+	self.base.teenager.speed -= 10
+	game = null
 	emit_signal("finished")
 	
 	

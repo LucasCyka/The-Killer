@@ -113,17 +113,33 @@ func update(delta):
 			"""
 	
 	var distance = closest_teenager.get_child(0).global_position.distance_to(kinematic_teenager.global_position) 
+	var is_visible = base.teenager.is_object_visible(closest_teenager.kinematic_teenager)
 	avoidant_tile = null
-	if base.teenager.walk(closest_teenager.get_child(0).global_position) or distance < 60:
+	
+	if base.teenager.walk(closest_teenager.get_child(0).global_position) or (distance < 60 and is_visible):
 		is_running = false
 		#start the escape
-		closest_teenager.state_machine.force_state('Escaping')
-		exit()
+		if closest_teenager.state_machine.get_current_state() != 'Panic':
+			closest_teenager.state_machine.force_state('Escaping')
+		else:
+			closest_teenager = get_closest_teenager()
+			if closest_teenager == null:
+				base.teenager.saw_player = false
+				base.force_state('Escaping')
+			return
+		base.teenager.saw_player = false
+		base.force_state('Escaping')
+		#exit()
 		
 #when the teenager start to run like an idiot
 func set_is_running(value):
 	is_running = value
 	
+	closest_teenager = get_closest_teenager()
+	if closest_teenager == null:
+		base.teenager.saw_player = false
+		base.force_state('Escaping')
+	"""
 	if is_running == true:
 		#order the teenagers by distance to this teenager
 		var positions = []
@@ -138,6 +154,7 @@ func set_is_running(value):
 			if teenager.get_child(0).global_position == positions.front():
 				closest_teenager = teenager
 				break
+	"""
 
 #check if the teenager can arrive in a given position and avoid the player
 func is_path_free(pos):
@@ -164,12 +181,16 @@ func get_avoidant_tile():
 	
 	#possible alternatives, 12 tiles away from the teen
 	var tiles = [
-		Vector2(teenager_map_position.x+12,teenager_map_position.y),
-		Vector2(teenager_map_position.x-12,teenager_map_position.y),
-		Vector2(teenager_map_position.x,teenager_map_position.y+12),
-		Vector2(teenager_map_position.x,teenager_map_position.y-12)
+		Vector2(teenager_map_position.x+15,teenager_map_position.y),
+		Vector2(teenager_map_position.x-15,teenager_map_position.y),
+		Vector2(teenager_map_position.x,teenager_map_position.y+15),
+		Vector2(teenager_map_position.x,teenager_map_position.y-15),
+		Vector2(teenager_map_position.x-15,teenager_map_position.y-15),
+		Vector2(teenager_map_position.x+15,teenager_map_position.y+15),
+		Vector2(teenager_map_position.x+15,teenager_map_position.y-15),
+		Vector2(teenager_map_position.x-15,teenager_map_position.y+15)
 	]
-	
+	tiles.shuffle()
 	#check if the teenager can escape throught the alternatives above
 	for tile in tiles:
 		if cells.find(tile) != -1:
@@ -181,8 +202,29 @@ func get_avoidant_tile():
 
 #return the closest teenager
 func get_closest_teenager():
-	pass
-
+	#order the teenagers by distance to this teenager
+	var positions = []
+	var closest = base.teenager
+	
+	for teenager in teenagers:
+		var state = teenager.state_machine.get_current_state()
+		#TODO: check if he's not dead
+		if teenager != base.teenager and state != 'Panic':
+			positions.append(teenager.get_child(0).global_position)
+	
+	positions = common.order_by_distance(positions,base.teenager.get_child(0).global_position)
+	
+	if positions == []:
+		return null
+	
+	#seach the closest teenager
+	for teenager in teenagers:
+		if teenager.get_child(0).global_position == positions.front():
+			closest = teenager
+			break
+	
+	return closest
+	
 #destructor
 func exit():
 	if _timer != null:

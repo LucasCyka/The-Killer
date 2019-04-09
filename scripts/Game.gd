@@ -11,7 +11,8 @@ signal loaded
 enum MODE {
 	PLANNING,
 	HUNTING,
-	PAUSED
+	PAUSED,
+	GAMEOVER
 }
 
 var current_mode = MODE.PLANNING setget set_current_mode, get_current_mode
@@ -91,19 +92,35 @@ func get_pathfinding_tile():
 func set_current_mode(value):
 	current_mode = value
 	
+	match current_mode:
+		MODE.HUNTING:
+			disable_spawn_points()
+			ui.lock()
+		MODE.PLANNING:
+			ui.unlock()
+		MODE.GAMEOVER:
+			pass
+		_:
+			#the game is paused...
+			pass
+	"""
 	if current_mode == MODE.HUNTING:
 		#init the hunting mode
 		disable_spawn_points()
 		ui.lock()
 	elif current_mode == MODE.PLANNING:
 		ui.unlock()
-		pass
 	else:
 		#the game is paused...
 		pass
-
+	"""
+	
 func get_current_mode():
 	return current_mode
+
+func get_escaping_point():
+	return Vector2(360,-450)
+	#TODO: take this from a tilemap
 
 #get traps that are placed on the map
 func get_placed_traps():

@@ -34,7 +34,8 @@ func _ready():
 		$Shock:$Shock.name,
 		$Fighting:$Fighting.name,
 		$Cornered:$Cornered.name,
-		$Screaming:$Screaming.name
+		$Screaming:$Screaming.name,
+		$Escaped:$Escaped.name
 	}
 	
 	for state in states:
@@ -143,11 +144,21 @@ func check_forced_state(state):
 	if current_state.name == 'Dead':
 		return false
 	if state == 'Panic' and current_state.name == 'Escaping':
+		state_time = 2
+		force_state("Shock")
 		return false
 	if state == 'OnVice' and current_state.name == 'Panic' or (current_state.name == 'Escaping' and state == 'OnVice'):
 		return false
 	if state =='Panic' and current_state.name == 'Crippled':
 		return false 
+	if state == 'Startled' and current_state.name == 'Escaping':
+		return false
+	if state == 'Startled' and current_state.name == 'Panic':
+		pass
+	if current_state.name == 'Escaped':
+		return false
+#	if state == 'Panic' and current_state.name == 'Shock':
+#		return false
 	
 	return true
 
