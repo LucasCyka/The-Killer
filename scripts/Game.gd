@@ -7,6 +7,7 @@ extends Node2D
 
 #the game has been loaded
 signal loaded
+signal game_over
 
 enum MODE {
 	PLANNING,
@@ -90,7 +91,8 @@ func get_pathfinding_tile():
 
 #change the current game mode
 func set_current_mode(value):
-	current_mode = value
+	if current_mode != MODE.GAMEOVER:
+		current_mode = value
 	
 	match current_mode:
 		MODE.HUNTING:
@@ -99,7 +101,11 @@ func set_current_mode(value):
 		MODE.PLANNING:
 			ui.unlock()
 		MODE.GAMEOVER:
-			pass
+			ui.lock()
+			disable_spawn_points()
+			emit_signal("game_over")
+			var player = get_player()
+			if player != null:player.queue_free()
 		_:
 			#the game is paused...
 			pass

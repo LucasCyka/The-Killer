@@ -15,8 +15,11 @@ func init(base):
 
 #hunt button pressed state
 func hunt():
-	#TODO: check if the game can change to the hunting mode before spawning
+	#check if the game can change to the hunting mode before spawning
 	#the hunter.
+	if base.game.get_current_mode() == base.game.MODE.GAMEOVER:
+		return
+		 
 	var hunter = preload("res://scenes/PlayerHunter.tscn").instance()
 	hunter.init(base.game,base)
 	base.game.get_node("AI").add_child(hunter)

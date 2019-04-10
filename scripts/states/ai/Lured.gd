@@ -14,16 +14,27 @@ var trail setget set_trail
 var teenager
 var _timer
 var current_section = 0 #the piece of trail the teen is currently following
+var initial_position
 
 #constructor
 func init(base,state_position,state_time):
 	self.base = base
 	self.base.is_forced_state = false
 	teenager = base.teenager
+	initial_position = teenager.kinematic_teenager.global_position
 	trap = teenager.get_traps()[teenager.current_trap]
 	if trap.is_one_shot():
 		trap.is_used = true
 	else: trap.is_used = false
+	
+	#traps that aren't oneshot need to store the current section of a trail
+	if not trap.is_one_shot():
+		if trap.trail_position.has(teenager.id):
+			current_section = trap.trail_section[teenager.id]
+			initial_position = trap.trail_position[teenager.id]
+		else:
+			trap.trail_section[teenager.id] = current_section
+			trap.trail_position[teenager.id] = initial_position
 	
 	trail = trap.get_trail()
 	
@@ -36,11 +47,19 @@ func init(base,state_position,state_time):
 	base.add_child(_timer)
 	_timer.start()
 	
-	#TODO: there's a problem here: the teenager will try to follow the path
-	#in all directions. This is unrealistic and to solve this I need to remove
-	#some pieces from this trail
-	trail = common.order_by_distance(trail,teenager.kinematic_teenager.global_position)
+	#will define the order the teenager will follow the trail
+	trail = common.order_by_distance(trail,initial_position)
 	
+	"""
+	var id = 0
+	for piece in trail:
+		var label = Label.new()
+		label.text =str(int(piece.distance_to(teenager.kinematic_teenager.global_position)))
+		label.text = label.text + ": " + str(id)
+		label.rect_global_position = piece
+		base.add_child(label)
+		id +=1
+	"""
 	emit_signal("entered")
 	
 func update(delta):
@@ -56,6 +75,8 @@ func update(delta):
 		else:
 			current_section +=1 
 			set_trail(trail)
+			
+			trap.trail_section[teenager.id] = current_section
 			
 #destructor
 func exit():
@@ -79,6 +100,7 @@ func exit():
 	
 	following_trail = false
 	current_section = 0
+	initial_position = null
 	emit_signal("finished")
 	
 	
@@ -89,6 +111,9 @@ func start_following_trail():
 
 func set_trail(value):
 	trail = value
+	
+	if trail.size() != 0:
+		trail = common.order_by_distance(trail,initial_position)
 	
 	if trap.is_one_shot():
 		if trail.size() == 0:

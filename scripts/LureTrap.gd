@@ -16,6 +16,12 @@ var spacement = 210
 #if the trap is already being used by one or two teenagers
 var is_used = false
 
+#these dictionaries will store the trail a teenager currently is.
+#it's only used by traps that aren't one-shot, so the teen can continue
+#his trail from where he stopped when it's interrupted.
+var trail_position = {}
+var trail_section = {}
+
 #world nodes 
 onready var current_texture = $Texture
 onready var detection_radius = $Texture/DetectionRadius
@@ -37,6 +43,8 @@ func _process(delta):
 	elif trail.size() == size:
 		#this trap is set and finished
 		set_process(false)
+		current_texture.queue_free()
+		current_texture = null
 		#signals
 		detection_radius = get_children()
 		for radius in detection_radius:
@@ -83,10 +91,9 @@ func _input(event):
 
 #draw lines between each trap placed, showing the path the player should walk
 func _draw():
-	if previous_texture == null or is_used: return
+	if previous_texture == null or is_used or current_texture == null: return
 	if current_texture.global_position.distance_to(previous_texture.global_position) > spacement:
-		#the spacemenet between the two are too big, show it tothe player.
-		
+		#the spacemenet between the two is too big
 		return
 	elif trail.size() >1 and trail.size() < size:
 		for trap in range(trail.size()):
@@ -115,12 +122,13 @@ func on_radius(body):
 				trapped_teenagers.append(teenager)
 				if is_one_shot():
 					 deactivate_trap()
+				#is_used = true
 
 #check if the teenager is leaving the trap radius
 func out_radius(body):
 	if is_used: return
 	
-	if body.name == "KinematicTeenager" and !is_used:
+	if body.name == "KinematicTeenager" and !is_used and is_one_shot():
 		var teenager = body.get_parent()
 		teenager.remove_trap(self,false)
 

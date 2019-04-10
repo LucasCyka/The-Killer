@@ -137,6 +137,7 @@ script = ExtResource( 1 )
 editor/display_folded = true
 position = Vector2( 768.593, 241.677 )
 gender = 1
+id = 1
 
 [node name="Routines" type="Node" parent="AI/Teenager"]
 
@@ -323,7 +324,7 @@ texture = ExtResource( 24 )
 position = Vector2( 799.806, 848.917 )
 z_index = 1
 frames = SubResource( 5 )
-frame = 1
+frame = 4
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites"]

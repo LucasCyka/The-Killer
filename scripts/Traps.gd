@@ -138,7 +138,9 @@ func activate_trap(teenager):
 		#check if it can be activated right away
 		if teenager.state_machine.check_forced_state('Lured'):
 			teenager.state_machine.force_state('Lured')
-			child.is_used = true
+			
+			if is_one_shot():
+				child.is_used = true
 		else:
 			#can't be activated again? remove it from the teenager trap list
 			#then.

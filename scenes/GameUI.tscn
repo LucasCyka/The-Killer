@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/GameUI.gd" type="Script" id=1]
 [ext_resource path="res://scripts/TeenagerInfo.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://scripts/MiscUI.gd" type="Script" id=11]
 [ext_resource path="res://sprites/gui/hunt_btn.png" type="Texture" id=12]
 [ext_resource path="res://scripts/InfoUI.gd" type="Script" id=13]
+[ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=14]
 
 [node name="GameUI" type="Control"]
 anchor_right = 1.0
@@ -221,6 +222,38 @@ margin_top = 20.0
 margin_right = 50.0
 margin_bottom = 51.0
 text = "00000000"
+
+[node name="GameOverUI" type="Control" parent="Canvas"]
+editor/display_folded = true
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 14 )
+
+[node name="Panel" type="Control" parent="Canvas/GameOverUI"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Quit" type="Button" parent="Canvas/GameOverUI/Panel"]
+margin_left = 300.0
+margin_top = 160.0
+margin_right = 374.0
+margin_bottom = 186.0
+text = "QUIT"
+
+[node name="Restart" type="Button" parent="Canvas/GameOverUI/Panel"]
+margin_left = 220.0
+margin_top = 160.0
+margin_right = 294.0
+margin_bottom = 186.0
+text = "RESTART"
+
+[node name="Label" type="Label" parent="Canvas/GameOverUI/Panel"]
+margin_left = 259.003
+margin_top = 123.884
+margin_right = 335.003
+margin_bottom = 137.884
+text = "GAME OVER"
 
 [connection signal="pressed" from="Canvas/TeenagerInfo/Panel/background/Close" to="Canvas/TeenagerInfo" method="hide_panel"]
 [connection signal="pressed" from="Canvas/TrapsUI/TrapsPanel/LureBtn" to="Canvas/TrapsUI" method="lure_btn"]
