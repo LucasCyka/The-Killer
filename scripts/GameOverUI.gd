@@ -18,3 +18,10 @@ func init(base):
 	
 func show_screen():
 	panel.show()
+	
+func restart():
+	star.clear()
+	get_tree().reload_current_scene()
+	
+func quit():
+	get_tree().quit()

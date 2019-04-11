@@ -89,6 +89,7 @@ enabled = true
 collision_mask = 5
 
 [node name="States" type="Node" parent="."]
+editor/display_folded = true
 script = ExtResource( 4 )
 
 [node name="Idle" type="Node" parent="States"]

@@ -42,7 +42,13 @@ func place_sprite(pos,scene):
 	spr.global_position = pos
 	scene.add_child(spr)
 	
-
+#converts 'value' from string to boolean
+func string_to_boolean(value):
+	match value:
+		'true':
+			return true
+		'false':
+			return false
 
 
 

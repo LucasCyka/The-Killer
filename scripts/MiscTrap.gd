@@ -19,6 +19,8 @@ var priotity = [10]
 #world nodes
 onready var current_texture = $Texture
 onready var detection_radius = $Texture/Area2D
+onready var detection_spot_radius = $Texture/AreaSpot
+onready var detection_wall = $Texture/VisibilityDetection
 
 var effects = {
 	0:[funcref(self,"enter_panic")],
@@ -33,8 +35,13 @@ func _ready():
 	
 	#detection signals
 	type = TYPES.MISC
-	detection_radius.connect("body_entered",self,"on_radius")
-	detection_radius.connect("body_exited",self,"on_radius")
+	
+	if not is_on_spot():
+		detection_radius.connect("body_entered",self,"on_radius")
+		detection_radius.connect("body_exited",self,"out_radius")
+	else:
+		detection_spot_radius.connect("body_entered",self,"on_radius")
+		detection_spot_radius.connect("body_exited",self,"out_radius")
 
 #move the trap around the map
 func _process(delta):
@@ -42,8 +49,9 @@ func _process(delta):
 		if is_placed and base != null and body_on_radius != null:
 			#if the teenager are in the same region, emit the signal
 			if body_on_radius.get_parent().is_indoor == is_indoor:
-				on_radius(body_on_radius)
-				body_on_radius = null
+				if body_on_radius.get_parent().is_object_visible(detection_wall):
+					on_radius(body_on_radius)
+					body_on_radius = null
 		return
 	
 	var closest = base.get_closest_tile(tiles,get_global_mouse_position(),20)
@@ -76,13 +84,12 @@ func on_radius(body):
 		if trapped_teenagers.find(body.get_parent()) != -1: return
 	if body.name == "KinematicTeenager" and !is_used and is_placed:
 		#check if the teenager can see the trap
-		if body.get_parent().is_indoor != is_indoor:
+		if body.get_parent().is_indoor != is_indoor or !body.get_parent().is_object_visible(detection_wall):
 			#he can't see the trap now, but lets wait if he can see it later
 			body_on_radius = body
 			return
 		
-		#TODO: raycast from the teenager to the trap to ensure he really can 
-		#see it...
+		
 		#body.get_parent().set_trap(self)
 		for effect in effects[id]:
 			#apply each effect of this trap

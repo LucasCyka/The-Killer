@@ -225,14 +225,14 @@ func get_curiosity():
 #params:
 #value = amount of fear points
 #cause_panic = if this new value can cause panic on the teenager.
-func set_fear(value,cause_panic=true):
+func set_fear(value,cause_panic=true,add_points=true):
 	fear = value
 	
 	#increase score
 	var fear_modifier = 2.5
 	var level = get_parent().get_parent().get_level()
 	var points = (score.get_score(level) + value * fear_modifier)
-	score.set_score(level,int(points))
+	if add_points: score.set_score(level,int(points))
 	
 	if not cause_panic: return
 	if get_fear() > get_curiosity():
@@ -248,7 +248,7 @@ func get_position():
 
 func decrease_modifiers():
 	if get_fear() > 0:
-		set_fear(get_fear() - 0.01)
+		set_fear(get_fear() - 0.01,true,false)
 	
 	if get_curiosity() > 0:
 		set_curiosity(get_curiosity() - 0.01)

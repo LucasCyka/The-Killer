@@ -261,3 +261,5 @@ text = "GAME OVER"
 [connection signal="pressed" from="Canvas/TrapsUI/TrapsPanel/ViceBtn" to="Canvas/TrapsUI" method="vice_btn"]
 [connection signal="pressed" from="Canvas/TrapsUI/TrapsPanel/MiscBtn" to="Canvas/TrapsUI" method="misc_btn"]
 [connection signal="pressed" from="Canvas/MiscUI/MiscPanel/HuntBtn" to="Canvas/MiscUI" method="hunt"]
+[connection signal="pressed" from="Canvas/GameOverUI/Panel/Quit" to="Canvas/GameOverUI" method="quit"]
+[connection signal="pressed" from="Canvas/GameOverUI/Panel/Restart" to="Canvas/GameOverUI" method="restart"]

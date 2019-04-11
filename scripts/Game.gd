@@ -167,10 +167,10 @@ func load_trap_info():
 	
 	#dictionary structury
 	traps_data = {
-	trap_enum.BUMP:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[]},
-	trap_enum.LURE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[]},
-	trap_enum.MISC:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[]},
-	trap_enum.VICE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[]}
+	trap_enum.BUMP:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[]},
+	trap_enum.LURE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[]},
+	trap_enum.MISC:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[]},
+	trap_enum.VICE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[]}
 	}
 	
 	#all traps
@@ -199,7 +199,8 @@ func load_trap_info():
 				var curiosity = int(traps['Traps'][type]['Curiosity'][id])
 				var price = int(traps['Traps'][type]['Price'][id])
 				var requirements = traps['Traps'][type]['Requirements'][id]
-				var oneshot = traps['Traps'][type]['OneShot'][id]
+				var oneshot = common.string_to_boolean(traps['Traps'][type]['OneShot'][id])
+				var onspot = common.string_to_boolean(traps['Traps'][type]['OnSpot'][id])
 				
 				#change the trap type to an enum
 				match type:
@@ -214,12 +215,6 @@ func load_trap_info():
 					_:
 							_type = trap_enum.NULL
 							
-				#string to boolean
-				match oneshot:
-					'true':
-						oneshot = true
-					'false':
-						oneshot = false
 				
 				#assign data
 				traps_data[_type]['ID'].append(id)
@@ -229,4 +224,5 @@ func load_trap_info():
 				traps_data[_type]['Price'].append(price)
 				traps_data[_type]['OneShot'].append(oneshot)
 				traps_data[_type]['Requirements'].append(requirements)
+				traps_data[_type]['OnSpot'].append(onspot)
 				

@@ -7,16 +7,18 @@
 	"Curiosity":["20"],
     "Price": ["4"],
 	"OneShot":["true"],
+	"OnSpot":["false"],
 	"Requirements":[["NULL"],["NULL"]]
   },
   
   "LURE":{
     "ID": ["0","1","2"],
     "Icon":["/lure1.png","/porn.png","/blood.png"],
-	"Fear":["1","1","1"],
+	"Fear":["1","1","20"],
 	"Curiosity":["15","40","6"],
     "Price": ["4","10","15"],
 	"OneShot":["true","true","false"],
+	"OnSpot":["false","false","false"],
 	"Requirements":[["MEN","MIN10"],["MEN"],["NULL"]]
   },
   
@@ -27,6 +29,7 @@
 	"Curiosity":["0","0"],
     "Price": ["10","30"],
 	"OneShot":["false","true"],
+	"OnSpot":["false","true"],
 	"Requirements":[["NULL"],["PANIC"],["PANIC"]]
   },
   
@@ -37,6 +40,7 @@
 	"Curiosity":["10"],
     "Price": ["4"],
 	"OneShot":["true"],
+	"OnSpot":["false"],
 	"Requirements":[["NULL"],["MEN"]]
   }
   
