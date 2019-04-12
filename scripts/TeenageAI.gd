@@ -73,7 +73,8 @@ export var speed = base_speed
 onready var state_machine = $States
 onready var kinematic_teenager = $KinematicTeenager
 onready var teenager_anims = $KinematicTeenager/Animations
-onready var wall_cast = $KinematicTeenager/WallCast
+onready var wall_cast = $KinematicTeenager/DetectionArea/WallCast
+onready var detection_area = $KinematicTeenager/DetectionArea
 
 #initialize
 func _ready():

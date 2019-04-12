@@ -37,19 +37,21 @@ func _ready():
 	type = TYPES.MISC
 	
 	if not is_on_spot():
-		detection_radius.connect("body_entered",self,"on_radius")
-		detection_radius.connect("body_exited",self,"out_radius")
+		detection_radius.connect("area_entered",self,"on_radius")
+		detection_radius.connect("area_exited",self,"out_radius")
 	else:
-		detection_spot_radius.connect("body_entered",self,"on_radius")
-		detection_spot_radius.connect("body_exited",self,"out_radius")
+		detection_spot_radius.connect("area_entered",self,"on_radius")
+		detection_spot_radius.connect("area_exited",self,"out_radius")
 
 #move the trap around the map
 func _process(delta):
 	if base == null or is_placed:
 		if is_placed and base != null and body_on_radius != null:
+			var teen = body_on_radius.get_parent().get_parent()
+			
 			#if the teenager are in the same region, emit the signal
-			if body_on_radius.get_parent().is_indoor == is_indoor:
-				if body_on_radius.get_parent().is_object_visible(detection_wall):
+			if teen.is_indoor == is_indoor:
+				if teen.is_object_visible(detection_wall):
 					on_radius(body_on_radius)
 					body_on_radius = null
 		return
@@ -76,35 +78,36 @@ func _input(event):
 			queue_free()
 
 #check if a teenager activated this trap
-func on_radius(body):
-	if body.name == "KinematicTeenager":
-		if !check_requirements(body.get_parent()): return
-		
+func on_radius(area):
+	var teen = null
+	if area.name == "DetectionArea":
+		teen = area.get_parent().get_parent()
+		if !check_requirements(teen): return
 		#check if the teenager has already falled for this trap.
-		if trapped_teenagers.find(body.get_parent()) != -1: return
-	if body.name == "KinematicTeenager" and !is_used and is_placed:
+		if trapped_teenagers.find(teen) != -1: return
+	if area.name == "DetectionArea" and !is_used and is_placed:
 		#check if the teenager can see the trap
-		if body.get_parent().is_indoor != is_indoor or !body.get_parent().is_object_visible(detection_wall):
+		if teen.is_indoor != is_indoor or !teen.is_object_visible(detection_wall):
 			#he can't see the trap now, but lets wait if he can see it later
-			body_on_radius = body
+			body_on_radius = area
 			return
-		
-		
+		#print(teen)
 		#body.get_parent().set_trap(self)
 		for effect in effects[id]:
 			#apply each effect of this trap
-			effect.call_func(body.get_parent())
+			effect.call_func(teen)
+			#print(teen)
 			if oneshot:
 				is_used = true
-		trapped_teenagers.append(body.get_parent())
+		trapped_teenagers.append(teen)
 			#TODO: remove this trap?
-	elif body.name == "KinematicTeenager" and !is_used and !is_placed:
+	elif area.name == "DetectionArea" and !is_used and !is_placed:
 		#await for it to be placed then...
-		body_on_radius = body
+		body_on_radius = area
 		
 				
-func out_radius(body):
-	if body == body_on_radius:
+func out_radius(area):
+	if area == body_on_radius:
 		body_on_radius = null
 
 

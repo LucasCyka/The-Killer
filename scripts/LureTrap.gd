@@ -11,6 +11,7 @@ var size = 10
 var current_position = Vector2(0,0)
 var trail = [] setget , get_trail
 var previous_texture = null
+var body_on_radius = []
 #space between two traps
 var spacement = 210
 #if the trap is already being used by one or two teenagers
@@ -25,6 +26,7 @@ var trail_section = {}
 #world nodes 
 onready var current_texture = $Texture
 onready var detection_radius = $Texture/DetectionRadius
+onready var detection_wall = $Texture/VisibilityDetection
 
 #TODO: params like what kind of trap this is. Who can be affect by it?
 #how many points does it cost? detection radius? etc...
@@ -48,8 +50,8 @@ func _process(delta):
 		#signals
 		detection_radius = get_children()
 		for radius in detection_radius:
-			radius.get_child(0).connect("body_entered",self,"on_radius")
-			radius.get_child(0).connect("body_exited",self,"out_radius")
+			radius.get_node("DetectionRadius").connect("area_entered",self,"on_radius")
+			radius.get_node("DetectionRadius").connect("area_exited",self,"out_radius")
 		
 		ui.disconnect("new_trap",self,"exit")
 			
@@ -62,6 +64,20 @@ func _process(delta):
 	else: set_is_invalid_tile(false)
 	current_texture.global_position = Vector2(closest.x+25/2,closest.y+25/2)
 	update()
+
+#check if close teenager can see the lure
+func _physics_process(delta):
+	if body_on_radius == [] or is_used:
+		return
+	
+	for body in body_on_radius:
+		var teen = body.get_parent().get_parent()
+		
+		for piece in get_children():
+			var detection = piece.get_node("VisibilityDetection")
+			if teen.is_object_visible(detection):
+				on_radius(body)
+				break
 	
 #place or cancel traps
 func _input(event):
@@ -109,12 +125,23 @@ func _draw():
 	draw_line(from,to,Color.red)
 
 #check if the teenager entered the radius of the trap so he can be lured
-func on_radius(body):
-	if body.name == "KinematicTeenager" and !is_used:
-		var teenager = body.get_parent()
+func on_radius(area):
+	if area.name == "DetectionArea" and !is_used:
+		var teenager = area.get_parent().get_parent()
 		
 		if trapped_teenagers.find(teenager) != -1:
 			#the teenager has already been lured by this trap
+			return
+		
+		var is_visible = false
+		for piece in get_children():
+			if teenager.is_object_visible(piece.get_node("VisibilityDetection")):
+				is_visible = true
+				break
+		
+		if !is_visible:
+			#he can't see the lure yet
+			if body_on_radius.find(area) == -1: body_on_radius.append(area)
 			return
 			
 		if check_requirements(teenager):
@@ -123,13 +150,18 @@ func on_radius(body):
 				if is_one_shot():
 					 deactivate_trap()
 				#is_used = true
+		else:
+			#the teen can't fall for this trap
+			if body_on_radius.find(area) != -1: body_on_radius.erase(area)
 
 #check if the teenager is leaving the trap radius
-func out_radius(body):
+func out_radius(area):
 	if is_used: return
 	
-	if body.name == "KinematicTeenager" and !is_used and is_one_shot():
-		var teenager = body.get_parent()
+	if body_on_radius.find(area) != -1: body_on_radius.erase(area)
+	
+	if area.name == "DetectionArea" and !is_used and is_one_shot():
+		var teenager = area.get_parent().get_parent()
 		teenager.remove_trap(self,false)
 
 func get_trail():

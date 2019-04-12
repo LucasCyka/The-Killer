@@ -113,7 +113,7 @@ func update(delta):
 			"""
 	
 	var distance = closest_teenager.get_child(0).global_position.distance_to(kinematic_teenager.global_position) 
-	var is_visible = base.teenager.is_object_visible(closest_teenager.kinematic_teenager)
+	var is_visible = base.teenager.is_object_visible(closest_teenager.detection_area)
 	avoidant_tile = null
 	
 	if base.teenager.walk(closest_teenager.get_child(0).global_position) or (distance < 60 and is_visible):
@@ -124,7 +124,7 @@ func update(delta):
 		else:
 			closest_teenager = get_closest_teenager()
 			if closest_teenager == null:
-				base.teenager.saw_player = false
+				base.teenager.saw_player = true
 				base.force_state('Escaping')
 			return
 		base.teenager.saw_player = false
@@ -137,7 +137,7 @@ func set_is_running(value):
 	
 	closest_teenager = get_closest_teenager()
 	if closest_teenager == null:
-		base.teenager.saw_player = false
+		base.teenager.saw_player = true
 		base.force_state('Escaping')
 	"""
 	if is_running == true:
@@ -209,7 +209,7 @@ func get_closest_teenager():
 	for teenager in teenagers:
 		var state = teenager.state_machine.get_current_state()
 		#TODO: check if he's not dead
-		if teenager != base.teenager and state != 'Panic':
+		if teenager != base.teenager and state != 'Panic' and state != 'Dead':
 			positions.append(teenager.get_child(0).global_position)
 	
 	positions = common.order_by_distance(positions,base.teenager.get_child(0).global_position)

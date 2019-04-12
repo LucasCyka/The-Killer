@@ -22,7 +22,7 @@ onready var state_machine = $States
 onready var kinematic_player = $KinematicPlayer
 onready var game = get_parent().get_parent()
 onready var sight_area = $KinematicPlayer/SightArea
-onready var wall_cast = $KinematicPlayer/WallCast
+onready var wall_cast = $KinematicPlayer/SightArea/WallCast
 
 #constructor
 func init(base,ui):
@@ -54,7 +54,6 @@ func _process(delta):
 func _input(event):
 	if Input.is_action_just_pressed("cancel_input"):
 		target = _selected_teenager
-		
 		
 		if state_machine.get_current_state() != 'Spawning' and state_machine.get_current_state() != 'Deployment':
 			#exit the hunter mode when the player hits 'escape'
@@ -157,9 +156,8 @@ func check_teenager_sight():
 		#raycast to ensure that the teen can really see him
 		wall_cast.set_cast_to(teen.kinematic_teenager.global_position - wall_cast.global_position)
 		wall_cast.force_raycast_update()
-		
 		if wall_cast.is_colliding():
-			if wall_cast.get_collider().name != 'KinematicTeenager':
+			if wall_cast.get_collider().name != 'DetectionArea':
 				#the teen is behind a wall and can't see the player
 				behind_wall = true
 		
@@ -177,18 +175,18 @@ func check_teenager_sight():
 					teen.saw_player = true
 
 #check if the teenager entered the player sight area
-func on_sight_area(body):
-	if body.name == 'KinematicTeenager':
-		if teenager_on_sight.find(body.get_parent()) == -1:
-			teenager_on_sight.append(body.get_parent())
+func on_sight_area(area):
+	if area.name == 'DetectionArea':
+		if teenager_on_sight.find(area.get_parent().get_parent()) == -1:
+			teenager_on_sight.append(area.get_parent().get_parent())
 			#body.get_parent().saw_player = false
 
 
 #check if teenager left the player sight area
-func out_sight_area(body):
-	if body.name == 'KinematicTeenager':
-		if teenager_on_sight.find(body.get_parent()) != -1:
-			teenager_on_sight.remove(teenager_on_sight.find(body.get_parent()))
+func out_sight_area(area):
+	if area.name == 'DetectionArea':
+		if teenager_on_sight.find(area.get_parent().get_parent()) != -1:
+			teenager_on_sight.remove(teenager_on_sight.find(area.get_parent().get_parent()))
 
 
 

@@ -17,21 +17,23 @@ var body_on_radius = null
 #world nodes
 onready var texture = $Texture
 onready var radius = $Texture/DetectionRadius
+onready var detection_wall = $Texture/VisibilityDetection
 
 func _ready():
 	#TODO: change the textures acording to its ID
 	#on radius signal
 	type = TYPES.VICE
-	radius.connect("body_entered",self,"_on_radius")
-	radius.connect("body_exited",self,"_out_radius")
+	radius.connect("area_entered",self,"_on_radius")
+	radius.connect("area_exited",self,"_out_radius")
 
 #move the trap around the map
 func _process(delta):
 	if base == null or is_placed:
 		if is_placed and body_on_radius != null and !is_used:
+			var teenager = body_on_radius.get_parent().get_parent()
 			#this trap is on the teenager radius. If he's both are in the
 			#same location (indoor or outdoor) emit the signal
-			if body_on_radius.get_parent().is_indoor == is_indoor:
+			if teenager.is_indoor == is_indoor:
 				_on_radius(body_on_radius)
 				body_on_radius = null
 		return
@@ -61,34 +63,36 @@ func _input(event):
 #when something entered this trap radius. Check if it's the player then do 
 #its effects
 #TODO: raycast to see if the player can really see the trap
-func _on_radius(body):
-	if body.name == "KinematicTeenager":
-		if !check_requirements(body.get_parent()): return
+func _on_radius(area):
+	var teenager = null
+	if area.name == "DetectionArea":
+		teenager = area.get_parent().get_parent()
+		if !check_requirements(area.get_parent().get_parent()): return
 	
-	if body.name == "KinematicTeenager" and is_placed and !is_used:
+	if area.name == "DetectionArea" and is_placed and !is_used:
 		#check if the teenager can see the trap
-		if body.get_parent().is_indoor != is_indoor:
+		if teenager.is_indoor != is_indoor:
 			#he can't see the trap now, but lets wait if he can see it later
-			body_on_radius = body
+			body_on_radius = area
 			return
 		#is_used = true
 		#set_process(false)
 #		body.get_parent().set_trap(self)
-		if activate_vice(body.get_parent()):
+		if activate_vice(teenager):
 			deactivate_trap()
 			#is_used = true
 			#set_process(false)
 			#TODO: custom function to deactivate a trap
-	elif body.name == "KinematicTeenager" and !is_placed and !is_used:
+	elif area.name == "DetectionArea" and !is_placed and !is_used:
 		#this trap has not been placed yet, but let's wait if it does later on
-		body_on_radius = body
+		body_on_radius = area
 		#for effect in effects[id]:
 			#apply each effect of this trap
 			#TODO: those effects should be applied inside the OnVice State
 			#effect.call_func(body.get_parent())
 
-func _out_radius(body):
-	if body_on_radius == body:
+func _out_radius(area):
+	if body_on_radius == area:
 		body_on_radius = null
 
 

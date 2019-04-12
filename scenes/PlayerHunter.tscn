@@ -55,6 +55,7 @@ animation = "prototype"
 
 [node name="Collision" type="CollisionShape2D" parent="KinematicPlayer"]
 shape = SubResource( 2 )
+disabled = true
 
 [node name="StateProgress" type="ProgressBar" parent="KinematicPlayer"]
 visible = false
@@ -64,14 +65,14 @@ margin_right = 24.0
 margin_bottom = -34.0
 
 [node name="SightArea" type="Area2D" parent="KinematicPlayer"]
-editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicPlayer/SightArea"]
 shape = SubResource( 3 )
 
-[node name="WallCast" type="RayCast2D" parent="KinematicPlayer"]
+[node name="WallCast" type="RayCast2D" parent="KinematicPlayer/SightArea"]
 enabled = true
 collision_mask = 5
+collide_with_areas = true
 
 [node name="States" type="Node" parent="."]
 script = ExtResource( 3 )
@@ -93,5 +94,5 @@ script = ExtResource( 8 )
 
 [node name="StateTimer" type="Timer" parent="States"]
 
-[connection signal="body_entered" from="KinematicPlayer/SightArea" to="." method="on_sight_area"]
-[connection signal="body_exited" from="KinematicPlayer/SightArea" to="." method="out_sight_area"]
+[connection signal="area_entered" from="KinematicPlayer/SightArea" to="." method="on_sight_area"]
+[connection signal="area_exited" from="KinematicPlayer/SightArea" to="." method="out_sight_area"]
