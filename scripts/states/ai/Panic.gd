@@ -13,6 +13,7 @@ var closest_teenager
 var _timer
 var is_running = false setget set_is_running
 var is_avoiding_player = false
+var is_desperado = false
 var kinematic_teenager
 var teen_pos
 var game
@@ -43,9 +44,8 @@ func init(base,state_position,state_time):
 func update(delta):
 	if not is_running:
 		return
-		
+	#print(is_desperado)
 	teen_pos = kinematic_teenager.global_position
-	
 	#TODO: irregular movements, nerf the running effect etc
 	#TODO: check if the closest teenager still alive
 	#TODO: check if theres any teenager alive
@@ -58,18 +58,28 @@ func update(delta):
 	if is_avoiding_player:
 		var player = game.get_player()
 		#run from the player until reaching a certain distance
-		if player == null or game.get_current_mode() != game.MODE.HUNTING:
+		if player == null and !is_desperado:
 			#the player is not in the game
 			is_avoiding_player = false
-		elif player.kinematic_player.global_position.distance_to(teen_pos) > 700:
+			base.teenager.saw_player = false
+		elif player == null and is_desperado:
+			#the player left while the teen was trying to avoid him
+			if avoidant_tile != null:
+				if base.teenager.walk(avoidant_tile):
+					is_desperado = false
+					is_avoiding_player = false
+				else:
+					return
+		elif player.kinematic_player.global_position.distance_to(teen_pos) > 700 and player != null:
 			#the teen is too far from the player
 			base.teenager.saw_player = false
 			is_avoiding_player = false
+			is_desperado = false
 		#elif player.is_indoor != base.teenager.is_indoor:
 		#	base.teenager.saw_player = false
 		#	is_avoiding_player = false
 		else:
-			if is_path_free(closest_teenager.kinematic_teenager.global_position):
+			if is_path_free(closest_teenager.kinematic_teenager.global_position) and !is_desperado:
 				pass
 				#print("walk to the teenager")
 			else:
@@ -87,8 +97,11 @@ func update(delta):
 						base.force_state('Cornered')
 						return
 						#print("fight or die")
+					else:
+						is_desperado = true
 				else:
 					if base.teenager.walk(avoidant_tile):
+						is_desperado = false
 						avoidant_tile = null
 						return
 					#print("he's avoiding...")
@@ -137,7 +150,7 @@ func set_is_running(value):
 	
 	closest_teenager = get_closest_teenager()
 	if closest_teenager == null:
-		base.teenager.saw_player = true
+		base.teenager.saw_player = false
 		base.force_state('Escaping')
 	"""
 	if is_running == true:
@@ -234,5 +247,6 @@ func exit():
 		_timer = null
 		self.base.teenager.speed -= 10 
 		is_avoiding_player = false
+		is_desperado = false
 		game = null
 	emit_signal("finished")

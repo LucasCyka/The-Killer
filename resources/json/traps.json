@@ -13,7 +13,7 @@
   
   "LURE":{
     "ID": ["0","1","2"],
-    "Icon":["/lure1.png","/porn.png","/blood.png"],
+    "Icon":["lure1.png","porn.png","blood.png"],
 	"Fear":["1","1","20"],
 	"Curiosity":["15","40","6"],
     "Price": ["4","10","15"],
@@ -24,7 +24,7 @@
   
   "MISC":{
     "ID": ["0","1"],
-    "Icon":["/misc1.png","/bear_trap.png"],
+    "Icon":["misc1.png","bear_trap.png"],
 	"Fear":["100","50"],
 	"Curiosity":["0","0"],
     "Price": ["10","30"],
@@ -35,7 +35,7 @@
   
   "VICE":{
     "ID": ["0"],
-    "Icon":["/cigarette1.png"],
+    "Icon":["cigarette1.png"],
 	"Fear":["1"],
 	"Curiosity":["10"],
     "Price": ["4"],
