@@ -51,9 +51,6 @@ func input(event):
 #returns true if any teenager is in panic, escaping or any state that 
 #allows the hunter to be spawned
 func check_teenagers():
-	return true
-	
-	""" uncomment after debugging
 	var teenagers = get_tree().get_nodes_in_group("AI")
 	var dead_teen = []
 	
@@ -83,7 +80,6 @@ func check_teenagers():
 		return true
 	
 	return false
-	"""
 
 #detect transitiosn between states
 func transitions():

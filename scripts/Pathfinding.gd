@@ -178,6 +178,11 @@ func increase_tile_weight(position):
 	var current_weight = self.star.get_point_weight_scale(tile)
 	self.star.set_point_weight_scale(tile,current_weight+1)
 
+#sets the weight scale for a tile in a given position
+func set_tile_weight(position,weight):
+	var tile = self.star.get_closest_point(vector_convert(tile_node.world_to_map(position)))
+	self.star.set_point_weight_scale(tile,weight)
+
 """
 #DEBUG ONLY
 func _ready():

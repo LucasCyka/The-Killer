@@ -96,11 +96,19 @@ func on_radius(area):
 		for effect in effects[id]:
 			#apply each effect of this trap
 			effect.call_func(teen)
-			#print(teen)
 			if oneshot:
 				is_used = true
 		trapped_teenagers.append(teen)
-			#TODO: remove this trap?
+		
+		#if the player may avoid this tile or not
+		if not is_walkable():
+			var pos = current_texture.global_position
+			star.set_tile_weight(Vector2(pos.x,pos.y),10)
+			star.set_tile_weight(Vector2(pos.x,pos.y+25),10)
+			star.set_tile_weight(Vector2(pos.x,pos.y-25),10)
+			star.set_tile_weight(Vector2(pos.x+25,pos.y),10)
+			star.set_tile_weight(Vector2(pos.x-25,pos.y),10)
+		
 	elif area.name == "DetectionArea" and !is_used and !is_placed:
 		#await for it to be placed then...
 		body_on_radius = area

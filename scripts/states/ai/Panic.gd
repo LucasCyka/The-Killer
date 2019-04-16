@@ -109,21 +109,6 @@ func update(delta):
 						avoidant_tile = null
 						return
 				return
-			
-			"""
-			#run in the opposite direction
-			var player_pos = player.kinematic_player.global_position
-			
-			var direction = teen_pos - player_pos
-			direction = direction.normalized()
-			
-			
-			var final_pos = star.get_closest_tile((teen_pos + direction*50))
-			
-			base.teenager.walk(final_pos)
-			
-			return
-			"""
 	
 	var distance = closest_teenager.get_child(0).global_position.distance_to(kinematic_teenager.global_position) 
 	var is_visible = base.teenager.is_object_visible(closest_teenager.detection_area)
@@ -152,22 +137,6 @@ func set_is_running(value):
 	if closest_teenager == null:
 		base.teenager.saw_player = false
 		base.force_state('Escaping')
-	"""
-	if is_running == true:
-		#order the teenagers by distance to this teenager
-		var positions = []
-		for teenager in teenagers:
-			if teenager != base.teenager:
-				positions.append(teenager.get_child(0).global_position)
-		
-		positions = common.order_by_distance(positions,base.teenager.get_child(0).global_position)
-		
-		#seach the closest teenager
-		for teenager in teenagers:
-			if teenager.get_child(0).global_position == positions.front():
-				closest_teenager = teenager
-				break
-	"""
 
 #check if the teenager can arrive in a given position and avoid the player
 func is_path_free(pos):
@@ -215,6 +184,8 @@ func get_avoidant_tile():
 
 #return the closest teenager
 func get_closest_teenager():
+	#TODO: teen's partners should also be inclunded on the list even if
+	#they are dead.
 	#order the teenagers by distance to this teenager
 	var positions = []
 	var closest = base.teenager

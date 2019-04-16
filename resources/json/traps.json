@@ -8,6 +8,7 @@
     "Price": ["4"],
 	"OneShot":["true"],
 	"OnSpot":["false"],
+	"Walkable":["true"],
 	"Requirements":[["NULL"],["NULL"]]
   },
   
@@ -19,6 +20,7 @@
     "Price": ["4","10","15"],
 	"OneShot":["true","true","false"],
 	"OnSpot":["false","false","false"],
+	"Walkable":["true","true","true"],
 	"Requirements":[["MEN","MIN10"],["MEN"],["NULL"]]
   },
   
@@ -30,6 +32,7 @@
     "Price": ["10","30"],
 	"OneShot":["false","true"],
 	"OnSpot":["false","true"],
+	"Walkable":["false","true"],
 	"Requirements":[["NULL"],["PANIC"],["PANIC"]]
   },
   
@@ -41,6 +44,7 @@
     "Price": ["4"],
 	"OneShot":["true"],
 	"OnSpot":["false"],
+	"Walkable":["true"],
 	"Requirements":[["NULL"],["MEN"]]
   }
   
