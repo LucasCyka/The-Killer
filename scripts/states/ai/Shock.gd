@@ -24,7 +24,6 @@ func exit():
 	if not base.is_forced_state:
 		if base.is_connected("timer_finished",self,"exit"):
 			base.disconnect("timer_finished",self,"exit")
-			self.base.teenager.speed += 10 
 			
 		if not self.base.teenager.is_escaping:
 			base.force_state('Panic')
