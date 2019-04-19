@@ -132,6 +132,7 @@ script = ExtResource( 1 )
 [node name="GameUI" parent="." instance=ExtResource( 3 )]
 
 [node name="AI" type="YSort" parent="."]
+editor/display_folded = true
 
 [node name="Teenager" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -151,7 +152,7 @@ tile_data = PoolIntArray( 458782, 0, 0, 458783, 27, 0, 458784, 30, 0, 1835042, 1
 
 [node name="Teenager2" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
-position = Vector2( 1028.59, 241.677 )
+position = Vector2( 1039.25, 250.242 )
 
 [node name="Routines" type="Node" parent="AI/Teenager2"]
 

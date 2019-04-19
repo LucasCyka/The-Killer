@@ -50,6 +50,8 @@ func string_to_boolean(value):
 		'false':
 			return false
 
-
+#used to compare floats
+func is_float_equal(fa,fb):
+	return abs(fa-fb) < 0.000001
 
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://scripts/GameUI.gd" type="Script" id=1]
 [ext_resource path="res://scripts/TeenagerInfo.gd" type="Script" id=2]
@@ -10,10 +10,12 @@
 [ext_resource path="res://sprites/gui/vicebtn_prototype.png" type="Texture" id=8]
 [ext_resource path="res://sprites/gui/miscbtn_prototype.png" type="Texture" id=9]
 [ext_resource path="res://sprites/gui/traps_panel.png" type="Texture" id=10]
-[ext_resource path="res://scripts/MiscUI.gd" type="Script" id=11]
-[ext_resource path="res://sprites/gui/hunt_btn.png" type="Texture" id=12]
-[ext_resource path="res://scripts/InfoUI.gd" type="Script" id=13]
-[ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=14]
+[ext_resource path="res://sprites/gui/btn_test.png" type="Texture" id=11]
+[ext_resource path="res://sprites/gui/bottom_shadow.png" type="Texture" id=12]
+[ext_resource path="res://scripts/MiscUI.gd" type="Script" id=13]
+[ext_resource path="res://sprites/gui/hunt_btn.png" type="Texture" id=14]
+[ext_resource path="res://scripts/InfoUI.gd" type="Script" id=15]
+[ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=16]
 
 [node name="GameUI" type="Control"]
 anchor_right = 1.0
@@ -121,6 +123,7 @@ margin_bottom = 45.0
 texture_normal = ExtResource( 9 )
 
 [node name="TrapsSelection" type="Control" parent="Canvas/TrapsUI"]
+editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -188,11 +191,45 @@ position = Vector2( 196, 260 )
 z_index = -1
 texture = ExtResource( 10 )
 
+[node name="Sprite" type="Sprite" parent="Canvas/TrapsUI"]
+visible = false
+position = Vector2( 30, 350 )
+z_index = 1
+texture = ExtResource( 11 )
+
+[node name="Sprite3" type="Sprite" parent="Canvas/TrapsUI"]
+visible = false
+position = Vector2( 70, 350 )
+z_index = 1
+texture = ExtResource( 11 )
+
+[node name="Sprite4" type="Sprite" parent="Canvas/TrapsUI"]
+visible = false
+position = Vector2( 110, 350 )
+z_index = 1
+texture = ExtResource( 11 )
+
+[node name="Sprite5" type="Sprite" parent="Canvas/TrapsUI"]
+visible = false
+position = Vector2( 150, 350 )
+z_index = 1
+texture = ExtResource( 11 )
+
+[node name="Sprite6" type="Sprite" parent="Canvas/TrapsUI"]
+visible = false
+position = Vector2( 190, 350 )
+z_index = 1
+texture = ExtResource( 11 )
+
+[node name="Sprite2" type="Sprite" parent="Canvas/TrapsUI"]
+position = Vector2( 290, 368 )
+texture = ExtResource( 12 )
+
 [node name="MiscUI" type="Control" parent="Canvas"]
 editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 11 )
+script = ExtResource( 13 )
 
 [node name="MiscPanel" type="Container" parent="Canvas/MiscUI"]
 margin_left = 370.0
@@ -204,13 +241,13 @@ margin_bottom = 369.0
 margin_left = 0.147003
 margin_right = 45.147
 margin_bottom = 45.0
-texture_normal = ExtResource( 12 )
+texture_normal = ExtResource( 14 )
 
 [node name="InfoUI" type="Control" parent="Canvas"]
 editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 13 )
+script = ExtResource( 15 )
 
 [node name="InfoPanel" type="Container" parent="Canvas/InfoUI"]
 margin_right = 138.0
@@ -227,7 +264,7 @@ text = "00000000"
 editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 14 )
+script = ExtResource( 16 )
 
 [node name="Panel" type="Control" parent="Canvas/GameOverUI"]
 visible = false
@@ -254,6 +291,38 @@ margin_top = 123.884
 margin_right = 335.003
 margin_bottom = 137.884
 text = "GAME OVER"
+
+[node name="NextScreenUI" type="Control" parent="Canvas"]
+editor/display_folded = true
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Panel" type="Control" parent="Canvas/NextScreenUI"]
+editor/display_folded = true
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="Canvas/NextScreenUI/Panel"]
+margin_left = 250.0
+margin_top = 50.0
+margin_right = 351.0
+margin_bottom = 64.0
+text = "LEVEL FINISHED"
+
+[node name="Next" type="Button" parent="Canvas/NextScreenUI/Panel"]
+margin_left = 253.902
+margin_top = 79.6242
+margin_right = 297.902
+margin_bottom = 99.6242
+text = "NEXT"
+
+[node name="Quit" type="Button" parent="Canvas/NextScreenUI/Panel"]
+margin_left = 300.346
+margin_top = 79.799
+margin_right = 345.346
+margin_bottom = 99.799
+text = "QUIT"
 
 [connection signal="pressed" from="Canvas/TeenagerInfo/Panel/background/Close" to="Canvas/TeenagerInfo" method="hide_panel"]
 [connection signal="pressed" from="Canvas/TrapsUI/TrapsPanel/LureBtn" to="Canvas/TrapsUI" method="lure_btn"]

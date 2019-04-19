@@ -1,4 +1,4 @@
-extends "res://scripts/Player.gd"
+extends Node
 
 """
 	Player input and events.
@@ -29,6 +29,7 @@ func _physics_process(delta):
 	movement.x = int(right) + (int(left) * -1)
 	movement.y = int(down) + int(up) * -1
 	move_camera_to(movement,delta)
+	
 
 #camera zoom-in/zoom-out
 func _input(event):
@@ -55,8 +56,7 @@ func zoom_camera(zoom):
 	elif zoom == target_zoom * -1 and !camera.get_zoom().x >= max_zoom.x:
 		return false
 	else:
-		#zoom smoothing
+		#TODO: zoom smoothing
 		camera.set_zoom(camera.get_zoom() + zoom)
 		return true
-
 

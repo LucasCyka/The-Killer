@@ -48,12 +48,15 @@ func hide_panel():
 func _draw():
 	if selected_teenager != null:
 		#draw a line from the panel to the teenager position
-		var camera = base.get_parent().get_player_controller().camera.global_position
+		var camera_node = base.get_parent().get_player_controller().camera
+		var camera = camera_node.global_position
 		var teenager_pos = selected_teenager.get_position() - camera
 		#no idea why the player position has a wrong offset
 		#I will fix it here.
 		teenager_pos.y+=90
 		teenager_pos.x-=20
+		
+		##TODO: correct the offset created by zooming the camera##
 		
 		draw_line(teenager_pos,$Panel.rect_global_position,Color.red)
 	
