@@ -137,7 +137,7 @@ func add_trap(price,type,id,fear,curiosity,requirements,oneshot,onspot,walkable)
 #enable the selection panel
 func show_selection(btn_pos):
 	$TrapsSelection.show()
-	$TrapsSelection.rect_position = Vector2(btn_pos.x,$TrapsSelection.rect_position.y)
+	#$TrapsSelection.rect_position = Vector2(btn_pos.x,$TrapsSelection.rect_position.y)
 
 #disable the selection panel
 func close_selection():

@@ -124,9 +124,11 @@ func set_current_mode(value):
 func get_current_mode():
 	return current_mode
 
-func get_escaping_point():
-	return Vector2(360,-450)
-	#TODO: take this from a tilemap
+#the closest escape point from a teenager
+func get_escaping_point(teen_pos):
+	var points = common.convert_to_world($Tiles/ExitPoints.get_used_cells(),$Tiles/ExitPoints)
+	points = common.order_by_distance(points,teen_pos)
+	return points.front()
 
 #get traps that are placed on the map
 func get_placed_traps():

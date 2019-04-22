@@ -188,8 +188,8 @@ func out_sight_area(area):
 		if teenager_on_sight.find(area.get_parent().get_parent()) != -1:
 			teenager_on_sight.remove(teenager_on_sight.find(area.get_parent().get_parent()))
 
-
-
+func get_position():
+	return kinematic_player.global_position
 
 
 

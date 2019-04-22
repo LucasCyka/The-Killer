@@ -115,17 +115,24 @@ func update(delta):
 	avoidant_tile = null
 	
 	if base.teenager.walk(closest_teenager.get_child(0).global_position) or (distance < 60 and is_visible):
+		var player = game.get_player()
+		if player != null:
+			base.teenager.saw_player = is_player_visible()
+		else:
+			base.teenager.saw_player = false
+
 		is_running = false
 		#start the escape
 		if closest_teenager.state_machine.get_current_state() != 'Panic':
+			#make the other teenager escape aswell
 			closest_teenager.state_machine.force_state('Escaping')
 		else:
 			closest_teenager = get_closest_teenager()
 			if closest_teenager == null:
-				base.teenager.saw_player = true
+				#base.teenager.saw_player = true
 				base.force_state('Escaping')
 			return
-		base.teenager.saw_player = false
+		#base.teenager.saw_player = false
 		base.force_state('Escaping')
 		#exit()
 		
@@ -135,7 +142,13 @@ func set_is_running(value):
 	
 	closest_teenager = get_closest_teenager()
 	if closest_teenager == null:
-		base.teenager.saw_player = false
+		
+		var player = game.get_player()
+		if player != null:
+			base.teenager.saw_player = is_player_visible()
+		else:
+			base.teenager.saw_player = false
+
 		base.force_state('Escaping')
 
 #check if the teenager can arrive in a given position and avoid the player
@@ -208,7 +221,21 @@ func get_closest_teenager():
 			break
 	
 	return closest
+
+#check if the teenager can see the player
+func is_player_visible():
+	var player = game.get_player()
 	
+	player.wall_cast.set_cast_to(base.teenager.get_position()- player. wall_cast.global_position)
+	player.wall_cast.force_raycast_update()
+	if player.wall_cast.is_colliding():
+		if player.wall_cast.get_collider().name == 'DetectionArea':
+			#close enough to see
+			var dis = base.teenager.get_position().distance_to(player.get_position())
+			if dis <= 100:
+				return true
+	return false
+
 #destructor
 func exit():
 	if _timer != null:

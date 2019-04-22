@@ -1,21 +1,20 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://scripts/GameUI.gd" type="Script" id=1]
 [ext_resource path="res://scripts/TeenagerInfo.gd" type="Script" id=2]
 [ext_resource path="res://sprites/gui/teenager_info_panel_prototype.png" type="Texture" id=3]
 [ext_resource path="res://sprites/gui/close.png" type="Texture" id=4]
 [ext_resource path="res://scripts/TrapsUI.gd" type="Script" id=5]
-[ext_resource path="res://sprites/gui/lurebtn_prototype.png" type="Texture" id=6]
-[ext_resource path="res://sprites/gui/bumobtn_prototype.png" type="Texture" id=7]
-[ext_resource path="res://sprites/gui/vicebtn_prototype.png" type="Texture" id=8]
-[ext_resource path="res://sprites/gui/miscbtn_prototype.png" type="Texture" id=9]
+[ext_resource path="res://sprites/gui/btn_test.png" type="Texture" id=6]
+[ext_resource path="res://sprites/gui/btn_test2.png" type="Texture" id=7]
+[ext_resource path="res://sprites/gui/btn_vice.png" type="Texture" id=8]
+[ext_resource path="res://sprites/gui/btn_misc.png" type="Texture" id=9]
 [ext_resource path="res://sprites/gui/traps_panel.png" type="Texture" id=10]
-[ext_resource path="res://sprites/gui/btn_test.png" type="Texture" id=11]
-[ext_resource path="res://sprites/gui/bottom_shadow.png" type="Texture" id=12]
-[ext_resource path="res://scripts/MiscUI.gd" type="Script" id=13]
-[ext_resource path="res://sprites/gui/hunt_btn.png" type="Texture" id=14]
-[ext_resource path="res://scripts/InfoUI.gd" type="Script" id=15]
-[ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=16]
+[ext_resource path="res://sprites/gui/bottom_shadow.png" type="Texture" id=11]
+[ext_resource path="res://scripts/MiscUI.gd" type="Script" id=12]
+[ext_resource path="res://sprites/gui/btn_spawn.png" type="Texture" id=13]
+[ext_resource path="res://scripts/InfoUI.gd" type="Script" id=14]
+[ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=15]
 
 [node name="GameUI" type="Control"]
 anchor_right = 1.0
@@ -87,7 +86,6 @@ margin_bottom = 114.0
 text = "Trap ID:"
 
 [node name="TrapsUI" type="Control" parent="Canvas"]
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 5 )
@@ -100,136 +98,168 @@ margin_right = 415.148
 margin_bottom = 369.0
 
 [node name="LureBtn" type="TextureButton" parent="Canvas/TrapsUI/TrapsPanel"]
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = -160.147
+margin_top = 18.0
+margin_right = -128.147
+margin_bottom = 50.0
 texture_normal = ExtResource( 6 )
 
 [node name="BumpBtn" type="TextureButton" parent="Canvas/TrapsUI/TrapsPanel"]
-margin_left = 50.0
-margin_right = 95.0
-margin_bottom = 45.0
+margin_left = -120.147
+margin_top = 18.0
+margin_right = -88.147
+margin_bottom = 50.0
 texture_normal = ExtResource( 7 )
 
 [node name="ViceBtn" type="TextureButton" parent="Canvas/TrapsUI/TrapsPanel"]
-margin_left = 100.0
-margin_right = 145.0
-margin_bottom = 45.0
+margin_left = -80.147
+margin_top = 18.0
+margin_right = -48.147
+margin_bottom = 50.0
 texture_normal = ExtResource( 8 )
 
 [node name="MiscBtn" type="TextureButton" parent="Canvas/TrapsUI/TrapsPanel"]
-margin_left = 150.0
-margin_right = 195.0
-margin_bottom = 45.0
+margin_left = -40.147
+margin_top = 18.0
+margin_right = -8.147
+margin_bottom = 50.0
 texture_normal = ExtResource( 9 )
 
 [node name="TrapsSelection" type="Control" parent="Canvas/TrapsUI"]
-editor/display_folded = true
 visible = false
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = -149.0
+margin_top = -10.0
+margin_right = -109.0
+margin_bottom = 30.0
 
 [node name="GridSlots" type="Control" parent="Canvas/TrapsUI/TrapsSelection"]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Slot1" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
-margin_left = 160.0
-margin_top = 227.0
-margin_right = 183.0
-margin_bottom = 250.0
+margin_left = 159.94
+margin_top = 188.217
+margin_right = 182.94
+margin_bottom = 211.217
 
 [node name="Slot2" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
-margin_left = 184.0
-margin_top = 227.0
-margin_right = 207.0
-margin_bottom = 250.0
+margin_left = 183.999
+margin_top = 187.87
+margin_right = 206.999
+margin_bottom = 210.87
 
 [node name="Slot3" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 208.0
-margin_top = 227.0
+margin_top = 188.0
 margin_right = 231.0
-margin_bottom = 250.0
+margin_bottom = 211.0
 
 [node name="Slot4" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 160.0
-margin_top = 251.0
-margin_right = 187.0
-margin_bottom = 274.0
+margin_top = 212.0
+margin_right = 183.0
+margin_bottom = 235.0
 
 [node name="Slot5" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 184.0
-margin_top = 251.0
+margin_top = 212.0
 margin_right = 207.0
-margin_bottom = 274.0
+margin_bottom = 235.0
 
 [node name="Slot6" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 208.0
-margin_top = 251.0
+margin_top = 212.0
 margin_right = 231.0
-margin_bottom = 274.0
+margin_bottom = 235.0
 
 [node name="Slot7" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 160.0
-margin_top = 275.0
+margin_top = 236.0
 margin_right = 183.0
-margin_bottom = 298.0
+margin_bottom = 259.0
 
 [node name="Slot8" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 184.0
-margin_top = 275.0
+margin_top = 236.0
 margin_right = 207.0
-margin_bottom = 298.0
+margin_bottom = 259.0
 
 [node name="Slot9" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 208.0
-margin_top = 275.0
+margin_top = 236.0
 margin_right = 231.0
-margin_bottom = 298.0
+margin_bottom = 259.0
+
+[node name="Slot10" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
+margin_left = 160.0
+margin_top = 260.0
+margin_right = 183.0
+margin_bottom = 283.0
+
+[node name="Slot11" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
+margin_left = 184.0
+margin_top = 260.0
+margin_right = 207.0
+margin_bottom = 283.0
+
+[node name="Slot12" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
+margin_left = 208.0
+margin_top = 260.0
+margin_right = 231.0
+margin_bottom = 283.0
+
+[node name="Slot13" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
+margin_left = 160.0
+margin_top = 284.0
+margin_right = 183.0
+margin_bottom = 307.0
+
+[node name="Slot14" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
+margin_left = 184.0
+margin_top = 284.0
+margin_right = 207.0
+margin_bottom = 307.0
+
+[node name="Slot15" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
+margin_left = 208.0
+margin_top = 284.0
+margin_right = 231.0
+margin_bottom = 307.0
+
+[node name="Slot16" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
+margin_left = 160.0
+margin_top = 308.0
+margin_right = 183.0
+margin_bottom = 331.0
+
+[node name="Slot17" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
+margin_left = 184.0
+margin_top = 308.0
+margin_right = 207.0
+margin_bottom = 331.0
+
+[node name="Slot18" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
+margin_left = 208.0
+margin_top = 308.0
+margin_right = 231.0
+margin_bottom = 331.0
 
 [node name="Background" type="Sprite" parent="Canvas/TrapsUI/TrapsSelection"]
 position = Vector2( 196, 260 )
 z_index = -1
 texture = ExtResource( 10 )
 
-[node name="Sprite" type="Sprite" parent="Canvas/TrapsUI"]
-visible = false
-position = Vector2( 30, 350 )
-z_index = 1
-texture = ExtResource( 11 )
-
-[node name="Sprite3" type="Sprite" parent="Canvas/TrapsUI"]
-visible = false
-position = Vector2( 70, 350 )
-z_index = 1
-texture = ExtResource( 11 )
-
-[node name="Sprite4" type="Sprite" parent="Canvas/TrapsUI"]
-visible = false
-position = Vector2( 110, 350 )
-z_index = 1
-texture = ExtResource( 11 )
-
-[node name="Sprite5" type="Sprite" parent="Canvas/TrapsUI"]
-visible = false
-position = Vector2( 150, 350 )
-z_index = 1
-texture = ExtResource( 11 )
-
-[node name="Sprite6" type="Sprite" parent="Canvas/TrapsUI"]
-visible = false
-position = Vector2( 190, 350 )
-z_index = 1
-texture = ExtResource( 11 )
-
-[node name="Sprite2" type="Sprite" parent="Canvas/TrapsUI"]
+[node name="background" type="Sprite" parent="Canvas/TrapsUI"]
 position = Vector2( 290, 368 )
-texture = ExtResource( 12 )
+z_index = -1
+texture = ExtResource( 11 )
 
 [node name="MiscUI" type="Control" parent="Canvas"]
 editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 13 )
+script = ExtResource( 12 )
 
 [node name="MiscPanel" type="Container" parent="Canvas/MiscUI"]
 margin_left = 370.0
@@ -238,16 +268,17 @@ margin_right = 415.0
 margin_bottom = 369.0
 
 [node name="HuntBtn" type="TextureButton" parent="Canvas/MiscUI/MiscPanel"]
-margin_left = 0.147003
-margin_right = 45.147
-margin_bottom = 45.0
-texture_normal = ExtResource( 14 )
+margin_left = -198.0
+margin_top = 18.0
+margin_right = -166.0
+margin_bottom = 50.0
+texture_normal = ExtResource( 13 )
 
 [node name="InfoUI" type="Control" parent="Canvas"]
 editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 15 )
+script = ExtResource( 14 )
 
 [node name="InfoPanel" type="Container" parent="Canvas/InfoUI"]
 margin_right = 138.0
@@ -264,7 +295,7 @@ text = "00000000"
 editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 16 )
+script = ExtResource( 15 )
 
 [node name="Panel" type="Control" parent="Canvas/GameOverUI"]
 visible = false

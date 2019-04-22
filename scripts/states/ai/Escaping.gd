@@ -26,7 +26,7 @@ func init(base,state_position,state_time):
 	self.teenagers = get_tree().get_nodes_in_group("AI")
 	self.base.teenager.speed += 10
 	self.game = self.base.teenager.get_parent().get_parent()
-	self.escape_point = game.get_escaping_point()
+	self.escape_point = game.get_escaping_point(base.teenager.get_position())
 	emit_signal("entered")
 	
 func update(delta):
@@ -44,43 +44,17 @@ func update(delta):
 			#the player exited and he's not running from him
 			base.teenager.saw_player = false
 			is_avoiding_player = false
-		elif is_path_free(escape_point) and !is_desperado:
-			#he can walk towards the exit and isn't running from the player
-			base.teenager.saw_player = false
-			is_avoiding_player = false
-		else:
-			#he needs to run from the player and enters on 'desperado' mode
-			#TODO: check if him can escape by boat/car or something else
-			is_desperado = true
-			
-			if player != null:
-				if player.kinematic_player.global_position.distance_to(teen_pos) > 700:
-					base.teenager.saw_player = false
-					is_avoiding_player = false
-					is_desperado = false
-					return
-					
-				if player.kinematic_player.global_position.distance_to(teen_pos) < 30 and player != null:
-					#he's too close to the player, cornered.
-					base.force_state('Cornered')
-					return
-			
-			if avoidant_tile == null:
-				#search for a tile to run
-				avoidant_tile = get_avoidant_tile()
-				if avoidant_tile == null:
-					#he's cornered, and can't escape anymore
-					base.force_state('Cornered')
-					return
-			
-			#walk towards the avoidant tile (opposite to the player)
-			if base.teenager.walk(avoidant_tile):
-				#TODO: maybe walk more than one avoidant tile?
+		elif player == null and is_desperado:
+			if base.walk(avoidant_tile):
 				avoidant_tile = null
-				is_desperado = false
-			
-			return
-			
+				base.teenager.saw_player = false
+				is_avoiding_player = false
+		else:
+			pass
+			#TODO: check if he can't escape the level avoiding the player.
+			#if not then he needs to enter on the 'desperado state'. He
+			#can only exit this 'state' when he is: 1- far enough from
+			#the player or reached an 'avoidant tile'.
 		
 	#walk towards the exit point
 	avoidant_tile = null
