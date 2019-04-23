@@ -21,7 +21,7 @@ animations = [ {
 radius = 16.0834
 
 [sub_resource type="CircleShape2D" id=3]
-radius = 119.115
+radius = 195.846
 
 [node name="PlayerHunter" type="Node2D" groups=[
 "Player",

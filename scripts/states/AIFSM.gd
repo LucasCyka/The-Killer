@@ -154,7 +154,11 @@ func check_forced_state(state):
 	if state == 'Startled' and current_state.name == 'Escaping':
 		return false
 	if state == 'Startled' and current_state.name == 'Panic':
-		pass
+		return false
+	if state == 'Lured' and current_state.name == 'Panic':
+		return false
+	if state == 'Lured' and current_state.name == 'Escaping':
+		return false
 	if current_state.name == 'Escaped':
 		return false
 #	if state == 'Panic' and current_state.name == 'Shock':

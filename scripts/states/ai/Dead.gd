@@ -46,9 +46,11 @@ func update(delta):
 			if floor(facing) == -1 and is_visible and affected_teenagers.find(teen) == -1:
 				affected_teenagers.append(teen)
 				teen.state_machine.force_state('Panic')
+				print("panic by dead")
 			elif is_visible and pos.distance_to(teen_pos) <60 and affected_teenagers.find(teen) == -1:
 				affected_teenagers.append(teen)
 				teen.state_machine.force_state('Panic')
+				print("panic by dead")
 	
 	#TODO: sync dead animation with player attacking animation
 	pass

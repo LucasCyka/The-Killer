@@ -44,20 +44,32 @@ func update(delta):
 			#the player exited and he's not running from him
 			base.teenager.saw_player = false
 			is_avoiding_player = false
-		elif player == null and is_desperado:
-			if base.walk(avoidant_tile):
-				avoidant_tile = null
-				base.teenager.saw_player = false
-				is_avoiding_player = false
+		elif is_desperado:
+			if base.teenager.walk(avoidant_tile):
+				self.escape_point = game.get_escaping_point(base.teenager.get_position())
+				if is_path_free(escape_point):
+					avoidant_tile = null
+					base.teenager.saw_player = false
+					is_avoiding_player = false
+				else: 
+					is_desperado = false
+			return
 		else:
-			pass
+			if not is_path_free(escape_point):
+				is_desperado = true
+				avoidant_tile = get_avoidant_tile()
+				if avoidant_tile == null:
+					base.force_state('Cornered')
+				
+				
+				return
+			
 			#TODO: check if he can't escape the level avoiding the player.
 			#if not then he needs to enter on the 'desperado state'. He
 			#can only exit this 'state' when he is: 1- far enough from
 			#the player or reached an 'avoidant tile'.
 		
 	#walk towards the exit point
-	avoidant_tile = null
 	if base.teenager.walk(escape_point) or teen_pos.distance_to(escape_point) < 80:
 		base.force_state('Escaped')
 	

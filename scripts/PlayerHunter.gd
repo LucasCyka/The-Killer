@@ -168,11 +168,13 @@ func check_teenager_sight():
 				#he's close enough to be in panic or in shock
 				teen.state_machine.force_state('Panic')
 				teen.saw_player = true
+				teenager_on_sight.erase(teen)
 			else:
 				if floor(facing) == -1 and is_indoor == teen.is_indoor:
 					#he's not so close to the player, but he is facing the same direction
 					teen.state_machine.force_state('Panic')
 					teen.saw_player = true
+					teenager_on_sight.erase(teen)
 
 #check if the teenager entered the player sight area
 func on_sight_area(area):

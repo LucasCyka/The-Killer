@@ -232,7 +232,7 @@ func is_player_visible():
 		if player.wall_cast.get_collider().name == 'DetectionArea':
 			#close enough to see
 			var dis = base.teenager.get_position().distance_to(player.get_position())
-			if dis <= 100:
+			if dis <= 140:
 				return true
 	return false
 
