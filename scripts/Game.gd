@@ -77,8 +77,8 @@ func get_closest_tile(tilemap,pos,limit=100):
 
 #return the tilemap of containing floor tiles. It's used by traps.
 func get_floor_tile():
-	#TODO: return also A* tiles
-	return $Tiles/Floor
+	return $Tiles/Path
+	#return $Tiles/Floor
 
 #return walls of buildings in the map
 func get_wall_tile():
