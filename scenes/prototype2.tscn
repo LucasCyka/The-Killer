@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=69 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/PlayerController.tscn" type="PackedScene" id=2]
@@ -36,14 +36,30 @@
 [ext_resource path="res://sprites/world_objects/boat.png" type="Texture" id=34]
 [ext_resource path="res://sprites/world_objects/table_iteration2.png" type="Texture" id=35]
 [ext_resource path="res://sprites/world_objects/picnic.png" type="Texture" id=36]
-[ext_resource path="res://sprites/characters/female_1/walking_down1.png" type="Texture" id=37]
-[ext_resource path="res://sprites/characters/female_1/walking_down2.png" type="Texture" id=38]
-[ext_resource path="res://sprites/characters/female_1/walking_down3.png" type="Texture" id=39]
-[ext_resource path="res://sprites/characters/female_1/walking_down4.png" type="Texture" id=40]
+[ext_resource path="res://sprites/characters/female_1/walking_up1.png" type="Texture" id=37]
+[ext_resource path="res://sprites/characters/female_1/walking_up2.png" type="Texture" id=38]
+[ext_resource path="res://sprites/characters/female_1/walking_up3.png" type="Texture" id=39]
+[ext_resource path="res://sprites/characters/female_1/walking_up4.png" type="Texture" id=40]
 [ext_resource path="res://sprites/characters/female_1/walking_side1.png" type="Texture" id=41]
 [ext_resource path="res://sprites/characters/female_1/walking_side2.png" type="Texture" id=42]
 [ext_resource path="res://sprites/characters/female_1/walking_side3.png" type="Texture" id=43]
 [ext_resource path="res://sprites/characters/female_1/walking_side4.png" type="Texture" id=44]
+[ext_resource path="res://sprites/characters/female_1/walking_down1.png" type="Texture" id=45]
+[ext_resource path="res://sprites/characters/female_1/walking_down2.png" type="Texture" id=46]
+[ext_resource path="res://sprites/characters/female_1/walking_down3.png" type="Texture" id=47]
+[ext_resource path="res://sprites/characters/female_1/walking_down4.png" type="Texture" id=48]
+[ext_resource path="res://sprites/characters/male_1/walking_up1.png" type="Texture" id=49]
+[ext_resource path="res://sprites/characters/male_1/walking_up2.png" type="Texture" id=50]
+[ext_resource path="res://sprites/characters/male_1/walking_up3.png" type="Texture" id=51]
+[ext_resource path="res://sprites/characters/male_1/walking_up4.png" type="Texture" id=52]
+[ext_resource path="res://sprites/characters/male_1/walking_sides1.png" type="Texture" id=53]
+[ext_resource path="res://sprites/characters/male_1/walking_sides2.png" type="Texture" id=54]
+[ext_resource path="res://sprites/characters/male_1/walking_sides3.png" type="Texture" id=55]
+[ext_resource path="res://sprites/characters/male_1/walking_sides4.png" type="Texture" id=56]
+[ext_resource path="res://sprites/characters/male_1/walking_down1.png" type="Texture" id=57]
+[ext_resource path="res://sprites/characters/male_1/walking_down2.png" type="Texture" id=58]
+[ext_resource path="res://sprites/characters/male_1/walking_down3.png" type="Texture" id=59]
+[ext_resource path="res://sprites/characters/male_1/walking_down4.png" type="Texture" id=60]
 
 [sub_resource type="TileSet" id=1]
 0/name = "autotile1_water.png 0"
@@ -152,12 +168,35 @@ animations = [ {
 animations = [ {
 "frames": [ ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ) ],
 "loop": true,
-"name": "default",
+"name": "up",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ) ],
 "loop": true,
 "name": "side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ) ],
+"loop": true,
+"name": "down",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ) ],
+"loop": true,
+"name": "up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 53 ), ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ) ],
+"loop": true,
+"name": "side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 57 ), ExtResource( 58 ), ExtResource( 59 ), ExtResource( 60 ) ],
+"loop": true,
+"name": "down",
 "speed": 5.0
 } ]
 
@@ -191,6 +230,7 @@ editor/display_folded = true
 position = Vector2( 1039.25, 250.242 )
 
 [node name="Routines" type="Node" parent="AI/Teenager2"]
+editor/display_folded = true
 
 [node name="Routine" type="TileMap" parent="AI/Teenager2/Routines"]
 visible = false
@@ -304,6 +344,7 @@ visible = false
 color = Color( 0.371094, 0.327606, 0.327606, 1 )
 
 [node name="WorldSprites" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Shadow1" type="Sprite" parent="WorldSprites"]
 visible = false
@@ -399,13 +440,41 @@ texture = ExtResource( 36 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="WorldSprites"]
 position = Vector2( 1159.12, 268.952 )
 frames = SubResource( 7 )
-frame = 1
+animation = "down"
+frame = 2
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="WorldSprites"]
 position = Vector2( 1189.12, 268.952 )
 frames = SubResource( 7 )
 animation = "side"
+frame = 1
+playing = true
+
+[node name="AnimatedSprite3" type="AnimatedSprite" parent="WorldSprites"]
+position = Vector2( 1219.12, 268.952 )
+frames = SubResource( 7 )
+animation = "up"
+frame = 2
+playing = true
+
+[node name="AnimatedSprite4" type="AnimatedSprite" parent="WorldSprites"]
+position = Vector2( 1158.64, 307.712 )
+frames = SubResource( 8 )
+animation = "down"
 frame = 3
+playing = true
+
+[node name="AnimatedSprite5" type="AnimatedSprite" parent="WorldSprites"]
+position = Vector2( 1188.64, 307.712 )
+frames = SubResource( 8 )
+animation = "side"
+playing = true
+
+[node name="AnimatedSprite6" type="AnimatedSprite" parent="WorldSprites"]
+position = Vector2( 1218.64, 307.712 )
+frames = SubResource( 8 )
+animation = "up"
+frame = 2
 playing = true
 

@@ -26,15 +26,16 @@ func update(delta):
 	if self.position.distance_to(base.teenager.kinematic_teenager.global_position) > 20:
 		if not base.state_timer.is_stopped():
 			base.state_timer.stop()
+		base.teenager.state_animation = false
 		base.teenager.walk(self.position)
 	else:
 		if base.state_timer.is_stopped():
+			base.teenager.state_animation = true
 			base.state_timer.start()
 	
 func exit():
 	if base.is_forced_state:
 		base._on_routine = false
 	else: base._on_routine = true
-	
 	base.disconnect("timer_finished",self,"exit")
 	emit_signal("finished")

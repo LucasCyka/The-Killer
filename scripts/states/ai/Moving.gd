@@ -23,10 +23,12 @@ func update(delta):
 	if teenager == null:
 		return
 	
+	base.teenager.state_animation = true
+	
 	#walk to that location
 	if teenager.walk(position):
 		exit()
-	
+		
 func exit():
 	if base.is_forced_state:
 		base._on_routine = false
@@ -34,4 +36,5 @@ func exit():
 	
 	teenager = null
 	position = null
+	base.teenager.state_animation = false
 	emit_signal("finished")

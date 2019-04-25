@@ -39,7 +39,42 @@ var routine_dictionary = {
 }
 
 #animations for wich teenager
-var animations = {}
+#TODO: function to generate this dictionary automatically
+var animations = {
+	0:{
+		"Walking":{
+			Vector2(0,1):{'anim':'0:Walking-Down','flip':false},
+			Vector2(0,-1):{'anim':'0:Walking-Up','flip':false},
+			Vector2(1,0):{'anim':'0:Walking-Side','flip':false},
+			Vector2(-1,0):{'anim':'0:Walking-Side','flip':true}
+		},
+		"Idle":{
+			Vector2(0,1):{'anim':'0:Idle-Down','flip':false},
+			Vector2(0,-1):{'anim':'0:Idle-Up','flip':false},
+			Vector2(1,0):{'anim':'0:Idle-Side','flip':false},
+			Vector2(-1,0):{'anim':'0:Idle-Side','flip':true}
+		}
+	},
+	
+	1:{
+		"Walking":{
+			Vector2(0,1):{'anim':'1:Walking-Down','flip':false},
+			Vector2(0,-1):{'anim':'1:Walking-Up','flip':false},
+			Vector2(1,0):{'anim':'1:Walking-Side','flip':false},
+			Vector2(-1,0):{'anim':'1:Walking-Side','flip':true}
+		},
+		
+		"Idle":{
+			Vector2(0,1):{'anim':'1:Idle-Down','flip':false},
+			Vector2(0,-1):{'anim':'1:Idle-Up','flip':false},
+			Vector2(1,0):{'anim':'1:Idle-Side','flip':false},
+			Vector2(-1,0):{'anim':'1:Idle-Side','flip':true}
+		}
+	}
+}
+
+#it's true when the teen needs to execute an animation from a state 'activity'
+var state_animation = false
 var current_routine = 0
 var last_routine = 0
 var is_routine_paused = false
@@ -81,12 +116,13 @@ func _ready():
 	#start this npc routine
 	generate_routine(get_node("Routines/Routine"))
 	init_routine()
-	update_animations()
+	#update_animations()
 	
 func _process(delta):
 	if not is_routine_paused:
 		#decrease the teenager's modifiers when he's in routine mode.
 		decrease_modifiers()
+		update_animations()
 	
 #	print(traps)
 	#updates the debug label
@@ -205,10 +241,20 @@ func walk(to):
 
 #TODO: update animations according to its state, id etc...
 func update_animations():
+	if state_machine.get_current_state() == 'Waiting':
+		if not state_animation:
+			teenager_anims.play(animations[id]['Walking'][facing_direction]['anim'])
+			teenager_anims.set_flip_h(animations[id]['Walking'][facing_direction]['flip'])
+		else:
+			teenager_anims.play(animations[id]['Idle'][facing_direction]['anim'])
+			teenager_anims.set_flip_h(animations[id]['Idle'][facing_direction]['flip'])
+	
+	"""
 	if gender == GENDER.MALE:
 		teenager_anims.play("MaleNormal")
 	else:
 		teenager_anims.play("FemaleNormal")
+	"""
 
 #return a string according to the gender
 func get_gender():
