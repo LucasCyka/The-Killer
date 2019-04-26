@@ -122,7 +122,7 @@ func _process(delta):
 	if not is_routine_paused:
 		#decrease the teenager's modifiers when he's in routine mode.
 		decrease_modifiers()
-		update_animations()
+	update_animations()
 	
 #	print(traps)
 	#updates the debug label
@@ -246,16 +246,29 @@ func update_animations():
 			teenager_anims.play(animations[id]['Walking'][facing_direction]['anim'])
 			teenager_anims.set_flip_h(animations[id]['Walking'][facing_direction]['flip'])
 		else:
+			#TODO: waiting anims
+			teenager_anims.play(animations[id]['Idle'][facing_direction]['anim'])
+			teenager_anims.set_flip_h(animations[id]['Idle'][facing_direction]['flip'])
+	elif state_machine.get_current_state() == 'Moving':
+			teenager_anims.play(animations[id]['Walking'][facing_direction]['anim'])
+			teenager_anims.set_flip_h(animations[id]['Walking'][facing_direction]['flip'])
+	elif state_machine.get_current_state() == 'Lured':
+		if not state_animation:
+			teenager_anims.play(animations[id]['Walking'][facing_direction]['anim'])
+			teenager_anims.set_flip_h(animations[id]['Walking'][facing_direction]['flip'])
+		else:
+			#TODO: lured anims
+			teenager_anims.play(animations[id]['Idle'][facing_direction]['anim'])
+			teenager_anims.set_flip_h(animations[id]['Idle'][facing_direction]['flip'])
+	elif state_machine.get_current_state() == 'Startled':
+		if not state_animation:
+			teenager_anims.play(animations[id]['Walking'][facing_direction]['anim'])
+			teenager_anims.set_flip_h(animations[id]['Walking'][facing_direction]['flip'])
+		else:
+			#TODO: startled anims
 			teenager_anims.play(animations[id]['Idle'][facing_direction]['anim'])
 			teenager_anims.set_flip_h(animations[id]['Idle'][facing_direction]['flip'])
 	
-	"""
-	if gender == GENDER.MALE:
-		teenager_anims.play("MaleNormal")
-	else:
-		teenager_anims.play("FemaleNormal")
-	"""
-
 #return a string according to the gender
 func get_gender():
 	if gender == GENDER.MALE:

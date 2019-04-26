@@ -19,6 +19,7 @@ var initial_position
 #constructor
 func init(base,state_position,state_time):
 	self.base = base
+	base.teenager.state_animation = true
 	self.base.is_forced_state = false
 	teenager = base.teenager
 	initial_position = teenager.kinematic_teenager.global_position
@@ -64,8 +65,10 @@ func init(base,state_position,state_time):
 	
 func update(delta):
 	if !following_trail or trail.size() == 0:
+		base.teenager.state_animation = true
 		return
 	if not trap.is_one_shot() and trail.size()-1 == current_section:
+		base.teenager.state_animation = true
 		return
 	
 	if teenager.walk(trail[current_section]):
@@ -107,6 +110,7 @@ func exit():
 #when the teenager starts to follow the trail again
 func start_following_trail():
 	following_trail = true
+	base.teenager.state_animation = false
 	_timer.stop()
 
 func set_trail(value):
