@@ -10,7 +10,8 @@ enum GENDER {
 	FEMALE
 }
 
-#AI Routine according to his ID
+#AI Routine according to his ID. A new ID should be added everytime a new 
+#character is implemented in the game.
 #notice that this routine can be blocken any time the AI is lured
 #or the state machine decides so.
 var routines = {
@@ -39,39 +40,7 @@ var routine_dictionary = {
 }
 
 #animations for wich teenager
-#TODO: function to generate this dictionary automatically
-var animations = {
-	0:{
-		"Walking":{
-			Vector2(0,1):{'anim':'0:Walking-Down','flip':false},
-			Vector2(0,-1):{'anim':'0:Walking-Up','flip':false},
-			Vector2(1,0):{'anim':'0:Walking-Side','flip':false},
-			Vector2(-1,0):{'anim':'0:Walking-Side','flip':true}
-		},
-		"Idle":{
-			Vector2(0,1):{'anim':'0:Idle-Down','flip':false},
-			Vector2(0,-1):{'anim':'0:Idle-Up','flip':false},
-			Vector2(1,0):{'anim':'0:Idle-Side','flip':false},
-			Vector2(-1,0):{'anim':'0:Idle-Side','flip':true}
-		}
-	},
-	
-	1:{
-		"Walking":{
-			Vector2(0,1):{'anim':'1:Walking-Down','flip':false},
-			Vector2(0,-1):{'anim':'1:Walking-Up','flip':false},
-			Vector2(1,0):{'anim':'1:Walking-Side','flip':false},
-			Vector2(-1,0):{'anim':'1:Walking-Side','flip':true}
-		},
-		
-		"Idle":{
-			Vector2(0,1):{'anim':'1:Idle-Down','flip':false},
-			Vector2(0,-1):{'anim':'1:Idle-Up','flip':false},
-			Vector2(1,0):{'anim':'1:Idle-Side','flip':false},
-			Vector2(-1,0):{'anim':'1:Idle-Side','flip':true}
-		}
-	}
-}
+var animations = {}
 
 #it's true when the teen needs to execute an animation from a state 'activity'
 var state_animation = false
@@ -116,6 +85,7 @@ func _ready():
 	#start this npc routine
 	generate_routine(get_node("Routines/Routine"))
 	init_routine()
+	generate_animations()
 	#update_animations()
 	
 func _process(delta):
@@ -241,34 +211,61 @@ func walk(to):
 
 #TODO: update animations according to its state, id etc...
 func update_animations():
-	if state_machine.get_current_state() == 'Waiting':
-		if not state_animation:
-			teenager_anims.play(animations[id]['Walking'][facing_direction]['anim'])
-			teenager_anims.set_flip_h(animations[id]['Walking'][facing_direction]['flip'])
-		else:
-			#TODO: waiting anims
-			teenager_anims.play(animations[id]['Idle'][facing_direction]['anim'])
-			teenager_anims.set_flip_h(animations[id]['Idle'][facing_direction]['flip'])
-	elif state_machine.get_current_state() == 'Moving':
-			teenager_anims.play(animations[id]['Walking'][facing_direction]['anim'])
-			teenager_anims.set_flip_h(animations[id]['Walking'][facing_direction]['flip'])
-	elif state_machine.get_current_state() == 'Lured':
-		if not state_animation:
-			teenager_anims.play(animations[id]['Walking'][facing_direction]['anim'])
-			teenager_anims.set_flip_h(animations[id]['Walking'][facing_direction]['flip'])
-		else:
-			#TODO: lured anims
-			teenager_anims.play(animations[id]['Idle'][facing_direction]['anim'])
-			teenager_anims.set_flip_h(animations[id]['Idle'][facing_direction]['flip'])
-	elif state_machine.get_current_state() == 'Startled':
-		if not state_animation:
-			teenager_anims.play(animations[id]['Walking'][facing_direction]['anim'])
-			teenager_anims.set_flip_h(animations[id]['Walking'][facing_direction]['flip'])
-		else:
-			#TODO: startled anims
-			teenager_anims.play(animations[id]['Idle'][facing_direction]['anim'])
-			teenager_anims.set_flip_h(animations[id]['Idle'][facing_direction]['flip'])
+	if animations == {}:
+		#wait for it to be generated
+		return
 	
+	if not state_animation:
+		teenager_anims.play(animations[id]['Moving'][facing_direction]['anim'])
+		teenager_anims.set_flip_h(animations[id]['Moving'][facing_direction]['flip'])
+	else:
+		teenager_anims.play(animations[id]['Idle'][facing_direction]['anim'])
+		teenager_anims.set_flip_h(animations[id]['Idle'][facing_direction]['flip'])
+
+#fill a dictionary with animations from the AnimatedSprite resource
+#TODO: diagonal animations?
+func generate_animations():
+	var final_dictionary = {}
+	
+	for anim in teenager_anims.get_sprite_frames().get_animation_names():
+		#anim name layout:
+		#ID:State-Direction
+		
+		#anim indentifier
+		var _id = anim
+		_id.erase(anim.findn(':'),anim.length())
+		
+		#anim state
+		var _state = anim
+		_state.erase(anim.findn('-'),anim.length())
+		_state.erase(anim.findn(_id),_id.length()+1)
+		
+		#anim direction
+		#TODO: diagonals go here
+		var dir = anim
+		
+		if dir.find('Up') != -1:
+			dir = Vector2(0,-1)
+		elif dir.find('Down') != -1:
+			dir = Vector2(0,1)
+		elif dir.find('Side') != -1:
+			dir = Vector2(1,0)
+			
+			
+		var new_dict = {int(_id):{_state:{dir:{'anim':anim,'flip':false}}}}
+		
+		if final_dictionary.keys().find(int(_id)) == -1 or final_dictionary[int(_id)].keys().find(_state) == -1:
+			#add the basic layout for this animation id
+			common.merge_dict(final_dictionary,new_dict)
+		elif final_dictionary[int(_id)][_state].keys().find(dir) == -1:
+			#basic layout already there, just fill the remaining data
+			final_dictionary[int(_id)][_state][dir] = {'anim':anim,'flip':false}
+			
+			if dir == Vector2(1,0):
+				#duplicate this animation for the left siding
+				final_dictionary[int(_id)][_state][Vector2(-1,0)] = {'anim':anim,'flip':true}
+		animations = final_dictionary
+
 #return a string according to the gender
 func get_gender():
 	if gender == GENDER.MALE:

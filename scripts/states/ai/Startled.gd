@@ -22,6 +22,7 @@ var stage_timer
 func init(base,state_position,state_time):
 	self.base = base
 	self.base.is_forced_state = false
+	base.teenager.state_animation = true
 	self.bump_position = state_position
 	
 	stage_timer = Timer.new()
@@ -49,6 +50,9 @@ func update(delta):
 		if base.teenager.walk(bump_position):
 			stage_timer.start()
 			stage += 1
+			base.teenager.state_animation = true
+		else:
+			base.teenager.state_animation = false
 	elif stage == 3:
 		exit()
 

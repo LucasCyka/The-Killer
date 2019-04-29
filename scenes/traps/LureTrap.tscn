@@ -23,10 +23,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=4]
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 67.0545
+[sub_resource type="CircleShape2D" id=3]
+radius = 116.051
 
 [node name="LureTrap" type="Node2D" groups=[
 "Lure",
@@ -46,10 +46,10 @@ collision_layer = 5
 collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Texture/VisibilityDetection"]
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="DetectionRadius" type="Area2D" parent="Texture"]
 
 [node name="Radius" type="CollisionShape2D" parent="Texture/DetectionRadius"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
