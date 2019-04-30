@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://scripts/GameUI.gd" type="Script" id=1]
 [ext_resource path="res://scripts/TeenagerInfo.gd" type="Script" id=2]
@@ -13,8 +13,12 @@
 [ext_resource path="res://sprites/gui/bottom_shadow.png" type="Texture" id=11]
 [ext_resource path="res://scripts/MiscUI.gd" type="Script" id=12]
 [ext_resource path="res://sprites/gui/btn_spawn.png" type="Texture" id=13]
-[ext_resource path="res://scripts/InfoUI.gd" type="Script" id=14]
-[ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=15]
+[ext_resource path="res://sprites/prototype/ui/warning.png" type="Texture" id=14]
+[ext_resource path="res://sprites/prototype/ui/warning_base.png" type="Texture" id=15]
+[ext_resource path="res://sprites/prototype/ui/fear_progress_background.png" type="Texture" id=16]
+[ext_resource path="res://sprites/prototype/ui/fear_progress.png" type="Texture" id=17]
+[ext_resource path="res://scripts/InfoUI.gd" type="Script" id=18]
+[ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=19]
 
 [node name="GameUI" type="Control"]
 anchor_right = 1.0
@@ -32,10 +36,10 @@ script = ExtResource( 2 )
 [node name="Panel" type="Container" parent="Canvas/TeenagerInfo"]
 editor/display_folded = true
 visible = false
-margin_left = 300.0
-margin_top = 187.0
-margin_right = 400.0
-margin_bottom = 287.0
+margin_left = 486.614
+margin_top = 248.816
+margin_right = 586.614
+margin_bottom = 348.816
 rect_pivot_offset = Vector2( 50, 50 )
 
 [node name="background" type="Sprite" parent="Canvas/TeenagerInfo/Panel"]
@@ -86,6 +90,7 @@ margin_bottom = 114.0
 text = "Trap ID:"
 
 [node name="TrapsUI" type="Control" parent="Canvas"]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 5 )
@@ -133,7 +138,6 @@ margin_right = -109.0
 margin_bottom = 30.0
 
 [node name="GridSlots" type="Control" parent="Canvas/TrapsUI/TrapsSelection"]
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -256,12 +260,12 @@ z_index = -1
 texture = ExtResource( 11 )
 
 [node name="MiscUI" type="Control" parent="Canvas"]
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 12 )
 
 [node name="MiscPanel" type="Container" parent="Canvas/MiscUI"]
+editor/display_folded = true
 margin_left = 370.0
 margin_top = 320.0
 margin_right = 415.0
@@ -274,11 +278,83 @@ margin_right = -166.0
 margin_bottom = 50.0
 texture_normal = ExtResource( 13 )
 
+[node name="MiscInfo" type="Control" parent="Canvas/MiscUI"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Sprite" type="Sprite" parent="Canvas/MiscUI/MiscInfo"]
+visible = false
+position = Vector2( 510, 50 )
+texture = ExtResource( 14 )
+
+[node name="FCSlots" type="Control" parent="Canvas/MiscUI/MiscInfo"]
+editor/display_folded = true
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Slot1" type="Sprite" parent="Canvas/MiscUI/MiscInfo/FCSlots"]
+editor/display_folded = true
+position = Vector2( 510, 30 )
+texture = ExtResource( 15 )
+
+[node name="PortraitBtn" type="TextureButton" parent="Canvas/MiscUI/MiscInfo/FCSlots/Slot1"]
+margin_left = -62.0
+margin_top = -14.0
+margin_right = -39.0
+margin_bottom = 13.0
+
+[node name="FearProgress" type="TextureProgress" parent="Canvas/MiscUI/MiscInfo/FCSlots/Slot1"]
+margin_left = -21.0
+margin_top = -5.0
+margin_right = 60.0
+margin_bottom = -1.0
+value = 10.0
+texture_under = ExtResource( 16 )
+texture_progress = ExtResource( 17 )
+
+[node name="CuriosityProgress" type="TextureProgress" parent="Canvas/MiscUI/MiscInfo/FCSlots/Slot1"]
+margin_left = -21.0
+margin_top = 2.0
+margin_right = 60.0
+margin_bottom = 6.0
+value = 10.0
+texture_under = ExtResource( 16 )
+texture_progress = ExtResource( 17 )
+
+[node name="Slot2" type="Sprite" parent="Canvas/MiscUI/MiscInfo/FCSlots"]
+editor/display_folded = true
+position = Vector2( 510, 70 )
+texture = ExtResource( 15 )
+
+[node name="PortraitBtn2" type="TextureButton" parent="Canvas/MiscUI/MiscInfo/FCSlots/Slot2"]
+margin_left = -62.0
+margin_top = -14.0
+margin_right = -39.0
+margin_bottom = 13.0
+
+[node name="FearProgress" type="TextureProgress" parent="Canvas/MiscUI/MiscInfo/FCSlots/Slot2"]
+margin_left = -21.0
+margin_top = -5.0
+margin_right = 60.0
+margin_bottom = -1.0
+value = 10.0
+texture_under = ExtResource( 16 )
+texture_progress = ExtResource( 17 )
+
+[node name="CuriosityProgress" type="TextureProgress" parent="Canvas/MiscUI/MiscInfo/FCSlots/Slot2"]
+margin_left = -21.0
+margin_top = 2.0
+margin_right = 60.0
+margin_bottom = 6.0
+value = 10.0
+texture_under = ExtResource( 16 )
+texture_progress = ExtResource( 17 )
+
 [node name="InfoUI" type="Control" parent="Canvas"]
 editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 14 )
+script = ExtResource( 18 )
 
 [node name="InfoPanel" type="Container" parent="Canvas/InfoUI"]
 margin_right = 138.0
@@ -295,7 +371,7 @@ text = "00000000"
 editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 15 )
+script = ExtResource( 19 )
 
 [node name="Panel" type="Control" parent="Canvas/GameOverUI"]
 visible = false

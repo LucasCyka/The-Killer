@@ -9,6 +9,7 @@ signal new_trap
 var base = null
 var is_ui_occupied = false setget set_is_ui_occupied
 var selection_page = 1
+var selected_trap = false
 
 #world nodes
 onready var selection_panel = $TrapsSelection
@@ -37,8 +38,10 @@ func init(base):
 #close the selection panel
 func _input(event):
 	if Input.is_action_just_pressed("cancel_input"):
-		close_selection()
-	pass
+		if selection_panel.is_visible():
+			close_selection()
+		elif selected_trap and base.game.get_current_mode() != base.game.MODE.HUNTING:
+			selection_panel.show()
 
 #open a panel showing all the lure traps available for this level
 func lure_btn():
@@ -133,6 +136,10 @@ func add_trap(price,type,id,fear,curiosity,requirements,oneshot,onspot,walkable)
 			vice.init(id,base.game,base.get_lure_tilemap(),vice,self,
 			curiosity,fear,requirements,oneshot,onspot,walkable)
 			base.game.add_child(vice)
+		
+	selection_panel.hide()
+	set_is_ui_occupied(false)
+	selected_trap = true
 
 #enable the selection panel
 func show_selection(btn_pos):
@@ -143,6 +150,7 @@ func show_selection(btn_pos):
 func close_selection():
 	$TrapsSelection.hide()
 	clear_buttons()
+	selected_trap = false
 	
 #clear buttons/remove signals
 func clear_buttons():
