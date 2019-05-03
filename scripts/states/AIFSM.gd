@@ -35,7 +35,9 @@ func _ready():
 		$Fighting:$Fighting.name,
 		$Cornered:$Cornered.name,
 		$Screaming:$Screaming.name,
-		$Escaped:$Escaped.name
+		$Escaped:$Escaped.name,
+		$Talking:$Talking.name,
+		$Sleeping:$Sleeping.name
 	}
 	
 	for state in states:

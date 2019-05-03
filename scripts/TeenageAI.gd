@@ -27,7 +27,9 @@ var routine_dictionary = {
 	"state":{
 		
 		26:"Moving",
-		27:"Waiting"
+		27:"Waiting",
+		33:"Talking",
+		35:"Sleeping"
 		
 	},
 	"time":{

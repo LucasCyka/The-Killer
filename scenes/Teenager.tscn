@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://scripts/TeenageAI.gd" type="Script" id=1]
 [ext_resource path="res://resources/anims/teenager.tres" type="SpriteFrames" id=2]
@@ -17,7 +17,9 @@
 [ext_resource path="res://scripts/states/ai/Cornered.gd" type="Script" id=15]
 [ext_resource path="res://scripts/states/ai/Screaming.gd" type="Script" id=16]
 [ext_resource path="res://scripts/states/ai/Escaped.gd" type="Script" id=17]
-[ext_resource path="res://scripts/states/ai/Dead.gd" type="Script" id=18]
+[ext_resource path="res://scripts/states/ai/Talking.gd" type="Script" id=18]
+[ext_resource path="res://scripts/states/ai/Sleeping.gd" type="Script" id=19]
+[ext_resource path="res://scripts/states/ai/Dead.gd" type="Script" id=20]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 13.3082
@@ -49,6 +51,7 @@ shape = SubResource( 2 )
 disabled = true
 
 [node name="Animations" type="AnimatedSprite" parent="KinematicTeenager"]
+editor/display_folded = true
 z_index = 3
 frames = ExtResource( 2 )
 animation = "0:Idle-Down"
@@ -130,8 +133,14 @@ script = ExtResource( 16 )
 [node name="Escaped" type="Node" parent="States"]
 script = ExtResource( 17 )
 
-[node name="Dead" type="Node" parent="States"]
+[node name="Talking" type="Node" parent="States"]
 script = ExtResource( 18 )
+
+[node name="Sleeping" type="Node" parent="States"]
+script = ExtResource( 19 )
+
+[node name="Dead" type="Node" parent="States"]
+script = ExtResource( 20 )
 
 [node name="StateTimer" type="Timer" parent="States"]
 one_shot = true

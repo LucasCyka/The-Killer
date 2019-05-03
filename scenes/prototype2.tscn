@@ -242,7 +242,6 @@ format = 1
 tile_data = PoolIntArray( -851902, 4, 0, -851901, 26, 0, -851900, 32, 0, -786366, 5, 0, -786365, 27, 0, -786364, 32, 0, 589866, 0, 0, 589867, 27, 0, 589868, 29, 0, 655402, 1, 0, 655403, 27, 0, 655404, 29, 0 )
 
 [node name="Tiles" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Floor" type="TileMap" parent="Tiles"]
 z_index = -2
@@ -427,6 +426,7 @@ texture = ExtResource( 28 )
 position = Vector2( 799.806, 848.917 )
 z_index = 1
 frames = SubResource( 6 )
+frame = 2
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites"]
@@ -441,40 +441,40 @@ texture = ExtResource( 36 )
 position = Vector2( 1159.12, 268.952 )
 frames = SubResource( 7 )
 animation = "down"
-frame = 3
+frame = 1
 playing = true
 
 [node name="AnimatedSprite2" type="AnimatedSprite" parent="WorldSprites"]
 position = Vector2( 1189.12, 268.952 )
 frames = SubResource( 7 )
 animation = "side"
-frame = 2
 playing = true
 
 [node name="AnimatedSprite3" type="AnimatedSprite" parent="WorldSprites"]
 position = Vector2( 1219.12, 268.952 )
 frames = SubResource( 7 )
 animation = "up"
-frame = 3
+frame = 1
 playing = true
 
 [node name="AnimatedSprite4" type="AnimatedSprite" parent="WorldSprites"]
 position = Vector2( 1158.64, 307.712 )
 frames = SubResource( 8 )
 animation = "down"
+frame = 2
 playing = true
 
 [node name="AnimatedSprite5" type="AnimatedSprite" parent="WorldSprites"]
 position = Vector2( 1188.64, 307.712 )
 frames = SubResource( 8 )
 animation = "side"
-frame = 1
+frame = 3
 playing = true
 
 [node name="AnimatedSprite6" type="AnimatedSprite" parent="WorldSprites"]
 position = Vector2( 1218.64, 307.712 )
 frames = SubResource( 8 )
 animation = "up"
-frame = 3
+frame = 1
 playing = true
 

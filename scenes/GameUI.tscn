@@ -14,7 +14,7 @@
 [ext_resource path="res://scripts/MiscUI.gd" type="Script" id=12]
 [ext_resource path="res://sprites/gui/btn_spawn.png" type="Texture" id=13]
 [ext_resource path="res://scripts/InfoUI.gd" type="Script" id=14]
-[ext_resource path="res://sprites/prototype/ui/warning.png" type="Texture" id=15]
+[ext_resource path="res://sprites/gui/clock_mockup.png" type="Texture" id=15]
 [ext_resource path="res://sprites/prototype/ui/warning_base.png" type="Texture" id=16]
 [ext_resource path="res://sprites/prototype/ui/fear_progress_background.png" type="Texture" id=17]
 [ext_resource path="res://sprites/prototype/ui/fear_progress.png" type="Texture" id=18]
@@ -297,13 +297,20 @@ margin_bottom = 51.0
 text = "00000000"
 
 [node name="Sprite" type="Sprite" parent="Canvas/InfoUI"]
-visible = false
-position = Vector2( 510, 50 )
+position = Vector2( 570, 30 )
 texture = ExtResource( 15 )
 
+[node name="Label" type="Label" parent="Canvas/InfoUI/Sprite"]
+margin_left = -25.2013
+margin_top = -15.3251
+margin_right = 14.7987
+margin_bottom = -1.32512
+text = "23:00"
+
 [node name="FCSlots" type="Control" parent="Canvas/InfoUI"]
+margin_top = 37.0
 margin_right = 40.0
-margin_bottom = 40.0
+margin_bottom = 77.0
 
 [node name="Slot1" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
 editor/display_folded = true
@@ -357,6 +364,186 @@ texture_under = ExtResource( 17 )
 texture_progress = ExtResource( 18 )
 
 [node name="CuriosityProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot2"]
+margin_left = -21.0
+margin_top = 2.0
+margin_right = 60.0
+margin_bottom = 6.0
+value = 10.0
+texture_under = ExtResource( 17 )
+texture_progress = ExtResource( 18 )
+
+[node name="Slot3" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
+editor/display_folded = true
+visible = false
+position = Vector2( 510, 110 )
+texture = ExtResource( 16 )
+
+[node name="PortraitBtn2" type="TextureButton" parent="Canvas/InfoUI/FCSlots/Slot3"]
+margin_left = -62.0
+margin_top = -14.0
+margin_right = -39.0
+margin_bottom = 13.0
+
+[node name="FearProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot3"]
+margin_left = -21.0
+margin_top = -5.0
+margin_right = 60.0
+margin_bottom = -1.0
+value = 10.0
+texture_under = ExtResource( 17 )
+texture_progress = ExtResource( 18 )
+
+[node name="CuriosityProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot3"]
+margin_left = -21.0
+margin_top = 2.0
+margin_right = 60.0
+margin_bottom = 6.0
+value = 10.0
+texture_under = ExtResource( 17 )
+texture_progress = ExtResource( 18 )
+
+[node name="Slot4" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
+editor/display_folded = true
+visible = false
+position = Vector2( 510, 150 )
+texture = ExtResource( 16 )
+
+[node name="PortraitBtn2" type="TextureButton" parent="Canvas/InfoUI/FCSlots/Slot4"]
+margin_left = -62.0
+margin_top = -14.0
+margin_right = -39.0
+margin_bottom = 13.0
+
+[node name="FearProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot4"]
+margin_left = -21.0
+margin_top = -5.0
+margin_right = 60.0
+margin_bottom = -1.0
+value = 10.0
+texture_under = ExtResource( 17 )
+texture_progress = ExtResource( 18 )
+
+[node name="CuriosityProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot4"]
+margin_left = -21.0
+margin_top = 2.0
+margin_right = 60.0
+margin_bottom = 6.0
+value = 10.0
+texture_under = ExtResource( 17 )
+texture_progress = ExtResource( 18 )
+
+[node name="Slot5" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
+editor/display_folded = true
+visible = false
+position = Vector2( 510, 190 )
+texture = ExtResource( 16 )
+
+[node name="PortraitBtn2" type="TextureButton" parent="Canvas/InfoUI/FCSlots/Slot5"]
+margin_left = -62.0
+margin_top = -14.0
+margin_right = -39.0
+margin_bottom = 13.0
+
+[node name="FearProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot5"]
+margin_left = -21.0
+margin_top = -5.0
+margin_right = 60.0
+margin_bottom = -1.0
+value = 10.0
+texture_under = ExtResource( 17 )
+texture_progress = ExtResource( 18 )
+
+[node name="CuriosityProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot5"]
+margin_left = -21.0
+margin_top = 2.0
+margin_right = 60.0
+margin_bottom = 6.0
+value = 10.0
+texture_under = ExtResource( 17 )
+texture_progress = ExtResource( 18 )
+
+[node name="Slot6" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
+editor/display_folded = true
+visible = false
+position = Vector2( 510, 230 )
+texture = ExtResource( 16 )
+
+[node name="PortraitBtn2" type="TextureButton" parent="Canvas/InfoUI/FCSlots/Slot6"]
+margin_left = -62.0
+margin_top = -14.0
+margin_right = -39.0
+margin_bottom = 13.0
+
+[node name="FearProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot6"]
+margin_left = -21.0
+margin_top = -5.0
+margin_right = 60.0
+margin_bottom = -1.0
+value = 10.0
+texture_under = ExtResource( 17 )
+texture_progress = ExtResource( 18 )
+
+[node name="CuriosityProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot6"]
+margin_left = -21.0
+margin_top = 2.0
+margin_right = 60.0
+margin_bottom = 6.0
+value = 10.0
+texture_under = ExtResource( 17 )
+texture_progress = ExtResource( 18 )
+
+[node name="Slot7" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
+editor/display_folded = true
+visible = false
+position = Vector2( 510, 270 )
+texture = ExtResource( 16 )
+
+[node name="PortraitBtn2" type="TextureButton" parent="Canvas/InfoUI/FCSlots/Slot7"]
+margin_left = -62.0
+margin_top = -14.0
+margin_right = -39.0
+margin_bottom = 13.0
+
+[node name="FearProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot7"]
+margin_left = -21.0
+margin_top = -5.0
+margin_right = 60.0
+margin_bottom = -1.0
+value = 10.0
+texture_under = ExtResource( 17 )
+texture_progress = ExtResource( 18 )
+
+[node name="CuriosityProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot7"]
+margin_left = -21.0
+margin_top = 2.0
+margin_right = 60.0
+margin_bottom = 6.0
+value = 10.0
+texture_under = ExtResource( 17 )
+texture_progress = ExtResource( 18 )
+
+[node name="Slot8" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
+editor/display_folded = true
+visible = false
+position = Vector2( 510, 310 )
+texture = ExtResource( 16 )
+
+[node name="PortraitBtn2" type="TextureButton" parent="Canvas/InfoUI/FCSlots/Slot8"]
+margin_left = -62.0
+margin_top = -14.0
+margin_right = -39.0
+margin_bottom = 13.0
+
+[node name="FearProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot8"]
+margin_left = -21.0
+margin_top = -5.0
+margin_right = 60.0
+margin_bottom = -1.0
+value = 10.0
+texture_under = ExtResource( 17 )
+texture_progress = ExtResource( 18 )
+
+[node name="CuriosityProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot8"]
 margin_left = -21.0
 margin_top = 2.0
 margin_right = 60.0
