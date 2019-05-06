@@ -22,7 +22,9 @@ func init(base):
 func _process(delta):
 	if base == null:
 		return
-		
+	
+	update_time()
+	
 	#search for teens that aren't on routine
 	for teen in teens:
 		if teen.is_routine_paused and activated_teens.find(teen) == -1:
@@ -69,6 +71,35 @@ func fill_fc_slots():
 func clear_fc_slots():
 	for slot in fc_slots:
 		slot.hide()
+
+#update the time label
+func update_time():
+	var time_label = $Clock/Label
+	#'raw' time in minutes
+	var time = base.game.get_time()
+	
+	var hour = int(time / 60)
+	var minute = time - (hour * 60)
+	
+	if fmod(hour,12) != 0 : hour = fmod(hour,12)
+	
+	#convert to string
+	if hour < 10: hour = '0'+str(hour)
+	else: hour = str(hour)
+	
+	if minute < 10: minute = '0'+str(minute)
+	else: minute = str(minute)
+	
+	time_label.text = hour + ':' + minute
+
+
+
+
+
+
+
+
+
 
 
 

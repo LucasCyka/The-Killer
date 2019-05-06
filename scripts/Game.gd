@@ -16,7 +16,20 @@ enum MODE {
 	GAMEOVER
 }
 
+#the speed the timer will update the time (in seconds).
+const default_speed = 1
+const fast_speed = 0.3
+const ultra_speed = 0.1
+const debug_speed = 0.04
+
 var current_mode = MODE.PLANNING setget set_current_mode, get_current_mode
+
+#the time in-game stored in minutes. 
+export var time = 0 setget set_time, get_time
+
+#Default: 1 minute in-game = 1 second.
+var timer_speed = debug_speed
+
 #traps on this level
 var traps_data = {}
 
@@ -31,6 +44,8 @@ func _ready():
 	star.init($Tiles/Path,Vector2(25,25),false)
 	#loads traps information for this level
 	load_trap_info()
+	#start timer
+	init_timer()
 	
 	emit_signal("loaded")
 	
@@ -162,6 +177,12 @@ func get_level():
 func get_traps(type):
 	return traps_data[type]
 
+#starts the in-game timer
+func init_timer():
+	$GameTimer.set_wait_time(timer_speed) #1 minute per second
+	$GameTimer.connect("timeout",self,"set_time",[1])
+	$GameTimer.start()
+
 #loads data from all traps available in this level
 func load_trap_info():
 	var traps = {} #traps.json 
@@ -231,3 +252,19 @@ func load_trap_info():
 				traps_data[_type]['OnSpot'].append(onspot)
 				traps_data[_type]['Walkable'].append(walkable)
 				
+#change the current timer speed in seconds
+func update_time_speed(value):
+	$GameTimer.stop()
+	$GameTimer.set_wait_time(value)
+	$GameTimer.start()
+
+func set_time(value):
+	time += value
+	
+	if time / 60 == 24 or time >= 1440:
+		#one day has passed, restart the clock
+		time = 0
+	#print(time)
+
+func get_time():
+	return time
