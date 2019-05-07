@@ -18,20 +18,25 @@ enum MODE {
 
 #the speed the timer will update the time (in seconds).
 const default_speed = 1
-const fast_speed = 0.3
+const fast_speed = 0.2
 const ultra_speed = 0.1
 const debug_speed = 0.04
 
 var current_mode = MODE.PLANNING setget set_current_mode, get_current_mode
+var last_mode = MODE.PLANNING
 
 #the time in-game stored in minutes. 
 export var time = 0 setget set_time, get_time
 
 #Default: 1 minute in-game = 1 second.
-var timer_speed = debug_speed
+var timer_speed = default_speed
+var ai_timer_speed = default_speed
 
 #traps on this level
 var traps_data = {}
+
+#used to keep track of teenagers speed when changing the game speed.
+var teens_speed = {}
 
 #user interface
 onready var ui = $GameUI
@@ -256,7 +261,65 @@ func load_trap_info():
 func update_time_speed(value):
 	$GameTimer.stop()
 	$GameTimer.set_wait_time(value)
+	timer_speed = value
 	$GameTimer.start()
+	update_game_speed()
+
+#update the speed of several things in-game. Timers, K-bodies etc...
+func update_game_speed():
+	var teenagers = get_tree().get_nodes_in_group("AI")
+	##Teenagers speed##
+	for teen in teenagers:
+		var new_speed = teen.base_speed
+		var anim_speed = 1
+		
+		#increase/decrease the speed of the teen according to the timer's
+		#speed.
+		match timer_speed:
+			default_speed:
+				anim_speed = 1
+				ai_timer_speed = 1
+				if teens_speed.keys().find(teen) != -1:
+					new_speed = teens_speed[teen]
+					teens_speed.erase(teen)
+				else:continue
+			fast_speed:
+				anim_speed = 2
+				ai_timer_speed = 2
+				teen.teenager_anims.set_speed_scale(2)
+				if teens_speed.keys().find(teen) == -1:
+					common.merge_dict(teens_speed,{teen:teen.speed})
+					new_speed *= 2
+				else:
+					new_speed = teens_speed[teen]
+					new_speed *= 2
+			ultra_speed:
+				anim_speed = 3
+				ai_timer_speed = 3
+				teen.teenager_anims.set_speed_scale(3)
+				if teens_speed.keys().find(teen) == -1:
+					common.merge_dict(teens_speed,{teen:teen.speed})
+					new_speed *= 4
+				else:
+					new_speed = teens_speed[teen]
+					new_speed *= 4
+			debug_speed:
+				anim_speed = 4
+				ai_timer_speed = 4
+				teen.teenager_anims.set_speed_scale(4)
+				if teens_speed.keys().find(teen) == -1:
+					common.merge_dict(teens_speed,{teen:teen.speed})
+					new_speed *= 6
+				else:
+					new_speed = teens_speed[teen]
+					new_speed *= 6
+		
+		#kinematic body speed
+		teen.speed = new_speed
+		#animations speed
+		teen.teenager_anims.set_speed_scale(anim_speed)
+		
+		
 
 func set_time(value):
 	time += value
@@ -268,3 +331,13 @@ func set_time(value):
 
 func get_time():
 	return time
+
+func pause_game():
+	last_mode = get_current_mode()
+	set_current_mode(MODE.PAUSED)
+	get_tree().paused = true
+	
+func resume_game():
+	set_current_mode(last_mode)
+	get_tree().paused = false
+	

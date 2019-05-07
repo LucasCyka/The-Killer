@@ -32,6 +32,11 @@ func update(delta):
 		if base.state_timer.is_stopped():
 			base.teenager.state_animation = true
 			base.state_timer.start()
+			
+	if base.teenager.id == 0:
+		#print(base.state_timer.get_time_left())
+		pass
+	
 	
 func exit():
 	if base.is_forced_state:

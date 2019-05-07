@@ -92,13 +92,43 @@ func update_time():
 	
 	time_label.text = hour + ':' + minute
 
+#pause/resume the game
+func pause_btn():
+	if base.game.get_current_mode() == base.game.MODE.PAUSED:
+		base.game.resume_game()
+		base.game.update_time_speed(base.game.default_speed)
+	else:
+		base.game.pause_game()
 
+#change the game time to the default setting
+func normal_btn():
+	if base.game.timer_speed != base.game.default_speed:
+		base.game.update_time_speed(base.game.default_speed)
+	elif base.game.get_current_mode() == base.game.MODE.PAUSED:
+		base.game.resume_game()
+		base.game.update_time_speed(base.game.default_speed)
+	else:
+		return
 
+#change the game time to the fast setting
+func fast_btn():
+	if base.game.timer_speed != base.game.fast_speed:
+		base.game.update_time_speed(base.game.fast_speed)
+	elif base.game.get_current_mode() == base.game.MODE.PAUSED:
+		base.game.resume_game()
+		base.game.update_time_speed(base.game.fast_speed)
+	else:
+		return
 
-
-
-
-
+#change the game time to the fast setting
+func fast_btn2():
+	if base.game.timer_speed != base.game.ultra_speed:
+		base.game.update_time_speed(base.game.ultra_speed)
+	elif base.game.get_current_mode() == base.game.MODE.PAUSED:
+		base.game.resume_game()
+		base.game.update_time_speed(base.game.ultra_speed)
+	else:
+		return
 
 
 

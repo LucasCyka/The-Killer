@@ -142,6 +142,8 @@ script = ExtResource( 19 )
 [node name="Dead" type="Node" parent="States"]
 script = ExtResource( 20 )
 
-[node name="StateTimer" type="Timer" parent="States"]
+[node name="StateTimer" type="Timer" parent="States" groups=[
+"AITimer",
+]]
 one_shot = true
 

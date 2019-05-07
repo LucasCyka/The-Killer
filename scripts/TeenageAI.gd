@@ -53,6 +53,7 @@ var saw_player = false
 var is_indoor = false setget set_is_indoor
 var is_escaping = false
 var facing_direction = Vector2(1,0)
+var modified_timers = []
 #used for pathfinding:
 var current_path = []
 var current_target = Vector2(-666,-666)
@@ -74,7 +75,7 @@ var current_trap = 0
 
 export (GENDER) var gender = GENDER.MALE setget , get_gender
 export var id = 0
-export var speed = base_speed
+export var speed = base_speed setget set_speed
 #world nodes
 onready var state_machine = $States
 onready var kinematic_teenager = $KinematicTeenager
@@ -95,6 +96,7 @@ func _process(delta):
 		#decrease the teenager's modifiers when he's in routine mode.
 		decrease_modifiers()
 	update_animations()
+	update_timer_speed()
 	
 #	print(traps)
 	#updates the debug label
@@ -268,6 +270,28 @@ func generate_animations():
 				final_dictionary[int(_id)][_state][Vector2(-1,0)] = {'anim':anim,'flip':true}
 		animations = final_dictionary
 
+#update the timers of the AI
+func update_timer_speed(single_timer = null):
+	var timers = get_tree().get_nodes_in_group("AITimer")
+	var spd = get_parent().get_parent().ai_timer_speed
+	
+	if single_timer != null:
+		modified_timers.erase(single_timer)
+		single_timer.disconnect("timeout",self,"update_timer_speed")
+		
+	for timer in timers:
+		if modified_timers.find(timer) == -1 and timer.get_time_left() > 0 and spd != 1:
+			modified_timers.append(timer)
+			var new_spd = timer.get_time_left() / spd
+			timer.connect("timeout",self,"update_timer_speed",[timer])
+			
+			timer.stop()
+			timer.set_wait_time(new_spd)
+			timer.start()
+		elif spd == 1:
+			modified_timers.clear()
+			break
+			
 #return a string according to the gender
 func get_gender():
 	if gender == GENDER.MALE:
@@ -343,6 +367,9 @@ func get_traps():
 	else:
 		return traps
 		
+func set_speed(value):
+	speed = value
+
 func remove_trap(value,free):
 	for trap in traps:
 		if trap == value:

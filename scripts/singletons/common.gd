@@ -61,6 +61,8 @@ func merge_dict(dict1,dict2):
 """
 
 #merge or add elements to a dictionary
+#dest = existing dictionary
+#source = new dictionary
 func merge_dict(dest, source):
 	for key in source:                     # go via all keys in source
 		if dest.has(key):                  # we found matching key in dest

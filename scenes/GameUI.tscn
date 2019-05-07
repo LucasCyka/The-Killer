@@ -308,7 +308,6 @@ margin_bottom = 51.0
 text = "00000000"
 
 [node name="Clock" type="Sprite" parent="Canvas/InfoUI"]
-editor/display_folded = true
 position = Vector2( 554.559, 30 )
 texture = ExtResource( 15 )
 
@@ -321,6 +320,7 @@ custom_fonts/font = SubResource( 1 )
 text = "14:00"
 
 [node name="PauseBtn" type="TextureButton" parent="Canvas/InfoUI/Clock"]
+pause_mode = 2
 margin_left = -42.0
 margin_top = 18.0
 margin_right = -29.0
@@ -328,6 +328,7 @@ margin_bottom = 28.0
 texture_normal = ExtResource( 17 )
 
 [node name="NormalSpdBtn" type="TextureButton" parent="Canvas/InfoUI/Clock"]
+pause_mode = 2
 margin_left = -4.0
 margin_top = 18.0
 margin_right = 10.0
@@ -335,6 +336,7 @@ margin_bottom = 28.0
 texture_normal = ExtResource( 18 )
 
 [node name="FastSpdBtn" type="TextureButton" parent="Canvas/InfoUI/Clock"]
+pause_mode = 2
 margin_left = 12.0
 margin_top = 18.0
 margin_right = 26.0
@@ -342,6 +344,7 @@ margin_bottom = 28.0
 texture_normal = ExtResource( 19 )
 
 [node name="FastSpdBtn2" type="TextureButton" parent="Canvas/InfoUI/Clock"]
+pause_mode = 2
 margin_left = 28.0
 margin_top = 18.0
 margin_right = 42.0
@@ -354,9 +357,10 @@ texture = ExtResource( 21 )
 
 [node name="FCSlots" type="Control" parent="Canvas/InfoUI"]
 editor/display_folded = true
-margin_top = 37.0
-margin_right = 40.0
-margin_bottom = 77.0
+margin_left = 19.0
+margin_top = 55.0
+margin_right = 59.0
+margin_bottom = 95.0
 
 [node name="Slot1" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
 editor/display_folded = true
@@ -668,5 +672,9 @@ text = "QUIT"
 [connection signal="pressed" from="Canvas/TrapsUI/TrapsPanel/ViceBtn" to="Canvas/TrapsUI" method="vice_btn"]
 [connection signal="pressed" from="Canvas/TrapsUI/TrapsPanel/MiscBtn" to="Canvas/TrapsUI" method="misc_btn"]
 [connection signal="pressed" from="Canvas/MiscUI/MiscPanel/HuntBtn" to="Canvas/MiscUI" method="hunt"]
+[connection signal="pressed" from="Canvas/InfoUI/Clock/PauseBtn" to="Canvas/InfoUI" method="pause_btn"]
+[connection signal="pressed" from="Canvas/InfoUI/Clock/NormalSpdBtn" to="Canvas/InfoUI" method="normal_btn"]
+[connection signal="pressed" from="Canvas/InfoUI/Clock/FastSpdBtn" to="Canvas/InfoUI" method="fast_btn"]
+[connection signal="pressed" from="Canvas/InfoUI/Clock/FastSpdBtn2" to="Canvas/InfoUI" method="fast_btn2"]
 [connection signal="pressed" from="Canvas/GameOverUI/Panel/Quit" to="Canvas/GameOverUI" method="quit"]
 [connection signal="pressed" from="Canvas/GameOverUI/Panel/Restart" to="Canvas/GameOverUI" method="restart"]
