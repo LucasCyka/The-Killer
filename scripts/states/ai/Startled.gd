@@ -26,8 +26,10 @@ func init(base,state_position,state_time):
 	self.bump_position = state_position
 	
 	stage_timer = Timer.new()
+	
 	stage_timer.set_wait_time(4)
 	stage_timer.connect("timeout",self,"next_stage")
+	stage_timer.add_to_group("AITimer")
 	base.add_child(stage_timer)
 	stage_timer.start()
 	

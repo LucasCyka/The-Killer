@@ -319,7 +319,6 @@ func update_game_speed():
 		#animations speed
 		teen.teenager_anims.set_speed_scale(anim_speed)
 		
-		
 
 func set_time(value):
 	time += value

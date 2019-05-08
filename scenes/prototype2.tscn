@@ -213,14 +213,12 @@ time = 720
 [node name="AI" type="YSort" parent="."]
 
 [node name="Teenager" parent="AI" instance=ExtResource( 4 )]
-editor/display_folded = true
 position = Vector2( 768.593, 241.677 )
 gender = 1
 id = 1
 speed = 50
 
 [node name="Routines" type="Node" parent="AI/Teenager"]
-editor/display_folded = true
 
 [node name="Routine" type="TileMap" parent="AI/Teenager/Routines"]
 visible = false
@@ -246,6 +244,7 @@ format = 1
 tile_data = PoolIntArray( -851902, 4, 0, -851901, 26, 0, -851900, 32, 0, -786366, 5, 0, -786365, 27, 0, -786364, 32, 0, 589866, 0, 0, 589867, 27, 0, 589868, 29, 0, 655402, 1, 0, 655403, 27, 0, 655404, 29, 0 )
 
 [node name="Tiles" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Floor" type="TileMap" parent="Tiles"]
 z_index = -2
@@ -430,7 +429,7 @@ texture = ExtResource( 28 )
 position = Vector2( 799.806, 848.917 )
 z_index = 1
 frames = SubResource( 6 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites"]

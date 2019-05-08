@@ -44,6 +44,9 @@ var routine_dictionary = {
 #animations for wich teenager
 var animations = {}
 
+#used to control the speed of each timer used by the teen
+var timers_speed = {}
+
 #it's true when the teen needs to execute an animation from a state 'activity'
 var state_animation = false
 var current_routine = 0
@@ -53,7 +56,6 @@ var saw_player = false
 var is_indoor = false setget set_is_indoor
 var is_escaping = false
 var facing_direction = Vector2(1,0)
-var modified_timers = []
 #used for pathfinding:
 var current_path = []
 var current_target = Vector2(-666,-666)
@@ -226,6 +228,35 @@ func update_animations():
 		teenager_anims.play(animations[id]['Idle'][facing_direction]['anim'])
 		teenager_anims.set_flip_h(animations[id]['Idle'][facing_direction]['flip'])
 
+#update the speed of the timers used by the teen
+func update_timer_speed():
+	var timers = get_tree().get_nodes_in_group("AITimer")
+	var game = get_parent().get_parent()
+	var spd = game.ai_timer_speed
+	
+	if spd ==1 and timers_speed != {}:#default speed
+		#resume the waiting time of each modifed timer
+		for timer in timers_speed:
+			if timer.get_wait_time() != timers_speed[timer]:
+				timer.set_wait_time(timers_speed[timer])
+		
+		timers.clear()
+	elif spd == 2: #fast speeds
+		#speed up all timers and store their previous speed
+		for timer in timers:
+			if timers_speed.keys().find(timer) == -1 and not timer.is_stopped():
+				common.merge_dict(timers_speed,{timer:timer.get_wait_time()})
+				var new_spd = timer.get_time_left()/spd
+				timer.stop()
+				timer.set_wait_time(new_spd)
+				timer.start()
+			elif timers_speed.keys().find(timer) != -1 and timer.get_wait_time() == timers_speed[timer] and not timer.is_stopped():
+				#check if he's not at the standard speed again
+				var new_spd = timer.get_time_left()/5
+				timer.stop()
+				timer.set_wait_time(new_spd)
+				timer.start()
+
 #fill a dictionary with animations from the AnimatedSprite resource
 #TODO: diagonal animations?
 func generate_animations():
@@ -270,27 +301,7 @@ func generate_animations():
 				final_dictionary[int(_id)][_state][Vector2(-1,0)] = {'anim':anim,'flip':true}
 		animations = final_dictionary
 
-#update the timers of the AI
-func update_timer_speed(single_timer = null):
-	var timers = get_tree().get_nodes_in_group("AITimer")
-	var spd = get_parent().get_parent().ai_timer_speed
 	
-	if single_timer != null:
-		modified_timers.erase(single_timer)
-		single_timer.disconnect("timeout",self,"update_timer_speed")
-		
-	for timer in timers:
-		if modified_timers.find(timer) == -1 and timer.get_time_left() > 0 and spd != 1:
-			modified_timers.append(timer)
-			var new_spd = timer.get_time_left() / spd
-			timer.connect("timeout",self,"update_timer_speed",[timer])
-			
-			timer.stop()
-			timer.set_wait_time(new_spd)
-			timer.start()
-		elif spd == 1:
-			modified_timers.clear()
-			break
 			
 #return a string according to the gender
 func get_gender():
@@ -347,19 +358,6 @@ func set_trap(value):
 	#apply modifiers
 	set_curiosity(get_curiosity() + traps[current_trap].curiosity)
 	set_fear(get_fear() + traps[current_trap].fear)
-	"""
-	if value == null:
-		#this trap is no more!
-		trap[0].queue_free()
-		trap.append(value)
-		return
-	trap = value
-		
-	#apply modifiers
-	set_fear(get_fear() + trap.fear)
-	set_curiosity(get_curiosity() + trap.curiosity)
-	#TODO: the AI modifiers needs to decrease automatically
-	"""
 
 func get_traps():
 	if traps == []:
