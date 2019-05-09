@@ -41,11 +41,11 @@ func init(base,state_position,state_time):
 	
 	#the teenager will only follow the trail after a few seconds when 
 	#he see the lure. The time is controlled by the timer below.
-	_timer = Timer.new()
+	_timer = preload("res://scenes/AITimer.tscn").instance()
 	_timer.name = "lure_timer"
+	base.add_child(_timer)
 	_timer.set_wait_time(4)
 	_timer.connect("timeout",self,"start_following_trail")
-	base.add_child(_timer)
 	_timer.start()
 	
 	#will define the order the teenager will follow the trail

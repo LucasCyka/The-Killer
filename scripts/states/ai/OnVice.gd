@@ -26,10 +26,10 @@ func init(base,state_position,state_time):
 	#base.connect("timer_finished",self,"exit")
 	
 	#start the stage sequences
-	_timer = Timer.new()
+	_timer = preload("res://scenes/AITimer.tscn").instance()
+	base.add_child(_timer)
 	_timer.set_wait_time(consuming_time/2)
 	_timer.name = "_Timer"
-	base.add_child(_timer)
 	_timer.connect("timeout",self,"next_stage")
 	_timer.start()
 	

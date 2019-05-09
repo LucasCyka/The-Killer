@@ -44,9 +44,6 @@ var routine_dictionary = {
 #animations for wich teenager
 var animations = {}
 
-#used to control the speed of each timer used by the teen
-var timers_speed = {}
-
 #it's true when the teen needs to execute an animation from a state 'activity'
 var state_animation = false
 var current_routine = 0
@@ -98,7 +95,6 @@ func _process(delta):
 		#decrease the teenager's modifiers when he's in routine mode.
 		decrease_modifiers()
 	update_animations()
-	update_timer_speed()
 	
 #	print(traps)
 	#updates the debug label
@@ -227,35 +223,6 @@ func update_animations():
 	else:
 		teenager_anims.play(animations[id]['Idle'][facing_direction]['anim'])
 		teenager_anims.set_flip_h(animations[id]['Idle'][facing_direction]['flip'])
-
-#update the speed of the timers used by the teen
-func update_timer_speed():
-	var timers = get_tree().get_nodes_in_group("AITimer")
-	var game = get_parent().get_parent()
-	var spd = game.ai_timer_speed
-	
-	if spd ==1 and timers_speed != {}:#default speed
-		#resume the waiting time of each modifed timer
-		for timer in timers_speed:
-			if timer.get_wait_time() != timers_speed[timer]:
-				timer.set_wait_time(timers_speed[timer])
-		
-		timers.clear()
-	elif spd == 2: #fast speeds
-		#speed up all timers and store their previous speed
-		for timer in timers:
-			if timers_speed.keys().find(timer) == -1 and not timer.is_stopped():
-				common.merge_dict(timers_speed,{timer:timer.get_wait_time()})
-				var new_spd = timer.get_time_left()/spd
-				timer.stop()
-				timer.set_wait_time(new_spd)
-				timer.start()
-			elif timers_speed.keys().find(timer) != -1 and timer.get_wait_time() == timers_speed[timer] and not timer.is_stopped():
-				#check if he's not at the standard speed again
-				var new_spd = timer.get_time_left()/5
-				timer.stop()
-				timer.set_wait_time(new_spd)
-				timer.start()
 
 #fill a dictionary with animations from the AnimatedSprite resource
 #TODO: diagonal animations?

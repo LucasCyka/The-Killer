@@ -2,7 +2,7 @@
   
   "BUMP":{
     "ID": ["0"],
-    "Icon":["/knock1.png"],
+    "Icon":["knock1.png"],
 	"Fear":["2"],
 	"Curiosity":["20"],
     "Price": ["4"],

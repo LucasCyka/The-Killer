@@ -31,12 +31,12 @@ func init(base,state_position,state_time):
 	self.game = self.base.teenager.get_parent().get_parent()
 	
 	#the teenager only start running after this timer
-	_timer = Timer.new()
+	_timer = preload("res://scenes/AITimer.tscn").instance()
+	base.add_child(_timer)
 	_timer.set_wait_time(3)
 	_timer.name = "PanicTimer"
 	_timer.connect("timeout",self,"set_is_running",[true])
 	_timer.set_one_shot(true)
-	base.add_child(_timer)
 	_timer.start()
 	
 	emit_signal("entered")

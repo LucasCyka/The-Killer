@@ -42,6 +42,8 @@ var teens_speed = {}
 onready var ui = $GameUI
 #types of traps
 onready var trap_enum = preload("res://scripts/Traps.gd").TYPES
+#color for the day/night cycle
+onready var canvas_m = get_node("Lights'Shadows/CanvasModulate")
 
 #INITIALIZE
 func _ready():
@@ -53,7 +55,11 @@ func _ready():
 	init_timer()
 	
 	emit_signal("loaded")
-	
+
+#day/night cycle
+func _process(delta):
+	daynightcycle()
+
 #return all the teenagers in the game
 func get_teenagers():
 	return get_tree().get_nodes_in_group("AI")
@@ -299,34 +305,32 @@ func update_game_speed():
 				teen.teenager_anims.set_speed_scale(3)
 				if teens_speed.keys().find(teen) == -1:
 					common.merge_dict(teens_speed,{teen:teen.speed})
-					new_speed *= 4
+					new_speed *= 3.5
 				else:
 					new_speed = teens_speed[teen]
-					new_speed *= 4
+					new_speed *= 3.5
 			debug_speed:
 				anim_speed = 4
 				ai_timer_speed = 4
 				teen.teenager_anims.set_speed_scale(4)
 				if teens_speed.keys().find(teen) == -1:
 					common.merge_dict(teens_speed,{teen:teen.speed})
-					new_speed *= 6
+					new_speed *= 5
 				else:
 					new_speed = teens_speed[teen]
-					new_speed *= 6
+					new_speed *= 5
 		
 		#kinematic body speed
 		teen.speed = new_speed
 		#animations speed
 		teen.teenager_anims.set_speed_scale(anim_speed)
 		
-
 func set_time(value):
 	time += value
 	
 	if time / 60 == 24 or time >= 1440:
 		#one day has passed, restart the clock
 		time = 0
-	#print(time)
 
 func get_time():
 	return time
@@ -339,4 +343,41 @@ func pause_game():
 func resume_game():
 	set_current_mode(last_mode)
 	get_tree().paused = false
+
+
+func daynightcycle():
+	if canvas_m == null:
+		return
 	
+	var ra = [0.661133,-0.450579,-0.102644,0.003019,-0.017206,-0.010087]
+	var rb = [-0.228901,-0.139233,0.029436,0.047411,0.007989]
+	var ga = [0.626849,-0.437814,-0.050352,-0.009737,-0.028222,0.002317]
+	var gb = [-0.279056,-0.106992,0.066646,0.032230,-0.001321]
+	var ba = [0.725802,-0.268970,-0.035903,-0.006988,-0.021679,-0.002546]
+	var bb = [-0.175541,-0.079950,0.034039,0.021785,-0.000069]
+	var w = [0.258071,0.264981,0.258893]
+	
+	var r = 0
+	var g = 0
+	var b = 0
+	
+	var hour = float(time)/ float(60)
+	if time/60 >= 23 or time/60 < 6:
+		return
+
+	for i in range(6):
+		r += ra[i]*cos(i*hour*w[0])
+		g += ga[i]*cos(i*hour*w[1])
+		b += ba[i]*cos(i*hour*w[2])
+	for i in range(1,6):
+		r += rb[i-1]*sin(i*hour*w[0])
+		g += gb[i-1]*sin(i*hour*w[1])
+		b += bb[i-1]*sin(i*hour*w[2])
+	r = min(r,1)
+	g = min(g,1)
+	b = min(b,1)
+	canvas_m.color = Color(r,g,b,1)
+	canvas_m.show()
+
+
+
