@@ -19,7 +19,7 @@ signal entered
 #constructor
 func init(base,state_position,state_time):
 	self.base = base
-	
+	self.base.teenager.state_animation = false
 	emit_signal("entered")
 	
 	#TODO: check the modifiers before making a decision.

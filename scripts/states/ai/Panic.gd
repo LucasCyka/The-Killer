@@ -22,9 +22,11 @@ var avoidant_tile
 #constructor
 func init(base,state_position,state_time):
 	self.base = base
+	self.base.teenager.custom_animation = base.get_node('Shock')
 	self.base.teenager.traps.clear()
 	self.base.is_routine_over = true
 	self.base.teenager.speed += 10
+	self.base.teenager.teenager_anims.set_speed_scale(2)
 	self.teenagers = get_tree().get_nodes_in_group("AI")
 	self.base.teenager.set_fear(100,false)
 	self.kinematic_teenager = base.teenager.get_child(0)
@@ -43,7 +45,17 @@ func init(base,state_position,state_time):
 	
 func update(delta):
 	if not is_running:
+		if base != null:
+			#animations
+			base.teenager.custom_animation = base.get_node('Shock')
+			base.teenager.state_animation = false
 		return
+	else:
+		if base != null:
+			#animations
+			base.teenager.custom_animation = null
+			base.teenager.state_animation = false
+
 	#print(is_desperado)
 	teen_pos = kinematic_teenager.global_position
 	#TODO: irregular movements, nerf the running effect etc
@@ -139,6 +151,8 @@ func update(delta):
 #when the teenager start to run like an idiot
 func set_is_running(value):
 	is_running = value
+	base.teenager.state_animation = false
+	base.teenager.custom_animation = null
 	
 	closest_teenager = get_closest_teenager()
 	if closest_teenager == null:
@@ -243,8 +257,10 @@ func exit():
 			_timer.disconnect("timeout",self,"set_is_running")
 		_timer.queue_free()
 		_timer = null
+		base.teenager.custom_animation = null
 		self.base.teenager.speed -= 10 
 		is_avoiding_player = false
 		is_desperado = false
+		base.teenager.custom_animation = null
 		game = null
 	emit_signal("finished")

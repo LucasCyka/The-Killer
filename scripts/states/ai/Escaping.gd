@@ -21,6 +21,8 @@ var game
 func init(base,state_position,state_time):
 	#regroup_point = state_position
 	self.base = base
+	self.base.teenager.state_animation = false
+	self.base.teenager.teenager_anims.set_speed_scale(2)
 	self.kinematic_teenager = base.teenager.kinematic_teenager
 	self.base.teenager.is_escaping = true
 	self.teenagers = get_tree().get_nodes_in_group("AI")

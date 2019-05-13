@@ -13,6 +13,7 @@ var base
 func init(base,state_position,state_time):
 	emit_signal("entered")
 	self.base = base
+	base.teenager.state_animation = true
 	self.base.is_forced_state = false
 	self.base.connect("timer_finished",self,"exit")
 	
@@ -24,7 +25,7 @@ func exit():
 	if not base.is_forced_state:
 		if base.is_connected("timer_finished",self,"exit"):
 			base.disconnect("timer_finished",self,"exit")
-			
+		
 		if not self.base.teenager.is_escaping:
 			base.force_state('Panic')
 		else:

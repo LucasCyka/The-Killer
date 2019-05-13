@@ -22,7 +22,8 @@ var stage_timer
 func init(base,state_position,state_time):
 	self.base = base
 	self.base.is_forced_state = false
-	base.teenager.state_animation = true
+	self.base.teenager.custom_animation = base.get_node('Idle')
+	self.base.teenager.state_animation = false
 	self.bump_position = state_position
 	
 	stage_timer = preload("res://scenes/AITimer.tscn").instance()
@@ -40,11 +41,11 @@ func update(delta):
 	
 	#remove all bump traps
 	for trap in base.teenager.traps:
-		if trap.type == trap.TYPES.BUMP:
-			base.teenager.remove_trap(trap,true)
-			break
+		if trap != null: #this prevents a random ctd
+			if trap.type == trap.TYPES.BUMP:
+				base.teenager.remove_trap(trap,true)
+				break
 	
-	#if base.teenager.traps.size() == 1:
 		
 	if stage == 1:
 		stage_timer.stop()
@@ -52,8 +53,9 @@ func update(delta):
 			stage_timer.set_wait_time(4)
 			stage_timer.start()
 			stage += 1
-			base.teenager.state_animation = true
+			self.base.teenager.custom_animation = base.get_node('Idle')
 		else:
+			self.base.teenager.custom_animation = null
 			base.teenager.state_animation = false
 	elif stage == 3:
 		exit()
@@ -69,6 +71,7 @@ func exit():
 		stage_timer.disconnect("timeout",self,"next_stage")
 		stage_timer.queue_free()
 		stage_timer = null
+		base.teenager.custom_animation = null
 		stage = 0
 		if base.is_forced_state:
 			base._on_routine = false

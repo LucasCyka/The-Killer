@@ -324,7 +324,7 @@ pause_mode = 2
 margin_left = -42.0
 margin_top = 18.0
 margin_right = -29.0
-margin_bottom = 28.0
+margin_bottom = 32.0
 texture_normal = ExtResource( 17 )
 
 [node name="NormalSpdBtn" type="TextureButton" parent="Canvas/InfoUI/Clock"]
@@ -332,7 +332,7 @@ pause_mode = 2
 margin_left = -4.0
 margin_top = 18.0
 margin_right = 10.0
-margin_bottom = 28.0
+margin_bottom = 32.0
 texture_normal = ExtResource( 18 )
 
 [node name="FastSpdBtn" type="TextureButton" parent="Canvas/InfoUI/Clock"]
@@ -340,7 +340,7 @@ pause_mode = 2
 margin_left = 12.0
 margin_top = 18.0
 margin_right = 26.0
-margin_bottom = 28.0
+margin_bottom = 32.0
 texture_normal = ExtResource( 19 )
 
 [node name="FastSpdBtn2" type="TextureButton" parent="Canvas/InfoUI/Clock"]
@@ -348,7 +348,7 @@ pause_mode = 2
 margin_left = 28.0
 margin_top = 18.0
 margin_right = 42.0
-margin_bottom = 28.0
+margin_bottom = 32.0
 texture_normal = ExtResource( 20 )
 
 [node name="TimeIcon" type="Sprite" parent="Canvas/InfoUI/Clock"]

@@ -91,6 +91,12 @@ func update_time():
 	else: minute = str(minute)
 	
 	time_label.text = hour + ':' + minute
+	
+	#little icon on the clock
+	if time/60 > 19 or time/60 < 6:
+		$Clock/TimeIcon.texture = preload("res://sprites/gui/timeIcon_moon.png")
+	else:
+		$Clock/TimeIcon.texture = preload("res://sprites/gui/timeIcon_sun.png")
 
 #pause/resume the game
 func pause_btn():

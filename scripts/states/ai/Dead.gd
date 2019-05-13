@@ -15,6 +15,7 @@ var affected_teenagers = []
 #constructor
 func init(base,state_position,state_time):
 	self.base = base
+	self.base.teenager.state_animation = false
 	self.game = base.teenager.get_parent().get_parent()
 	self.teenagers = get_tree().get_nodes_in_group("AI")
 	

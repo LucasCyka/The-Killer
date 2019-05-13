@@ -20,6 +20,7 @@ var _timer = null
 #constructor
 func init(base,state_position,state_time):
 	self.base = base
+	self.base.teenager.custom_animation = base.get_node('Idle')
 	self.current_trap = base.teenager.current_trap
 	self.base.is_forced_state = false
 	self.consuming_time = state_time

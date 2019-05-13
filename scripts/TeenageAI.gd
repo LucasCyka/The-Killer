@@ -46,6 +46,7 @@ var animations = {}
 
 #it's true when the teen needs to execute an animation from a state 'activity'
 var state_animation = false
+var custom_animation = null
 var current_routine = 0
 var last_routine = 0
 var is_routine_paused = false
@@ -217,12 +218,20 @@ func update_animations():
 		#wait for it to be generated
 		return
 	
-	if not state_animation:
+	var state = state_machine.get_current_state()
+	
+	if not state_animation and custom_animation == null:
 		teenager_anims.play(animations[id]['Moving'][facing_direction]['anim'])
 		teenager_anims.set_flip_h(animations[id]['Moving'][facing_direction]['flip'])
+	elif custom_animation != null:
+		var _name = custom_animation.name
+		#execute the custom animation
+		teenager_anims.play(animations[id][_name][facing_direction]['anim'])
+		teenager_anims.set_flip_h(animations[id][_name][facing_direction]['flip'])
 	else:
-		teenager_anims.play(animations[id]['Idle'][facing_direction]['anim'])
-		teenager_anims.set_flip_h(animations[id]['Idle'][facing_direction]['flip'])
+		#TODO: replace the IDLE by the name of the state
+		teenager_anims.play(animations[id][state][facing_direction]['anim'])
+		teenager_anims.set_flip_h(animations[id][state][facing_direction]['flip'])
 
 #fill a dictionary with animations from the AnimatedSprite resource
 #TODO: diagonal animations?
