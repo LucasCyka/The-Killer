@@ -38,7 +38,7 @@ func update(delta):
 		var pos = teen.kinematic_teenager.global_position
 		
 		#check if the teen is close enough
-		if pos.distance_to(teen_pos) <90:
+		if pos.distance_to(teen_pos) <100:
 			#check if he can see the dead teen
 			var dir = pos.normalized() - teen_pos.normalized()
 			var facing = dir.dot(teen.facing_direction)

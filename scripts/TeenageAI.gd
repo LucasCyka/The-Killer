@@ -101,11 +101,23 @@ func _process(delta):
 	#updates the debug label
 	$KinematicTeenager/Animations/DebugState.text = state_machine.get_current_state()
 	#debug progress bar
+	match state_machine.get_current_state():
+		'Waiting':
+			$KinematicTeenager/Animations/StateProgress.show()
+		'OnVice':
+			$KinematicTeenager/Animations/StateProgress.show()
+		'Talking':
+			$KinematicTeenager/Animations/StateProgress.show()
+		_:
+			$KinematicTeenager/Animations/StateProgress.hide()
+			
+	"""
 	if state_machine.get_current_state() == 'Waiting':
 		$KinematicTeenager/Animations/StateProgress.show()
 	elif state_machine.get_current_state() == 'OnVice':
 		$KinematicTeenager/Animations/StateProgress.show()
 	else: $KinematicTeenager/Animations/StateProgress.hide()
+	"""
 
 #init the routine for the first time
 func init_routine():
