@@ -140,6 +140,14 @@ script = ExtResource( 18 )
 [node name="Sleeping" type="Node" parent="States"]
 script = ExtResource( 19 )
 
+[node name="EatingTable" type="Node" parent="States"]
+
+[node name="PicNic" type="Node" parent="States"]
+
+[node name="Shitting" type="Node" parent="States"]
+
+[node name="LyingBed" type="Node" parent="States"]
+
 [node name="Dead" type="Node" parent="States"]
 script = ExtResource( 20 )
 
