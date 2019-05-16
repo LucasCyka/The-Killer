@@ -1,0 +1,11 @@
+Solving the problem with trees:
+
+Create two tree tiles at the tilemap for them. Each tile should have different z-indexes, one lower and one higher. Than put an Area2D in front/back of each tree. I recommend doing this throught a script. Every time the AI enters this Area2D it must check the closest tree from that tile and change to a higher or lower tile (z-index) if the player is higher or lower on the y-axis.
+
+Solving the problem with the walls:
+
+Another tileset with a higher z-index containing half of the size of each wall. Those smalls tiles will be directly in front of the AI.
+
+Solving the problem with world objects:
+
+Just put them inside the "AI" Y-sort node. But don't forget to check if they have same z-index value that the AI.

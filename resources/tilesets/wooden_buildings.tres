@@ -126,4 +126,14 @@ polygon = PoolVector2Array( -12.7804, 12.0772, 12.1068, 11.9641, 11.936, -13.105
 10/navigation_offset = Vector2( 12.5, 12.5 )
 10/shapes = [  ]
 10/z_index = 0
+11/name = "OutWindow"
+11/texture = ExtResource( 1 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 75, 0, 25, 25 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shapes = [  ]
+11/z_index = 0
 
