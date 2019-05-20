@@ -143,7 +143,7 @@ func on_radius(area):
 			#he can't see the lure yet
 			if body_on_radius.find(area) == -1: body_on_radius.append(area)
 			return
-			
+		
 		if check_requirements(teenager):
 			if lure_teenager(teenager):
 				trapped_teenagers.append(teenager)
