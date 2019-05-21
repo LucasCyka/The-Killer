@@ -46,6 +46,8 @@ func update(delta):
 			base.teenager.custom_animation = base.get_node('Idle')
 			for teen in teenagers:
 				if teen == base.teenager: continue
+				if not teen.is_object_visible(base.teenager.detection_area): continue
+				
 				var teen_pos = teen.kinematic_teenager.global_position
 				var distance = teen_pos.distance_to(base.teenager.kinematic_teenager.global_position)
 				

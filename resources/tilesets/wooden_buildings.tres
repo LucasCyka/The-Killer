@@ -136,4 +136,14 @@ polygon = PoolVector2Array( -12.7804, 12.0772, 12.1068, 11.9641, 11.936, -13.105
 11/navigation_offset = Vector2( 0, 0 )
 11/shapes = [  ]
 11/z_index = 0
+12/name = "Intersection"
+12/texture = ExtResource( 1 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 75, 25, 25, 25 )
+12/tile_mode = 0
+12/occluder_offset = Vector2( 0, 0 )
+12/navigation_offset = Vector2( 0, 0 )
+12/shapes = [  ]
+12/z_index = 0
 
