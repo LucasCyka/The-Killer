@@ -11,8 +11,11 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[node name="WorldObject" type="AnimatedSprite"]
+[node name="WorldObject" type="AnimatedSprite" groups=[
+"Object",
+]]
 frames = SubResource( 1 )
+playing = true
 script = ExtResource( 2 )
 
 [node name="Button" type="TextureButton" parent="."]

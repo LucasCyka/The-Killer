@@ -291,6 +291,7 @@ margin_bottom = 50.0
 texture_normal = ExtResource( 13 )
 
 [node name="InfoUI" type="Control" parent="Canvas"]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 14 )
@@ -308,6 +309,7 @@ margin_bottom = 51.0
 text = "00000000"
 
 [node name="Clock" type="Sprite" parent="Canvas/InfoUI"]
+editor/display_folded = true
 position = Vector2( 554.559, 30 )
 texture = ExtResource( 15 )
 
