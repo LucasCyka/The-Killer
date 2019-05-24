@@ -28,6 +28,7 @@ func init(base):
 	self.base.connect("element_toggle",self,"_on_new_trap")
 	self.base.connect("element_mouse_hover",self,"set_is_ui_occupied",[true])
 	self.base.connect("element_mouse_exit",self,"set_is_ui_occupied",[false])
+	self.base.connect("element_changed_focus",self,"close_selection")
 	
 	#loads trap data
 	bump = base.game.get_traps(trap_enum.BUMP)

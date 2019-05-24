@@ -507,4 +507,6 @@ texture = ExtResource( 52 )
 
 [node name="WorldObject" parent="." instance=ExtResource( 53 )]
 position = Vector2( 916.991, 30.9997 )
+obj_name = "Testing"
+obj_desc = "This object"
 

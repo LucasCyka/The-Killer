@@ -6,12 +6,19 @@ extends Control
 
 signal new_misc
 
+onready var object_panel = $ObjectPanel
+
 var base = null
 
 #constructor
 func init(base):
 	self.base = base
 	self.base.connect("element_toggle",self,"_on_new_misc")
+	
+	#link all world objects to the object panel
+	var objects = get_tree().get_nodes_in_group("Object")
+	for obj in objects:
+		obj.get_node("Button").connect("pressed",self,"show_object_panel",[obj])
 
 #hunt button pressed state
 func hunt():
@@ -23,6 +30,28 @@ func hunt():
 	var hunter = preload("res://scenes/PlayerHunter.tscn").instance()
 	hunter.init(base.game,base)
 	base.game.get_node("AI").add_child(hunter)
-	 
+	
+	base.emit_signal('element_changed_focus')
+
+#the object panel shows iformation about a object the player selected
+func show_object_panel(obj):
+	#this will close panels or other elements
+	base.emit_signal('element_toggle')
+	base.emit_signal('element_changed_focus')
+	
+	$ObjectPanel/Object/Name.text = obj.obj_name
+	$ObjectPanel/Object/Desc.text = obj.obj_desc
+	
+	if not $ObjectPanel.is_visible():
+		object_panel.show()
+		$ObjectPanel/Object/Close.connect('pressed',self,'hide_object_panel')
+
+func hide_object_panel():
+	$ObjectPanel/Object/Close.disconnect('pressed',self,'hide_object_panel')
+	object_panel.hide()
+	
+func activate_object():
+	pass
+
 func _on_new_misc():
 	emit_signal("new_misc")

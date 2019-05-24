@@ -7,6 +7,7 @@ extends Control
 signal element_toggle
 signal element_mouse_hover
 signal element_mouse_exit
+signal element_changed_focus
 
 #UI elements
 var teenager_panel = null
