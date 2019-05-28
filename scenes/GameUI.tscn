@@ -273,6 +273,7 @@ z_index = -1
 texture = ExtResource( 11 )
 
 [node name="MiscUI" type="Control" parent="Canvas"]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 12 )
@@ -292,6 +293,7 @@ margin_bottom = 50.0
 texture_normal = ExtResource( 13 )
 
 [node name="ObjectPanel" type="Control" parent="Canvas/MiscUI"]
+editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -331,7 +333,6 @@ text = "DESCRIPTION OF THE OBJECT"
 autowrap = true
 
 [node name="InfoUI" type="Control" parent="Canvas"]
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 15 )

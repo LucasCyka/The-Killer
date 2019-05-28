@@ -35,6 +35,8 @@ func update(delta):
 	if game == null:
 		return
 	teen_pos = kinematic_teenager.global_position
+	#since the animations speed can be chaned by the clock feature
+	self.base.teenager.teenager_anims.set_speed_scale(2)
 	
 	if base.teenager.saw_player: is_avoiding_player = true
 	

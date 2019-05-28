@@ -136,10 +136,3 @@ func fast_btn2():
 	else:
 		return
 
-
-
-
-
-
-
-

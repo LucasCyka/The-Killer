@@ -94,7 +94,6 @@ margin_right = 15.0
 margin_bottom = 15.0
 
 [node name="States" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 3 )
 
 [node name="Idle" type="Node" parent="States"]
