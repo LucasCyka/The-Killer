@@ -163,12 +163,11 @@ speed = 50
 [node name="Routines" type="Node" parent="AI/Teenager"]
 
 [node name="Routine" type="TileMap" parent="AI/Teenager/Routines"]
-visible = false
 z_index = 2
 tile_set = ExtResource( 5 )
 cell_size = Vector2( 25, 25 )
 format = 1
-tile_data = PoolIntArray( 589852, 0, 0, 589853, 33, 0, 589854, 32, 0, 2293794, 1, 0, 2293795, 27, 0, 2293796, 30, 0 )
+tile_data = PoolIntArray( 589852, 0, 0, 589853, 33, 0, 589854, 32, 0, 655401, 1, 0, 655402, 36, 0, 655403, 30, 0 )
 
 [node name="Teenager2" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -176,6 +175,7 @@ position = Vector2( 801.417, 244.541 )
 speed = 50
 
 [node name="Routines" type="Node" parent="AI/Teenager2"]
+editor/display_folded = true
 
 [node name="Routine" type="TileMap" parent="AI/Teenager2/Routines"]
 visible = false
@@ -189,6 +189,8 @@ tile_data = PoolIntArray( -851902, 4, 0, -851901, 26, 0, -851900, 32, 0, -786366
 position = Vector2( 1025.51, 217.181 )
 z_index = 3
 animation = "bed"
+type = 1
+owner_id = 1
 obj_name = "Testing"
 obj_desc = "This object"
 
@@ -494,7 +496,7 @@ texture = ExtResource( 27 )
 position = Vector2( 799.806, 848.917 )
 z_index = 1
 frames = SubResource( 6 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]

@@ -49,6 +49,7 @@ onready var canvas_m = get_node("Lights'Shadows/CanvasModulate")
 func _ready():
 	#A* pathfinding
 	star.init($Tiles/Path,Vector2(25,25),false)
+	randomize()
 	#loads traps information for this level
 	load_trap_info()
 	#start timer
