@@ -30,7 +30,8 @@ var routine_dictionary = {
 		27:"Waiting",
 		33:"Talking",
 		35:"Sleeping",
-		36:"OnBed"
+		36:"OnBed",
+		41:"OnPicNic"
 		
 	},
 	"time":{
@@ -38,7 +39,11 @@ var routine_dictionary = {
 		29:5,
 		30:10,
 		31:15,
-		32:20
+		32:20,
+		37:30,
+		38:40,
+		39:50,
+		40:60
 	}
 }
 
@@ -108,6 +113,10 @@ func _process(delta):
 		'OnVice':
 			$KinematicTeenager/Animations/StateProgress.show()
 		'Talking':
+			$KinematicTeenager/Animations/StateProgress.show()
+		'OnBed':
+			$KinematicTeenager/Animations/StateProgress.show()
+		'OnPicNic':
 			$KinematicTeenager/Animations/StateProgress.show()
 		_:
 			$KinematicTeenager/Animations/StateProgress.hide()
@@ -183,7 +192,6 @@ func generate_routine(routine_map):
 				routines[id]["state"].insert(_id,routine_dictionary["state"][_routine])
 				routines[id]["time"].insert(_id,routine_dictionary["time"][_time])
 				routines[id]["pos"].insert(_id,_position)
-				
 				break
 
 #move to a given position.
@@ -225,7 +233,7 @@ func walk(to):
 	else:
 		return true
 
-#TODO: update animations according to its state, id etc...
+#update animations according to its state, id etc...
 func update_animations():
 	if animations == {}:
 		#wait for it to be generated

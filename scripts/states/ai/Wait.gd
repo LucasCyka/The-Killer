@@ -34,7 +34,7 @@ func update(delta):
 		if base.state_timer.is_stopped():
 			base.teenager.state_animation = true
 			base.state_timer.set_wait_time(duration)
-			base.state_timer.start()
+			#base.state_timer.start()??? how godot is starting the timer without this line ??? 
 			
 func exit():
 	if base.is_forced_state:

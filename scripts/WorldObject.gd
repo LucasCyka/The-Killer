@@ -19,6 +19,7 @@ enum TYPE{
 export(TYPE) var type = TYPE.DECORATION
 export var id = 0
 export var owner_id = 0
+export var owner_id_2 = 0
 export var is_activable = false
 export var is_usable = false
 

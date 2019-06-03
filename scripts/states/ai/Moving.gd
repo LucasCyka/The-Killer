@@ -23,7 +23,8 @@ func update(delta):
 	if teenager == null:
 		return
 	
-	base.teenager.state_animation = true
+	base.teenager.state_animation = false
+	base.teenager.custom_animation = null
 	
 	#walk to that location
 	if teenager.walk(position):

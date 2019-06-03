@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/PlayerController.tscn" type="PackedScene" id=2]
@@ -34,9 +34,8 @@
 [ext_resource path="res://sprites/world_objects/boat6.png" type="Texture" id=32]
 [ext_resource path="res://sprites/world_objects/boat.png" type="Texture" id=33]
 [ext_resource path="res://sprites/world_objects/table_iteration2.png" type="Texture" id=34]
-[ext_resource path="res://sprites/world_objects/picnic.png" type="Texture" id=35]
-[ext_resource path="res://sprites/world_objects/power_generator.png" type="Texture" id=36]
-[ext_resource path="res://sprites/world_objects/bathroom.png" type="Texture" id=37]
+[ext_resource path="res://sprites/world_objects/power_generator.png" type="Texture" id=35]
+[ext_resource path="res://sprites/world_objects/bathroom.png" type="Texture" id=36]
 
 [sub_resource type="TileSet" id=1]
 0/name = "autotile1_water.png 0"
@@ -154,20 +153,21 @@ time = 720
 [node name="AI" type="YSort" parent="."]
 
 [node name="Teenager" parent="AI" instance=ExtResource( 4 )]
-editor/display_folded = true
 position = Vector2( 768.593, 241.677 )
 gender = 1
 id = 1
 speed = 50
 
 [node name="Routines" type="Node" parent="AI/Teenager"]
+editor/display_folded = true
 
 [node name="Routine" type="TileMap" parent="AI/Teenager/Routines"]
+visible = false
 z_index = 2
 tile_set = ExtResource( 5 )
 cell_size = Vector2( 25, 25 )
 format = 1
-tile_data = PoolIntArray( 589852, 0, 0, 589853, 33, 0, 589854, 32, 0, 655401, 1, 0, 655402, 36, 0, 655403, 30, 0 )
+tile_data = PoolIntArray( 589852, 0, 0, 589853, 33, 0, 589854, 32, 0, 655401, 1, 0, 655402, 36, 0, 655403, 39, 0, 1179689, 2, 0, 1179690, 41, 0, 1179691, 38, 0 )
 
 [node name="Teenager2" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -179,11 +179,11 @@ editor/display_folded = true
 
 [node name="Routine" type="TileMap" parent="AI/Teenager2/Routines"]
 visible = false
-z_index = 1
+z_index = 2
 tile_set = ExtResource( 5 )
 cell_size = Vector2( 25, 25 )
 format = 1
-tile_data = PoolIntArray( -851902, 4, 0, -851901, 26, 0, -851900, 32, 0, -786366, 5, 0, -786365, 27, 0, -786364, 32, 0, 589854, 0, 0, 589855, 33, 0, 589856, 32, 0, 589864, 1, 0, 589865, 27, 0, 589866, 31, 0 )
+tile_data = PoolIntArray( 589854, 0, 0, 589855, 33, 0, 589856, 32, 0, 655401, 1, 0, 655402, 36, 0, 655403, 39, 0, 1179689, 2, 0, 1179690, 41, 0, 1179691, 38, 0 )
 
 [node name="Bed" parent="AI" instance=ExtResource( 6 )]
 position = Vector2( 1025.51, 217.181 )
@@ -310,6 +310,15 @@ animation = "wardrobe2"
 obj_name = "Testing"
 obj_desc = "This object"
 
+[node name="PicNic" parent="AI" instance=ExtResource( 6 )]
+position = Vector2( 1063.18, 485.791 )
+z_index = 1
+animation = "PicNic"
+type = 2
+owner_id = 1
+obj_name = "Testing"
+obj_desc = "This object"
+
 [node name="Tiles" type="Node" parent="."]
 editor/display_folded = true
 
@@ -422,7 +431,6 @@ texture = ExtResource( 21 )
 energy = 1.3
 
 [node name="WorldSprites(DEBUG)" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Shadow1" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
@@ -496,7 +504,7 @@ texture = ExtResource( 27 )
 position = Vector2( 799.806, 848.917 )
 z_index = 1
 frames = SubResource( 6 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]
@@ -504,29 +512,25 @@ visible = false
 position = Vector2( 1448.07, 266.009 )
 texture = ExtResource( 34 )
 
-[node name="Table4" type="Sprite" parent="WorldSprites(DEBUG)"]
-position = Vector2( 1063.18, 485.791 )
-texture = ExtResource( 35 )
-
 [node name="PowerGenerator" type="Sprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 1278.1, 155.498 )
 z_index = 1
-texture = ExtResource( 36 )
+texture = ExtResource( 35 )
 
 [node name="Table5" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 1801.15, 231.735 )
 z_index = 2
-texture = ExtResource( 37 )
+texture = ExtResource( 36 )
 
 [node name="Table6" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 1215.98, -3.39085 )
 z_index = 2
-texture = ExtResource( 37 )
+texture = ExtResource( 36 )
 
 [node name="Table7" type="Sprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 1215.98, -3.39085 )
 z_index = 2
-texture = ExtResource( 37 )
+texture = ExtResource( 36 )
 
