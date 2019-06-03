@@ -292,7 +292,7 @@ func update_game_speed():
 				else:continue
 			fast_speed:
 				anim_speed = 2
-				ai_timer_speed = 2
+				ai_timer_speed = 6
 				teen.teenager_anims.set_speed_scale(2)
 				if teens_speed.keys().find(teen) == -1:
 					common.merge_dict(teens_speed,{teen:teen.speed})
@@ -302,7 +302,7 @@ func update_game_speed():
 					new_speed *= 2
 			ultra_speed:
 				anim_speed = 3
-				ai_timer_speed = 3
+				ai_timer_speed = 12
 				teen.teenager_anims.set_speed_scale(3)
 				if teens_speed.keys().find(teen) == -1:
 					common.merge_dict(teens_speed,{teen:teen.speed})

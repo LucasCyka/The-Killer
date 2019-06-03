@@ -153,6 +153,7 @@ time = 720
 [node name="AI" type="YSort" parent="."]
 
 [node name="Teenager" parent="AI" instance=ExtResource( 4 )]
+editor/display_folded = true
 position = Vector2( 768.593, 241.677 )
 gender = 1
 id = 1
@@ -167,7 +168,7 @@ z_index = 2
 tile_set = ExtResource( 5 )
 cell_size = Vector2( 25, 25 )
 format = 1
-tile_data = PoolIntArray( 589852, 0, 0, 589853, 33, 0, 589854, 32, 0, 655401, 1, 0, 655402, 36, 0, 655403, 39, 0, 1179689, 2, 0, 1179690, 41, 0, 1179691, 38, 0 )
+tile_data = PoolIntArray( 589852, 0, 0, 589853, 33, 0, 589854, 40, 0, 655401, 1, 0, 655402, 36, 0, 655403, 38, 0, 1179689, 2, 0, 1179690, 41, 0, 1179691, 40, 0 )
 
 [node name="Teenager2" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -183,7 +184,7 @@ z_index = 2
 tile_set = ExtResource( 5 )
 cell_size = Vector2( 25, 25 )
 format = 1
-tile_data = PoolIntArray( 589854, 0, 0, 589855, 33, 0, 589856, 32, 0, 655401, 1, 0, 655402, 36, 0, 655403, 39, 0, 1179689, 2, 0, 1179690, 41, 0, 1179691, 38, 0 )
+tile_data = PoolIntArray( 589854, 0, 0, 589855, 33, 0, 589856, 40, 0, 655401, 1, 0, 655402, 36, 0, 655403, 38, 0, 1179689, 2, 0, 1179690, 41, 0, 1179691, 40, 0 )
 
 [node name="Bed" parent="AI" instance=ExtResource( 6 )]
 position = Vector2( 1025.51, 217.181 )
@@ -504,7 +505,7 @@ texture = ExtResource( 27 )
 position = Vector2( 799.806, 848.917 )
 z_index = 1
 frames = SubResource( 6 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]
