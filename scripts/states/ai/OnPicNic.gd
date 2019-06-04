@@ -10,11 +10,13 @@ signal entered
 var base
 var duration
 var table = null
+var teen = null
 
 func init(base,state_position,state_time):
 	self.base = base
 	self.duration = state_time
-	self.base.teenager.state_animation = false
+	self.teen = base.teenager
+	self.teen.state_animation = false
 	self.base.connect("timer_finished",self,"exit")
 	emit_signal("entered")
 	
@@ -22,6 +24,9 @@ func update(delta):
 	if base == null:
 		return
 		
+	#prevents wrong filiping
+	self.teen.animations[teen.id]['OnPicNic'][teen.facing_direction]['flip'] = false
+	
 	if table == null:
 		#search for a bed this teenager owns
 		var found = false
@@ -53,4 +58,5 @@ func exit():
 	if base.is_forced_state:
 		base._on_routine = false
 	else: base._on_routine = true
+	base.disconnect("timer_finished",self,"exit")
 	emit_signal("finished")

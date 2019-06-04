@@ -41,7 +41,9 @@ func _ready():
 		$EatingTable:$EatingTable.name,
 		$OnPicNic:$OnPicNic.name,
 		$Shitting:$Shitting.name,
-		$OnBed:$OnBed.name
+		$OnBed:$OnBed.name,
+		$SittingFloor:$SittingFloor.name,
+		$Fishing:$Fishing.name
 	}
 	
 	for state in states:
@@ -76,7 +78,6 @@ func finish_state():
 		teenager.get_traps()[teenager.current_trap].activate_trap(teenager)
 		#print("STACKED TRAPS:")
 		#print(teenager.traps.size())
-	
 	if _on_routine == true and is_routine_over == false:
 		#TODO: check if the routine is paused, if so then resume it instead
 		#of going to the next one

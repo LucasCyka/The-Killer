@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=84 format=2]
+[gd_resource type="SpriteFrames" load_steps=103 format=2]
 
 [ext_resource path="res://sprites/characters/male_1/onpicnic.png" type="Texture" id=1]
 [ext_resource path="res://sprites/characters/female_1/female_anims4/onbed4.png" type="Texture" id=2]
@@ -83,6 +83,25 @@
 [ext_resource path="res://sprites/characters/female_1/walking_side2.png" type="Texture" id=81]
 [ext_resource path="res://sprites/characters/female_1/walking_side3.png" type="Texture" id=82]
 [ext_resource path="res://sprites/characters/female_1/walking_side4.png" type="Texture" id=83]
+[ext_resource path="res://sprites/characters/male_1/sitting_floor.png" type="Texture" id=84]
+[ext_resource path="res://sprites/characters/male_1/ontable.png" type="Texture" id=85]
+[ext_resource path="res://sprites/characters/female_1/female_anims6/female_anims6.png" type="Texture" id=86]
+[ext_resource path="res://sprites/characters/female_1/female_anims6/female_anims7.png" type="Texture" id=87]
+[ext_resource path="res://sprites/characters/female_1/female_anims6/female_anims8.png" type="Texture" id=88]
+[ext_resource path="res://sprites/characters/female_1/female_anims6/female_anims9.png" type="Texture" id=89]
+[ext_resource path="res://sprites/characters/female_1/female_anims6/female_anims10.png" type="Texture" id=90]
+[ext_resource path="res://sprites/characters/female_1/female_anims6/female_anims11.png" type="Texture" id=91]
+[ext_resource path="res://sprites/characters/male_1/male_fishing1.png" type="Texture" id=92]
+[ext_resource path="res://sprites/characters/male_1/male_fishing2.png" type="Texture" id=93]
+[ext_resource path="res://sprites/characters/male_1/male_fishing3.png" type="Texture" id=94]
+[ext_resource path="res://sprites/characters/male_1/male_fishing4.png" type="Texture" id=95]
+[ext_resource path="res://sprites/characters/male_1/male_fishing5.png" type="Texture" id=96]
+[ext_resource path="res://sprites/characters/male_1/male_fishing6.png" type="Texture" id=97]
+[ext_resource path="res://sprites/characters/male_1/male_fishing7.png" type="Texture" id=98]
+[ext_resource path="res://sprites/characters/male_1/male_fishing8.png" type="Texture" id=99]
+[ext_resource path="res://sprites/characters/male_1/male_fishing9.png" type="Texture" id=100]
+[ext_resource path="res://sprites/characters/male_1/male_fishing10.png" type="Texture" id=101]
+[ext_resource path="res://sprites/characters/female_1/female_anims7.png" type="Texture" id=102]
 
 [resource]
 animations = [ {
@@ -266,11 +285,6 @@ animations = [ {
 "name": "0:Moving-Down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 57 ) ],
-"loop": true,
-"name": "1:Idle-Up",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 63 ) ],
 "loop": true,
 "name": "1:Waiting-Down",
@@ -324,6 +338,86 @@ animations = [ {
 "frames": [ ExtResource( 63 ) ],
 "loop": true,
 "name": "1:Idle-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 84 ) ],
+"loop": true,
+"name": "0:SittingFloor-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 84 ) ],
+"loop": true,
+"name": "0:SittingFloor-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 85 ) ],
+"loop": true,
+"name": "0:EatingTable-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 85 ) ],
+"loop": true,
+"name": "0:EatingTable-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 86 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ) ],
+"loop": true,
+"name": "1:EatingTable-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 84 ) ],
+"loop": true,
+"name": "0:SittingFloor-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 97 ), ExtResource( 98 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ) ],
+"loop": true,
+"name": "0:Fishing-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 102 ) ],
+"loop": true,
+"name": "1:SittingFloor-Down",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "0:Fishing-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 102 ) ],
+"loop": true,
+"name": "1:SittingFloor-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 102 ) ],
+"loop": true,
+"name": "1:SittingFloor-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 86 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ) ],
+"loop": true,
+"name": "1:EatingTable-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 86 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ) ],
+"loop": true,
+"name": "1:EatingTable-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 57 ) ],
+"loop": true,
+"name": "1:Idle-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 85 ) ],
+"loop": true,
+"name": "0:EatingTable-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 97 ), ExtResource( 98 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ) ],
+"loop": true,
+"name": "0:Fishing-Down",
 "speed": 5.0
 } ]
 

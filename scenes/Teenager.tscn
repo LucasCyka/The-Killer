@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://scripts/TeenageAI.gd" type="Script" id=1]
 [ext_resource path="res://resources/anims/teenager.tres" type="SpriteFrames" id=2]
@@ -22,9 +22,11 @@
 [ext_resource path="res://scripts/states/ai/EatingTable.gd" type="Script" id=20]
 [ext_resource path="res://scripts/states/ai/OnPicNic.gd" type="Script" id=21]
 [ext_resource path="res://scripts/states/ai/Shitting.gd" type="Script" id=22]
-[ext_resource path="res://scripts/states/ai/OnBed.gd" type="Script" id=23]
-[ext_resource path="res://scripts/states/ai/Dead.gd" type="Script" id=24]
-[ext_resource path="res://scenes/AITimer.tscn" type="PackedScene" id=25]
+[ext_resource path="res://scripts/states/ai/SittingFloor.gd" type="Script" id=23]
+[ext_resource path="res://scripts/states/ai/Fishing.gd" type="Script" id=24]
+[ext_resource path="res://scripts/states/ai/OnBed.gd" type="Script" id=25]
+[ext_resource path="res://scripts/states/ai/Dead.gd" type="Script" id=26]
+[ext_resource path="res://scenes/AITimer.tscn" type="PackedScene" id=27]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 13.3082
@@ -153,11 +155,17 @@ script = ExtResource( 21 )
 [node name="Shitting" type="Node" parent="States"]
 script = ExtResource( 22 )
 
-[node name="OnBed" type="Node" parent="States"]
+[node name="SittingFloor" type="Node" parent="States"]
 script = ExtResource( 23 )
 
-[node name="Dead" type="Node" parent="States"]
+[node name="Fishing" type="Node" parent="States"]
 script = ExtResource( 24 )
 
-[node name="StateTimer" parent="States" instance=ExtResource( 25 )]
+[node name="OnBed" type="Node" parent="States"]
+script = ExtResource( 25 )
+
+[node name="Dead" type="Node" parent="States"]
+script = ExtResource( 26 )
+
+[node name="StateTimer" parent="States" instance=ExtResource( 27 )]
 

@@ -31,7 +31,10 @@ var routine_dictionary = {
 		33:"Talking",
 		35:"Sleeping",
 		36:"OnBed",
-		41:"OnPicNic"
+		41:"OnPicNic",
+		42:"EatingTable",
+		43:"SittingFloor",
+		44:"Fishing"
 		
 	},
 	"time":{
@@ -43,7 +46,8 @@ var routine_dictionary = {
 		37:30,
 		38:40,
 		39:50,
-		40:60
+		40:60,
+		45:120
 	}
 }
 
@@ -53,6 +57,8 @@ var animations = {}
 #it's true when the teen needs to execute an animation from a state 'activity'
 var state_animation = false
 var custom_animation = null
+var is_tired = false
+var remaining_sleep_time = 0
 var current_routine = 0
 var last_routine = 0
 var is_routine_paused = false
@@ -82,6 +88,9 @@ var current_trap = 0
 export (GENDER) var gender = GENDER.MALE setget , get_gender
 export var id = 0
 export var speed = base_speed setget set_speed
+export var sleep_time = 1080
+export var sleep_hours = 5
+
 #world nodes
 onready var state_machine = $States
 onready var kinematic_teenager = $KinematicTeenager
@@ -102,6 +111,7 @@ func _process(delta):
 		#decrease the teenager's modifiers when he's in routine mode.
 		decrease_modifiers()
 	update_animations()
+	check_tiredness()
 	
 #	print(traps)
 	#updates the debug label
@@ -117,6 +127,12 @@ func _process(delta):
 		'OnBed':
 			$KinematicTeenager/Animations/StateProgress.show()
 		'OnPicNic':
+			$KinematicTeenager/Animations/StateProgress.show()
+		'EatingTable':
+			$KinematicTeenager/Animations/StateProgress.show()
+		'SittingFloor':
+			$KinematicTeenager/Animations/StateProgress.show()
+		'Fishing':
 			$KinematicTeenager/Animations/StateProgress.show()
 		_:
 			$KinematicTeenager/Animations/StateProgress.hide()
@@ -298,8 +314,26 @@ func generate_animations():
 				final_dictionary[int(_id)][_state][Vector2(-1,0)] = {'anim':anim,'flip':true}
 		animations = final_dictionary
 
+#check if the teenager is tired enough to go to bed, if so then stop the
+#routine and change the state
+func check_tiredness():
+	var game = get_parent().get_parent()
 	
-			
+	if is_tired and not is_routine_paused:
+		#that means he was sleeping but was interrupted by the player
+		#send him back to the bed.
+		state_machine.force_state('Sleeping')
+		return
+	
+	if not is_tired and game.get_time() == sleep_time and not is_routine_paused:
+		#time to sleep
+		#TODO: send him to bed
+		remaining_sleep_time = sleep_hours*60
+		is_tired = true
+		state_machine.force_state('Sleeping')
+		print(remaining_sleep_time)
+		
+	
 #return a string according to the gender
 func get_gender():
 	if gender == GENDER.MALE:

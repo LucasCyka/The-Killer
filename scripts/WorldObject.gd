@@ -13,6 +13,7 @@ enum TYPE{
 	PICNIC,
 	CAR,
 	TELEPHONE,
+	TABLE,
 	DECORATION
 }
 
