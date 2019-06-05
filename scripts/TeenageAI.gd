@@ -134,6 +134,8 @@ func _process(delta):
 			$KinematicTeenager/Animations/StateProgress.show()
 		'Fishing':
 			$KinematicTeenager/Animations/StateProgress.show()
+		'Sleeping':
+			$KinematicTeenager/Animations/StateProgress.show()
 		_:
 			$KinematicTeenager/Animations/StateProgress.hide()
 			
@@ -331,7 +333,6 @@ func check_tiredness():
 		remaining_sleep_time = sleep_hours*60
 		is_tired = true
 		state_machine.force_state('Sleeping')
-		print(remaining_sleep_time)
 		
 	
 #return a string according to the gender

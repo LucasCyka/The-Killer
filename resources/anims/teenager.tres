@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=103 format=2]
+[gd_resource type="SpriteFrames" load_steps=114 format=2]
 
 [ext_resource path="res://sprites/characters/male_1/onpicnic.png" type="Texture" id=1]
 [ext_resource path="res://sprites/characters/female_1/female_anims4/onbed4.png" type="Texture" id=2]
@@ -102,6 +102,17 @@
 [ext_resource path="res://sprites/characters/male_1/male_fishing9.png" type="Texture" id=100]
 [ext_resource path="res://sprites/characters/male_1/male_fishing10.png" type="Texture" id=101]
 [ext_resource path="res://sprites/characters/female_1/female_anims7.png" type="Texture" id=102]
+[ext_resource path="res://sprites/characters/female_1/female_anims8/sleeping1.png" type="Texture" id=103]
+[ext_resource path="res://sprites/characters/female_1/female_anims8/sleeping2.png" type="Texture" id=104]
+[ext_resource path="res://sprites/characters/female_1/female_anims8/sleeping3.png" type="Texture" id=105]
+[ext_resource path="res://sprites/characters/female_1/female_anims8/sleeping4.png" type="Texture" id=106]
+[ext_resource path="res://sprites/characters/female_1/female_anims8/sleeping5.png" type="Texture" id=107]
+[ext_resource path="res://sprites/characters/female_1/female_anims8/sleeping6.png" type="Texture" id=108]
+[ext_resource path="res://sprites/characters/male_1/sleeping.1.png" type="Texture" id=109]
+[ext_resource path="res://sprites/characters/male_1/sleeping.2.png" type="Texture" id=110]
+[ext_resource path="res://sprites/characters/male_1/sleeping.3.png" type="Texture" id=111]
+[ext_resource path="res://sprites/characters/male_1/sleeping.4.png" type="Texture" id=112]
+[ext_resource path="res://sprites/characters/male_1/sleeping.5.png" type="Texture" id=113]
 
 [resource]
 animations = [ {
@@ -418,6 +429,36 @@ animations = [ {
 "frames": [ ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 97 ), ExtResource( 98 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ) ],
 "loop": true,
 "name": "0:Fishing-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 103 ), ExtResource( 104 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 108 ) ],
+"loop": true,
+"name": "1:Sleeping-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 109 ), ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 113 ) ],
+"loop": true,
+"name": "0:Sleeping-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 103 ), ExtResource( 104 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 108 ) ],
+"loop": true,
+"name": "1:Sleeping-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 103 ), ExtResource( 104 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 108 ) ],
+"loop": true,
+"name": "1:Sleeping-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 109 ), ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 113 ) ],
+"loop": true,
+"name": "0:Sleeping-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 109 ), ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 113 ) ],
+"loop": true,
+"name": "0:Sleeping-Up",
 "speed": 5.0
 } ]
 

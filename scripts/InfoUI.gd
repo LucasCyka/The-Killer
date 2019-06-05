@@ -27,9 +27,15 @@ func _process(delta):
 	
 	#search for teens that aren't on routine
 	for teen in teens:
-		if teen.is_routine_paused and activated_teens.find(teen) == -1:
+		#when sleeping the teen routine will be interrupted, but the player
+		#don't need to see his status
+		var is_sleeping = teen.state_machine.get_current_state() == 'Sleeping'
+		
+		if teen.is_routine_paused and activated_teens.find(teen) == -1 and not is_sleeping:
 			activated_teens.append(teen)
 		elif not teen.is_routine_paused and activated_teens.find(teen) != -1:
+			activated_teens.erase(teen)
+		elif is_sleeping and activated_teens.find(teen) != -1:
 			activated_teens.erase(teen)
 		else: continue
 		

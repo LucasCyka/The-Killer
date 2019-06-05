@@ -53,6 +53,7 @@ func update(delta):
 		
 		if base.state_timer.is_stopped():
 			base.state_timer.set_wait_time(duration)
+			base.state_timer.start()
 		
 	else:
 		#wait for him to reach the bed before continuing

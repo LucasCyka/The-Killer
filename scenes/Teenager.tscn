@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://scripts/TeenageAI.gd" type="Script" id=1]
 [ext_resource path="res://resources/anims/teenager.tres" type="SpriteFrames" id=2]
@@ -26,7 +26,8 @@
 [ext_resource path="res://scripts/states/ai/Fishing.gd" type="Script" id=24]
 [ext_resource path="res://scripts/states/ai/OnBed.gd" type="Script" id=25]
 [ext_resource path="res://scripts/states/ai/Dead.gd" type="Script" id=26]
-[ext_resource path="res://scenes/AITimer.tscn" type="PackedScene" id=27]
+[ext_resource path="res://scenes/CustomTimer.tscn" type="PackedScene" id=27]
+[ext_resource path="res://scenes/AITimer.tscn" type="PackedScene" id=28]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 13.3082
@@ -168,4 +169,6 @@ script = ExtResource( 25 )
 script = ExtResource( 26 )
 
 [node name="StateTimer" parent="States" instance=ExtResource( 27 )]
+
+[node name="OLDTimer" parent="States" instance=ExtResource( 28 )]
 
