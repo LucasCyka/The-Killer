@@ -37,6 +37,7 @@ func update(delta):
 	
 	if not is_on_spawn:
 		#move the player around the map if he's not close to any spawn point
+		base.player.global_position = mouse_position
 		base.player.kinematic_player.global_position = mouse_position
 
 #spawn mode or free the hunter

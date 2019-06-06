@@ -155,7 +155,7 @@ time = 720
 
 [node name="Teenager" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
-position = Vector2( 768.593, 261.677 )
+position = Vector2( 886.894, 206.09 )
 gender = 1
 id = 1
 speed = 50
@@ -173,7 +173,8 @@ format = 1
 tile_data = PoolIntArray( 524317, 3, 0, 524318, 42, 0, 524319, 38, 0, 589852, 0, 0, 589853, 33, 0, 589854, 40, 0, 589865, 6, 0, 589866, 36, 0, 589867, 40, 0, 655401, 1, 0, 655402, 36, 0, 655403, 38, 0, 720937, 5, 0, 720938, 36, 0, 720939, 40, 0, 1179689, 2, 0, 1179690, 41, 0, 1179691, 40, 0, 2293792, 4, 0, 2293793, 43, 0, 2293794, 40, 0 )
 
 [node name="Teenager2" parent="AI" instance=ExtResource( 4 )]
-position = Vector2( 801.417, 264.541 )
+editor/display_folded = true
+position = Vector2( 886.864, 226.921 )
 speed = 50
 sleep_time = 1
 
@@ -323,8 +324,9 @@ owner_id = 1
 obj_name = "Testing"
 obj_desc = "This object"
 
+[node name="CanvasLayer" type="CanvasLayer" parent="AI"]
+
 [node name="Tiles" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Floor" type="TileMap" parent="Tiles"]
 z_index = -2
@@ -509,7 +511,7 @@ texture = ExtResource( 27 )
 position = Vector2( 799.806, 848.917 )
 z_index = 1
 frames = SubResource( 6 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]
