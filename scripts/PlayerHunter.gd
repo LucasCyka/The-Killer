@@ -32,7 +32,7 @@ func init(base,ui):
 	ui.connect("element_toggle",self,"_free")
 	#teenager signals. Used to target teenagers
 	for teenager in base.get_teenagers():
-		var _btn = teenager.get_node("KinematicTeenager/TeenagerButton")
+		var _btn = teenager.get_node("TeenagerButton")
 		_btn.connect("mouse_entered",self,"select_target",[teenager])
 		_btn.connect("mouse_exited",self,"select_target",[null])
 
@@ -147,14 +147,14 @@ func check_teenager_sight():
 		return
 		
 	for teen in teenager_on_sight:
-		var teen_pos = teen.kinematic_teenager.global_position.normalized()
+		var teen_pos = teen.global_position.normalized()
 		var player_pos = kinematic_player.global_position.normalized()
-		var distance = teen.kinematic_teenager.global_position.distance_to(kinematic_player.global_position)
+		var distance = teen.global_position.distance_to(kinematic_player.global_position)
 		var dir = teen_pos - player_pos
 		var behind_wall = false
 		
 		#raycast to ensure that the teen can really see him
-		wall_cast.set_cast_to(teen.kinematic_teenager.global_position - wall_cast.global_position)
+		wall_cast.set_cast_to(teen.global_position - wall_cast.global_position)
 		wall_cast.force_raycast_update()
 		if wall_cast.is_colliding():
 			if wall_cast.get_collider().name != 'DetectionArea':
@@ -179,16 +179,16 @@ func check_teenager_sight():
 #check if the teenager entered the player sight area
 func on_sight_area(area):
 	if area.name == 'DetectionArea':
-		if teenager_on_sight.find(area.get_parent().get_parent()) == -1:
-			teenager_on_sight.append(area.get_parent().get_parent())
+		if teenager_on_sight.find(area.get_parent()) == -1:
+			teenager_on_sight.append(area.get_parent())
 			#body.get_parent().saw_player = false
 
 
 #check if teenager left the player sight area
 func out_sight_area(area):
 	if area.name == 'DetectionArea':
-		if teenager_on_sight.find(area.get_parent().get_parent()) != -1:
-			teenager_on_sight.remove(teenager_on_sight.find(area.get_parent().get_parent()))
+		if teenager_on_sight.find(area.get_parent()) != -1:
+			teenager_on_sight.remove(teenager_on_sight.find(area.get_parent()))
 
 func get_position():
 	return kinematic_player.global_position

@@ -71,7 +71,7 @@ func _physics_process(delta):
 		return
 	
 	for body in body_on_radius:
-		var teen = body.get_parent().get_parent()
+		var teen = body.get_parent()
 		
 		for piece in get_children():
 			var detection = piece.get_node("VisibilityDetection")
@@ -127,7 +127,7 @@ func _draw():
 #check if the teenager entered the radius of the trap so he can be lured
 func on_radius(area):
 	if area.name == "DetectionArea" and !is_used:
-		var teenager = area.get_parent().get_parent()
+		var teenager = area.get_parent()
 		
 		if trapped_teenagers.find(teenager) != -1:
 			#the teenager has already been lured by this trap
@@ -161,7 +161,7 @@ func out_radius(area):
 	if body_on_radius.find(area) != -1: body_on_radius.erase(area)
 	
 	if area.name == "DetectionArea" and !is_used and is_one_shot():
-		var teenager = area.get_parent().get_parent()
+		var teenager = area.get_parent()
 		teenager.remove_trap(self,false)
 
 func get_trail():

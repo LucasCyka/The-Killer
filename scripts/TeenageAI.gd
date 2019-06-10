@@ -93,10 +93,10 @@ export var sleep_hours = 5
 
 #world nodes
 onready var state_machine = $States
-onready var kinematic_teenager = $KinematicTeenager
-onready var teenager_anims = $KinematicTeenager/Animations
-onready var wall_cast = $KinematicTeenager/DetectionArea/WallCast
-onready var detection_area = $KinematicTeenager/DetectionArea
+onready var kinematic_teenager =  self
+onready var teenager_anims = $Animations
+onready var wall_cast = $DetectionArea/WallCast
+onready var detection_area = $DetectionArea
 
 #initialize
 func _ready():
@@ -115,29 +115,29 @@ func _process(delta):
 	
 #	print(traps)
 	#updates the debug label
-	$KinematicTeenager/Animations/DebugState.text = state_machine.get_current_state()
+	$Animations/DebugState.text = state_machine.get_current_state()
 	#debug progress bar
 	match state_machine.get_current_state():
 		'Waiting':
-			$KinematicTeenager/Animations/StateProgress.show()
+			$Animations/StateProgress.show()
 		'OnVice':
-			$KinematicTeenager/Animations/StateProgress.show()
+			$Animations/StateProgress.show()
 		'Talking':
-			$KinematicTeenager/Animations/StateProgress.show()
+			$Animations/StateProgress.show()
 		'OnBed':
-			$KinematicTeenager/Animations/StateProgress.show()
+			$Animations/StateProgress.show()
 		'OnPicNic':
-			$KinematicTeenager/Animations/StateProgress.show()
+			$Animations/StateProgress.show()
 		'EatingTable':
-			$KinematicTeenager/Animations/StateProgress.show()
+			$Animations/StateProgress.show()
 		'SittingFloor':
-			$KinematicTeenager/Animations/StateProgress.show()
+			$Animations/StateProgress.show()
 		'Fishing':
-			$KinematicTeenager/Animations/StateProgress.show()
+			$Animations/StateProgress.show()
 		'Sleeping':
-			$KinematicTeenager/Animations/StateProgress.show()
+			$Animations/StateProgress.show()
 		_:
-			$KinematicTeenager/Animations/StateProgress.hide()
+			$Animations/StateProgress.hide()
 			
 	"""
 	if state_machine.get_current_state() == 'Waiting':
@@ -423,9 +423,9 @@ func set_is_indoor(value):
 	
 	#debug labels
 	if is_indoor:
-		$KinematicTeenager/Animations/DebugState2.text = "indoor"
+		$Animations/DebugState2.text = "indoor"
 	else:
-		$KinematicTeenager/Animations/DebugState2.text = "outdoor"
+		$Animations/DebugState2.text = "outdoor"
 
 #check if the teen can see an object. Will return false if the object is being
 #obstructed by walls.

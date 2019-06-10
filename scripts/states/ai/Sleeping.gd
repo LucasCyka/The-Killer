@@ -66,6 +66,7 @@ func exit():
 		base._on_routine = false
 	else:
 		teen.last_routine = 0
+		base.is_forced_state = false
 		base._on_routine = true
 		teen.is_tired = false
 	self.base.disconnect("timer_finished",self,"exit")

@@ -48,7 +48,7 @@ func get_teenagers_buttons():
 	var teenagers = []
 
 	for teenager in game.get_teenagers():
-		teenagers.append(teenager.get_node("KinematicTeenager/TeenagerButton"))
+		teenagers.append(teenager.get_node("TeenagerButton"))
 		
 	return teenagers
 

@@ -30,7 +30,7 @@ func _ready():
 func _process(delta):
 	if base == null or is_placed:
 		if is_placed and body_on_radius != null and !is_used:
-			var teenager = body_on_radius.get_parent().get_parent()
+			var teenager = body_on_radius.get_parent()
 			#this trap is on the teenager radius. If he's both are in the
 			#same location (indoor or outdoor) emit the signal
 			if teenager.is_indoor == is_indoor and teenager.is_object_visible(detection_wall):
@@ -66,7 +66,7 @@ func _input(event):
 func _on_radius(area):
 	var teenager = null
 	if area.name == "DetectionArea":
-		teenager = area.get_parent().get_parent()
+		teenager = area.get_parent()
 		if !check_requirements(area.get_parent().get_parent()): return
 		
 	if area.name == "DetectionArea" and is_placed and !is_used:

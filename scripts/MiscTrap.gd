@@ -47,7 +47,7 @@ func _ready():
 func _process(delta):
 	if base == null or is_placed:
 		if is_placed and base != null and body_on_radius != null:
-			var teen = body_on_radius.get_parent().get_parent()
+			var teen = body_on_radius.get_parent()
 			
 			#if the teenager are in the same region, emit the signal
 			if teen.is_indoor == is_indoor:
@@ -81,7 +81,7 @@ func _input(event):
 func on_radius(area):
 	var teen = null
 	if area.name == "DetectionArea":
-		teen = area.get_parent().get_parent()
+		teen = area.get_parent()
 		if !check_requirements(teen): return
 		#check if the teenager has already falled for this trap.
 		if trapped_teenagers.find(teen) != -1: return

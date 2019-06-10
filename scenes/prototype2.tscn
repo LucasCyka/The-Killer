@@ -155,12 +155,12 @@ time = 720
 
 [node name="Teenager" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
-position = Vector2( 886.894, 206.09 )
+position = Vector2( 761.936, 251.661 )
 gender = 1
 id = 1
 speed = 50
-sleep_time = 1140
-sleep_hours = 12
+sleep_time = 1200
+sleep_hours = 10
 
 [node name="Routines" type="Node" parent="AI/Teenager"]
 
@@ -174,11 +174,12 @@ tile_data = PoolIntArray( 524317, 3, 0, 524318, 42, 0, 524319, 38, 0, 589852, 0,
 
 [node name="Teenager2" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
-position = Vector2( 886.864, 226.921 )
+position = Vector2( 811.569, 251.553 )
 speed = 50
 sleep_time = 1
 
 [node name="Routines" type="Node" parent="AI/Teenager2"]
+editor/display_folded = true
 
 [node name="Routine" type="TileMap" parent="AI/Teenager2/Routines"]
 visible = false
@@ -189,8 +190,8 @@ format = 1
 tile_data = PoolIntArray( 458782, 3, 0, 458783, 42, 0, 458784, 38, 0, 589854, 0, 0, 589855, 33, 0, 589856, 40, 0, 655401, 1, 0, 655402, 36, 0, 655403, 38, 0, 1179689, 2, 0, 1179690, 41, 0, 1179691, 40, 0, 2293790, 6, 0, 2293791, 44, 0, 2293792, 45, 0, 2293793, 5, 0, 2293794, 44, 0, 2293795, 45, 0, 2293797, 4, 0, 2293798, 43, 0, 2293799, 40, 0 )
 
 [node name="Bed" parent="AI" instance=ExtResource( 6 )]
-position = Vector2( 1025.51, 217.181 )
-z_index = 3
+position = Vector2( 1024.33, 219.489 )
+z_index = 2
 animation = "bed"
 type = 1
 owner_id = 1
@@ -249,7 +250,7 @@ obj_desc = "This object"
 
 [node name="Table2" parent="AI" instance=ExtResource( 6 )]
 position = Vector2( 765.118, 201.333 )
-z_index = 3
+z_index = 2
 animation = "table"
 type = 5
 owner_id = 1
@@ -310,7 +311,7 @@ obj_desc = "This object"
 
 [node name="wardrobe2" parent="AI" instance=ExtResource( 6 )]
 position = Vector2( 1059.18, 207.473 )
-z_index = 3
+z_index = 2
 animation = "wardrobe2"
 obj_name = "Testing"
 obj_desc = "This object"

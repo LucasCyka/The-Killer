@@ -15,7 +15,7 @@ func init(base):
 	
 	#connect teenagers selection signal
 	for teenager_btn in base.get_teenagers_buttons():
-		teenager_btn.connect("pressed",self,"show_panel",[teenager_btn.get_parent().get_parent()])
+		teenager_btn.connect("pressed",self,"show_panel",[teenager_btn.get_parent()])
 	
 #update teenager information
 func _process(delta):

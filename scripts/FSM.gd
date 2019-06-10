@@ -29,8 +29,8 @@ func init():
 	
 	if teenager != null:
 		#teenager debug progress
-		teenager.get_node("KinematicTeenager/Animations/StateProgress").set_value(0)
-		teenager.get_node("KinematicTeenager/Animations/StateProgress").set_max(state_time)
+		teenager.get_node("Animations/StateProgress").set_value(0)
+		teenager.get_node("Animations/StateProgress").set_max(state_time)
 	elif player != null:
 		player.get_node("KinematicPlayer/StateProgress").set_value(0)
 		player.get_node("KinematicPlayer/StateProgress").set_max(state_time)
@@ -44,7 +44,7 @@ func _physics_process(delta):
 	
 	if teenager != null:
 		#teenager debug progress
-		teenager.get_node("KinematicTeenager/Animations/StateProgress").set_value(state_time - state_timer.get_time_left())
+		teenager.get_node("Animations/StateProgress").set_value(state_time - state_timer.get_time_left())
 	if player != null:
 		#player debug progress
 		player.get_node("KinematicPlayer/StateProgress").set_value(state_time - state_timer.get_time_left())
