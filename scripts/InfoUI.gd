@@ -11,7 +11,9 @@ var activated_teens = []
 var teens = []
 
 #world nodes
+onready var game = get_parent().get_parent().get_parent()
 onready var _score = $InfoPanel/Score
+onready var _points = $InfoPanel/Points
 onready var fc_slots = $FCSlots.get_children()
 
 #constructor
@@ -45,6 +47,7 @@ func _process(delta):
 	
 	#fill the score label
 	_score.text = str(score.get_score(base.game.get_level()))
+	_points.text = str(game.get_points())
 
 #TODO: slot animations
 #fill the fear/curiosity slots of teenagers that aren't on routine.

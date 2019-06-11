@@ -47,6 +47,8 @@ func _process(delta):
 		set_process(false)
 		current_texture.queue_free()
 		current_texture = null
+		#subtract the price of this trap from the game spendable points
+		get_parent().points -= price
 		#signals
 		detection_radius = get_children()
 		for radius in detection_radius:

@@ -69,6 +69,10 @@ func _input(event):
 	if Input.is_action_just_pressed("ok_input"):
 		if not is_invalid_tile and not is_placed and not ui.is_ui_occupied:
 			is_placed = true
+			
+			#subtract this trap price
+			get_parent().points -= price
+			
 			ui.disconnect("new_trap",self,"exit")
 			#on radius  signal
 			#detection_radius.connect("body_entered",self,"on_radius")

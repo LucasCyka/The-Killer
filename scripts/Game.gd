@@ -27,6 +27,8 @@ var last_mode = MODE.PLANNING
 
 #the time in-game stored in minutes. 
 export var time = 0 setget set_time, get_time
+#points to spend on this level buying traps
+export var points = 0 setget set_points, get_points
 
 #Default: 1 minute in-game = 1 second.
 var timer_speed = default_speed
@@ -335,6 +337,12 @@ func set_time(value):
 
 func get_time():
 	return time
+
+func set_points(value):
+	points = value
+
+func get_points():
+	return points
 
 func pause_game():
 	last_mode = get_current_mode()

@@ -333,12 +333,12 @@ text = "DESCRIPTION OF THE OBJECT"
 autowrap = true
 
 [node name="InfoUI" type="Control" parent="Canvas"]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 15 )
 
 [node name="InfoPanel" type="Container" parent="Canvas/InfoUI"]
-editor/display_folded = true
 margin_right = 138.0
 margin_bottom = 88.0
 
@@ -347,6 +347,13 @@ margin_left = 10.0
 margin_top = 20.0
 margin_right = 50.0
 margin_bottom = 51.0
+text = "00000000"
+
+[node name="Points" type="Label" parent="Canvas/InfoUI/InfoPanel"]
+margin_left = 10.0
+margin_top = 40.0
+margin_right = 74.0
+margin_bottom = 71.0
 text = "00000000"
 
 [node name="Clock" type="Sprite" parent="Canvas/InfoUI"]

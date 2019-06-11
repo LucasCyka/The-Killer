@@ -49,9 +49,10 @@ func _input(event):
 			var teen_pos = teenager.kinematic_teenager.global_position
 			var distance = teen_pos.distance_to(texture.global_position)
 			if distance < radius[id]:
-				#TODO: check if he's inside a building
 				if check_requirements(teenager):
 					startle_teenager(teenager,get_bump_position(teen_pos))
+		#spend points for this trap
+		get_parent().points -= price
 		queue_free()
 
 func on_free():

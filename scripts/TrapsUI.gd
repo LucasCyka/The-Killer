@@ -107,35 +107,38 @@ func fill_grid(data,type):
 #check if the player has the points to 'buy' a given trap, if so, then
 #instantiate it.
 func add_trap(price,type,id,fear,curiosity,requirements,oneshot,onspot,walkable):
-	#TODO: check the price before adding the trap
-	#TODO: pass all the parameters for the trap
+	#check the price before adding the trap
+	if price > base.game.get_points():
+		#not enough points
+		return
 	
+	#pass all the parameters for the trap
 	match type:
 		trap_enum.BUMP:
 			
 			var bump = preload("res://scenes/traps/BumpTrap.tscn").instance()
 			bump.init(id,base.game,base.get_bump_tilemap(),bump,self,
-			curiosity,fear,requirements,oneshot,onspot,walkable)
+			curiosity,fear,requirements,oneshot,onspot,price,walkable)
 			base.game.add_child(bump)
 			
 		trap_enum.LURE:
 			
 			var lure = preload("res://scenes/traps/LureTrap.tscn").instance()
 			lure.init(id,base.game,base.get_lure_tilemap(),lure,self,
-			curiosity,fear,requirements,oneshot,onspot,walkable)
+			curiosity,fear,requirements,oneshot,onspot,price,walkable)
 			base.game.add_child(lure)
 			
 		trap_enum.MISC:
 			
 			var misc = preload("res://scenes/traps/MiscTrap.tscn").instance()
 			misc.init(id,base.game,base.get_lure_tilemap(),misc,self,
-			curiosity,fear,requirements,oneshot,onspot,walkable)
+			curiosity,fear,requirements,oneshot,onspot,price,walkable)
 			base.game.add_child(misc)
 			
 		trap_enum.VICE:
 			var vice = preload("res://scenes/traps/ViceTrap.tscn").instance()
 			vice.init(id,base.game,base.get_lure_tilemap(),vice,self,
-			curiosity,fear,requirements,oneshot,onspot,walkable)
+			curiosity,fear,requirements,oneshot,onspot,price,walkable)
 			base.game.add_child(vice)
 		
 	selection_panel.hide()
