@@ -21,8 +21,12 @@ func init(base,state_position,state_time):
 	
 	#TODO: points should be weighted different according to some teenagers
 	#modifiers.
-	score.set_score(game.get_level(),score.get_score(game.get_level()) + 100)
 	
+	score.set_score(game.get_level(),score.get_score(game.get_level()) + 100)
+	#TODO: synch the animation according to the player killing anim
+	var _anim = Node.new()
+	_anim.name = "Dead1"
+	self.base.teenager.custom_animation = _anim
 	
 	emit_signal("entered")
 	
