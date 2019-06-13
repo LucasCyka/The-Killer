@@ -4,6 +4,7 @@ extends Node2D
 	Player/hunter. This what the player controlls in the hunter mode
 """
 
+var id = 0
 var base = null
 var ui = null
 var _selected_teenager = null
@@ -16,18 +17,38 @@ var exiting = false
 var current_path = []
 var teenager_on_sight = []
 var current_target = Vector2(0,0)
+var facing_direction = Vector2(0,1)
 
 #world nodes
 onready var state_machine = $States
 onready var kinematic_player = $KinematicPlayer
+onready var player_anims = $KinematicPlayer/PlayerAnims
 onready var game = get_parent().get_parent()
 onready var sight_area = $KinematicPlayer/SightArea
 onready var wall_cast = $KinematicPlayer/SightArea/WallCast
+
+#dictionary containing all the animations
+#layout ID:STATE-DIR
+var animations_data = {
+	"Idle":{
+		Vector2(0,1):{"anim":str(id) + ":Idle-Down","flip":false},
+		Vector2(0,-1):{"anim":str(id) + ":Idle-Up","flip":false},
+		Vector2(1,0):{"anim":str(id) + ":Idle-Side","flip":false},
+		Vector2(-1,0):{"anim":str(id) + ":Idle-Side","flip":true}},
+	
+	"Moving":{
+		Vector2(0,1):{"anim":str(id) + ":Moving-Down","flip":false},
+		Vector2(0,-1):{"anim":str(id) + ":Moving-Up","flip":false},
+		Vector2(1,0):{"anim":str(id) + ":Moving-Side","flip":false},
+		Vector2(-1,0):{"anim":str(id) + ":Moving-Side","flip":true}}
+	
+}
 
 #constructor
 func init(base,ui):
 	self.base = base
 	self.ui = ui
+	#TODO: set ID
 	
 	ui.connect("element_toggle",self,"_free")
 	#teenager signals. Used to target teenagers
@@ -49,6 +70,8 @@ func _process(delta):
 	if state_machine.get_current_state() == 'Spawning':
 		$KinematicPlayer/StateProgress.show()
 	else: $KinematicPlayer/StateProgress.hide()
+	
+	update_animations()
 	
 #click on teenagers to attack them
 func _input(event):
@@ -95,6 +118,18 @@ func walk(to):
 		dir = path[1] - kinematic_player.global_position	
 		dir = dir.normalized()
 		kinematic_player.move_and_slide(dir * speed)
+		
+		#get the direction the hunter is facing
+		facing_direction = dir.round()
+		#for some reason godot is returning '-0' sometimes... why?
+		if facing_direction.x == -0: facing_direction.x = 0
+		elif facing_direction.y == -0: facing_direction.y = 0
+		
+		#prevent the player from trying walk in diagonals
+		if abs(facing_direction.x) == abs(facing_direction.y):
+			if abs(dir.x) > abs(dir.y):
+				facing_direction.y = 0
+			else: facing_direction.x = 0
 		
 		return false
 	else: 
@@ -193,7 +228,21 @@ func out_sight_area(area):
 func get_position():
 	return kinematic_player.global_position
 
-
+#update the player animations according to its id
+func update_animations():
+	var state = state_machine.get_current_state()
+	
+	if state != 'Attacking':
+		if animations_data.keys().find(state) == -1:
+			print('No animations found for this state')
+			return
+		
+		player_anims.play(animations_data[state][facing_direction]['anim'])
+		player_anims.set_flip_h(animations_data[state][facing_direction]['flip'])
+		
+	else:
+		#TODO: attacking animations work a bit different than the others
+		pass
 
 
 

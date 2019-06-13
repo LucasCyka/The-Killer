@@ -318,11 +318,6 @@ animations = [ {
 "name": "1:Moving-Up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 59 ) ],
-"loop": true,
-"name": "0:Idle-Up",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 36 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ) ],
 "loop": true,
 "name": "0:Moving-Up",
@@ -491,6 +486,11 @@ animations = [ {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "1:Dead1-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 59 ) ],
+"loop": true,
+"name": "0:Idle-Up",
 "speed": 5.0
 } ]
 
