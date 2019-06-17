@@ -32,8 +32,8 @@ func init():
 		teenager.get_node("Animations/StateProgress").set_value(0)
 		teenager.get_node("Animations/StateProgress").set_max(state_time)
 	elif player != null:
-		player.get_node("KinematicPlayer/StateProgress").set_value(0)
-		player.get_node("KinematicPlayer/StateProgress").set_max(state_time)
+		player.get_node("StateProgress").set_value(0)
+		player.get_node("StateProgress").set_max(state_time)
 	
 #update the state process function
 func _physics_process(delta):
@@ -47,7 +47,7 @@ func _physics_process(delta):
 		teenager.get_node("Animations/StateProgress").set_value(state_time - state_timer.get_time_left())
 	if player != null:
 		#player debug progress
-		player.get_node("KinematicPlayer/StateProgress").set_value(state_time - state_timer.get_time_left())
+		player.get_node("StateProgress").set_value(state_time - state_timer.get_time_left())
 
 #get player input to states
 func _input(event):

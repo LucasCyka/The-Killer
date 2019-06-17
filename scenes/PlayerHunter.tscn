@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://scripts/PlayerHunter.gd" type="Script" id=1]
 [ext_resource path="res://sprites/prototype/characters/slahser_prototype.png" type="Texture" id=2]
@@ -18,12 +18,17 @@
 [ext_resource path="res://sprites/characters/player/Jasson/anims2/jasson_walking7.png" type="Texture" id=16]
 [ext_resource path="res://sprites/characters/player/Jasson/anims2/jasson_walking8.png" type="Texture" id=17]
 [ext_resource path="res://sprites/characters/player/Jasson/jasson_iteration3.png" type="Texture" id=18]
-[ext_resource path="res://scripts/states/PlayerFSM.gd" type="Script" id=19]
-[ext_resource path="res://scripts/states/player/Deployment.gd" type="Script" id=20]
-[ext_resource path="res://scripts/states/player/Spawning.gd" type="Script" id=21]
-[ext_resource path="res://scripts/states/player/Idle.gd" type="Script" id=22]
-[ext_resource path="res://scripts/states/player/Moving.gd" type="Script" id=23]
-[ext_resource path="res://scripts/states/player/Attacking.gd" type="Script" id=24]
+[ext_resource path="res://sprites/characters/player/Jasson/anims3_slashing/jasson_slashing1.png" type="Texture" id=19]
+[ext_resource path="res://sprites/characters/player/Jasson/anims3_slashing/jasson_slashing2.png" type="Texture" id=20]
+[ext_resource path="res://sprites/characters/player/Jasson/anims3_slashing/jasson_slashing3.png" type="Texture" id=21]
+[ext_resource path="res://sprites/characters/player/Jasson/anims3_slashing/jasson_slashing4.png" type="Texture" id=22]
+[ext_resource path="res://sprites/characters/player/Jasson/anims3_slashing/jasson_slashing5.png" type="Texture" id=23]
+[ext_resource path="res://scripts/states/PlayerFSM.gd" type="Script" id=24]
+[ext_resource path="res://scripts/states/player/Deployment.gd" type="Script" id=25]
+[ext_resource path="res://scripts/states/player/Spawning.gd" type="Script" id=26]
+[ext_resource path="res://scripts/states/player/Idle.gd" type="Script" id=27]
+[ext_resource path="res://scripts/states/player/Moving.gd" type="Script" id=28]
+[ext_resource path="res://scripts/states/player/Attacking.gd" type="Script" id=29]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -66,6 +71,11 @@ animations = [ {
 "loop": true,
 "name": "0:Idle-Up",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 23 ), ExtResource( 23 ), ExtResource( 4 ) ],
+"loop": false,
+"name": "0-Attacking:1",
+"speed": 4.5
 } ]
 
 [sub_resource type="CircleShape2D" id=2]
@@ -74,14 +84,12 @@ radius = 16.0834
 [sub_resource type="CircleShape2D" id=3]
 radius = 195.846
 
-[node name="PlayerHunter" type="Node2D" groups=[
+[node name="PlayerHunter" type="KinematicBody2D" groups=[
 "Player",
 ]]
 script = ExtResource( 1 )
 
-[node name="KinematicPlayer" type="KinematicBody2D" parent="."]
-
-[node name="StateLabel" type="Label" parent="KinematicPlayer"]
+[node name="StateLabel" type="Label" parent="."]
 margin_left = -40.3924
 margin_top = -29.8956
 margin_right = 38.6076
@@ -90,7 +98,7 @@ text = "Deployment"
 align = 1
 valign = 1
 
-[node name="IndoorLabel" type="Label" parent="KinematicPlayer"]
+[node name="IndoorLabel" type="Label" parent="."]
 margin_left = -40.0
 margin_top = -46.0
 margin_right = 39.0
@@ -99,52 +107,54 @@ text = "Inside"
 align = 1
 valign = 1
 
-[node name="PlayerAnims" type="AnimatedSprite" parent="KinematicPlayer"]
+[node name="PlayerAnims" type="AnimatedSprite" parent="."]
 z_index = 3
 frames = SubResource( 1 )
 animation = "0:Idle-Down"
 playing = true
 
-[node name="Collision" type="CollisionShape2D" parent="KinematicPlayer"]
+[node name="Collision" type="CollisionShape2D" parent="."]
 shape = SubResource( 2 )
 disabled = true
 
-[node name="StateProgress" type="ProgressBar" parent="KinematicPlayer"]
+[node name="StateProgress" type="ProgressBar" parent="."]
 visible = false
 margin_left = -26.0
 margin_top = -50.0
 margin_right = 24.0
 margin_bottom = -34.0
 
-[node name="SightArea" type="Area2D" parent="KinematicPlayer"]
+[node name="SightArea" type="Area2D" parent="."]
+editor/display_folded = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="KinematicPlayer/SightArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SightArea"]
 shape = SubResource( 3 )
 
-[node name="WallCast" type="RayCast2D" parent="KinematicPlayer/SightArea"]
+[node name="WallCast" type="RayCast2D" parent="SightArea"]
 enabled = true
 collision_mask = 5
 collide_with_areas = true
 
 [node name="States" type="Node" parent="."]
-script = ExtResource( 19 )
+editor/display_folded = true
+script = ExtResource( 24 )
 
 [node name="Deployment" type="Node" parent="States"]
-script = ExtResource( 20 )
+script = ExtResource( 25 )
 
 [node name="Spawning" type="Node" parent="States"]
-script = ExtResource( 21 )
+script = ExtResource( 26 )
 
 [node name="Idle" type="Node" parent="States"]
-script = ExtResource( 22 )
+script = ExtResource( 27 )
 
 [node name="Moving" type="Node" parent="States"]
-script = ExtResource( 23 )
+script = ExtResource( 28 )
 
 [node name="Attacking" type="Node" parent="States"]
-script = ExtResource( 24 )
+script = ExtResource( 29 )
 
 [node name="StateTimer" type="Timer" parent="States"]
 
-[connection signal="area_entered" from="KinematicPlayer/SightArea" to="." method="on_sight_area"]
-[connection signal="area_exited" from="KinematicPlayer/SightArea" to="." method="out_sight_area"]
+[connection signal="area_entered" from="SightArea" to="." method="on_sight_area"]
+[connection signal="area_exited" from="SightArea" to="." method="out_sight_area"]

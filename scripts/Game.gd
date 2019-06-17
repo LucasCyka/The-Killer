@@ -58,6 +58,7 @@ func _ready():
 	init_timer()
 	
 	emit_signal("loaded")
+	
 
 #day/night cycle
 func _process(delta):

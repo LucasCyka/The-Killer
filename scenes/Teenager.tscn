@@ -88,6 +88,8 @@ text = "inside"
 align = 1
 valign = 1
 
+[node name="DeadAnimations" type="AnimatedSprite" parent="."]
+
 [node name="TeenagerButton" type="TextureButton" parent="."]
 margin_left = -15.0
 margin_top = -15.0

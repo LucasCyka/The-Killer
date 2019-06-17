@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/PlayerController.tscn" type="PackedScene" id=2]
@@ -9,38 +9,71 @@
 [ext_resource path="res://resources/tilesets/floor.tres" type="TileSet" id=7]
 [ext_resource path="res://resources/tilesets/trees1.tres" type="TileSet" id=8]
 [ext_resource path="res://resources/tilesets/wooden_buildings.tres" type="TileSet" id=9]
-[ext_resource path="res://sprites/tilesets/autotile1_water.png" type="Texture" id=10]
-[ext_resource path="res://resources/tilesets/floor_autotile.tres" type="TileSet" id=11]
-[ext_resource path="res://sprites/misc/shadow_tile.png" type="Texture" id=12]
-[ext_resource path="res://sprites/misc/shadow_tile2.png" type="Texture" id=13]
-[ext_resource path="res://sprites/prototype/misc/spawn_point.png" type="Texture" id=14]
-[ext_resource path="res://resources/tilesets/indoor_detection.tres" type="TileSet" id=15]
-[ext_resource path="res://scripts/IndoorDetection.gd" type="Script" id=16]
-[ext_resource path="res://resources/tilesets/wall_detection.tres" type="TileSet" id=17]
-[ext_resource path="res://sprites/misc/path_0.png" type="Texture" id=18]
-[ext_resource path="res://sprites/misc/path_1.png" type="Texture" id=19]
-[ext_resource path="res://sprites/misc/exit_tile.png" type="Texture" id=20]
-[ext_resource path="res://sprites/misc/light2.png" type="Texture" id=21]
-[ext_resource path="res://sprites/misc/shadow.png" type="Texture" id=22]
-[ext_resource path="res://sprites/misc/shadow_interior.png" type="Texture" id=23]
-[ext_resource path="res://sprites/world_objects/female_bed_iteration1.png" type="Texture" id=24]
-[ext_resource path="res://sprites/world_objects/double_bed.png" type="Texture" id=25]
-[ext_resource path="res://sprites/world_objects/door.png" type="Texture" id=26]
-[ext_resource path="res://sprites/world_objects/pier_testing.png" type="Texture" id=27]
-[ext_resource path="res://sprites/world_objects/boat2.png" type="Texture" id=28]
-[ext_resource path="res://sprites/world_objects/boat3.png" type="Texture" id=29]
-[ext_resource path="res://sprites/world_objects/boat4.png" type="Texture" id=30]
-[ext_resource path="res://sprites/world_objects/boat5.png" type="Texture" id=31]
-[ext_resource path="res://sprites/world_objects/boat6.png" type="Texture" id=32]
-[ext_resource path="res://sprites/world_objects/boat.png" type="Texture" id=33]
-[ext_resource path="res://sprites/world_objects/table_iteration2.png" type="Texture" id=34]
-[ext_resource path="res://sprites/world_objects/power_generator.png" type="Texture" id=35]
-[ext_resource path="res://sprites/world_objects/bathroom.png" type="Texture" id=36]
-[ext_resource path="res://scenes/CustomTimer.tscn" type="PackedScene" id=37]
+[ext_resource path="res://sprites/tilesets/higher_walls.png" type="Texture" id=10]
+[ext_resource path="res://sprites/tilesets/autotile1_water.png" type="Texture" id=11]
+[ext_resource path="res://resources/tilesets/floor_autotile.tres" type="TileSet" id=12]
+[ext_resource path="res://sprites/misc/shadow_tile.png" type="Texture" id=13]
+[ext_resource path="res://sprites/misc/shadow_tile2.png" type="Texture" id=14]
+[ext_resource path="res://sprites/prototype/misc/spawn_point.png" type="Texture" id=15]
+[ext_resource path="res://resources/tilesets/indoor_detection.tres" type="TileSet" id=16]
+[ext_resource path="res://scripts/IndoorDetection.gd" type="Script" id=17]
+[ext_resource path="res://resources/tilesets/wall_detection.tres" type="TileSet" id=18]
+[ext_resource path="res://sprites/misc/path_0.png" type="Texture" id=19]
+[ext_resource path="res://sprites/misc/path_1.png" type="Texture" id=20]
+[ext_resource path="res://sprites/misc/exit_tile.png" type="Texture" id=21]
+[ext_resource path="res://sprites/misc/light2.png" type="Texture" id=22]
+[ext_resource path="res://sprites/misc/shadow.png" type="Texture" id=23]
+[ext_resource path="res://sprites/misc/shadow_interior.png" type="Texture" id=24]
+[ext_resource path="res://sprites/world_objects/female_bed_iteration1.png" type="Texture" id=25]
+[ext_resource path="res://sprites/world_objects/double_bed.png" type="Texture" id=26]
+[ext_resource path="res://sprites/world_objects/door.png" type="Texture" id=27]
+[ext_resource path="res://sprites/world_objects/pier_testing.png" type="Texture" id=28]
+[ext_resource path="res://sprites/world_objects/boat2.png" type="Texture" id=29]
+[ext_resource path="res://sprites/world_objects/boat3.png" type="Texture" id=30]
+[ext_resource path="res://sprites/world_objects/boat4.png" type="Texture" id=31]
+[ext_resource path="res://sprites/world_objects/boat5.png" type="Texture" id=32]
+[ext_resource path="res://sprites/world_objects/boat6.png" type="Texture" id=33]
+[ext_resource path="res://sprites/world_objects/boat.png" type="Texture" id=34]
+[ext_resource path="res://sprites/world_objects/table_iteration2.png" type="Texture" id=35]
+[ext_resource path="res://sprites/world_objects/power_generator.png" type="Texture" id=36]
+[ext_resource path="res://sprites/world_objects/bathroom.png" type="Texture" id=37]
+[ext_resource path="res://scenes/CustomTimer.tscn" type="PackedScene" id=38]
+
+[sub_resource type="TileSet" id=7]
+0/name = "higher_walls.png 0"
+0/texture = ExtResource( 10 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 25, 25 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [  ]
+0/z_index = 0
+1/name = "higher_walls.png 1"
+1/texture = ExtResource( 10 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 25, 0, 25, 25 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shapes = [  ]
+1/z_index = 0
+2/name = "higher_walls.png 2"
+2/texture = ExtResource( 10 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 50, 0, 25, 25 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shapes = [  ]
+2/z_index = 0
 
 [sub_resource type="TileSet" id=1]
 0/name = "autotile1_water.png 0"
-0/texture = ExtResource( 10 )
+0/texture = ExtResource( 11 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 225, 100 )
@@ -61,7 +94,7 @@
 
 [sub_resource type="TileSet" id=2]
 0/name = "shadow_tile.png 0"
-0/texture = ExtResource( 12 )
+0/texture = ExtResource( 13 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 25, 25 )
@@ -77,7 +110,7 @@
 0/shapes = [  ]
 0/z_index = 0
 1/name = "shadow_tile2.png 1"
-1/texture = ExtResource( 13 )
+1/texture = ExtResource( 14 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 0, 0, 25, 25 )
@@ -89,7 +122,7 @@
 
 [sub_resource type="TileSet" id=3]
 0/name = "spawn_point.png 0"
-0/texture = ExtResource( 14 )
+0/texture = ExtResource( 15 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 25, 25 )
@@ -101,7 +134,7 @@
 
 [sub_resource type="TileSet" id=4]
 0/name = "path_0.png 0"
-0/texture = ExtResource( 18 )
+0/texture = ExtResource( 19 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 25, 25 )
@@ -111,7 +144,7 @@
 0/shapes = [  ]
 0/z_index = 0
 1/name = "path_1.png 1"
-1/texture = ExtResource( 19 )
+1/texture = ExtResource( 20 )
 1/tex_offset = Vector2( 0, 0 )
 1/modulate = Color( 1, 1, 1, 1 )
 1/region = Rect2( 0, 0, 25, 25 )
@@ -123,7 +156,7 @@
 
 [sub_resource type="TileSet" id=5]
 0/name = "exit_tile.png 0"
-0/texture = ExtResource( 20 )
+0/texture = ExtResource( 21 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
 0/region = Rect2( 0, 0, 25, 25 )
@@ -135,7 +168,7 @@
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
-"frames": [ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ) ],
+"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -153,6 +186,7 @@ points = 200
 [node name="GameTimer" type="Timer" parent="."]
 
 [node name="AI" type="YSort" parent="."]
+editor/display_folded = true
 
 [node name="Teenager" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -356,6 +390,14 @@ cell_quadrant_size = 1
 format = 1
 tile_data = PoolIntArray( 196635, 0, 0, 196636, 1, 0, 196637, 1, 0, 196638, 1, 0, 196639, 1, 0, 196640, 1, 0, 196641, 12, 0, 196642, 1, 0, 196643, 1, 0, 196644, 1, 0, 196645, 1, 0, 196646, 1, 0, 196647, 1, 0, 196648, 1, 0, 196649, 1, 0, 196650, 9, 0, 196651, 1, 0, 196652, 2, 0, 262171, 7, 0, 262177, 10, 0, 262188, 3, 0, 327707, 7, 0, 327713, 10, 0, 327724, 3, 0, 327729, 0, 0, 327730, 1, 0, 327731, 1, 0, 327732, 1, 0, 327733, 9, 0, 327734, 2, 0, 393243, 7, 0, 393249, 10, 0, 393260, 3, 0, 393265, 7, 0, 393270, 3, 0, 458779, 7, 0, 458785, 10, 0, 458790, 0, 0, 458791, 1, 0, 458792, 1, 0, 458793, 1, 0, 458794, 1, 0, 458796, 3, 0, 458801, 7, 0, 458806, 3, 0, 524315, 7, 0, 524321, 10, 0, 524326, 7, 0, 524332, 3, 0, 524337, 6, 0, 524338, 5, 0, 524340, 5, 0, 524341, 5, 0, 524342, 4, 0, 589851, 7, 0, 589857, 10, 0, 589862, 7, 0, 589868, 3, 0, 655387, 7, 0, 655393, 10, 0, 655398, 7, 0, 655404, 3, 0, 720923, 7, 0, 720934, 7, 0, 720940, 3, 0, 786459, 6, 0, 786460, 5, 0, 786461, 5, 0, 786462, 11, 0, 786463, 5, 0, 786464, 5, 0, 786465, 5, 0, 786466, 5, 0, 786467, 5, 0, 786469, 5, 0, 786470, 5, 0, 786471, 5, 0, 786472, 5, 0, 786473, 5, 0, 786474, 11, 0, 786475, 5, 0, 786476, 4, 0 )
 
+[node name="HighBuildings" type="TileMap" parent="Tiles"]
+z_index = 4
+tile_set = SubResource( 7 )
+cell_size = Vector2( 25, 25 )
+cell_quadrant_size = 1
+format = 1
+tile_data = PoolIntArray( 196636, 1, 0, 196637, 1, 0, 196638, 1, 0, 196639, 1, 0, 196640, 1, 0, 196641, 1, 0, 196642, 1, 0, 196643, 1, 0, 196644, 1, 0, 196645, 1, 0, 196646, 1, 0, 196647, 1, 0, 196648, 1, 0, 196649, 1, 0, 196650, 1, 0, 196651, 1, 0, 458790, 2, 0, 458791, 1, 0, 458792, 1, 0, 458793, 1, 0, 458794, 1, 0, 786460, 0, 0, 786461, 0, 0, 786462, 0, 0, 786463, 0, 0, 786464, 0, 0, 786465, 0, 0, 786466, 0, 0, 786467, 0, 0, 786469, 0, 0 )
+
 [node name="WaterAuto" type="TileMap" parent="Tiles"]
 tile_set = SubResource( 1 )
 cell_size = Vector2( 25, 25 )
@@ -365,7 +407,7 @@ tile_data = PoolIntArray( 1245230, 0, 0, 1245231, 0, 1, 1245232, 0, 2, 1310765, 
 
 [node name="FloorAuto" type="TileMap" parent="Tiles"]
 z_index = -1
-tile_set = ExtResource( 11 )
+tile_set = ExtResource( 12 )
 cell_size = Vector2( 25, 25 )
 cell_quadrant_size = 1
 format = 1
@@ -390,16 +432,16 @@ tile_data = PoolIntArray( -720888, 0, 0, 262140, 0, 0, 393256, 0, 0, 393285, 0, 
 
 [node name="IndoorDetection" type="TileMap" parent="Tiles"]
 visible = false
-tile_set = ExtResource( 15 )
+tile_set = ExtResource( 16 )
 cell_size = Vector2( 25, 25 )
 cell_quadrant_size = 1
 format = 1
 tile_data = PoolIntArray( -851899, 0, 0, -851898, 0, 0, -851897, 0, 0, -786363, 0, 0, -786362, 0, 0, -786361, 0, 0, -720827, 0, 0, -720826, 0, 0, -720825, 0, 0, -262075, 0, 0, -262074, 0, 0, -262073, 0, 0, -262072, 0, 0, -262071, 0, 0, -262070, 0, 0, -196539, 0, 0, -196538, 0, 0, -196537, 0, 0, -196536, 0, 0, -196535, 0, 0, -196534, 0, 0, -131003, 0, 0, -131002, 0, 0, -131001, 0, 0, -131000, 0, 0, -130999, 0, 0, -130998, 0, 0, 262172, 0, 0, 262173, 0, 0, 262174, 0, 0, 262175, 0, 0, 262176, 0, 0, 262177, 0, 0, 262178, 0, 0, 262179, 0, 0, 262180, 0, 0, 262181, 0, 0, 262182, 0, 0, 262183, 0, 0, 262184, 0, 0, 262185, 0, 0, 262186, 0, 0, 262187, 0, 0, 327708, 0, 0, 327709, 0, 0, 327710, 0, 0, 327711, 0, 0, 327712, 0, 0, 327713, 0, 0, 327714, 0, 0, 327715, 0, 0, 327716, 0, 0, 327717, 0, 0, 327718, 0, 0, 327719, 0, 0, 327720, 0, 0, 327721, 0, 0, 327722, 0, 0, 327723, 0, 0, 393244, 0, 0, 393245, 0, 0, 393246, 0, 0, 393247, 0, 0, 393248, 0, 0, 393249, 0, 0, 393250, 0, 0, 393251, 0, 0, 393252, 0, 0, 393253, 0, 0, 393254, 0, 0, 393255, 0, 0, 393256, 0, 0, 393257, 0, 0, 393258, 0, 0, 393259, 0, 0, 458780, 0, 0, 458781, 0, 0, 458782, 0, 0, 458783, 0, 0, 458784, 0, 0, 458785, 0, 0, 458786, 0, 0, 458787, 0, 0, 458788, 0, 0, 458789, 0, 0, 458790, 0, 0, 458791, 0, 0, 458792, 0, 0, 458793, 0, 0, 458794, 0, 0, 458795, 0, 0, 524316, 0, 0, 524317, 0, 0, 524318, 0, 0, 524319, 0, 0, 524320, 0, 0, 524321, 0, 0, 524322, 0, 0, 524323, 0, 0, 524324, 0, 0, 524325, 0, 0, 524326, 0, 0, 524327, 0, 0, 524328, 0, 0, 524329, 0, 0, 524330, 0, 0, 524331, 0, 0, 589852, 0, 0, 589853, 0, 0, 589854, 0, 0, 589855, 0, 0, 589856, 0, 0, 589857, 0, 0, 589858, 0, 0, 589859, 0, 0, 589860, 0, 0, 589861, 0, 0, 589862, 0, 0, 589863, 0, 0, 589864, 0, 0, 589865, 0, 0, 589866, 0, 0, 589867, 0, 0, 655388, 0, 0, 655389, 0, 0, 655390, 0, 0, 655391, 0, 0, 655392, 0, 0, 655393, 0, 0, 655394, 0, 0, 655395, 0, 0, 655396, 0, 0, 655397, 0, 0, 655398, 0, 0, 655399, 0, 0, 655400, 0, 0, 655401, 0, 0, 655402, 0, 0, 655403, 0, 0, 720924, 0, 0, 720925, 0, 0, 720926, 0, 0, 720927, 0, 0, 720928, 0, 0, 720929, 0, 0, 720930, 0, 0, 720931, 0, 0, 720932, 0, 0, 720933, 0, 0, 720934, 0, 0, 720935, 0, 0, 720936, 0, 0, 720937, 0, 0, 720938, 0, 0, 720939, 0, 0 )
-script = ExtResource( 16 )
+script = ExtResource( 17 )
 
 [node name="WallsDetection" type="TileMap" parent="Tiles"]
 visible = false
-tile_set = ExtResource( 17 )
+tile_set = ExtResource( 18 )
 cell_size = Vector2( 25, 25 )
 cell_quadrant_size = 1
 collision_layer = 4
@@ -435,7 +477,7 @@ color = Color( 0.371094, 0.327606, 0.327606, 1 )
 visible = false
 position = Vector2( 900.899, 199.733 )
 scale = Vector2( 0.747069, 0.666659 )
-texture = ExtResource( 21 )
+texture = ExtResource( 22 )
 energy = 1.3
 
 [node name="WorldSprites(DEBUG)" type="Node2D" parent="."]
@@ -445,103 +487,103 @@ editor/display_folded = true
 visible = false
 position = Vector2( 873.126, 200.078 )
 scale = Vector2( 2.31103, 1.80722 )
-texture = ExtResource( 22 )
+texture = ExtResource( 23 )
 flip_h = true
 
 [node name="Shadow2" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 948.935, -36.9515 )
 scale = Vector2( 2.31103, 1.50895 )
-texture = ExtResource( 22 )
+texture = ExtResource( 23 )
 flip_h = true
 
 [node name="Shadow3" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 611.149, 195.039 )
 scale = Vector2( 1.23358, 1.50895 )
-texture = ExtResource( 23 )
+texture = ExtResource( 24 )
 flip_h = true
 
 [node name="Shadow4" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 871.149, -44.961 )
 scale = Vector2( 1.23358, 1.50895 )
-texture = ExtResource( 23 )
+texture = ExtResource( 24 )
 flip_h = true
 
 [node name="Shadow5" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 710.905, -19.7342 )
 scale = Vector2( 1.23358, 0.96057 )
-texture = ExtResource( 23 )
+texture = ExtResource( 24 )
 flip_h = true
 
 [node name="Bed" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 731.401, 276.005 )
 z_index = -1
-texture = ExtResource( 24 )
+texture = ExtResource( 25 )
 
 [node name="Bed2" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 1025.51, 217.181 )
 z_index = 3
-texture = ExtResource( 25 )
+texture = ExtResource( 26 )
 
 [node name="Door" type="Sprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 912.755, 315.864 )
 z_index = 2
-texture = ExtResource( 26 )
+texture = ExtResource( 27 )
 
 [node name="Door3" type="Sprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 1287.48, 215.789 )
 z_index = 2
-texture = ExtResource( 26 )
+texture = ExtResource( 27 )
 
 [node name="Door2" type="Sprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 1089.06, 191.933 )
 scale = Vector2( 1.08658, 1 )
 z_index = 2
-texture = ExtResource( 26 )
+texture = ExtResource( 27 )
 
 [node name="Pier" type="Sprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 894.745, 776.968 )
 z_index = 2
-texture = ExtResource( 27 )
+texture = ExtResource( 28 )
 
 [node name="Boat" type="AnimatedSprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 799.806, 848.917 )
 z_index = 1
 frames = SubResource( 6 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 1448.07, 266.009 )
-texture = ExtResource( 34 )
+texture = ExtResource( 35 )
 
 [node name="PowerGenerator" type="Sprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 1278.1, 155.498 )
 z_index = 1
-texture = ExtResource( 35 )
+texture = ExtResource( 36 )
 
 [node name="Table5" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 1801.15, 231.735 )
 z_index = 2
-texture = ExtResource( 36 )
+texture = ExtResource( 37 )
 
 [node name="Table6" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 1215.98, -3.39085 )
 z_index = 2
-texture = ExtResource( 36 )
+texture = ExtResource( 37 )
 
 [node name="Table7" type="Sprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 1215.98, -3.39085 )
 z_index = 2
-texture = ExtResource( 36 )
+texture = ExtResource( 37 )
 
-[node name="CustomTimer" parent="." instance=ExtResource( 37 )]
+[node name="CustomTimer" parent="." instance=ExtResource( 38 )]
 

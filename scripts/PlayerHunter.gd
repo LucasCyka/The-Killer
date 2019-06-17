@@ -1,4 +1,4 @@
-extends Node2D
+extends KinematicBody2D
 
 """
 	Player/hunter. This what the player controlls in the hunter mode
@@ -12,7 +12,7 @@ var target = null
 var is_deployed = false setget set_is_deployed
 var is_indoor = false setget set_is_indoor
 var mouse_position = Vector2(0,0)
-var speed = 60
+var speed = 50
 var exiting = false
 var current_path = []
 var teenager_on_sight = []
@@ -21,11 +21,11 @@ var facing_direction = Vector2(0,1)
 
 #world nodes
 onready var state_machine = $States
-onready var kinematic_player = $KinematicPlayer
-onready var player_anims = $KinematicPlayer/PlayerAnims
+onready var kinematic_player = self
+onready var player_anims = $PlayerAnims
 onready var game = get_parent().get_parent()
-onready var sight_area = $KinematicPlayer/SightArea
-onready var wall_cast = $KinematicPlayer/SightArea/WallCast
+onready var sight_area = $SightArea
+onready var wall_cast = $SightArea/WallCast
 
 #dictionary containing all the animations
 #layout ID:STATE-DIR
@@ -40,7 +40,13 @@ var animations_data = {
 		Vector2(0,1):{"anim":str(id) + ":Moving-Down","flip":false},
 		Vector2(0,-1):{"anim":str(id) + ":Moving-Up","flip":false},
 		Vector2(1,0):{"anim":str(id) + ":Moving-Side","flip":false},
-		Vector2(-1,0):{"anim":str(id) + ":Moving-Side","flip":true}}
+		Vector2(-1,0):{"anim":str(id) + ":Moving-Side","flip":true}},
+	
+	"Attacking":{
+		Vector2(0,1):{"anim":str(id) + ":Attacking-Down","flip":false},
+		Vector2(0,-1):{"anim":str(id) + ":Attacking-Up","flip":false},
+		Vector2(1,0):{"anim":str(id) + ":Attacking-Side","flip":false},
+		Vector2(-1,0):{"anim":str(id) + ":Attacking-Side","flip":true}}
 	
 }
 
@@ -66,10 +72,10 @@ func _process(delta):
 		check_teenager_sight()
 	
 	#debug state
-	get_node("KinematicPlayer/StateLabel").text = state_machine.get_current_state()
+	get_node("StateLabel").text = state_machine.get_current_state()
 	if state_machine.get_current_state() == 'Spawning':
-		$KinematicPlayer/StateProgress.show()
-	else: $KinematicPlayer/StateProgress.hide()
+		$StateProgress.show()
+	else: $StateProgress.hide()
 	
 	update_animations()
 	
@@ -168,9 +174,9 @@ func set_is_indoor(value):
 	is_indoor = value
 	
 	if is_indoor:
-		$KinematicPlayer/IndoorLabel.text = "Indoor"
+		$IndoorLabel.text = "Indoor"
 	else:
-		$KinematicPlayer/IndoorLabel.text = "Outdoor"
+		$IndoorLabel.text = "Outdoor"
 
 #the teenager target this player selected with right click
 func select_target(target):
@@ -234,15 +240,15 @@ func update_animations():
 	
 	if state != 'Attacking':
 		if animations_data.keys().find(state) == -1:
-			print('No animations found for this state')
+			push_warning('No animations found for this state')
 			return
 		
 		player_anims.play(animations_data[state][facing_direction]['anim'])
 		player_anims.set_flip_h(animations_data[state][facing_direction]['flip'])
 		
 	else:
-		#TODO: attacking animations work a bit different than the others
 		pass
+		#attacking animations work a bit different than the others
 
 
 
