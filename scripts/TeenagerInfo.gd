@@ -35,6 +35,9 @@ func _process(delta):
 	
 #show the panel with the information for one teenager
 func show_panel(teenager):
+	if base.game.get_current_mode() == base.game.MODE.HUNTING:
+		return
+	
 	$Panel.show()
 	selected_teenager = teenager
 	set_process(true)

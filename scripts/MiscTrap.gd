@@ -9,7 +9,6 @@ extends "res://scripts/Traps.gd"
 	effects like, enter panic, increase fear, curiosity etc...
 """
 
-var is_placed = false
 var is_used = false
 var body_on_radius = null
 #priotity system. This will replace other traps area of effect. 

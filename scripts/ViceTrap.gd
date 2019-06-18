@@ -10,7 +10,6 @@ var effects = {
 	1:[funcref(self,"decrease_speed")]
 	
 }
-var is_placed = false
 var is_used = false
 var body_on_radius = null
 

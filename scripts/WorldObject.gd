@@ -14,6 +14,8 @@ enum TYPE{
 	CAR,
 	TELEPHONE,
 	TABLE,
+	POWER,
+	BATHROOM,
 	DECORATION
 }
 
@@ -22,7 +24,7 @@ export var id = 0
 export var owner_id = 0
 export var owner_id_2 = 0
 export var is_activable = false
-export var is_usable = false
+export var is_clickable = true
 
 #this means that it will cause effects (if activated) when the teen is
 #close to the object, without using it.

@@ -18,7 +18,9 @@ func init(base):
 	#link all world objects to the object panel
 	var objects = get_tree().get_nodes_in_group("Object")
 	for obj in objects:
-		obj.get_node("Button").connect("pressed",self,"show_object_panel",[obj])
+		#only if they are pickable
+		if obj.is_clickable:
+			obj.get_node("Button").connect("pressed",self,"show_object_panel",[obj])
 
 #hunt button pressed state
 func hunt():
@@ -35,6 +37,14 @@ func hunt():
 
 #the object panel shows iformation about a object the player selected
 func show_object_panel(obj):
+	#don't select objects when the player is hunting
+	if get_tree().get_nodes_in_group("Player").size() > 0:
+		return
+		
+	#also don't select objects when the player is putting traps on the world
+	if base.get_selected_traps().size() > 0:
+		return
+	
 	#this will close panels or other elements
 	base.emit_signal('element_toggle')
 	base.emit_signal('element_changed_focus')

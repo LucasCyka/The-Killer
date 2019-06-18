@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://scripts/GameUI.gd" type="Script" id=1]
 [ext_resource path="res://scripts/TeenagerInfo.gd" type="Script" id=2]
@@ -15,20 +15,23 @@
 [ext_resource path="res://sprites/gui/btn_spawn.png" type="Texture" id=13]
 [ext_resource path="res://sprites/gui/object_info_panel_prototype.png" type="Texture" id=14]
 [ext_resource path="res://scripts/InfoUI.gd" type="Script" id=15]
-[ext_resource path="res://sprites/gui/clock_background.png" type="Texture" id=16]
-[ext_resource path="res://fonts/source/prstart.ttf" type="DynamicFontData" id=17]
-[ext_resource path="res://sprites/gui/btn_pause_normal.png" type="Texture" id=18]
-[ext_resource path="res://sprites/gui/btn_speed1_normal.png" type="Texture" id=19]
-[ext_resource path="res://sprites/gui/btn_speed2_normal.png" type="Texture" id=20]
-[ext_resource path="res://sprites/gui/btn_speed3_normal.png" type="Texture" id=21]
-[ext_resource path="res://sprites/gui/timeIcon_moon.png" type="Texture" id=22]
-[ext_resource path="res://sprites/prototype/ui/warning_base.png" type="Texture" id=23]
-[ext_resource path="res://sprites/prototype/ui/fear_progress_background.png" type="Texture" id=24]
-[ext_resource path="res://sprites/prototype/ui/fear_progress.png" type="Texture" id=25]
-[ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=26]
+[ext_resource path="res://sprites/gui/score_panel.png" type="Texture" id=16]
+[ext_resource path="res://sprites/gui/score_icon_prototype.png" type="Texture" id=17]
+[ext_resource path="res://sprites/gui/budget_icon_prototype.png" type="Texture" id=18]
+[ext_resource path="res://sprites/gui/clock_background.png" type="Texture" id=19]
+[ext_resource path="res://fonts/source/prstart.ttf" type="DynamicFontData" id=20]
+[ext_resource path="res://sprites/gui/btn_pause_normal.png" type="Texture" id=21]
+[ext_resource path="res://sprites/gui/btn_speed1_normal.png" type="Texture" id=22]
+[ext_resource path="res://sprites/gui/btn_speed2_normal.png" type="Texture" id=23]
+[ext_resource path="res://sprites/gui/btn_speed3_normal.png" type="Texture" id=24]
+[ext_resource path="res://sprites/gui/timeIcon_moon.png" type="Texture" id=25]
+[ext_resource path="res://sprites/prototype/ui/warning_base.png" type="Texture" id=26]
+[ext_resource path="res://sprites/prototype/ui/fear_progress_background.png" type="Texture" id=27]
+[ext_resource path="res://sprites/prototype/ui/fear_progress.png" type="Texture" id=28]
+[ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=29]
 
 [sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 17 )
+font_data = ExtResource( 20 )
 
 [node name="GameUI" type="Control"]
 anchor_right = 1.0
@@ -143,6 +146,7 @@ margin_bottom = 50.0
 texture_normal = ExtResource( 9 )
 
 [node name="TrapsSelection" type="Control" parent="Canvas/TrapsUI"]
+editor/display_folded = true
 visible = false
 margin_left = -149.0
 margin_top = -10.0
@@ -338,28 +342,51 @@ margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 15 )
 
-[node name="InfoPanel" type="Container" parent="Canvas/InfoUI"]
-margin_right = 138.0
-margin_bottom = 88.0
+[node name="InfoPanel" type="Control" parent="Canvas/InfoUI"]
+editor/display_folded = true
+margin_right = 40.0
+margin_bottom = 40.0
 
 [node name="Score" type="Label" parent="Canvas/InfoUI/InfoPanel"]
-margin_left = 10.0
+editor/display_folded = true
+margin_left = 30.0
 margin_top = 20.0
-margin_right = 50.0
+margin_right = 94.0
 margin_bottom = 51.0
 text = "00000000"
 
+[node name="background" type="Sprite" parent="Canvas/InfoUI/InfoPanel/Score"]
+position = Vector2( 1.5989, 5.9406 )
+z_index = -1
+texture = ExtResource( 16 )
+
+[node name="Icon" type="Sprite" parent="Canvas/InfoUI/InfoPanel/Score"]
+position = Vector2( -8.4011, 5.9406 )
+z_index = -1
+texture = ExtResource( 17 )
+
 [node name="Points" type="Label" parent="Canvas/InfoUI/InfoPanel"]
-margin_left = 10.0
-margin_top = 40.0
-margin_right = 74.0
-margin_bottom = 71.0
+editor/display_folded = true
+margin_left = 90.0
+margin_top = 20.0
+margin_right = 154.0
+margin_bottom = 51.0
 text = "00000000"
+
+[node name="background" type="Sprite" parent="Canvas/InfoUI/InfoPanel/Points"]
+position = Vector2( 0.5989, 5.9406 )
+z_index = -1
+texture = ExtResource( 16 )
+
+[node name="Icon" type="Sprite" parent="Canvas/InfoUI/InfoPanel/Points"]
+position = Vector2( -10.4011, 5.9406 )
+z_index = -1
+texture = ExtResource( 18 )
 
 [node name="Clock" type="Sprite" parent="Canvas/InfoUI"]
 editor/display_folded = true
 position = Vector2( 554.559, 30 )
-texture = ExtResource( 16 )
+texture = ExtResource( 19 )
 
 [node name="Label" type="Label" parent="Canvas/InfoUI/Clock"]
 margin_left = -37.5726
@@ -375,7 +402,7 @@ margin_left = -42.0
 margin_top = 18.0
 margin_right = -29.0
 margin_bottom = 32.0
-texture_normal = ExtResource( 18 )
+texture_normal = ExtResource( 21 )
 
 [node name="NormalSpdBtn" type="TextureButton" parent="Canvas/InfoUI/Clock"]
 pause_mode = 2
@@ -383,7 +410,7 @@ margin_left = -4.0
 margin_top = 18.0
 margin_right = 10.0
 margin_bottom = 32.0
-texture_normal = ExtResource( 19 )
+texture_normal = ExtResource( 22 )
 
 [node name="FastSpdBtn" type="TextureButton" parent="Canvas/InfoUI/Clock"]
 pause_mode = 2
@@ -391,7 +418,7 @@ margin_left = 12.0
 margin_top = 18.0
 margin_right = 26.0
 margin_bottom = 32.0
-texture_normal = ExtResource( 20 )
+texture_normal = ExtResource( 23 )
 
 [node name="FastSpdBtn2" type="TextureButton" parent="Canvas/InfoUI/Clock"]
 pause_mode = 2
@@ -399,11 +426,11 @@ margin_left = 28.0
 margin_top = 18.0
 margin_right = 42.0
 margin_bottom = 32.0
-texture_normal = ExtResource( 21 )
+texture_normal = ExtResource( 24 )
 
 [node name="TimeIcon" type="Sprite" parent="Canvas/InfoUI/Clock"]
 position = Vector2( -37.3179, -10.4644 )
-texture = ExtResource( 22 )
+texture = ExtResource( 25 )
 
 [node name="FCSlots" type="Control" parent="Canvas/InfoUI"]
 editor/display_folded = true
@@ -416,7 +443,7 @@ margin_bottom = 95.0
 editor/display_folded = true
 visible = false
 position = Vector2( 510, 30 )
-texture = ExtResource( 23 )
+texture = ExtResource( 26 )
 
 [node name="PortraitBtn" type="TextureButton" parent="Canvas/InfoUI/FCSlots/Slot1"]
 margin_left = -62.0
@@ -430,8 +457,8 @@ margin_top = -5.0
 margin_right = 60.0
 margin_bottom = -1.0
 value = 10.0
-texture_under = ExtResource( 24 )
-texture_progress = ExtResource( 25 )
+texture_under = ExtResource( 27 )
+texture_progress = ExtResource( 28 )
 
 [node name="CuriosityProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot1"]
 margin_left = -21.0
@@ -439,14 +466,14 @@ margin_top = 2.0
 margin_right = 60.0
 margin_bottom = 6.0
 value = 10.0
-texture_under = ExtResource( 24 )
-texture_progress = ExtResource( 25 )
+texture_under = ExtResource( 27 )
+texture_progress = ExtResource( 28 )
 
 [node name="Slot2" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
 editor/display_folded = true
 visible = false
 position = Vector2( 510, 70 )
-texture = ExtResource( 23 )
+texture = ExtResource( 26 )
 
 [node name="PortraitBtn2" type="TextureButton" parent="Canvas/InfoUI/FCSlots/Slot2"]
 margin_left = -62.0
@@ -460,8 +487,8 @@ margin_top = -5.0
 margin_right = 60.0
 margin_bottom = -1.0
 value = 10.0
-texture_under = ExtResource( 24 )
-texture_progress = ExtResource( 25 )
+texture_under = ExtResource( 27 )
+texture_progress = ExtResource( 28 )
 
 [node name="CuriosityProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot2"]
 margin_left = -21.0
@@ -469,14 +496,14 @@ margin_top = 2.0
 margin_right = 60.0
 margin_bottom = 6.0
 value = 10.0
-texture_under = ExtResource( 24 )
-texture_progress = ExtResource( 25 )
+texture_under = ExtResource( 27 )
+texture_progress = ExtResource( 28 )
 
 [node name="Slot3" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
 editor/display_folded = true
 visible = false
 position = Vector2( 510, 110 )
-texture = ExtResource( 23 )
+texture = ExtResource( 26 )
 
 [node name="PortraitBtn2" type="TextureButton" parent="Canvas/InfoUI/FCSlots/Slot3"]
 margin_left = -62.0
@@ -490,8 +517,8 @@ margin_top = -5.0
 margin_right = 60.0
 margin_bottom = -1.0
 value = 10.0
-texture_under = ExtResource( 24 )
-texture_progress = ExtResource( 25 )
+texture_under = ExtResource( 27 )
+texture_progress = ExtResource( 28 )
 
 [node name="CuriosityProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot3"]
 margin_left = -21.0
@@ -499,14 +526,14 @@ margin_top = 2.0
 margin_right = 60.0
 margin_bottom = 6.0
 value = 10.0
-texture_under = ExtResource( 24 )
-texture_progress = ExtResource( 25 )
+texture_under = ExtResource( 27 )
+texture_progress = ExtResource( 28 )
 
 [node name="Slot4" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
 editor/display_folded = true
 visible = false
 position = Vector2( 510, 150 )
-texture = ExtResource( 23 )
+texture = ExtResource( 26 )
 
 [node name="PortraitBtn2" type="TextureButton" parent="Canvas/InfoUI/FCSlots/Slot4"]
 margin_left = -62.0
@@ -520,8 +547,8 @@ margin_top = -5.0
 margin_right = 60.0
 margin_bottom = -1.0
 value = 10.0
-texture_under = ExtResource( 24 )
-texture_progress = ExtResource( 25 )
+texture_under = ExtResource( 27 )
+texture_progress = ExtResource( 28 )
 
 [node name="CuriosityProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot4"]
 margin_left = -21.0
@@ -529,14 +556,14 @@ margin_top = 2.0
 margin_right = 60.0
 margin_bottom = 6.0
 value = 10.0
-texture_under = ExtResource( 24 )
-texture_progress = ExtResource( 25 )
+texture_under = ExtResource( 27 )
+texture_progress = ExtResource( 28 )
 
 [node name="Slot5" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
 editor/display_folded = true
 visible = false
 position = Vector2( 510, 190 )
-texture = ExtResource( 23 )
+texture = ExtResource( 26 )
 
 [node name="PortraitBtn2" type="TextureButton" parent="Canvas/InfoUI/FCSlots/Slot5"]
 margin_left = -62.0
@@ -550,8 +577,8 @@ margin_top = -5.0
 margin_right = 60.0
 margin_bottom = -1.0
 value = 10.0
-texture_under = ExtResource( 24 )
-texture_progress = ExtResource( 25 )
+texture_under = ExtResource( 27 )
+texture_progress = ExtResource( 28 )
 
 [node name="CuriosityProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot5"]
 margin_left = -21.0
@@ -559,14 +586,14 @@ margin_top = 2.0
 margin_right = 60.0
 margin_bottom = 6.0
 value = 10.0
-texture_under = ExtResource( 24 )
-texture_progress = ExtResource( 25 )
+texture_under = ExtResource( 27 )
+texture_progress = ExtResource( 28 )
 
 [node name="Slot6" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
 editor/display_folded = true
 visible = false
 position = Vector2( 510, 230 )
-texture = ExtResource( 23 )
+texture = ExtResource( 26 )
 
 [node name="PortraitBtn2" type="TextureButton" parent="Canvas/InfoUI/FCSlots/Slot6"]
 margin_left = -62.0
@@ -580,8 +607,8 @@ margin_top = -5.0
 margin_right = 60.0
 margin_bottom = -1.0
 value = 10.0
-texture_under = ExtResource( 24 )
-texture_progress = ExtResource( 25 )
+texture_under = ExtResource( 27 )
+texture_progress = ExtResource( 28 )
 
 [node name="CuriosityProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot6"]
 margin_left = -21.0
@@ -589,14 +616,14 @@ margin_top = 2.0
 margin_right = 60.0
 margin_bottom = 6.0
 value = 10.0
-texture_under = ExtResource( 24 )
-texture_progress = ExtResource( 25 )
+texture_under = ExtResource( 27 )
+texture_progress = ExtResource( 28 )
 
 [node name="Slot7" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
 editor/display_folded = true
 visible = false
 position = Vector2( 510, 270 )
-texture = ExtResource( 23 )
+texture = ExtResource( 26 )
 
 [node name="PortraitBtn2" type="TextureButton" parent="Canvas/InfoUI/FCSlots/Slot7"]
 margin_left = -62.0
@@ -610,8 +637,8 @@ margin_top = -5.0
 margin_right = 60.0
 margin_bottom = -1.0
 value = 10.0
-texture_under = ExtResource( 24 )
-texture_progress = ExtResource( 25 )
+texture_under = ExtResource( 27 )
+texture_progress = ExtResource( 28 )
 
 [node name="CuriosityProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot7"]
 margin_left = -21.0
@@ -619,14 +646,14 @@ margin_top = 2.0
 margin_right = 60.0
 margin_bottom = 6.0
 value = 10.0
-texture_under = ExtResource( 24 )
-texture_progress = ExtResource( 25 )
+texture_under = ExtResource( 27 )
+texture_progress = ExtResource( 28 )
 
 [node name="Slot8" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
 editor/display_folded = true
 visible = false
 position = Vector2( 510, 310 )
-texture = ExtResource( 23 )
+texture = ExtResource( 26 )
 
 [node name="PortraitBtn2" type="TextureButton" parent="Canvas/InfoUI/FCSlots/Slot8"]
 margin_left = -62.0
@@ -640,8 +667,8 @@ margin_top = -5.0
 margin_right = 60.0
 margin_bottom = -1.0
 value = 10.0
-texture_under = ExtResource( 24 )
-texture_progress = ExtResource( 25 )
+texture_under = ExtResource( 27 )
+texture_progress = ExtResource( 28 )
 
 [node name="CuriosityProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot8"]
 margin_left = -21.0
@@ -649,14 +676,14 @@ margin_top = 2.0
 margin_right = 60.0
 margin_bottom = 6.0
 value = 10.0
-texture_under = ExtResource( 24 )
-texture_progress = ExtResource( 25 )
+texture_under = ExtResource( 27 )
+texture_progress = ExtResource( 28 )
 
 [node name="GameOverUI" type="Control" parent="Canvas"]
 editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 26 )
+script = ExtResource( 29 )
 
 [node name="Panel" type="Control" parent="Canvas/GameOverUI"]
 visible = false

@@ -72,6 +72,22 @@ func get_buttons():
 	
 	return buttons
 
+#get traps that are actually selected by the player
+func get_selected_traps():
+	#all traps in the world 
+	var traps = get_tree().get_nodes_in_group("Lure")
+	traps = traps + get_tree().get_nodes_in_group("Misc")
+	traps = traps + get_tree().get_nodes_in_group("Vice")
+	
+	#traps not placed/current selected by the player
+	var selected_traps = []
+	
+	for trap in traps:
+		if not trap.is_placed:
+			selected_traps.append(trap)
+	
+	return selected_traps
+	
 #lock all elements in the user interface
 func lock():
 	#lock buttons

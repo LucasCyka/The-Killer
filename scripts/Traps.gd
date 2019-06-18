@@ -29,6 +29,7 @@ var onspot = false setget , is_on_spot
 var walkable = false setget , is_walkable
 var trapped_teenagers = []
 var price = 0
+var is_placed = false
 
 #if the trap is placed in an invalid location this will be true
 var is_invalid_tile = false setget set_is_invalid_tile
