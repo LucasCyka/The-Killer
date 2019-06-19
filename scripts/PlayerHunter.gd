@@ -5,6 +5,7 @@ extends KinematicBody2D
 """
 
 var id = 0
+var attacking_animation_id = 0
 var base = null
 var ui = null
 var _selected_teenager = null

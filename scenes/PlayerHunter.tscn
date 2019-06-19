@@ -136,7 +136,6 @@ collision_mask = 5
 collide_with_areas = true
 
 [node name="States" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 24 )
 
 [node name="Deployment" type="Node" parent="States"]

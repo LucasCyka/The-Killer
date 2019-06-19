@@ -163,18 +163,3 @@ func clear_buttons():
 		btn.texture_normal = null
 		if btn.is_connected("pressed",self,"add_trap"):
 			btn.disconnect("pressed",self,"add_trap")
-		
-
-
-
-
-
-
-
-
-
-
-
-
-
-

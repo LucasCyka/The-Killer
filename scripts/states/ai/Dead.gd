@@ -10,24 +10,41 @@ signal entered
 var base
 var game
 var teenagers = []
+var teenager
 var affected_teenagers = []
+var player
+var dead_anim
 
 #constructor
 func init(base,state_position,state_time):
 	self.base = base
 	self.base.teenager.state_animation = false
+	self.teenager = base.teenager
 	self.game = base.teenager.get_parent().get_parent()
 	self.teenagers = get_tree().get_nodes_in_group("AI")
+	self.player = get_tree().get_nodes_in_group("Player")[0]
 	
 	#TODO: points should be weighted different according to some teenagers
 	#modifiers.
 	
 	score.set_score(game.get_level(),score.get_score(game.get_level()) + 100)
-	#TODO: synch the animation according to the player killing anim
-	var _anim = Node.new()
-	_anim.name = "Dead1"
-	self.base.teenager.custom_animation = _anim
+	#var _anim = Node.new()
+	#_anim.name = "Dead1"
+	#self.base.teenager.custom_animation = _anim
 	
+	self.base.teenager.teenager_anims.hide()
+	self.base.teenager.dead_anims.show()
+	
+	#sets the dying animation animation
+	#TODO: other directions
+	#TODO: according the direction according to the player
+	var _anim = str(base.teenager.id)+':'+str(player.attacking_animation_id+'-Up')
+	base.teenager.dead_anims.set_animation(_anim)
+	
+	#change the teenager position so when he dies he's facing the player
+	#TODO: change the position according to the direction the hunter is facing
+	teenager.global_position = Vector2(player.global_position.x,teenager.global_position.y)
+	teenager.dead_anims.play(_anim)
 	emit_signal("entered")
 	
 func update(delta):

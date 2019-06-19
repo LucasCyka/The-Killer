@@ -12,7 +12,6 @@ var target
 var target_pos
 var player_pos
 var new_position = Vector2(-500,-500)
-var random_anim
 var busy = false
 
 #constructor
@@ -35,7 +34,8 @@ func init(base,state_position,state_time):
 		push_warning('Attacking animations were not found')
 		return
 	#final attacking animation id
-	random_anim = str(int(rand_range(num,num+1)))
+	self.player.attacking_animation_id = str(int(rand_range(num,num+1)))
+	
 	
 func update(delta):
 	if base == null:
@@ -60,9 +60,8 @@ func update(delta):
 		
 		if not player.player_anims.is_connected('animation_finished',self,'exit'):
 			player.player_anims.connect('animation_finished',self,'exit')
-			player.player_anims.play(str(player.id) + '-Attacking:' + random_anim)
+			player.player_anims.play(str(player.id) + '-Attacking:' + player.attacking_animation_id)
 		
-	
 	transitions()
 	
 func input(event):

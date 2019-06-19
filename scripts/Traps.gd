@@ -196,6 +196,23 @@ func check_requirements(teenager):
 			
 	return true
 
+#return the trap position
+func get_trap_position():
+	match type:
+		TYPES.BUMP:
+			return Vector2(0,0)
+		_:
+			return get_children()[0].global_position
+
+#check if the teenager can see the trap being placed
+func is_teenager_seeing_trap():
+	var is_seeing = false
+	for teen in base.get_teenagers():
+		if teen.global_position.distance_to(get_trap_position()) < 80:
+			is_seeing = teen.is_object_visible(child.detection_wall)
+			
+	return is_seeing
+	
 #destructor
 func exit():
 	child.queue_free()

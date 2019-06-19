@@ -62,7 +62,7 @@ func _process(delta):
 		return
 		
 	var closest = base.get_closest_tile(tiles,get_global_mouse_position(),20)
-	if closest == get_global_mouse_position():
+	if closest == get_global_mouse_position() or is_teenager_seeing_trap():
 		set_is_invalid_tile(true)
 	else: set_is_invalid_tile(false)
 	current_texture.global_position = Vector2(closest.x+25/2,closest.y+25/2)

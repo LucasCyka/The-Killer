@@ -40,6 +40,7 @@ func update(delta):
 	pass
 	
 func exit():
+	base.teenager.custom_animation = null
 	if _timer != null:
 		#something cut this routine early than expected, do not restart the routine
 		_timer.disconnect("timeout",self,"next_stage")

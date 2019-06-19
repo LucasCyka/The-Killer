@@ -95,6 +95,7 @@ export var sleep_hours = 5
 onready var state_machine = $States
 onready var kinematic_teenager =  self
 onready var teenager_anims = $Animations
+onready var dead_anims = $DeadAnimations
 onready var wall_cast = $DetectionArea/WallCast
 onready var detection_area = $DetectionArea
 
