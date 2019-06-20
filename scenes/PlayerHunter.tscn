@@ -72,7 +72,7 @@ animations = [ {
 "name": "0:Idle-Up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 23 ), ExtResource( 23 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 23 ), ExtResource( 23 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ), ExtResource( 4 ) ],
 "loop": false,
 "name": "0-Attacking:1",
 "speed": 4.5

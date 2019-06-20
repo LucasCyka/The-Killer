@@ -47,7 +47,13 @@ var animations_data = {
 		Vector2(0,1):{"anim":str(id) + ":Attacking-Down","flip":false},
 		Vector2(0,-1):{"anim":str(id) + ":Attacking-Up","flip":false},
 		Vector2(1,0):{"anim":str(id) + ":Attacking-Side","flip":false},
-		Vector2(-1,0):{"anim":str(id) + ":Attacking-Side","flip":true}}
+		Vector2(-1,0):{"anim":str(id) + ":Attacking-Side","flip":true}},
+		
+	"Deployment":{
+		Vector2(0,1):{"anim":str(id) + ":Idle-Down","flip":false},
+		Vector2(0,-1):{"anim":str(id) + ":Idle-Up","flip":false},
+		Vector2(1,0):{"anim":str(id) + ":Idle-Side","flip":false},
+		Vector2(-1,0):{"anim":str(id) + ":Idle-Side","flip":true}}
 	
 }
 

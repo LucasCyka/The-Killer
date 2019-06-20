@@ -3,14 +3,34 @@
 [ext_resource path="res://sprites/tilesets/trees.png" type="Texture" id=1]
 
 [resource]
-0/name = "Sprite"
+0/name = "trees.png 0"
 0/texture = ExtResource( 1 )
 0/tex_offset = Vector2( 0, 0 )
 0/modulate = Color( 1, 1, 1, 1 )
-0/region = Rect2( 0, 0, 65, 50 )
+0/region = Rect2( 0, 0, 75, 50 )
 0/tile_mode = 0
-0/occluder_offset = Vector2( 32.5, 25 )
-0/navigation_offset = Vector2( 32.5, 25 )
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
 0/shapes = [  ]
 0/z_index = 0
+1/name = "trees.png 1"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 100, 0, 75, 50 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shapes = [  ]
+1/z_index = 4
+2/name = "trees.png 2"
+2/texture = ExtResource( 1 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 75, 75, 50 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/shapes = [  ]
+2/z_index = 4
 

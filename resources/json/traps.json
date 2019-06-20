@@ -21,7 +21,7 @@
 	"OneShot":["true","true","false"],
 	"OnSpot":["false","false","false"],
 	"Walkable":["true","true","true"],
-	"Requirements":[["MEN","MIN10"],["MEN"],["NULL"]]
+	"Requirements":[["MEN"],["MEN"],["NULL"]]
   },
   
   "MISC":{

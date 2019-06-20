@@ -54,13 +54,23 @@ func update(delta):
 		player.player_anims.set_flip_h(player.animations_data['Moving'][player.facing_direction]['flip'])
 		
 	else:
+
 		#can only exit this state after killing this teen
 		busy = true
-		player.attack(target)
+		player.facing_direction = Vector2(0,1)
 		
 		if not player.player_anims.is_connected('animation_finished',self,'exit'):
 			player.player_anims.connect('animation_finished',self,'exit')
 			player.player_anims.play(str(player.id) + '-Attacking:' + player.attacking_animation_id)
+		
+			#TODO: move in other directions for different animations
+			#move the player one tile up
+			var closest = star.get_closest_tile(player.global_position)
+			closest.y-=25
+			player.global_position = closest
+			
+			player.attack(target)
+			
 		
 	transitions()
 	

@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=2]
+[gd_scene load_steps=82 format=2]
 
 [ext_resource path="res://scripts/TeenageAI.gd" type="Script" id=1]
 [ext_resource path="res://resources/anims/teenager.tres" type="SpriteFrames" id=2]
@@ -30,32 +30,54 @@
 [ext_resource path="res://sprites/characters/male_1/dying/dying_fixed/dying_1_down26.png" type="Texture" id=28]
 [ext_resource path="res://sprites/characters/male_1/dying/dying_fixed/dying_1_down27.png" type="Texture" id=29]
 [ext_resource path="res://sprites/characters/male_1/dying/dying_fixed/dying_1_down28.png" type="Texture" id=30]
-[ext_resource path="res://scripts/states/AIFSM.gd" type="Script" id=31]
-[ext_resource path="res://scripts/states/ai/Idle.gd" type="Script" id=32]
-[ext_resource path="res://scripts/states/ai/Moving.gd" type="Script" id=33]
-[ext_resource path="res://scripts/states/ai/Wait.gd" type="Script" id=34]
-[ext_resource path="res://scripts/states/ai/Lured.gd" type="Script" id=35]
-[ext_resource path="res://scripts/states/ai/Panic.gd" type="Script" id=36]
-[ext_resource path="res://scripts/states/ai/Escaping.gd" type="Script" id=37]
-[ext_resource path="res://scripts/states/ai/OnVice.gd" type="Script" id=38]
-[ext_resource path="res://scripts/states/ai/Startled.gd" type="Script" id=39]
-[ext_resource path="res://scripts/states/ai/Crippled.gd" type="Script" id=40]
-[ext_resource path="res://scripts/states/ai/Shock.gd" type="Script" id=41]
-[ext_resource path="res://scripts/states/ai/Fighting.gd" type="Script" id=42]
-[ext_resource path="res://scripts/states/ai/Cornered.gd" type="Script" id=43]
-[ext_resource path="res://scripts/states/ai/Screaming.gd" type="Script" id=44]
-[ext_resource path="res://scripts/states/ai/Escaped.gd" type="Script" id=45]
-[ext_resource path="res://scripts/states/ai/Talking.gd" type="Script" id=46]
-[ext_resource path="res://scripts/states/ai/Sleeping.gd" type="Script" id=47]
-[ext_resource path="res://scripts/states/ai/EatingTable.gd" type="Script" id=48]
-[ext_resource path="res://scripts/states/ai/OnPicNic.gd" type="Script" id=49]
-[ext_resource path="res://scripts/states/ai/Shitting.gd" type="Script" id=50]
-[ext_resource path="res://scripts/states/ai/SittingFloor.gd" type="Script" id=51]
-[ext_resource path="res://scripts/states/ai/Fishing.gd" type="Script" id=52]
-[ext_resource path="res://scripts/states/ai/OnBed.gd" type="Script" id=53]
-[ext_resource path="res://scripts/states/ai/Dead.gd" type="Script" id=54]
-[ext_resource path="res://scenes/CustomTimer.tscn" type="PackedScene" id=55]
-[ext_resource path="res://scenes/AITimer.tscn" type="PackedScene" id=56]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_1.png" type="Texture" id=31]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_2.png" type="Texture" id=32]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_3.png" type="Texture" id=33]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_4.png" type="Texture" id=34]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_5.png" type="Texture" id=35]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_6.png" type="Texture" id=36]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_7.png" type="Texture" id=37]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_8.png" type="Texture" id=38]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_9.png" type="Texture" id=39]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_10.png" type="Texture" id=40]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_11.png" type="Texture" id=41]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_12.png" type="Texture" id=42]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_13.png" type="Texture" id=43]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_14.png" type="Texture" id=44]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_15.png" type="Texture" id=45]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_16.png" type="Texture" id=46]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_17.png" type="Texture" id=47]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_18.png" type="Texture" id=48]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_19.png" type="Texture" id=49]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_20.png" type="Texture" id=50]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_21.png" type="Texture" id=51]
+[ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_22.png" type="Texture" id=52]
+[ext_resource path="res://scripts/states/AIFSM.gd" type="Script" id=53]
+[ext_resource path="res://scripts/states/ai/Idle.gd" type="Script" id=54]
+[ext_resource path="res://scripts/states/ai/Moving.gd" type="Script" id=55]
+[ext_resource path="res://scripts/states/ai/Wait.gd" type="Script" id=56]
+[ext_resource path="res://scripts/states/ai/Lured.gd" type="Script" id=57]
+[ext_resource path="res://scripts/states/ai/Panic.gd" type="Script" id=58]
+[ext_resource path="res://scripts/states/ai/Escaping.gd" type="Script" id=59]
+[ext_resource path="res://scripts/states/ai/OnVice.gd" type="Script" id=60]
+[ext_resource path="res://scripts/states/ai/Startled.gd" type="Script" id=61]
+[ext_resource path="res://scripts/states/ai/Crippled.gd" type="Script" id=62]
+[ext_resource path="res://scripts/states/ai/Shock.gd" type="Script" id=63]
+[ext_resource path="res://scripts/states/ai/Fighting.gd" type="Script" id=64]
+[ext_resource path="res://scripts/states/ai/Cornered.gd" type="Script" id=65]
+[ext_resource path="res://scripts/states/ai/Screaming.gd" type="Script" id=66]
+[ext_resource path="res://scripts/states/ai/Escaped.gd" type="Script" id=67]
+[ext_resource path="res://scripts/states/ai/Talking.gd" type="Script" id=68]
+[ext_resource path="res://scripts/states/ai/Sleeping.gd" type="Script" id=69]
+[ext_resource path="res://scripts/states/ai/EatingTable.gd" type="Script" id=70]
+[ext_resource path="res://scripts/states/ai/OnPicNic.gd" type="Script" id=71]
+[ext_resource path="res://scripts/states/ai/Shitting.gd" type="Script" id=72]
+[ext_resource path="res://scripts/states/ai/SittingFloor.gd" type="Script" id=73]
+[ext_resource path="res://scripts/states/ai/Fishing.gd" type="Script" id=74]
+[ext_resource path="res://scripts/states/ai/OnBed.gd" type="Script" id=75]
+[ext_resource path="res://scripts/states/ai/Dead.gd" type="Script" id=76]
+[ext_resource path="res://scenes/CustomTimer.tscn" type="PackedScene" id=77]
+[ext_resource path="res://scenes/AITimer.tscn" type="PackedScene" id=78]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 13.3082
@@ -68,6 +90,11 @@ animations = [ {
 "frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
 "loop": false,
 "name": "0:1-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ) ],
+"loop": false,
+"name": "1:1-Up",
 "speed": 5.0
 } ]
 
@@ -137,78 +164,78 @@ margin_right = 15.0
 margin_bottom = 15.0
 
 [node name="States" type="Node" parent="."]
-script = ExtResource( 31 )
-
-[node name="Idle" type="Node" parent="States"]
-script = ExtResource( 32 )
-
-[node name="Moving" type="Node" parent="States"]
-script = ExtResource( 33 )
-
-[node name="Waiting" type="Node" parent="States"]
-script = ExtResource( 34 )
-
-[node name="Lured" type="Node" parent="States"]
-script = ExtResource( 35 )
-
-[node name="Panic" type="Node" parent="States"]
-script = ExtResource( 36 )
-
-[node name="Escaping" type="Node" parent="States"]
-script = ExtResource( 37 )
-
-[node name="OnVice" type="Node" parent="States"]
-script = ExtResource( 38 )
-
-[node name="Startled" type="Node" parent="States"]
-script = ExtResource( 39 )
-
-[node name="Crippled" type="Node" parent="States"]
-script = ExtResource( 40 )
-
-[node name="Shock" type="Node" parent="States"]
-script = ExtResource( 41 )
-
-[node name="Fighting" type="Node" parent="States"]
-script = ExtResource( 42 )
-
-[node name="Cornered" type="Node" parent="States"]
-script = ExtResource( 43 )
-
-[node name="Screaming" type="Node" parent="States"]
-script = ExtResource( 44 )
-
-[node name="Escaped" type="Node" parent="States"]
-script = ExtResource( 45 )
-
-[node name="Talking" type="Node" parent="States"]
-script = ExtResource( 46 )
-
-[node name="Sleeping" type="Node" parent="States"]
-script = ExtResource( 47 )
-
-[node name="EatingTable" type="Node" parent="States"]
-script = ExtResource( 48 )
-
-[node name="OnPicNic" type="Node" parent="States"]
-script = ExtResource( 49 )
-
-[node name="Shitting" type="Node" parent="States"]
-script = ExtResource( 50 )
-
-[node name="SittingFloor" type="Node" parent="States"]
-script = ExtResource( 51 )
-
-[node name="Fishing" type="Node" parent="States"]
-script = ExtResource( 52 )
-
-[node name="OnBed" type="Node" parent="States"]
 script = ExtResource( 53 )
 
-[node name="Dead" type="Node" parent="States"]
+[node name="Idle" type="Node" parent="States"]
 script = ExtResource( 54 )
 
-[node name="StateTimer" parent="States" instance=ExtResource( 55 )]
+[node name="Moving" type="Node" parent="States"]
+script = ExtResource( 55 )
 
-[node name="OLDTimer" parent="States" instance=ExtResource( 56 )]
+[node name="Waiting" type="Node" parent="States"]
+script = ExtResource( 56 )
+
+[node name="Lured" type="Node" parent="States"]
+script = ExtResource( 57 )
+
+[node name="Panic" type="Node" parent="States"]
+script = ExtResource( 58 )
+
+[node name="Escaping" type="Node" parent="States"]
+script = ExtResource( 59 )
+
+[node name="OnVice" type="Node" parent="States"]
+script = ExtResource( 60 )
+
+[node name="Startled" type="Node" parent="States"]
+script = ExtResource( 61 )
+
+[node name="Crippled" type="Node" parent="States"]
+script = ExtResource( 62 )
+
+[node name="Shock" type="Node" parent="States"]
+script = ExtResource( 63 )
+
+[node name="Fighting" type="Node" parent="States"]
+script = ExtResource( 64 )
+
+[node name="Cornered" type="Node" parent="States"]
+script = ExtResource( 65 )
+
+[node name="Screaming" type="Node" parent="States"]
+script = ExtResource( 66 )
+
+[node name="Escaped" type="Node" parent="States"]
+script = ExtResource( 67 )
+
+[node name="Talking" type="Node" parent="States"]
+script = ExtResource( 68 )
+
+[node name="Sleeping" type="Node" parent="States"]
+script = ExtResource( 69 )
+
+[node name="EatingTable" type="Node" parent="States"]
+script = ExtResource( 70 )
+
+[node name="OnPicNic" type="Node" parent="States"]
+script = ExtResource( 71 )
+
+[node name="Shitting" type="Node" parent="States"]
+script = ExtResource( 72 )
+
+[node name="SittingFloor" type="Node" parent="States"]
+script = ExtResource( 73 )
+
+[node name="Fishing" type="Node" parent="States"]
+script = ExtResource( 74 )
+
+[node name="OnBed" type="Node" parent="States"]
+script = ExtResource( 75 )
+
+[node name="Dead" type="Node" parent="States"]
+script = ExtResource( 76 )
+
+[node name="StateTimer" parent="States" instance=ExtResource( 77 )]
+
+[node name="OLDTimer" parent="States" instance=ExtResource( 78 )]
 

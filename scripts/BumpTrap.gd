@@ -18,8 +18,9 @@ func _ready():
 	#TODO: change the type of tiles according to its ID
 	#TODO: change the type of detection radius here...
 	
-	#I guess this won't work on the web version...
 	type = TYPES.BUMP
+	#I guess this won't work on the web version...
+	#Correction: it works!
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 #move the trap around

@@ -43,7 +43,7 @@ func init(base,state_position,state_time):
 	
 	#change the teenager position so when he dies he's facing the player
 	#TODO: change the position according to the direction the hunter is facing
-	teenager.global_position = Vector2(player.global_position.x,teenager.global_position.y)
+	teenager.global_position = Vector2(player.global_position.x,player.global_position.y+20)
 	teenager.dead_anims.play(_anim)
 	emit_signal("entered")
 	
