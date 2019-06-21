@@ -6,8 +6,10 @@ extends Control
 
 var base = null
 var selected_teenager = null
-#TODO: make this panel movable
-#TODO: a line going from the panel to the selected teenager
+var _is_mouse_over = false
+var _mouse_click_pos = Vector2(-666,-666)
+
+onready var _panel_default_position = $Panel.rect_global_position
 
 #initialize
 func init(base):
@@ -30,9 +32,22 @@ func _process(delta):
 	$Panel/Traps.text = "TRAPS: " + str(selected_teenager.traps.size())
 	$Panel/TrapsID.text = "TRAP ID: " + str(selected_teenager.current_trap)
 	
+	#drag the panel
+	if _is_mouse_over and _mouse_click_pos != Vector2(-666,-666):
+		var new_pos = Vector2(get_global_mouse_position().x-$Panel.get_rect().size.x/2,
+		get_global_mouse_position().y-$Panel.get_rect().size.y/2)
+		$Panel.rect_global_position = new_pos
+	
 	#drawing function
 	update()
-	
+
+#select/release the panel
+func _input(event):
+	if Input.is_action_just_pressed("ok_input") and _mouse_click_pos == Vector2(-666,-666):
+		_mouse_click_pos = get_global_mouse_position()
+	if Input.is_action_just_released("ok_input"):
+		_mouse_click_pos = Vector2(-666,-666)
+
 #show the panel with the information for one teenager
 func show_panel(teenager):
 	if base.game.get_current_mode() == base.game.MODE.HUNTING:
@@ -45,6 +60,7 @@ func show_panel(teenager):
 #hide the panel
 func hide_panel():
 	$Panel.hide()
+	$Panel.rect_global_position = _panel_default_position
 	selected_teenager = null
 	update()
 
@@ -63,9 +79,9 @@ func _draw():
 		
 		draw_line(teenager_pos,$Panel.rect_global_position,Color.red)
 	
+func mouse_entered():
+	_is_mouse_over = true
 
-
-
-
-
-
+func mouse_exited():
+	_is_mouse_over = false
+	_mouse_click_pos = Vector2(-666,-666)

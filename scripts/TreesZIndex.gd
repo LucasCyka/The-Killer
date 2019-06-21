@@ -7,6 +7,10 @@ extends TileMap
 
 #initialize
 func _ready():
+	if get_parent().get_parent().debug_mode:
+		#it will spend things a bit
+		return
+	
 	var shape = RectangleShape2D.new()
 	shape.extents = Vector2(20,10)
 	

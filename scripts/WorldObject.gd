@@ -44,11 +44,14 @@ var effects = {
 
 #initialize
 func _ready():
-	#create a button mask for this object
-	var mask = BitMap.new()
-	var image = get_sprite_frames().get_frame(get_animation(),0).get_data()
-	mask.create_from_image_alpha(image,0.1)
-	$Button.texture_click_mask = mask
+		if is_clickable:
+			#create a button mask for this object
+			var mask = BitMap.new()
+			var image = get_sprite_frames().get_frame(get_animation(),0).get_data()
+			mask.create_from_image_alpha(image,0.1)
+			$Button.texture_click_mask = mask
+		else:
+			$Button.hide()
 	
 
 func _process(delta):

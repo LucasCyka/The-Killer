@@ -29,6 +29,8 @@ var last_mode = MODE.PLANNING
 export var time = 0 setget set_time, get_time
 #points to spend on this level buying traps
 export var points = 0 setget set_points, get_points
+#enable/disable the debug mode
+export var debug_mode = false
 
 #Default: 1 minute in-game = 1 second.
 var timer_speed = default_speed

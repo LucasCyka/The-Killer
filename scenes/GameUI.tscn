@@ -46,20 +46,21 @@ script = ExtResource( 1 )
 editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
+rect_pivot_offset = Vector2( 17.1059, 23.8122 )
 script = ExtResource( 2 )
 
-[node name="Panel" type="Container" parent="Canvas/TeenagerInfo"]
+[node name="Panel" type="Control" parent="Canvas/TeenagerInfo"]
 editor/display_folded = true
 visible = false
-margin_left = 276.615
-margin_top = 148.817
-margin_right = 376.615
-margin_bottom = 248.817
-rect_pivot_offset = Vector2( 50, 50 )
+margin_left = 391.0
+margin_top = 210.0
+margin_right = 489.0
+margin_bottom = 312.0
+rect_pivot_offset = Vector2( 49.1224, 53.5745 )
 
 [node name="background" type="Sprite" parent="Canvas/TeenagerInfo/Panel"]
 editor/display_folded = true
-position = Vector2( 50, 50 )
+position = Vector2( 48.4768, 48.8767 )
 texture = ExtResource( 3 )
 
 [node name="Close" type="TextureButton" parent="Canvas/TeenagerInfo/Panel/background"]
@@ -70,38 +71,38 @@ margin_bottom = -50.1648
 texture_normal = ExtResource( 4 )
 
 [node name="Gender" type="Label" parent="Canvas/TeenagerInfo/Panel"]
-margin_left = 2.0
-margin_top = 3.0
-margin_right = 86.0
-margin_bottom = 34.0
+margin_left = 0.476807
+margin_top = 1.87669
+margin_right = 84.4768
+margin_bottom = 32.8767
 text = "GENDER:"
 
 [node name="Fear" type="Label" parent="Canvas/TeenagerInfo/Panel"]
-margin_left = 2.0
-margin_top = 23.0
-margin_right = 86.0
-margin_bottom = 54.0
+margin_left = 0.476807
+margin_top = 21.8767
+margin_right = 84.4768
+margin_bottom = 52.8767
 text = "FEAR:"
 
 [node name="Curiosity" type="Label" parent="Canvas/TeenagerInfo/Panel"]
-margin_left = 2.0
-margin_top = 43.0
-margin_right = 86.0
-margin_bottom = 74.0
+margin_left = 0.476807
+margin_top = 41.8767
+margin_right = 84.4768
+margin_bottom = 72.8767
 text = "CURIOSITY:"
 
 [node name="Traps" type="Label" parent="Canvas/TeenagerInfo/Panel"]
-margin_left = 2.0
-margin_top = 63.0
-margin_right = 86.0
-margin_bottom = 94.0
+margin_left = 0.476807
+margin_top = 61.8767
+margin_right = 84.4768
+margin_bottom = 92.8767
 text = "Traps:"
 
 [node name="TrapsID" type="Label" parent="Canvas/TeenagerInfo/Panel"]
-margin_left = 2.0
-margin_top = 83.0
-margin_right = 86.0
-margin_bottom = 114.0
+margin_left = 0.476807
+margin_top = 81.8767
+margin_right = 84.4768
+margin_bottom = 112.877
 text = "Trap ID:"
 
 [node name="TrapsUI" type="Control" parent="Canvas"]
@@ -743,6 +744,8 @@ margin_right = 345.346
 margin_bottom = 99.799
 text = "QUIT"
 
+[connection signal="mouse_entered" from="Canvas/TeenagerInfo/Panel" to="Canvas/TeenagerInfo" method="mouse_entered"]
+[connection signal="mouse_exited" from="Canvas/TeenagerInfo/Panel" to="Canvas/TeenagerInfo" method="mouse_exited"]
 [connection signal="pressed" from="Canvas/TeenagerInfo/Panel/background/Close" to="Canvas/TeenagerInfo" method="hide_panel"]
 [connection signal="pressed" from="Canvas/TrapsUI/TrapsPanel/LureBtn" to="Canvas/TrapsUI" method="lure_btn"]
 [connection signal="pressed" from="Canvas/TrapsUI/TrapsPanel/BumpBtn" to="Canvas/TrapsUI" method="bump_btn"]
