@@ -94,19 +94,22 @@ func fill_grid(data,type):
 		var oneshot = data['OneShot'][trap]
 		var onspot = data['OnSpot'][trap]
 		var walkable = data['Walkable'][trap]
+		var _name = data['Name'][trap]
+		var desc = data['Desc'][trap]
 		
 		#button's texture
 		buttons[row].texture_normal = texture
 		
 		#signals
 		buttons[row].connect("pressed",self,"add_trap",[price,type,trap,fear,curiosity,
-		requirements,oneshot,onspot,walkable])
+		requirements,oneshot,onspot,walkable,_name,desc])
 		
 		row += 1 
 
 #check if the player has the points to 'buy' a given trap, if so, then
 #instantiate it.
-func add_trap(price,type,id,fear,curiosity,requirements,oneshot,onspot,walkable):
+func add_trap(price,type,id,fear,curiosity,requirements,oneshot,onspot,walkable,
+_name,desc):
 	#check the price before adding the trap
 	if price > base.game.get_points():
 		#not enough points
@@ -118,27 +121,27 @@ func add_trap(price,type,id,fear,curiosity,requirements,oneshot,onspot,walkable)
 			
 			var bump = preload("res://scenes/traps/BumpTrap.tscn").instance()
 			bump.init(id,base.game,base.get_bump_tilemap(),bump,self,
-			curiosity,fear,requirements,oneshot,onspot,price,walkable)
+			curiosity,fear,requirements,oneshot,onspot,price,walkable,_name,desc)
 			base.game.add_child(bump)
 			
 		trap_enum.LURE:
 			
 			var lure = preload("res://scenes/traps/LureTrap.tscn").instance()
 			lure.init(id,base.game,base.get_lure_tilemap(),lure,self,
-			curiosity,fear,requirements,oneshot,onspot,price,walkable)
+			curiosity,fear,requirements,oneshot,onspot,price,walkable,_name,desc)
 			base.game.add_child(lure)
 			
 		trap_enum.MISC:
 			
 			var misc = preload("res://scenes/traps/MiscTrap.tscn").instance()
 			misc.init(id,base.game,base.get_lure_tilemap(),misc,self,
-			curiosity,fear,requirements,oneshot,onspot,price,walkable)
+			curiosity,fear,requirements,oneshot,onspot,price,walkable,_name,desc)
 			base.game.add_child(misc)
 			
 		trap_enum.VICE:
 			var vice = preload("res://scenes/traps/ViceTrap.tscn").instance()
 			vice.init(id,base.game,base.get_lure_tilemap(),vice,self,
-			curiosity,fear,requirements,oneshot,onspot,price,walkable)
+			curiosity,fear,requirements,oneshot,onspot,price,walkable,_name,desc)
 			base.game.add_child(vice)
 		
 	selection_panel.hide()
@@ -149,6 +152,10 @@ func add_trap(price,type,id,fear,curiosity,requirements,oneshot,onspot,walkable)
 func show_selection(btn_pos):
 	$TrapsSelection.show()
 	#$TrapsSelection.rect_position = Vector2(btn_pos.x,$TrapsSelection.rect_position.y)
+
+#show information about the trap being hovered
+func show_trap_info(_name,desc,price):
+	pass
 
 #disable the selection panel
 func close_selection():

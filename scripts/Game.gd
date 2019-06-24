@@ -207,10 +207,10 @@ func load_trap_info():
 	
 	#dictionary structury
 	traps_data = {
-	trap_enum.BUMP:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[]},
-	trap_enum.LURE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[]},
-	trap_enum.MISC:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[]},
-	trap_enum.VICE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[]
+	trap_enum.BUMP:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[]},
+	trap_enum.LURE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[]},
+	trap_enum.MISC:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[]},
+	trap_enum.VICE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[]
 	}
 	}
 	
@@ -243,6 +243,8 @@ func load_trap_info():
 				var oneshot = common.string_to_boolean(traps['Traps'][type]['OneShot'][id])
 				var onspot = common.string_to_boolean(traps['Traps'][type]['OnSpot'][id])
 				var walkable = common.string_to_boolean(traps['Traps'][type]['Walkable'][id])
+				var _name = str(traps['Traps'][type]['Name'][id])
+				var description = str(traps['Traps'][type]['Desc'][id])
 				
 				#change the trap type to an enum
 				match type:
@@ -268,6 +270,8 @@ func load_trap_info():
 				traps_data[_type]['Requirements'].append(requirements)
 				traps_data[_type]['OnSpot'].append(onspot)
 				traps_data[_type]['Walkable'].append(walkable)
+				traps_data[_type]['Name'].append(_name)
+				traps_data[_type]['Desc'].append(description)
 				
 #change the current timer speed in seconds
 func update_time_speed(value):

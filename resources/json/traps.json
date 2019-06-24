@@ -9,6 +9,8 @@
 	"OneShot":["true"],
 	"OnSpot":["false"],
 	"Walkable":["true"],
+	"Name":["Knock, Knock."],
+	"Desc":["Make some noises on the wall."],
 	"Requirements":[["NULL"],["NULL"]]
   },
   
@@ -21,6 +23,8 @@
 	"OneShot":["true","true","false"],
 	"OnSpot":["false","false","false"],
 	"Walkable":["true","true","true"],
+	"Name":["underwear.","Porn","Blood Trail"],
+	"Desc":["Lure 1.","Lure 2.","Lure 3."],
 	"Requirements":[["MEN"],["MEN"],["NULL"]]
   },
   
@@ -33,6 +37,8 @@
 	"OneShot":["false","true"],
 	"OnSpot":["false","true"],
 	"Walkable":["false","true"],
+	"Name":["Severed Head.","Bear trap."],
+	"Desc":["A head.","A bear trap"],
 	"Requirements":[["NULL"],["PANIC"],["PANIC"]]
   },
   
@@ -45,6 +51,8 @@
 	"OneShot":["true"],
 	"OnSpot":["false"],
 	"Walkable":["true"],
+	"Name":["Cigarret"],
+	"Desc":["Will slow down the player who smoke it."],
 	"Requirements":[["NULL"],["MEN"]]
   }
   
