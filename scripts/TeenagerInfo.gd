@@ -38,6 +38,11 @@ func _process(delta):
 		get_global_mouse_position().y-$Panel.get_rect().size.y/2)
 		$Panel.rect_global_position = new_pos
 	
+	#recovery button
+	if selected_teenager.state_machine.get_current_state() == 'Dead':
+		$Panel/RecoverButton.show()
+	else: $Panel/RecoverButton.hide()
+	
 	#drawing function
 	update()
 
@@ -85,3 +90,21 @@ func mouse_entered():
 func mouse_exited():
 	_is_mouse_over = false
 	_mouse_click_pos = Vector2(-666,-666)
+
+#the recover button is pressed
+func recovery_pressed():
+	if base.game.body_recovery_cost > base.game.get_points():
+		#TODO: give a warning to the player
+		return
+	
+	selected_teenager.emit_signal("recover_teen")
+	base.game.set_points(base.game.get_points()-base.game.body_recovery_cost)
+	hide_panel()
+	base.emit_signal("element_changed_focus")
+
+
+
+
+
+
+

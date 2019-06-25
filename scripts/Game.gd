@@ -22,6 +22,9 @@ const fast_speed = 0.2
 const ultra_speed = 0.1
 const debug_speed = 0.04
 
+#fixed costs in the game
+const body_recovery_cost = 30
+
 var current_mode = MODE.PLANNING setget set_current_mode, get_current_mode
 var last_mode = MODE.PLANNING
 
@@ -58,6 +61,8 @@ func _ready():
 	load_trap_info()
 	#start timer
 	init_timer()
+	#initialzie the ai
+	init_teenagers()
 	
 	emit_signal("loaded")
 	
@@ -200,6 +205,20 @@ func init_timer():
 	$GameTimer.connect("timeout",self,"set_time",[1])
 	$GameTimer.start()
 
+#will initialize the AI in game
+func init_teenagers():
+	for teen in get_teenagers():
+		#signals
+		teen.connect("recover_teen",self,"transform_teen",[teen])
+
+#transform the teen into a misc trap
+func transform_teen(teen):
+	#TODO: transform in more than one trap
+	#TODO: transform the teen in a death trap and add it to the misc category
+	pass
+	
+	teen.queue_free()
+
 #loads data from all traps available in this level
 func load_trap_info():
 	var traps = {} #traps.json 
@@ -213,7 +232,6 @@ func load_trap_info():
 	trap_enum.VICE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[]
 	}
 	}
-	
 	#all traps
 	var file = File.new()
 	file.open("res://resources/json/traps.json",File.READ)

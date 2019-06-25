@@ -29,6 +29,12 @@ func _process(delta):
 	
 	#search for teens that aren't on routine
 	for teen in teens:
+		#prevent some errors when the teenager is erased
+		var teen_reference = weakref(teen)
+		if not teen_reference.get_ref():
+			activated_teens.erase(teen)
+			break
+		
 		#when sleeping the teen routine will be interrupted, but the player
 		#don't need to see his status
 		var is_sleeping = teen.state_machine.get_current_state() == 'Sleeping'

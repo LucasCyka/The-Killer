@@ -220,6 +220,9 @@ func get_closest_teenager():
 	var closest = base.teenager
 	
 	for teenager in teenagers:
+		if not is_instance_valid(teenager):
+			continue
+		
 		var state = teenager.state_machine.get_current_state()
 		#TODO: check if he's not dead
 		if teenager != base.teenager and state != 'Panic' and state != 'Dead':

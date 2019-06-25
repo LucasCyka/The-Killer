@@ -24,13 +24,15 @@ onready var detection_wall = $Texture/VisibilityDetection
 var effects = {
 	0:[funcref(self,"enter_panic")],
 	1:[funcref(self,"cripple")],
-	2:[funcref(self,"cripple")]
+	2:[funcref(self,"cripple")],
+	666:[funcref(self,"enter_panic")]#DEATH TRAP
 	
 }
 
 func _ready():
 	#change the textures acording to its ID
 	current_texture.set_animation(str(id))
+
 	
 	#detection signals
 	type = TYPES.MISC

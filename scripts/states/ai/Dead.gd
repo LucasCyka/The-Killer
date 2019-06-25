@@ -51,12 +51,15 @@ func update(delta):
 	if teenagers == []:
 		return
 	var teen_pos = base.teenager.kinematic_teenager.global_position
-	
 	#teenages near dead bodies will enter on panic/shock
 	for teen in teenagers:
+		if not is_instance_valid(teen):
+			continue
+		
 		if teen == base.teenager:
 			continue
 		var pos = teen.kinematic_teenager.global_position
+		
 		
 		#check if the teen is close enough
 		if pos.distance_to(teen_pos) <100:

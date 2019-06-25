@@ -4,6 +4,9 @@ extends Node2D
 	Controls the teenager AI.
 """
 
+#when emmited the body of this teen will transformed into a trap
+signal recover_teen
+
 #teenager gender
 enum GENDER {
 	MALE,
@@ -436,10 +439,6 @@ func is_object_visible(object):
 	
 	if wall_cast.is_colliding():
 		return wall_cast.get_collider().name == object.name
-
-
-
-
 
 
 

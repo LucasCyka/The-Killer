@@ -32,6 +32,7 @@ var price = 0
 var is_placed = false
 var trap_name = null
 var trap_desc = null
+var custom_animation = null
 
 #if the trap is placed in an invalid location this will be true
 var is_invalid_tile = false setget set_is_invalid_tile
@@ -46,7 +47,7 @@ var requirements = []
 
 #constructor
 func init(id,base,tiles,child,ui,curiosity,fear,requirements,oneshot,onspot,
-price,walkable,_name,desc):
+price,walkable,_name,desc,custom_animation):
 	self.curiosity = curiosity
 	self.fear = fear
 	self.id = id
@@ -61,6 +62,7 @@ price,walkable,_name,desc):
 	self.walkable = walkable
 	self.trap_name = _name
 	self.trap_desc = desc
+	self.custom_animation = custom_animation
 	
 	#replace traps, needs to diconnect this when the trap is placed
 	ui.connect("new_trap",self,"exit")
