@@ -384,6 +384,7 @@ text = "DESCRIPTION OF THE OBJECT"
 autowrap = true
 
 [node name="InfoUI" type="Control" parent="Canvas"]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 18 )

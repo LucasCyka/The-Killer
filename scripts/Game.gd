@@ -214,10 +214,26 @@ func init_teenagers():
 #transform the teen into a misc trap
 func transform_teen(teen):
 	#TODO: transform in more than one trap
-	#TODO: transform the teen in a death trap and add it to the misc category
-	pass
+	#transform the teen in a death trap and add it to the misc category
 	
-	teen.queue_free()
+	#this dictionary goes to the new trap
+	var death_data = {'Anim1':teen.death_trap1}
+	
+	#assign new data
+	traps_data[trap_enum.MISC]['ID'].append(traps_data[trap_enum.MISC]['ID'].size())
+	traps_data[trap_enum.MISC]['Icon'].append(teen.death_icon.get_path().get_file())
+	traps_data[trap_enum.MISC]['Fear'].append(100)
+	traps_data[trap_enum.MISC]['Curiosity'].append(0)
+	traps_data[trap_enum.MISC]['Price'].append(0)
+	traps_data[trap_enum.MISC]['OneShot'].append(false)
+	traps_data[trap_enum.MISC]['Requirements'].append(["NULL"])
+	traps_data[trap_enum.MISC]['OnSpot'].append(false)
+	traps_data[trap_enum.MISC]['Walkable'].append(false)
+	traps_data[trap_enum.MISC]['Name'].append("Remains")
+	traps_data[trap_enum.MISC]['Desc'].append("The remains of this poor bastard.")
+	traps_data[trap_enum.MISC]['DeathTrap'].append(death_data)
+	
+	teen.call_deferred('free')
 
 #loads data from all traps available in this level
 func load_trap_info():
@@ -228,7 +244,7 @@ func load_trap_info():
 	traps_data = {
 	trap_enum.BUMP:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[]},
 	trap_enum.LURE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[]},
-	trap_enum.MISC:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[]},
+	trap_enum.MISC:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[],"DeathTrap":[]},
 	trap_enum.VICE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[]
 	}
 	}
@@ -290,6 +306,11 @@ func load_trap_info():
 				traps_data[_type]['Walkable'].append(walkable)
 				traps_data[_type]['Name'].append(_name)
 				traps_data[_type]['Desc'].append(description)
+				
+				#misc traps have a special property
+				if _type == trap_enum.MISC:
+					traps_data[_type]['DeathTrap'].append(null)
+				
 				
 #change the current timer speed in seconds
 func update_time_speed(value):

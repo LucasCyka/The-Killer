@@ -20,7 +20,7 @@ animations = [ {
 script = ExtResource( 1 )
 
 [node name="Texture" type="AnimatedSprite" parent="."]
-z_index = 2
+z_index = 5
 frames = SubResource( 1 )
 frame = 1
 playing = true

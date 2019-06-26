@@ -30,9 +30,17 @@ var effects = {
 }
 
 func _ready():
-	#change the textures acording to its ID
-	current_texture.set_animation(str(id))
-
+	if death_trap == null:
+		#change the textures acording to its ID
+		current_texture.set_animation(str(id))
+	else:
+		#it's a death trap, use different animations and change its id
+		id = 666
+		var spr = Sprite.new()
+		spr.texture = death_trap['Anim1']
+		current_texture.add_child(spr)
+		current_texture.set_animation("-1")
+		
 	
 	#detection signals
 	type = TYPES.MISC

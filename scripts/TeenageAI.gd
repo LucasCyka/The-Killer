@@ -94,6 +94,12 @@ export var speed = base_speed setget set_speed
 export var sleep_time = 1080
 export var sleep_hours = 5
 
+#the values below are used when this teen becomes a death trap
+export (Texture) var death_icon
+export (Texture) var death_trap1
+export (Texture) var death_trap2
+export (Texture) var death_trap3
+
 #world nodes
 onready var state_machine = $States
 onready var kinematic_teenager =  self

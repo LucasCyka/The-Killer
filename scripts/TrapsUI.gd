@@ -96,14 +96,18 @@ func fill_grid(data,type):
 		var walkable = data['Walkable'][trap]
 		var _name = data['Name'][trap]
 		var desc = data['Desc'][trap]
-		var custom_animation = null
+		var death_trap = null
+		
+		#check if this is a death trap. (death traps have the teen's anims)
+		if data.keys().find('DeathTrap') != -1:
+			death_trap = data['DeathTrap'][trap]
 		
 		#button's texture
 		buttons[row].texture_normal = texture
 		
 		#signals
 		buttons[row].connect("pressed",self,"add_trap",[price,type,trap,fear,curiosity,
-		requirements,oneshot,onspot,walkable,_name,desc,custom_animation])
+		requirements,oneshot,onspot,walkable,_name,desc,death_trap])
 		
 		buttons[row].connect("mouse_entered",self,"show_trap_info",[_name,desc,price])
 		buttons[row].connect("mouse_exited",self,"hide_trap_info")
@@ -113,7 +117,7 @@ func fill_grid(data,type):
 #check if the player has the points to 'buy' a given trap, if so, then
 #instantiate it.
 func add_trap(price,type,id,fear,curiosity,requirements,oneshot,onspot,walkable,
-_name,desc,custom_animation=null):
+_name,desc,death_trap):
 	#check the price before adding the trap
 	if price > base.game.get_points():
 		#not enough points
@@ -126,7 +130,7 @@ _name,desc,custom_animation=null):
 			var bump = preload("res://scenes/traps/BumpTrap.tscn").instance()
 			bump.init(id,base.game,base.get_bump_tilemap(),bump,self,
 			curiosity,fear,requirements,oneshot,onspot,price,walkable,_name,desc,
-			custom_animation)
+			death_trap)
 			base.game.add_child(bump)
 			
 		trap_enum.LURE:
@@ -134,7 +138,7 @@ _name,desc,custom_animation=null):
 			var lure = preload("res://scenes/traps/LureTrap.tscn").instance()
 			lure.init(id,base.game,base.get_lure_tilemap(),lure,self,
 			curiosity,fear,requirements,oneshot,onspot,price,walkable,_name,desc,
-			custom_animation)
+			death_trap)
 			base.game.add_child(lure)
 			
 		trap_enum.MISC:
@@ -142,14 +146,14 @@ _name,desc,custom_animation=null):
 			var misc = preload("res://scenes/traps/MiscTrap.tscn").instance()
 			misc.init(id,base.game,base.get_lure_tilemap(),misc,self,
 			curiosity,fear,requirements,oneshot,onspot,price,walkable,_name,desc,
-			custom_animation)
+			death_trap)
 			base.game.add_child(misc)
 			
 		trap_enum.VICE:
 			var vice = preload("res://scenes/traps/ViceTrap.tscn").instance()
 			vice.init(id,base.game,base.get_lure_tilemap(),vice,self,
 			curiosity,fear,requirements,oneshot,onspot,price,walkable,_name,desc,
-			custom_animation)
+			death_trap)
 			base.game.add_child(vice)
 		
 	selection_panel.hide()

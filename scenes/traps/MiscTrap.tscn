@@ -15,6 +15,11 @@ animations = [ {
 "loop": true,
 "name": "1",
 "speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "-1",
+"speed": 5.0
 } ]
 
 [sub_resource type="CircleShape2D" id=2]

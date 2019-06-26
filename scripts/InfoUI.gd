@@ -19,19 +19,18 @@ onready var fc_slots = $FCSlots.get_children()
 #constructor
 func init(base):
 	self.base = base
-	self.teens = get_tree().get_nodes_in_group("AI")
+	self.teens = base.game.get_teenagers()
 	
 func _process(delta):
 	if base == null:
 		return
-	
+	self.teens = base.game.get_teenagers()
 	update_time()
 	
 	#search for teens that aren't on routine
 	for teen in teens:
 		#prevent some errors when the teenager is erased
-		var teen_reference = weakref(teen)
-		if not teen_reference.get_ref():
+		if not is_instance_valid(teen):
 			activated_teens.erase(teen)
 			break
 		
@@ -62,6 +61,10 @@ func fill_fc_slots():
 	for teen in activated_teens:
 		if teen_id > fc_slots.size()-1:
 			#no more slots
+			break
+		
+		if not is_instance_valid(teen):
+			activated_teens.erase(teen)
 			break
 		
 		#TODO: fill teen's slot portrait
