@@ -79,6 +79,11 @@ func _input(event):
 		if not is_invalid_tile and not is_placed and not ui.is_ui_occupied:
 			is_placed = true
 			
+			if death_trap != null:
+				#death traps are one-shot. The player can't use that again
+				#so remove from the game.
+				base.remove_death_trap(death_trap)
+			
 			#subtract this trap price
 			get_parent().points -= price
 			

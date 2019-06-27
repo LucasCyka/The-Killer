@@ -6,17 +6,19 @@ extends "res://scripts/Traps.gd"
 """
 
 #the detection radius of the sound
-var radius = [150]
+var radius = [150,200]
 #defines how much far the teenager will look for the sound
-const effect_area = [150]
+const effect_area = [150,200]
 
 #world nodes
 onready var texture = $Texture
 
 func _ready():
-	#TODO: change the textures acording to its ID
 	#TODO: change the type of tiles according to its ID
 	#TODO: change the type of detection radius here...
+	
+	#TODO: change the textures acording to its ID
+	$Texture.play(str(id))
 	
 	type = TYPES.BUMP
 	#I guess this won't work on the web version...

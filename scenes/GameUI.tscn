@@ -350,6 +350,7 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Object" type="Sprite" parent="Canvas/MiscUI/ObjectPanel"]
+editor/display_folded = true
 position = Vector2( 534.146, 315.128 )
 texture = ExtResource( 17 )
 
@@ -384,7 +385,6 @@ text = "DESCRIPTION OF THE OBJECT"
 autowrap = true
 
 [node name="InfoUI" type="Control" parent="Canvas"]
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 18 )
@@ -480,7 +480,6 @@ position = Vector2( -37.3179, -10.4644 )
 texture = ExtResource( 28 )
 
 [node name="FCSlots" type="Control" parent="Canvas/InfoUI"]
-editor/display_folded = true
 margin_left = 19.0
 margin_top = 55.0
 margin_right = 59.0
@@ -488,7 +487,6 @@ margin_bottom = 95.0
 
 [node name="Slot1" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
 editor/display_folded = true
-visible = false
 position = Vector2( 510, 30 )
 texture = ExtResource( 29 )
 

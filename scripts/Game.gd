@@ -232,8 +232,25 @@ func transform_teen(teen):
 	traps_data[trap_enum.MISC]['Name'].append("Remains")
 	traps_data[trap_enum.MISC]['Desc'].append("The remains of this poor bastard.")
 	traps_data[trap_enum.MISC]['DeathTrap'].append(death_data)
+	traps_data[trap_enum.MISC]['Placement'].append(get_floor_tile())
 	
 	teen.call_deferred('free')
+
+#this will remove the last death trap added to the game from the player's
+#avaialble traps. 
+func remove_death_trap(data):
+	var id = 0
+	for value in traps_data[trap_enum.MISC]['DeathTrap']:
+		if value == data:
+			break
+		else: id += 1 
+		
+	for value in traps_data[trap_enum.MISC]:
+		traps_data[trap_enum.MISC][value].remove(id)
+
+	#for value in traps_data[trap_enum.MISC]:
+	#	traps_data[trap_enum.MISC][value].pop_back()
+	#	pass
 
 #loads data from all traps available in this level
 func load_trap_info():
@@ -242,10 +259,10 @@ func load_trap_info():
 	
 	#dictionary structury
 	traps_data = {
-	trap_enum.BUMP:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[]},
-	trap_enum.LURE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[]},
-	trap_enum.MISC:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[],"DeathTrap":[]},
-	trap_enum.VICE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[]
+	trap_enum.BUMP:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[],"Placement":[]},
+	trap_enum.LURE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[],"Placement":[]},
+	trap_enum.MISC:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[],"DeathTrap":[],"Placement":[]},
+	trap_enum.VICE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[],"Placement":[]
 	}
 	}
 	#all traps
@@ -279,6 +296,7 @@ func load_trap_info():
 				var walkable = common.string_to_boolean(traps['Traps'][type]['Walkable'][id])
 				var _name = str(traps['Traps'][type]['Name'][id])
 				var description = str(traps['Traps'][type]['Desc'][id])
+				var placement = str(traps['Traps'][type]['Placement'][id])
 				
 				#change the trap type to an enum
 				match type:
@@ -294,6 +312,13 @@ func load_trap_info():
 							_type = trap_enum.NULL
 							
 				
+				#assign where this trap should be placed
+				match placement:
+					"WORLD":
+						placement = get_floor_tile()
+					"WALLS":
+						placement = get_wall_tile()
+				
 				#assign data
 				traps_data[_type]['ID'].append(id)
 				traps_data[_type]['Icon'].append(icon)
@@ -306,6 +331,7 @@ func load_trap_info():
 				traps_data[_type]['Walkable'].append(walkable)
 				traps_data[_type]['Name'].append(_name)
 				traps_data[_type]['Desc'].append(description)
+				traps_data[_type]['Placement'].append(placement)
 				
 				#misc traps have a special property
 				if _type == trap_enum.MISC:

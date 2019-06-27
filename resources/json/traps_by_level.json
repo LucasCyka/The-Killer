@@ -1,7 +1,7 @@
 {"Traps":{
 	
 	"res://scenes/prototype2.tscn":{
-		"BUMP":["0"],
+		"BUMP":["0","1"],
 		"LURE":["0","1","2"],
 		"MISC":["0","1"],
 		"VICE":["0"]

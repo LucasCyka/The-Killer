@@ -1,17 +1,18 @@
 {"Traps":{
   
   "BUMP":{
-    "ID": ["0"],
-    "Icon":["knock1.png"],
-	"Fear":["2"],
-	"Curiosity":["20"],
-    "Price": ["20"],
-	"OneShot":["true"],
-	"OnSpot":["false"],
-	"Walkable":["true"],
-	"Name":["Knock, Knock"],
-	"Desc":["Make some noises on the wall."],
-	"Requirements":[["NULL"],["NULL"]]
+    "ID": ["0","1"],
+    "Icon":["knock1.png","scream.png"],
+	"Fear":["2","20"],
+	"Curiosity":["20","25"],
+    "Price": ["20","20"],
+	"OneShot":["true","true"],
+	"OnSpot":["false","false"],
+	"Walkable":["true","true"],
+	"Name":["Knock, Knock","Scream"],
+	"Desc":["Make some noises on the wall.","Play the record of a woman screaming."],
+	"Placement":["WALLS","WORLD"],
+	"Requirements":[["NULL"],["NULL"],["NULL"]]
   },
   
   "LURE":{
@@ -25,6 +26,7 @@
 	"Walkable":["true","true","true"],
 	"Name":["Underwear","Porn","Blood Trail"],
 	"Desc":["Lure 1.","Lure 2.","Lure 3."],
+	"Placement":["WORLD","WORLD","WORLD"],
 	"Requirements":[["MEN"],["MEN"],["NULL"]]
   },
   
@@ -39,6 +41,7 @@
 	"Walkable":["false","true"],
 	"Name":["Severed Head","Bear trap"],
 	"Desc":["A head.","A bear trap"],
+	"Placement":["WORLD","WORLD"],
 	"Requirements":[["NULL"],["PANIC"],["PANIC"]]
   },
   
@@ -53,6 +56,7 @@
 	"Walkable":["true"],
 	"Name":["Cigarret"],
 	"Desc":["Will slow down the teen who smoke it."],
+	"Placement":["WORLD"],
 	"Requirements":[["NULL"],["MEN"]]
   }
   
