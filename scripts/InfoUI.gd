@@ -16,6 +16,10 @@ onready var _score = $InfoPanel/Score
 onready var _points = $InfoPanel/Points
 onready var fc_slots = $FCSlots.get_children()
 
+onready var red_bar = preload('res://sprites/gui/fc_progress_bar3.png')
+onready var orange_bar = preload('res://sprites/gui/fc_progress_bar2.png')
+onready var green_bar = preload('res://sprites/gui/fc_progress_bar.png')
+
 #constructor
 func init(base):
 	self.base = base
@@ -67,14 +71,26 @@ func fill_fc_slots():
 			activated_teens.erase(teen)
 			break
 		
-		#TODO: fill teen's slot portrait
 		var fear_bar = fc_slots[teen_id].get_node('FearProgress')
 		var curiosity_bar = fc_slots[teen_id].get_node('CuriosityProgress')
+		var portrait_btn = fc_slots[teen_id].get_node("PortraitBtn")
 		
 		fear_bar.set_value(teen.get_fear())
 		curiosity_bar.set_value(teen.get_curiosity())
 		fc_slots[teen_id].show()
 		
+		#TODO: change the portrait according to the level of fear/curiosity
+		#portraits
+		portrait_btn.texture_normal = teen.portrait_neutral
+		
+		#the fear progress bar will change its colors/texture according to its
+		#level.
+		if fear_bar.get_value() >= 50:
+			fear_bar.set_progress_texture(red_bar)
+		elif fear_bar.get_value() >= 33:
+			fear_bar.set_progress_texture(orange_bar)
+		else:
+			fear_bar.set_progress_texture(green_bar)
 		
 		teen_id += 1
 	

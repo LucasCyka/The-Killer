@@ -95,6 +95,7 @@ func mouse_exited():
 func recovery_pressed():
 	if base.game.body_recovery_cost > base.game.get_points():
 		#TODO: give a warning to the player
+		print('No more points, mate.')
 		return
 	
 	selected_teenager.emit_signal("recover_teen")
