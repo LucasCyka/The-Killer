@@ -2,7 +2,7 @@ extends TileMap
 
 """
 	This script should be attrached to tilemap having the trees1.tres tileset.
-	It will manage the the z-index for each tree on the tilemap.
+	It will spawn areas2D that control the z drawing of trees.
 """
 
 #initialize
@@ -17,6 +17,12 @@ func _ready():
 	#each tree will have its area 2D connecting to a signal when someone
 	#is close. 
 	for tree in get_used_cells():
+		var tree_control = load("res://scenes/TreesDrawing.tscn").instance()
+		tree_control.init(tree,self)
+		
+		add_child(tree_control)
+		
+		"""
 		#jesus christ what a mess
 		var area2d = Area2D.new()
 		add_child(area2d)
@@ -28,7 +34,9 @@ func _ready():
 		area2d.connect("area_exited",self,"area_exited",[tree])
 		
 		area2d.global_position = Vector2(map_to_world(tree).x+25,map_to_world(tree).y+10)
+		"""
 		
+""" Moved this to a proper scene for optmization.
 #check if is the player/AI if so then change its z-index by changing the tile
 func area_entered(area,tree):
 	if area.name == 'DetectionArea': #AI
@@ -49,7 +57,7 @@ func area_exited(area,tree):
 		pass
 	else: return
 	
-
+"""
 
 
 

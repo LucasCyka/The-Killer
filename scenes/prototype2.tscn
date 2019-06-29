@@ -183,7 +183,6 @@ animations = [ {
 script = ExtResource( 1 )
 time = 720
 points = 200
-debug_mode = true
 
 [node name="PlayerController" parent="." instance=ExtResource( 2 )]
 max_constraints = Vector2( 1349, 884 )
@@ -194,6 +193,7 @@ min_constraints = Vector2( -674, -369 )
 [node name="GameTimer" type="Timer" parent="."]
 
 [node name="AI" type="YSort" parent="."]
+editor/display_folded = true
 
 [node name="Teenager" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -401,7 +401,6 @@ obj_desc = "Bathroom object"
 [node name="CanvasLayer" type="CanvasLayer" parent="AI"]
 
 [node name="Tiles" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Floor" type="TileMap" parent="Tiles"]
 z_index = -2
@@ -595,7 +594,6 @@ texture = ExtResource( 34 )
 position = Vector2( 799.806, 848.917 )
 z_index = 1
 frames = SubResource( 7 )
-frame = 4
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]
