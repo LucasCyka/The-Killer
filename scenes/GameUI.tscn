@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=38 format=2]
 
 [ext_resource path="res://scripts/GameUI.gd" type="Script" id=1]
 [ext_resource path="res://scripts/TeenagerInfo.gd" type="Script" id=2]
@@ -35,6 +35,7 @@
 [ext_resource path="res://sprites/prototype/ui/fear_progress_background.png" type="Texture" id=33]
 [ext_resource path="res://sprites/prototype/ui/fear_progress.png" type="Texture" id=34]
 [ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=35]
+[ext_resource path="res://sprites/gui/new_gui_test.png" type="Texture" id=36]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 13 )
@@ -119,7 +120,6 @@ margin_bottom = 120.0
 text = "Recover Body"
 
 [node name="TrapsUI" type="Control" parent="Canvas"]
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 5 )
@@ -163,9 +163,9 @@ texture_normal = ExtResource( 9 )
 editor/display_folded = true
 visible = false
 margin_left = -149.0
-margin_top = -10.0
+margin_top = -15.0
 margin_right = -109.0
-margin_bottom = 30.0
+margin_bottom = 25.0
 
 [node name="GridSlots" type="Control" parent="Canvas/TrapsUI/TrapsSelection"]
 editor/display_folded = true
@@ -174,111 +174,111 @@ margin_bottom = 40.0
 
 [node name="Slot1" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 159.94
-margin_top = 188.217
+margin_top = 196.217
 margin_right = 182.94
-margin_bottom = 211.217
+margin_bottom = 219.217
 
 [node name="Slot2" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 183.999
-margin_top = 187.87
+margin_top = 195.87
 margin_right = 206.999
-margin_bottom = 210.87
+margin_bottom = 218.87
 
 [node name="Slot3" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 208.0
-margin_top = 188.0
+margin_top = 196.0
 margin_right = 231.0
-margin_bottom = 211.0
+margin_bottom = 219.0
 
 [node name="Slot4" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 160.0
-margin_top = 212.0
+margin_top = 220.0
 margin_right = 183.0
-margin_bottom = 235.0
+margin_bottom = 243.0
 
 [node name="Slot5" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 184.0
-margin_top = 212.0
+margin_top = 220.0
 margin_right = 207.0
-margin_bottom = 235.0
+margin_bottom = 243.0
 
 [node name="Slot6" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 208.0
-margin_top = 212.0
+margin_top = 220.0
 margin_right = 231.0
-margin_bottom = 235.0
+margin_bottom = 243.0
 
 [node name="Slot7" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 160.0
-margin_top = 236.0
+margin_top = 244.0
 margin_right = 183.0
-margin_bottom = 259.0
+margin_bottom = 267.0
 
 [node name="Slot8" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 184.0
-margin_top = 236.0
+margin_top = 244.0
 margin_right = 207.0
-margin_bottom = 259.0
+margin_bottom = 267.0
 
 [node name="Slot9" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 208.0
-margin_top = 236.0
+margin_top = 244.0
 margin_right = 231.0
-margin_bottom = 259.0
+margin_bottom = 267.0
 
 [node name="Slot10" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 160.0
-margin_top = 260.0
+margin_top = 268.0
 margin_right = 183.0
-margin_bottom = 283.0
+margin_bottom = 291.0
 
 [node name="Slot11" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 184.0
-margin_top = 260.0
+margin_top = 268.0
 margin_right = 207.0
-margin_bottom = 283.0
+margin_bottom = 291.0
 
 [node name="Slot12" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 208.0
-margin_top = 260.0
+margin_top = 268.0
 margin_right = 231.0
-margin_bottom = 283.0
+margin_bottom = 291.0
 
 [node name="Slot13" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 160.0
-margin_top = 284.0
+margin_top = 292.0
 margin_right = 183.0
-margin_bottom = 307.0
+margin_bottom = 315.0
 
 [node name="Slot14" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 184.0
-margin_top = 284.0
+margin_top = 292.0
 margin_right = 207.0
-margin_bottom = 307.0
+margin_bottom = 315.0
 
 [node name="Slot15" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 208.0
-margin_top = 284.0
+margin_top = 292.0
 margin_right = 231.0
-margin_bottom = 307.0
+margin_bottom = 315.0
 
 [node name="Slot16" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 160.0
-margin_top = 308.0
+margin_top = 316.0
 margin_right = 183.0
-margin_bottom = 331.0
+margin_bottom = 339.0
 
 [node name="Slot17" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 184.0
-margin_top = 308.0
+margin_top = 316.0
 margin_right = 207.0
-margin_bottom = 331.0
+margin_bottom = 339.0
 
 [node name="Slot18" type="TextureButton" parent="Canvas/TrapsUI/TrapsSelection/GridSlots"]
 margin_left = 208.0
-margin_top = 308.0
+margin_top = 316.0
 margin_right = 231.0
-margin_bottom = 331.0
+margin_bottom = 339.0
 
 [node name="Background" type="Sprite" parent="Canvas/TrapsUI/TrapsSelection"]
 position = Vector2( 196, 260 )
@@ -328,6 +328,7 @@ texture = ExtResource( 14 )
 
 [node name="MiscUI" type="Control" parent="Canvas"]
 editor/display_folded = true
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 15 )
@@ -388,6 +389,7 @@ text = "DESCRIPTION OF THE OBJECT"
 autowrap = true
 
 [node name="InfoUI" type="Control" parent="Canvas"]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 18 )
@@ -736,6 +738,10 @@ margin_top = 79.799
 margin_right = 345.346
 margin_bottom = 99.799
 text = "QUIT"
+
+[node name="Sprite" type="Sprite" parent="Canvas"]
+position = Vector2( 159.898, 239.379 )
+texture = ExtResource( 36 )
 
 [connection signal="mouse_entered" from="Canvas/TeenagerInfo/Panel" to="Canvas/TeenagerInfo" method="mouse_entered"]
 [connection signal="mouse_exited" from="Canvas/TeenagerInfo/Panel" to="Canvas/TeenagerInfo" method="mouse_exited"]
