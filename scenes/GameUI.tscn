@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=2]
+[gd_scene load_steps=40 format=2]
 
 [ext_resource path="res://scripts/GameUI.gd" type="Script" id=1]
 [ext_resource path="res://scripts/TeenagerInfo.gd" type="Script" id=2]
@@ -36,6 +36,8 @@
 [ext_resource path="res://sprites/prototype/ui/fear_progress.png" type="Texture" id=34]
 [ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=35]
 [ext_resource path="res://sprites/gui/new_gui_test.png" type="Texture" id=36]
+[ext_resource path="res://sprites/gui/top_info_test.png" type="Texture" id=37]
+[ext_resource path="res://sprites/gui/clock_mockup.png" type="Texture" id=38]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 13 )
@@ -126,6 +128,7 @@ script = ExtResource( 5 )
 
 [node name="TrapsPanel" type="Container" parent="Canvas/TrapsUI"]
 editor/display_folded = true
+visible = false
 margin_left = 170.147
 margin_top = 320.0
 margin_right = 415.148
@@ -162,9 +165,9 @@ texture_normal = ExtResource( 9 )
 [node name="TrapsSelection" type="Control" parent="Canvas/TrapsUI"]
 editor/display_folded = true
 visible = false
-margin_left = -149.0
+margin_left = -136.0
 margin_top = -15.0
-margin_right = -109.0
+margin_right = -96.0
 margin_bottom = 25.0
 
 [node name="GridSlots" type="Control" parent="Canvas/TrapsUI/TrapsSelection"]
@@ -321,7 +324,7 @@ custom_fonts/font = ExtResource( 12 )
 text = "How much information can I place on this tiny spot?."
 autowrap = true
 
-[node name="background" type="Sprite" parent="Canvas/TrapsUI"]
+[node name="BottomBackground" type="Sprite" parent="Canvas/TrapsUI"]
 position = Vector2( 290, 368 )
 z_index = -1
 texture = ExtResource( 14 )
@@ -389,7 +392,7 @@ text = "DESCRIPTION OF THE OBJECT"
 autowrap = true
 
 [node name="InfoUI" type="Control" parent="Canvas"]
-editor/display_folded = true
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 18 )
@@ -437,6 +440,7 @@ texture = ExtResource( 21 )
 
 [node name="Clock" type="Sprite" parent="Canvas/InfoUI"]
 editor/display_folded = true
+visible = false
 position = Vector2( 554.559, 30 )
 texture = ExtResource( 22 )
 
@@ -485,6 +489,7 @@ position = Vector2( -37.3179, -10.4644 )
 texture = ExtResource( 28 )
 
 [node name="FCSlots" type="Control" parent="Canvas/InfoUI"]
+editor/display_folded = true
 margin_left = 19.0
 margin_top = 55.0
 margin_right = 59.0
@@ -742,6 +747,14 @@ text = "QUIT"
 [node name="Sprite" type="Sprite" parent="Canvas"]
 position = Vector2( 159.898, 239.379 )
 texture = ExtResource( 36 )
+
+[node name="Sprite2" type="Sprite" parent="Canvas"]
+position = Vector2( 150.205, 18.8948 )
+texture = ExtResource( 37 )
+
+[node name="Sprite3" type="Sprite" parent="Canvas"]
+position = Vector2( 553.889, 29.2804 )
+texture = ExtResource( 38 )
 
 [connection signal="mouse_entered" from="Canvas/TeenagerInfo/Panel" to="Canvas/TeenagerInfo" method="mouse_entered"]
 [connection signal="mouse_exited" from="Canvas/TeenagerInfo/Panel" to="Canvas/TeenagerInfo" method="mouse_exited"]
