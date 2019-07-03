@@ -102,6 +102,7 @@ export (Texture) var death_trap3
 
 #portraits used for in the UI
 export (Texture) var portrait_neutral
+export (Texture) var mugshot
 
 #world nodes
 onready var state_machine = $States
