@@ -56,8 +56,17 @@ func _process(delta):
 	
 	#fill the score label
 	_score.text = str(score.get_score(base.game.get_level()))
-	_points.text = str(game.get_points())
-
+	_points.text = "$"+str(game.get_points())
+	
+	#formating
+	if fmod(1000,game.get_points()):
+		_points.text = _points.text.insert(_points.text.length()-3,',')
+	
+	if _score.text.length() < 7:
+		for gap in 7-_score.text.length():
+			_score.text = _score.text.insert(0,'0')
+			pass 
+	
 #TODO: slot animations
 #fill the fear/curiosity slots of teenagers that aren't on routine.
 func fill_fc_slots():

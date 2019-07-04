@@ -183,7 +183,7 @@ animations = [ {
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
 time = 720
-points = 200
+points = 10000
 
 [node name="PlayerController" parent="." instance=ExtResource( 2 )]
 max_constraints = Vector2( 1349, 884 )
@@ -597,7 +597,7 @@ texture = ExtResource( 35 )
 position = Vector2( 799.806, 848.917 )
 z_index = 1
 frames = SubResource( 7 )
-frame = 5
+frame = 1
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]

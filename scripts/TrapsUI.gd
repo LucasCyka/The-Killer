@@ -158,6 +158,7 @@ _name,desc,death_trap,tiles):
 			base.game.add_child(vice)
 		
 	selection_panel.hide()
+	hide_trap_info()
 	set_is_ui_occupied(false)
 	selected_trap = true
 
@@ -181,6 +182,7 @@ func close_selection():
 	$TrapsSelection.hide()
 	$TrapsSelection/Info.hide()
 	clear_buttons()
+	hide_trap_info()
 	selected_trap = false
 	
 #clear buttons/remove signals

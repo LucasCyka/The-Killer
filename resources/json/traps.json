@@ -40,7 +40,7 @@
 	"OnSpot":["false","true"],
 	"Walkable":["false","true"],
 	"Name":["Severed Head","Bear trap"],
-	"Desc":["A head.","A bear trap"],
+	"Desc":["A head.","Can cripple a teen in panic."],
 	"Placement":["WORLD","WORLD"],
 	"Requirements":[["NULL"],["PANIC"],["PANIC"]]
   },
