@@ -10,9 +10,11 @@ var base = null
 var is_ui_occupied = false setget set_is_ui_occupied
 var selection_page = 1
 var selected_trap = false
+var last_selected_category = ""
 
 #world nodes
 onready var selection_panel = $TrapsSelection
+onready var trap_category = $TrapsSelection/TrapsCategory
 #types of traps
 onready var trap_enum = preload("res://scripts/Traps.gd").TYPES
 
@@ -42,25 +44,50 @@ func _input(event):
 		if selection_panel.is_visible():
 			close_selection()
 		elif selected_trap and base.game.get_current_mode() != base.game.MODE.HUNTING:
+			trap_category.text = last_selected_category
 			selection_panel.show()
 
 #open a panel showing all the lure traps available for this level
 func lure_btn():
+	if trap_category.text == "LURES":
+		#the panel for this trap is already open, close it.
+		close_selection()
+		return
+	
+	trap_category.text = "LURES"
 	fill_grid(lure,trap_enum.LURE)
 	show_selection($TrapsPanel/LureBtn.get_rect().position)
 	
 #open a panel showing all the misc traps available for this level
 func misc_btn():
+	if trap_category.text == "MISC.":
+		#the panel for this trap is already open, close it.
+		close_selection()
+		return
+	
+	trap_category.text = "MISC."
 	fill_grid(misc,trap_enum.MISC)
 	show_selection($TrapsPanel/MiscBtn.get_rect().position)
 
 #open a panel showing all the vice traps available for this level
 func vice_btn():
+	if trap_category.text == "VICES":
+		#the panel for this trap is already open, close it.
+		close_selection()
+		return
+	
+	trap_category.text = "VICES"
 	fill_grid(vice,trap_enum.VICE)
 	show_selection($TrapsPanel/ViceBtn.get_rect().position)
 
 #open a panel showing all the bump traps available for this level
 func bump_btn():
+	if trap_category.text == "NOISES":
+		#the panel for this trap is already open, close it.
+		close_selection()
+		return
+	
+	trap_category.text = "NOISES"
 	fill_grid(bump,trap_enum.BUMP)
 	show_selection($TrapsPanel/BumpBtn.get_rect().position)
 
@@ -78,6 +105,7 @@ func _on_new_trap():
 #fill each button at the traps selections panel with a trap of a given type
 func fill_grid(data,type):
 	var buttons = selection_panel.get_node("GridSlots").get_children()
+	last_selected_category = trap_category.text
 	var row = 0
 	clear_buttons()
 	for trap in data['ID']:
@@ -159,6 +187,7 @@ _name,desc,death_trap,tiles):
 		
 	selection_panel.hide()
 	hide_trap_info()
+	trap_category.text = ""
 	set_is_ui_occupied(false)
 	selected_trap = true
 
@@ -184,6 +213,7 @@ func close_selection():
 	clear_buttons()
 	hide_trap_info()
 	selected_trap = false
+	trap_category.text = ""
 	
 #clear buttons/remove signals
 func clear_buttons():

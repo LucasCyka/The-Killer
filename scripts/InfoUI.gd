@@ -30,7 +30,6 @@ func _process(delta):
 		return
 	self.teens = base.game.get_teenagers()
 	update_time()
-	
 	#search for teens that aren't on routine
 	for teen in teens:
 		#prevent some errors when the teenager is erased
