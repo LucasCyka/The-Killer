@@ -104,6 +104,9 @@ export (Texture) var death_trap3
 export (Texture) var portrait_neutral
 export (Texture) var mugshot
 
+#name of this teen
+export var teen_name = "Name Surname"
+
 #world nodes
 onready var state_machine = $States
 onready var kinematic_teenager =  self

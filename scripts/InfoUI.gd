@@ -10,12 +10,16 @@ var points = 0
 var activated_teens = []
 var teens = []
 
+#used for highlighting pressed buttons on the clock
+var btn_textures_temp = {}
+
 #world nodes
 onready var game = get_parent().get_parent().get_parent()
 onready var _score = $InfoPanel/Score
 onready var _points = $InfoPanel/Points
 onready var fc_slots = $FCSlots.get_children()
 
+#f/c bars textures
 onready var red_bar = preload('res://sprites/gui/fc_progress_bar3.png')
 onready var orange_bar = preload('res://sprites/gui/fc_progress_bar2.png')
 onready var green_bar = preload('res://sprites/gui/fc_progress_bar.png')
@@ -24,6 +28,7 @@ onready var green_bar = preload('res://sprites/gui/fc_progress_bar.png')
 func init(base):
 	self.base = base
 	self.teens = base.game.get_teenagers()
+	highlight_clock($Clock/NormalSpdBtn)
 	
 func _process(delta):
 	if base == null:
@@ -66,6 +71,12 @@ func _process(delta):
 			_score.text = _score.text.insert(0,'0')
 			pass 
 	
+	#number of teens killed/remaining
+	var alive = base.game.get_teenagers_alive().size()
+	var ingame =  base.game.get_teenagers_num() 
+	$InfoPanel/Teens.text = str(ingame - alive) + "/" + str(ingame)
+	
+		
 #TODO: slot animations
 #fill the fear/curiosity slots of teenagers that aren't on routine.
 func fill_fc_slots():
@@ -140,17 +151,41 @@ func update_time():
 	else:
 		$Clock/TimeIcon.texture = preload("res://sprites/gui/timeIcon_sun.png")
 
+#highlight a button currently pressed on the clock GUI
+func highlight_clock(btn):
+	if btn_textures_temp.empty():
+		btn_textures_temp = {btn:[btn.texture_normal,btn.texture_hover]}
+		
+		btn.texture_normal = btn.texture_pressed
+		btn.texture_hover = btn.texture_pressed
+		return
+	
+	#take the highligt off the previous button
+	var previous = btn_textures_temp.keys()[0]
+	previous.texture_normal = btn_textures_temp[previous][0]
+	previous.texture_hover = btn_textures_temp[previous][1]
+	
+	btn_textures_temp = {btn:[btn.texture_normal,btn.texture_hover]}
+	
+	#highligh btn
+	btn.texture_normal = btn.texture_pressed
+	btn.texture_hover = btn.texture_pressed
+	
 #pause/resume the game
 func pause_btn():
 	if base.game.get_current_mode() == base.game.MODE.PAUSED:
 		base.game.resume_game()
 		base.game.update_time_speed(base.game.default_speed)
+		highlight_clock($Clock/NormalSpdBtn)
 	else:
+		highlight_clock($Clock/PauseBtn)
 		base.game.pause_game()
 
 #change the game time to the default setting
 func normal_btn():
-	if base.game.timer_speed != base.game.default_speed:
+	highlight_clock($Clock/NormalSpdBtn)
+	
+	if base.game.timer_speed != base.game.default_speed and base.game.get_current_mode() != base.game.MODE.PAUSED:
 		base.game.update_time_speed(base.game.default_speed)
 	elif base.game.get_current_mode() == base.game.MODE.PAUSED:
 		base.game.resume_game()
@@ -160,7 +195,9 @@ func normal_btn():
 
 #change the game time to the fast setting
 func fast_btn():
-	if base.game.timer_speed != base.game.fast_speed:
+	highlight_clock($Clock/FastSpdBtn)
+	
+	if base.game.timer_speed != base.game.fast_speed  and base.game.get_current_mode() != base.game.MODE.PAUSED:
 		base.game.update_time_speed(base.game.fast_speed)
 	elif base.game.get_current_mode() == base.game.MODE.PAUSED:
 		base.game.resume_game()
@@ -170,7 +207,9 @@ func fast_btn():
 
 #change the game time to the fast setting
 func fast_btn2():
-	if base.game.timer_speed != base.game.ultra_speed:
+	highlight_clock($Clock/FastSpdBtn2)
+	
+	if base.game.timer_speed != base.game.ultra_speed and base.game.get_current_mode() != base.game.MODE.PAUSED:
 		base.game.update_time_speed(base.game.ultra_speed)
 	elif base.game.get_current_mode() == base.game.MODE.PAUSED:
 		base.game.resume_game()

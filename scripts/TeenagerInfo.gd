@@ -27,8 +27,8 @@ func _process(delta):
 		
 	#update teenagers info
 	$Panel/Gender.text = str(selected_teenager.get_gender())
-	$Panel/Fear.text = "FEAR: " + str(int(selected_teenager.get_fear()))
-	$Panel/Curiosity.text = "CURIOSITY: " + str(int(selected_teenager.get_curiosity()))
+	$Panel/Fear.text = "Fear: " + str(int(selected_teenager.get_fear()))
+	$Panel/Curiosity.text = "Cur.: " + str(int(selected_teenager.get_curiosity()))
 	$Panel/Traps.text = "TRAPS: " + str(selected_teenager.traps.size())
 	$Panel/TrapsID.text = "TRAP ID: " + str(selected_teenager.current_trap)
 	
@@ -61,6 +61,10 @@ func show_panel(teenager):
 	$Panel.show()
 	selected_teenager = teenager
 	set_process(true)
+	
+	#AI static info
+	$Panel/Mugshot.texture_normal = selected_teenager.mugshot
+	$Panel/Name.text = selected_teenager.teen_name
 
 #hide the panel
 func hide_panel():

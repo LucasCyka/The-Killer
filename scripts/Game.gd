@@ -45,6 +45,9 @@ var traps_data = {}
 #used to keep track of teenagers speed when changing the game speed.
 var teens_speed = {}
 
+#the initial number of teens in game
+var teen_num = 0 setget , get_teenagers_num
+
 #user interface
 onready var ui = $GameUI
 #types of traps
@@ -63,6 +66,7 @@ func _ready():
 	init_timer()
 	#initialzie the ai
 	init_teenagers()
+	teen_num = get_teenagers().size()
 	
 	emit_signal("loaded")
 	
@@ -74,6 +78,19 @@ func _process(delta):
 #return all the teenagers in the game
 func get_teenagers():
 	return get_tree().get_nodes_in_group("AI")
+
+#the number of teenagers when the gamed did start
+func get_teenagers_num():
+	return teen_num
+
+#return all teens that still alive
+func get_teenagers_alive():
+	var teens = []
+	for teen in get_teenagers():
+		if teen.state_machine.get_current_state() != 'Dead':
+			teens.append(teen)
+	
+	return teens
 
 #get the player if the game is on the hunting mode
 func get_player():
@@ -424,7 +441,6 @@ func pause_game():
 func resume_game():
 	set_current_mode(last_mode)
 	get_tree().paused = false
-
 
 func daynightcycle():
 	if canvas_m == null:
