@@ -68,7 +68,11 @@ func update(delta):
 			var facing = dir.dot(teen.facing_direction)
 			var is_visible = teen.is_object_visible(base.teenager.detection_area)
 			
-			#TODO: check if the teen isn't on shock first
+			#check if the teen isn't on shock
+			if teen.state_machine.get_current_state() == 'Shock' and affected_teenagers.find(teen) == -1:
+				affected_teenagers.append(teen)
+				return
+			
 			if floor(facing) == -1 and is_visible and affected_teenagers.find(teen) == -1:
 				affected_teenagers.append(teen)
 				teen.state_machine.force_state('Panic')
