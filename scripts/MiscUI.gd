@@ -52,6 +52,11 @@ func show_object_panel(obj):
 	$ObjectPanel/Object/Name.text = obj.obj_name
 	$ObjectPanel/Object/Desc.text = obj.obj_desc
 	
+	if obj.is_activable:
+		$ObjectPanel/Object/UseButton.show()
+	else:
+		$ObjectPanel/Object/UseButton.hide()
+	
 	if not $ObjectPanel.is_visible():
 		object_panel.show()
 		$ObjectPanel/Object/Close.connect('pressed',self,'hide_object_panel')

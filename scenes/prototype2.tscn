@@ -195,7 +195,6 @@ min_constraints = Vector2( -674, -369 )
 [node name="GameTimer" type="Timer" parent="."]
 
 [node name="AI" type="YSort" parent="."]
-editor/display_folded = true
 
 [node name="Teenager" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -272,6 +271,7 @@ obj_desc = "This object"
 position = Vector2( 767.071, 146.938 )
 z_index = 2
 animation = "BearCarpet"
+is_clickable = false
 obj_name = "Testing"
 obj_desc = "This object"
 
@@ -601,7 +601,6 @@ texture = ExtResource( 36 )
 position = Vector2( 799.806, 848.917 )
 z_index = 1
 frames = SubResource( 7 )
-frame = 5
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]

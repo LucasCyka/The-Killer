@@ -425,7 +425,6 @@ z_index = -1
 texture = ExtResource( 26 )
 
 [node name="MiscUI" type="Control" parent="Canvas"]
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 27 )
@@ -445,7 +444,6 @@ texture_pressed = ExtResource( 29 )
 texture_hover = ExtResource( 30 )
 
 [node name="ObjectPanel" type="Control" parent="Canvas/MiscUI"]
-editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
