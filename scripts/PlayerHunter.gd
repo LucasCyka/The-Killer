@@ -53,7 +53,13 @@ var animations_data = {
 		Vector2(0,1):{"anim":str(id) + ":Idle-Down","flip":false},
 		Vector2(0,-1):{"anim":str(id) + ":Idle-Up","flip":false},
 		Vector2(1,0):{"anim":str(id) + ":Idle-Side","flip":false},
-		Vector2(-1,0):{"anim":str(id) + ":Idle-Side","flip":true}}
+		Vector2(-1,0):{"anim":str(id) + ":Idle-Side","flip":true}},
+		
+	"EndingSpawn":{
+		Vector2(0,1):{"anim":str(id) + ":Moving-Down","flip":false},
+		Vector2(0,-1):{"anim":str(id) + ":Moving-Up","flip":false},
+		Vector2(1,0):{"anim":str(id) + ":Moving-Side","flip":false},
+		Vector2(-1,0):{"anim":str(id) + ":Moving-Side","flip":true}}
 	
 }
 

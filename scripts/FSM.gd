@@ -32,10 +32,11 @@ func init():
 		#teenager debug progress
 		teenager.get_node("Animations/StateProgress").set_value(0)
 		teenager.get_node("Animations/StateProgress").set_max(state_time)
-	elif player != null:
+	"""
+	if player != null:
 		player.get_node("StateProgress").set_value(0)
 		player.get_node("StateProgress").set_max(state_time)
-	"""
+		
 #update the state process function
 func _physics_process(delta):
 	if current_state == null:
@@ -46,10 +47,11 @@ func _physics_process(delta):
 	if teenager != null:
 		#teenager debug progress
 		teenager.get_node("Animations/StateProgress").set_value(state_time - state_timer.get_time_left())
+	"""
 	if player != null:
 		#player debug progress
 		player.get_node("StateProgress").set_value(state_time - state_timer.get_time_left())
-	"""
+		
 #get player input to states
 func _input(event):
 	if player != null and current_state != null:

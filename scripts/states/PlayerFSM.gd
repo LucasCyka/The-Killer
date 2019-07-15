@@ -12,7 +12,8 @@ func _ready():
 		$Spawning:$Spawning.name,
 		$Idle:$Idle.name,
 		$Moving:$Moving.name,
-		$Attacking:$Attacking.name
+		$Attacking:$Attacking.name,
+		$EndingSpawn:$EndingSpawn.name
 	}
 	player = get_parent()
 	

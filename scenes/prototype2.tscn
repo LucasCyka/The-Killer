@@ -195,6 +195,7 @@ min_constraints = Vector2( -674, -369 )
 [node name="GameTimer" type="Timer" parent="."]
 
 [node name="AI" type="YSort" parent="."]
+editor/display_folded = true
 
 [node name="Teenager" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -407,7 +408,6 @@ obj_desc = "Bathroom object"
 [node name="CanvasLayer" type="CanvasLayer" parent="AI"]
 
 [node name="Tiles" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Floor" type="TileMap" parent="Tiles"]
 z_index = -2

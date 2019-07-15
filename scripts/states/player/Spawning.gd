@@ -31,7 +31,7 @@ func transitions():
 		exit()
 	### SPAWNING TO IDLE ###
 	else:
-		base.stack.append(base.get_node("Idle"))
+		base.stack.append(base.get_node("EndingSpawn"))
 		exit()
 		
 #when the player spawned in the area
@@ -40,7 +40,7 @@ func set_is_spawn(value):
 	
 	if is_spawn:
 		transitions()
-
+		
 #destructor
 func exit():
 	if base.is_connected("timer_finished",self,"set_is_spawn"):
