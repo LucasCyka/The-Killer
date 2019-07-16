@@ -102,6 +102,8 @@ export (Texture) var death_trap3
 
 #portraits used for in the UI
 export (Texture) var portrait_neutral
+export (Texture) var portrait_fear
+export (Texture) var portrait_panic
 export (Texture) var mugshot
 
 #name of this teen

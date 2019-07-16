@@ -6,7 +6,9 @@ extends "res://scripts/Traps.gd"
 """
 
 #the detection radius of the sound
-var radius = [150,200]
+var radius = [150,100]
+var show_radius = [false,true]
+
 #defines how much far the teenager will look for the sound
 const effect_area = [150,200]
 
@@ -24,6 +26,9 @@ func _ready():
 	#I guess this won't work on the web version...
 	#Correction: it works!
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
+	if show_radius[id]:
+		$Texture/radius.show()
 
 #move the trap around
 func _process(delta):

@@ -98,18 +98,20 @@ func fill_fc_slots():
 		curiosity_bar.set_value(teen.get_curiosity())
 		fc_slots[teen_id].show()
 		
-		#TODO: change the portrait according to the level of fear/curiosity
-		#portraits
-		portrait_btn.texture_normal = teen.portrait_neutral
 		
 		#the fear progress bar will change its colors/texture according to its
 		#level.
+		#also the portrait will change according to the level of 
+		#fear/curiosity.
 		if fear_bar.get_value() >= 50:
 			fear_bar.set_progress_texture(red_bar)
+			portrait_btn.texture_normal = teen.portrait_panic
 		elif fear_bar.get_value() >= 33:
 			fear_bar.set_progress_texture(orange_bar)
+			portrait_btn.texture_normal = teen.portrait_fear
 		else:
 			fear_bar.set_progress_texture(green_bar)
+			portrait_btn.texture_normal = teen.portrait_neutral
 		
 		teen_id += 1
 	

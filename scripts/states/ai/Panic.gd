@@ -54,7 +54,7 @@ func update(delta):
 		if base != null:
 			#animations
 			base.teenager.custom_animation = null
-			base.teenager.state_animation = false
+			base.teenager.state_animation = true
 
 	#print(is_desperado)
 	teen_pos = kinematic_teenager.global_position
@@ -97,12 +97,11 @@ func update(delta):
 				pass
 				#print("walk to the teenager")
 			else:
-				#TODO: check if he can enter inside a building
-
 				#check if he's too close to the player
 				if player.kinematic_player.global_position.distance_to(teen_pos) < 30:
 					base.force_state('Cornered')
 					return
+				#TODO: check if he can enter inside a building
 				#try to escape, avoiding the player
 				if avoidant_tile == null:
 					avoidant_tile = get_avoidant_tile()

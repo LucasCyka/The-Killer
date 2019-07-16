@@ -27,8 +27,15 @@ func init(base,state_position,state_time):
 	self.base.teenager.is_escaping = true
 	self.teenagers = get_tree().get_nodes_in_group("AI")
 	self.base.teenager.speed += 10
+	self.base.teenager.set_fear(100,false)
 	self.game = self.base.teenager.get_parent().get_parent()
 	self.escape_point = game.get_escaping_point(base.teenager.get_position())
+	
+	#custom anim
+	var custom = Node.new()
+	custom.name = "Panic"
+	base.teenager.custom_animation = custom
+	
 	emit_signal("entered")
 	
 func update(delta):
@@ -130,6 +137,7 @@ func exit():
 	avoidant_tile = null
 	is_desperado  = false
 	is_avoiding_player = false
+	base.teenager.custom_animation = null
 	emit_signal("finished")
 	
 	
