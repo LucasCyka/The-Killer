@@ -50,7 +50,7 @@
     "Icon":["cigarette1.png"],
 	"Fear":["1"],
 	"Curiosity":["10"],
-    "Price": ["900"],
+    "Price": ["1000"],
 	"OneShot":["true"],
 	"OnSpot":["false"],
 	"Walkable":["true"],

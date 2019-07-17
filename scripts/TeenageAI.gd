@@ -372,7 +372,13 @@ func set_fear(value,cause_panic=true,add_points=true):
 	var fear_modifier = 2.5
 	var level = get_parent().get_parent().get_level()
 	var points = (score.get_score(level) + value * fear_modifier)
-	if add_points: score.set_score(level,int(points))
+	if add_points: 
+		score.set_score(level,int(points))
+		#show how many points the player earned
+		var label = preload('res://scenes/FlyingLabel.tscn').instance()
+		label.global_position = global_position
+		label.text = str(int(value * fear_modifier))
+		get_parent().get_parent().add_child(label)
 	
 	if not cause_panic: return
 	if get_fear() > get_curiosity():

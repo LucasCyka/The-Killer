@@ -1,7 +1,7 @@
 extends Control
 
 """
-	Miscellaneous  elements of the user interface
+	Miscellaneous elements of the user interface
 """
 
 signal new_misc

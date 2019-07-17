@@ -138,7 +138,7 @@ func fill_grid(data,type):
 		buttons[row].connect("pressed",self,"add_trap",[price,type,trap,fear,curiosity,
 		requirements,oneshot,onspot,walkable,_name,desc,death_trap,tiles])
 		
-		buttons[row].connect("mouse_entered",self,"show_trap_info",[_name,desc,price])
+		buttons[row].connect("mouse_entered",self,"show_trap_info",[_name,desc,price,fear,curiosity])
 		buttons[row].connect("mouse_exited",self,"hide_trap_info")
 		
 		row += 1 
@@ -197,14 +197,35 @@ func show_selection(btn_pos):
 	#$TrapsSelection.rect_position = Vector2(btn_pos.x,$TrapsSelection.rect_position.y)
 
 #show information about the trap being hovered
-func show_trap_info(_name,desc,price):
+func show_trap_info(_name,desc,price,fear,curiosity):
 	$TrapsSelection/Info.show()
 	$TrapsSelection/Info/Name.text = _name
 	$TrapsSelection/Info/Description.text = desc
 	$TrapsSelection/Info/Price.text = "Price: $ "+ str(price) + ",00"
-
+	
+	#modifiers
+	$TrapsSelection/Info2.show()
+	var f = float(fear)/float(100)
+	var c = float(curiosity)/float(100)
+	f = round(lerp(1,7,f))
+	c = round(lerp(1,7,c))
+	
+	$TrapsSelection/Info2/Fear.text = "Fear:"
+	$TrapsSelection/Info2/Curiosity.text = "Cur.:"
+	
+	for plus in range(f):
+		var txt = $TrapsSelection/Info2/Fear.text
+		txt = txt.insert(txt.length(),'+')
+		$TrapsSelection/Info2/Fear.text = txt
+	
+	for plus in range(c):
+		var txt = $TrapsSelection/Info2/Curiosity.text
+		txt = txt.insert(txt.length(),'+')
+		$TrapsSelection/Info2/Curiosity.text = txt
+	
 func hide_trap_info():
 	$TrapsSelection/Info.hide()
+	$TrapsSelection/Info2.hide()
 
 #disable the selection panel
 func close_selection():
