@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/blood.wav-feebe9f3d589396e71e379e01c7571b1.sample"
+
+[deps]
+
+source_file="res://audio/sounds/blood.wav"
+dest_files=[ "res://.import/blood.wav-feebe9f3d589396e71e379e01c7571b1.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

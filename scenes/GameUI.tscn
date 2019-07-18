@@ -37,8 +37,8 @@
 [ext_resource path="res://sprites/gui/score_background.png" type="Texture" id=35]
 [ext_resource path="res://sprites/gui/money_background.png" type="Texture" id=36]
 [ext_resource path="res://sprites/gui/teensinfo_background.png" type="Texture" id=37]
-[ext_resource path="res://sprites/gui/clock_background.png" type="Texture" id=38]
-[ext_resource path="res://fonts/data/Clock.tres" type="DynamicFont" id=39]
+[ext_resource path="res://fonts/data/Clock.tres" type="DynamicFont" id=38]
+[ext_resource path="res://sprites/gui/clock_background.png" type="Texture" id=39]
 [ext_resource path="res://sprites/gui/btn_pause_normal.png" type="Texture" id=40]
 [ext_resource path="res://sprites/gui/btn_pause_pressed.png" type="Texture" id=41]
 [ext_resource path="res://sprites/gui/btn_pause_hover.png" type="Texture" id=42]
@@ -201,6 +201,7 @@ text = "-fast"
 autowrap = true
 
 [node name="TrapsUI" type="Control" parent="Canvas"]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 10 )
@@ -511,14 +512,12 @@ autowrap = true
 
 [node name="InfoUI" type="Control" parent="Canvas"]
 pause_mode = 2
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 34 )
 
 [node name="InfoPanel" type="Control" parent="Canvas/InfoUI"]
 pause_mode = 2
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -564,18 +563,28 @@ position = Vector2( 2.098, 2.552 )
 z_index = -1
 texture = ExtResource( 37 )
 
+[node name="Paused" type="Label" parent="Canvas/InfoUI/InfoPanel"]
+visible = false
+margin_left = 260.0
+margin_top = 190.0
+margin_right = 356.0
+margin_bottom = 225.0
+custom_fonts/font = ExtResource( 38 )
+text = "PAUSED
+"
+
 [node name="Clock" type="Sprite" parent="Canvas/InfoUI"]
 pause_mode = 2
 editor/display_folded = true
 position = Vector2( 554.559, 18 )
-texture = ExtResource( 38 )
+texture = ExtResource( 39 )
 
 [node name="Label" type="Label" parent="Canvas/InfoUI/Clock"]
 margin_left = -37.5726
 margin_top = -4.60336
 margin_right = 42.4274
 margin_bottom = 11.3966
-custom_fonts/font = ExtResource( 39 )
+custom_fonts/font = ExtResource( 38 )
 text = "14:00"
 
 [node name="PauseBtn" type="TextureButton" parent="Canvas/InfoUI/Clock"]
@@ -623,6 +632,7 @@ position = Vector2( -37.3179, -10.4644 )
 texture = ExtResource( 52 )
 
 [node name="FCSlots" type="Control" parent="Canvas/InfoUI"]
+editor/display_folded = true
 margin_left = 19.0
 margin_top = 55.0
 margin_right = 59.0

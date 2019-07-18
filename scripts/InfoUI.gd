@@ -76,6 +76,12 @@ func _process(delta):
 	var ingame =  base.game.get_teenagers_num() 
 	$InfoPanel/Teens.text = str(ingame - alive) + "/" + str(ingame)
 	
+	#show the player if the game is paused
+	if base.game.current_mode == base.game.MODE.PAUSED:
+		$InfoPanel/Paused.show()
+	else:
+		$InfoPanel/Paused.hide()
+	
 		
 #TODO: slot animations
 #fill the fear/curiosity slots of teenagers that aren't on routine.
@@ -175,6 +181,7 @@ func highlight_clock(btn):
 	
 #pause/resume the game
 func pause_btn():
+	base.game.audio_system.play_sound('Click')
 	if base.game.get_current_mode() == base.game.MODE.PAUSED:
 		base.game.resume_game()
 		base.game.update_time_speed(base.game.default_speed)
@@ -185,6 +192,7 @@ func pause_btn():
 
 #change the game time to the default setting
 func normal_btn():
+	base.game.audio_system.play_sound('Click')
 	highlight_clock($Clock/NormalSpdBtn)
 	
 	if base.game.timer_speed != base.game.default_speed and base.game.get_current_mode() != base.game.MODE.PAUSED:
@@ -197,6 +205,7 @@ func normal_btn():
 
 #change the game time to the fast setting
 func fast_btn():
+	base.game.audio_system.play_sound('Click')
 	highlight_clock($Clock/FastSpdBtn)
 	
 	if base.game.timer_speed != base.game.fast_speed  and base.game.get_current_mode() != base.game.MODE.PAUSED:
@@ -209,6 +218,7 @@ func fast_btn():
 
 #change the game time to the fast setting
 func fast_btn2():
+	base.game.audio_system.play_sound('Click')
 	highlight_clock($Clock/FastSpdBtn2)
 	
 	if base.game.timer_speed != base.game.ultra_speed and base.game.get_current_mode() != base.game.MODE.PAUSED:

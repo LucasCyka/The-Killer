@@ -54,9 +54,9 @@ func update(delta):
 		player.player_anims.set_flip_h(player.animations_data['Moving'][player.facing_direction]['flip'])
 		
 	else:
-
 		#can only exit this state after killing this teen
 		busy = true
+		player.is_attacking = true
 		player.facing_direction = Vector2(0,1)
 		
 		if not player.player_anims.is_connected('animation_finished',self,'exit'):
@@ -98,6 +98,7 @@ func transitions():
 #destructor
 func exit():
 	busy = false
+	player.is_attacking = false
 	if player.player_anims.is_connected('animation_finished',self,'exit'):
 		player.player_anims.disconnect('animation_finished',self,'exit')
 		base.stack.append(base.get_node("Idle"))

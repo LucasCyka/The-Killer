@@ -12,6 +12,8 @@ var _selected_teenager = null
 var target = null
 var is_deployed = false setget set_is_deployed
 var is_indoor = false setget set_is_indoor
+var is_attacking = false
+var current_attacking_id = -1
 var mouse_position = Vector2(0,0)
 var speed = 50
 var exiting = false
@@ -27,6 +29,14 @@ onready var player_anims = $PlayerAnims
 onready var game = get_parent().get_parent()
 onready var sight_area = $SightArea
 onready var wall_cast = $SightArea/WallCast
+
+#some attacking animations have sound effects attrached to it,
+#their sound(s) and the time that they must be played is stored in this
+#dictionary.
+#layout ID:[frames],[sounds]
+var animations_sound_data = {
+	1:[[2,5],['PlayerSlash','Blood']]
+}
 
 #dictionary containing all the animations
 #layout ID:STATE-DIR
@@ -75,7 +85,7 @@ func init(base,ui):
 		var _btn = teenager.get_node("TeenagerButton")
 		_btn.connect("mouse_entered",self,"select_target",[teenager])
 		_btn.connect("mouse_exited",self,"select_target",[null])
-
+	
 func _process(delta):
 	#input info
 	mouse_position = get_global_mouse_position()
@@ -91,10 +101,16 @@ func _process(delta):
 	else: $StateProgress.hide()
 	
 	update_animations()
+	play_attacking_sound()
 	
 #click on teenagers to attack them
 func _input(event):
 	if Input.is_action_just_pressed("cancel_input"):
+		if is_attacking:
+			#prevent the player from exiting hunting mode if he's
+			#attacking
+			return
+		
 		target = _selected_teenager
 		
 		if state_machine.get_current_state() != 'Spawning' and state_machine.get_current_state() != 'Deployment':
@@ -160,6 +176,7 @@ func attack(teenager):
 	#TODO: check if the teenager is fighting before killig him
 	#TODO: check if he's not dead already
 	teenager.state_machine.force_state("Dead")
+	current_attacking_id = 0
 
 #remove the player hunter
 func _free():
@@ -262,6 +279,25 @@ func update_animations():
 	else:
 		pass
 		#attacking animations work a bit different than the others
+
+#play sounds during attacking animations
+func play_attacking_sound():
+	if is_attacking and current_attacking_id != -1:
+		#1:[[2,5],['PlayerSlash','Blood']]
+		
+		if animations_sound_data[1][0].size() == current_attacking_id:
+			#no more sounds to be played for this attacking animation
+			is_attacking = false
+			current_attacking_id = -1
+			return
+		
+		if player_anims.get_frame() == animations_sound_data[1][0][current_attacking_id]:
+			game.audio_system.play_2d_sound(animations_sound_data[1][1][current_attacking_id],global_position)
+			
+			current_attacking_id += 1
+
+
+
 
 
 

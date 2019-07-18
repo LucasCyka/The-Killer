@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/345985__cliftonmcarlson__blood-gush-spray.wav-988909b8056496f3c25c36e7354d4736.sample"
+
+[deps]
+
+source_file="res://audio/raw/345985__cliftonmcarlson__blood-gush-spray.wav"
+dest_files=[ "res://.import/345985__cliftonmcarlson__blood-gush-spray.wav-988909b8056496f3c25c36e7354d4736.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

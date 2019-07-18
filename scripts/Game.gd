@@ -1,5 +1,5 @@
+tool
 extends Node2D
-
 """
 	Control several aspects of the gameplay.
 	Things like game over events, points distribution, world information etc...
@@ -54,10 +54,12 @@ onready var ui = $GameUI
 onready var trap_enum = preload("res://scripts/Traps.gd").TYPES
 #color for the day/night cycle
 onready var canvas_m = get_node("Lights'Shadows/CanvasModulate")
+#audio system, it plays music and sound effects.
+onready var audio_system = $Audio
+export (NodePath) var audio_path
 
 #INITIALIZE
 func _ready():
-
 	#A* pathfinding
 	star.init($Tiles/Path,Vector2(25,25),false)
 	randomize()
@@ -75,6 +77,13 @@ func _ready():
 #day/night cycle
 func _process(delta):
 	daynightcycle()
+
+#give configuration warnings
+func _get_configuration_warning():
+	var warning = ""
+	if not audio_path:
+		warning = "Audio system not found! Added one as child of this node."
+	return warning
 
 #return all the teenagers in the game
 func get_teenagers():
