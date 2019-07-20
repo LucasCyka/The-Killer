@@ -38,12 +38,13 @@ func update(delta):
 					break
 		
 		if not found: 
-			exit() #theres no bed, exit this state
+			exit() #theres no picnic, exit this state
 			return
 	
 	#check if the teen is close enough to the bed
 	if base.teenager.walk(table.global_position):
-		#change the anim and position
+		#change the anim and position and start talking baloons
+		if base.teenager.is_talkative: base.teenager.is_talking = true
 		base.teenager.state_animation = true
 		base.teenager.kinematic_teenager.global_position = table.global_position
 		
@@ -59,5 +60,6 @@ func exit():
 	if base.is_forced_state:
 		base._on_routine = false
 	else: base._on_routine = true
+	base.teenager.is_talking = false
 	base.disconnect("timer_finished",self,"exit")
 	emit_signal("finished")

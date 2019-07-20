@@ -201,7 +201,6 @@ min_constraints = Vector2( -674, -369 )
 [node name="GameTimer" type="Timer" parent="."]
 
 [node name="AI" type="YSort" parent="."]
-editor/display_folded = true
 
 [node name="Teenager" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -234,6 +233,7 @@ editor/display_folded = true
 position = Vector2( 811.569, 251.553 )
 speed = 50
 sleep_time = 1
+is_talkative = false
 death_icon = ExtResource( 5 )
 death_trap1 = ExtResource( 12 )
 portrait_neutral = ExtResource( 13 )
@@ -611,7 +611,7 @@ texture = ExtResource( 40 )
 position = Vector2( 799.806, 848.917 )
 z_index = 1
 frames = SubResource( 7 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]

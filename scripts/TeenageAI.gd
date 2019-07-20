@@ -68,7 +68,10 @@ var is_routine_paused = false
 var saw_player = false
 var is_indoor = false setget set_is_indoor
 var is_escaping = false
+var is_talking = false
+var is_thinking = false
 var facing_direction = Vector2(1,0)
+var custom_balloons = []
 #used for pathfinding:
 var current_path = []
 var current_target = Vector2(-666,-666)
@@ -93,6 +96,7 @@ export var id = 0
 export var speed = base_speed setget set_speed
 export var sleep_time = 1080
 export var sleep_hours = 5
+export var is_talkative = true
 
 #the values below are used when this teen becomes a death trap
 export (Texture) var death_icon
@@ -116,6 +120,7 @@ onready var teenager_anims = $Animations
 onready var dead_anims = $DeadAnimations
 onready var wall_cast = $DetectionArea/WallCast
 onready var detection_area = $DetectionArea
+onready var balloon_timer = $Balloon/BalloonTimer
 
 #initialize
 func _ready():
@@ -123,6 +128,8 @@ func _ready():
 	generate_routine(get_node("Routines/Routine"))
 	init_routine()
 	generate_animations()
+	update_talking_balloon()
+	update_thinking_balloon()
 	#update_animations()
 	
 func _process(delta):
@@ -285,6 +292,103 @@ func update_animations():
 		#TODO: replace the IDLE by the name of the state
 		teenager_anims.play(animations[id][state][facing_direction]['anim'])
 		teenager_anims.set_flip_h(animations[id][state][facing_direction]['flip'])
+
+#show talking balloons over the teen's head.
+#PARAMS: Timer = true when called using a timer
+		 #Special = this ballon needs a special icon anim.
+func update_talking_balloon(timer=false,specials=[]):
+	#this timer will clear the balloons over the teen's head from time to time
+	if !$Balloon/BalloonTimer.is_connected('timeout',self,'update_talking_balloon'):
+		$Balloon/BalloonTimer.connect('timeout',self,'update_talking_balloon',[true,[]])
+		$Balloon/BalloonTimer.set_wait_time(2)
+		$Balloon/BalloonTimer.start()
+		return
+	
+	if is_talking and timer and specials == [] and !custom_balloons:
+		if $Balloon.is_visible():
+			$Balloon.hide()
+		else:
+			#TODO: check if someone is close before talking
+			$Balloon.show()
+			$Balloon.play("talking")
+			$Balloon/Icon.play(_get_random_ballon_icon())
+			$Balloon/Icon.show()
+			$Balloon/Specials.hide()
+	elif !timer and specials != []:
+		#single custom balloon icon
+		$Balloon.show()
+		$Balloon.play("talking")
+		$Balloon/Icon.hide()
+		$Balloon/Specials.show()
+		$Balloon/Specials.play(specials[0])
+		$Balloon/BalloonTimer.stop()
+		$Balloon/BalloonTimer.start()
+	elif timer and custom_balloons and is_talking:
+		#custom balloon from an list
+		if $Balloon.is_visible():
+			$Balloon.hide()
+			return
+		$Balloon.show()
+		$Balloon.play("talking")
+		$Balloon/Icon.hide()
+		$Balloon/Specials.show()
+		$Balloon/Specials.play(_get_random_ballon_icon(true))
+	else:
+		if !is_thinking and !is_talking:
+			$Balloon.hide()
+	
+#show talking balloons over the teen's head.
+#PARAMS: Timer = true when called using a timer
+		#Special = this ballon needs a special icon anim.
+func update_thinking_balloon(timer=false,specials=[]):
+	#this timer will clear the balloons over the teen's head from time to time
+	if !$Balloon/BalloonTimer.is_connected('timeout',self,'update_thinking_balloon'):
+		$Balloon/BalloonTimer.connect('timeout',self,'update_thinking_balloon',[true,[]])
+		$Balloon/BalloonTimer.set_wait_time(2)
+		$Balloon/BalloonTimer.start()
+		return
+	
+	if is_thinking and timer and specials == [] and !custom_balloons:
+		if $Balloon.is_visible():
+			$Balloon.hide()
+		else:
+			$Balloon.show()
+			$Balloon.play("thinking")
+			$Balloon/Icon.play(_get_random_ballon_icon())
+			$Balloon/Icon.show()
+			$Balloon/Specials.hide()
+	elif !timer and specials != []:
+		#single custom balloon icon
+		$Balloon.show()
+		$Balloon.play("thinking")
+		$Balloon/Icon.hide()
+		$Balloon/Specials.show()
+		$Balloon/Specials.play(specials[0])
+		$Balloon/BalloonTimer.stop()
+		$Balloon/BalloonTimer.start()
+	elif timer and custom_balloons and is_thinking:
+		#custom balloon from an list
+		if $Balloon.is_visible():
+			$Balloon.hide()
+			return
+		$Balloon.show()
+		$Balloon.play("thinking")
+		$Balloon/Icon.hide()
+		$Balloon/Specials.show()
+		$Balloon/Specials.play(_get_random_ballon_icon(true))
+	else:
+		if !is_thinking and !is_talking:
+			$Balloon.hide()
+	
+	
+#get a random talking/thinking balloon icon
+func _get_random_ballon_icon(list=false):
+	if not list:
+		#not from a special list
+		var anims = $Balloon/Icon.get_sprite_frames().get_animation_names()
+		return anims[rand_range(0,anims.size()-1)]
+	else:
+		return custom_balloons[int(rand_range(0,custom_balloons.size()))]
 
 #fill a dictionary with animations from the AnimatedSprite resource
 #TODO: diagonal animations?

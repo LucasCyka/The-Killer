@@ -17,6 +17,7 @@ var final_spawn_position = null
 func init(base,state_position,state_time):
 	self.base = base
 	self.game = base.player.game
+	self.base.player.is_deployed = true
 	
 	#search a final tile for the player to spawn
 	var tilemap = self.game.get_pathfinding_tile()

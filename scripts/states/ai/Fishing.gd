@@ -12,6 +12,7 @@ var duration
 var teen
 var position
 
+#initialize
 func init(base,state_position,state_time):
 	self.base = base
 	self.duration = state_time
@@ -19,6 +20,7 @@ func init(base,state_position,state_time):
 	self.teen = base.teenager
 	self.teen.state_animation = false
 	self.base.connect("timer_finished",self,"exit")
+	#custom balloons over the player's head
 	emit_signal("entered")
 	
 func update(delta):
@@ -30,7 +32,9 @@ func update(delta):
 		#change the anim
 		teen.state_animation = true
 		#teen.kinematic_teenager.global_position = position
-		
+		self.teen.is_talking = false
+		self.teen.is_thinking = true
+		self.teen.custom_balloons = ['fish','fish2','bait','love']
 		if base.state_timer.is_stopped():
 			base.state_timer.set_wait_time(duration)
 			base.state_timer.start()
@@ -43,5 +47,7 @@ func exit():
 	if base.is_forced_state:
 		base._on_routine = false
 	else: base._on_routine = true
+	self.teen.is_thinking = false
+	self.teen.custom_balloons = []
 	base.disconnect("timer_finished",self,"exit")
 	emit_signal("finished")

@@ -35,6 +35,7 @@ func update(delta):
 		base.teenager.state_animation = false
 		base.teenager.custom_animation = null
 		base.teenager.walk(self.position)
+		base.teenager.is_talking = false
 	else:
 		if base.state_timer.is_stopped():
 			base.state_timer.set_wait_time(duration)
@@ -43,6 +44,7 @@ func update(delta):
 		#search for teenagers to tallk
 		if current_target == null:
 			#TODO: waiting anims instead
+			base.teenager.is_talking = false
 			base.teenager.custom_animation = base.get_node('Idle')
 			for teen in teenagers:
 				if teen == base.teenager: continue
@@ -75,14 +77,18 @@ func update(delta):
 				if not abs(dir.x) == abs(dir.y):
 					base.teenager.facing_direction = dir
 				
-				#activate talking animations
-				base.teenager.custom_animation = null
-				base.teenager.state_animation = true
+				if base.teenager.is_talkative:
+					#activate talking animations
+					base.teenager.custom_animation = null
+					base.teenager.state_animation = true
+					base.teenager.is_talking = true
+					
 
 func exit():
 	if base.is_forced_state:
 		base._on_routine = false
 	else: base._on_routine = true
+	base.teenager.is_talking = false
 	base.teenager.custom_animation = null
 	current_target = null
 	base.disconnect("timer_finished",self,"exit")

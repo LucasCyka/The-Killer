@@ -12,7 +12,7 @@ var game
 #constructor
 func init(base,state_position,state_time):
 	self.base = base
-	self.base.player.is_deployed = true
+#	self.base.player.is_deployed = true
 	self.game = base.player.game
 	
 	#hunting mode

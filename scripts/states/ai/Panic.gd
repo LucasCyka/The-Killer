@@ -41,6 +41,11 @@ func init(base,state_position,state_time):
 	_timer.set_one_shot(true)
 	_timer.start()
 	
+	#custom balloon over the teen's head
+	#self.base.teenager.update_thinking_balloon(false,['love'])
+	#self.base.teenager.is_talking = false
+	#self.base.teenager.is_thinking = false
+	
 	emit_signal("entered")
 	
 func update(delta):

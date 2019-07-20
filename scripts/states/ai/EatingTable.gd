@@ -45,6 +45,8 @@ func update(delta):
 		#change the anim and position
 		base.teenager.state_animation = true
 		base.teenager.kinematic_teenager.global_position = table.global_position
+		if base.teenager.is_talkative:
+			base.teenager.is_talking = true
 		
 		if base.state_timer.is_stopped():
 			base.state_timer.set_wait_time(duration)
@@ -58,6 +60,7 @@ func exit():
 	if base.is_forced_state:
 		base._on_routine = false
 	else: base._on_routine = true
+	base.teenager.is_talking = false
 	table = null
 	self.base.disconnect("timer_finished",self,"exit")
 	emit_signal("finished")

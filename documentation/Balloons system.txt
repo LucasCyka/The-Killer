@@ -1,0 +1,20 @@
+You just need to fill these to properties the system work:
+
+is_talking: bool
+is_thinking: bool
+custom_balloons: array
+
+if is_talking is fill and the other variables are false or empty, the teen will have a random talking balloon over his head from time to time.
+
+
+if is_thinking is fill and the other variables are false or empty, the teen will have a random thinking balloon over his head from time to time.
+
+is_talking and is_thinking can't be true at the same time, or you will have problems, remember to always reset these properties when exiting states.
+
+if custom_balloons isn't empty and is_talking or is_thinking isn't false, the teen will have custom balloons on their head from time time.
+
+now if you only want a ballon once, then call update_talking_balloon() or update_thinking_balloon() with these parameters:
+
+(false, [balloonName])
+
+The balloon will apear and dissapear after 2 secs if that happen. Remember to set both is_talking and is_thinking to false when doing this.

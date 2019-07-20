@@ -57,7 +57,7 @@ func update(delta):
 		if not is_instance_valid(teen):
 			continue
 		
-		if teen == base.teenager:
+		if teen == base.teenager or not teen is KinematicBody2D:
 			continue
 		var pos = teen.kinematic_teenager.global_position
 		

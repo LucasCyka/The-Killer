@@ -254,7 +254,6 @@ func on_sight_area(area):
 			teenager_on_sight.append(area.get_parent())
 			#body.get_parent().saw_player = false
 
-
 #check if teenager left the player sight area
 func out_sight_area(area):
 	if area.name == 'DetectionArea':
