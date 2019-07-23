@@ -42,15 +42,16 @@ func _process(delta):
 			activated_teens.erase(teen)
 			break
 		
-		#when sleeping the teen routine will be interrupted, but the player
+		#when sleeping/dying the teen routine will be interrupted, but the player
 		#don't need to see his status
 		var is_sleeping = teen.state_machine.get_current_state() == 'Sleeping'
+		var is_dead = teen.state_machine.get_current_state() == 'Dead'
 		
-		if teen.is_routine_paused and activated_teens.find(teen) == -1 and not is_sleeping:
+		if teen.is_routine_paused and activated_teens.find(teen) == -1 and not is_sleeping and not is_dead:
 			activated_teens.append(teen)
 		elif not teen.is_routine_paused and activated_teens.find(teen) != -1:
 			activated_teens.erase(teen)
-		elif is_sleeping and activated_teens.find(teen) != -1:
+		elif (is_sleeping or is_dead) and activated_teens.find(teen) != -1:
 			activated_teens.erase(teen)
 		else: continue
 		
