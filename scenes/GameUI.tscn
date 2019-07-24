@@ -74,7 +74,6 @@ script = ExtResource( 1 )
 [node name="Canvas" type="CanvasLayer" parent="."]
 
 [node name="TeenagerInfo" type="Control" parent="Canvas"]
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 rect_pivot_offset = Vector2( 17.1059, 23.8122 )
@@ -256,7 +255,6 @@ margin_right = -111.0
 margin_bottom = 38.0
 
 [node name="GridSlots" type="Control" parent="Canvas/TrapsUI/TrapsSelection"]
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -410,6 +408,7 @@ text = "How much information can I place on this tiny spot?."
 autowrap = true
 
 [node name="Info2" type="Sprite" parent="Canvas/TrapsUI/TrapsSelection"]
+editor/display_folded = true
 visible = false
 position = Vector2( 292.591, 298.106 )
 texture = ExtResource( 26 )
@@ -512,6 +511,7 @@ autowrap = true
 
 [node name="InfoUI" type="Control" parent="Canvas"]
 pause_mode = 2
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 34 )
@@ -576,7 +576,7 @@ text = "PAUSED
 [node name="Clock" type="Sprite" parent="Canvas/InfoUI"]
 pause_mode = 2
 editor/display_folded = true
-position = Vector2( 554.559, 18 )
+position = Vector2( 551.559, 18 )
 texture = ExtResource( 39 )
 
 [node name="Label" type="Label" parent="Canvas/InfoUI/Clock"]

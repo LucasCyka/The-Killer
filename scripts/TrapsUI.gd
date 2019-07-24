@@ -247,4 +247,3 @@ func clear_buttons():
 			btn.disconnect("mouse_entered",self,"show_trap_info")
 			btn.disconnect("mouse_exited",self,"hide_trap_info")
 			
-			

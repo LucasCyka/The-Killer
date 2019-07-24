@@ -274,7 +274,12 @@ func remove_death_trap(data):
 		
 	for value in traps_data[trap_enum.MISC]:
 		traps_data[trap_enum.MISC][value].remove(id)
-
+	
+	#reassign ids
+	for value in range(traps_data[trap_enum.MISC]['ID'].size()):
+		if traps_data[trap_enum.MISC]['ID'][value] > id:
+			traps_data[trap_enum.MISC]['ID'][value] -= 1
+	
 	#for value in traps_data[trap_enum.MISC]:
 	#	traps_data[trap_enum.MISC][value].pop_back()
 	#	pass

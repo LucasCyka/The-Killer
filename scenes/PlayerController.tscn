@@ -13,6 +13,7 @@ pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="camera" type="Camera2D" parent="."]
+pause_mode = 2
 position = Vector2( 320, 100 )
 offset = Vector2( 320, 100 )
 current = true
@@ -22,36 +23,44 @@ drag_margin_v_enabled = false
 smoothing_speed = 20.0
 
 [node name="Scrollers" type="Node2D" parent="camera"]
+pause_mode = 2
 position = Vector2( -320, -100 )
 
 [node name="AreaLeft" type="Area2D" parent="camera/Scrollers"]
+pause_mode = 2
 editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="camera/Scrollers/AreaLeft"]
+pause_mode = 2
 position = Vector2( 344.658, 201.179 )
 shape = SubResource( 1 )
 
 [node name="AreaRight" type="Area2D" parent="camera/Scrollers"]
+pause_mode = 2
 editor/display_folded = true
 position = Vector2( 591, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="camera/Scrollers/AreaRight"]
+pause_mode = 2
 position = Vector2( 344.658, 201.179 )
 shape = SubResource( 1 )
 
 [node name="AreaUp" type="Area2D" parent="camera/Scrollers"]
+pause_mode = 2
 editor/display_folded = true
 position = Vector2( 135.516, 1.29236 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="camera/Scrollers/AreaUp"]
+pause_mode = 2
 position = Vector2( 506.658, 15.1792 )
 shape = SubResource( 2 )
 
 [node name="AreaDown" type="Area2D" parent="camera/Scrollers"]
-editor/display_folded = true
+pause_mode = 2
 position = Vector2( 341, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="camera/Scrollers/AreaDown"]
-position = Vector2( 295.658, 382.179 )
+pause_mode = 2
+position = Vector2( 295.658, 385.179 )
 shape = SubResource( 2 )
 
