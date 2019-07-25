@@ -8,6 +8,7 @@ extends Node2D
 #the game has been loaded
 signal loaded
 signal game_over
+signal changed_points
 
 enum MODE {
 	PLANNING,
@@ -268,6 +269,8 @@ func transform_teen(teen):
 		
 		text_id += 1
 		
+	#ui animation
+	ui.play_death_trap_anim(teen.get_dead_teen_texture(),teen.get_global_transform_with_canvas())
 	teen.call_deferred('free')
 
 #this will remove the last death trap added to the game from the player's
@@ -451,6 +454,7 @@ func get_time():
 
 func set_points(value):
 	points = value
+	emit_signal("changed_points")
 
 func get_points():
 	return points

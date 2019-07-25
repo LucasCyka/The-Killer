@@ -201,7 +201,10 @@ func show_trap_info(_name,desc,price,fear,curiosity):
 	$TrapsSelection/Info.show()
 	$TrapsSelection/Info/Name.text = _name
 	$TrapsSelection/Info/Description.text = desc
-	$TrapsSelection/Info/Price.text = "Price: $ "+ str(price) + ",00"
+	$TrapsSelection/Info/Price.text = "Price: $ "+ str(price)
+	#formatting price
+	if fmod(1000,price):
+		$TrapsSelection/Info/Price.text = $TrapsSelection/Info/Price.text.insert($TrapsSelection/Info/Price.text.length()-3,',')
 	
 	#modifiers
 	$TrapsSelection/Info2.show()

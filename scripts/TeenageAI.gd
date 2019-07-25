@@ -560,8 +560,21 @@ func is_object_visible(object):
 	if wall_cast.is_colliding():
 		return wall_cast.get_collider().name == object.name
 
-
-
+#returns the sprite of the current teen's animation-frame.
+func get_teen_texture():
+	var anim = teenager_anims.get_animation()
+	var sprs = teenager_anims.get_sprite_frames()
+	var spr_frame = sprs.get_frame(anim,teenager_anims.get_frame())
+	
+	return spr_frame
+	
+#returns the sprite of the current teen's dying animation-frame.
+func get_dead_teen_texture():
+	var anim = $DeadAnimations.get_animation()
+	var sprs = $DeadAnimations.get_sprite_frames()
+	var spr_frame = sprs.get_frame(anim,$DeadAnimations.get_frame())
+	
+	return spr_frame
 
 
 

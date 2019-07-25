@@ -29,6 +29,8 @@ func init(base):
 	self.base = base
 	self.teens = base.game.get_teenagers()
 	highlight_clock($Clock/NormalSpdBtn)
+	score.connect("score_changed",self,"update_score")
+	base.game.connect('changed_points',self,'update_points')
 	
 func _process(delta):
 	if base == null:
@@ -59,19 +61,6 @@ func _process(delta):
 		fill_fc_slots()
 	else: clear_fc_slots()
 	
-	#fill the score label
-	_score.text = str(score.get_score(base.game.get_level()))
-	_points.text = "$"+str(game.get_points())
-	
-	#formating
-	if fmod(1000,game.get_points()):
-		_points.text = _points.text.insert(_points.text.length()-3,',')
-	
-	if _score.text.length() < 7:
-		for gap in 7-_score.text.length():
-			_score.text = _score.text.insert(0,'0')
-			pass 
-	
 	#number of teens killed/remaining
 	var alive = base.game.get_teenagers_alive().size()
 	var ingame =  base.game.get_teenagers_num() 
@@ -82,8 +71,7 @@ func _process(delta):
 		$InfoPanel/Paused.show()
 	else:
 		$InfoPanel/Paused.hide()
-	
-		
+
 #TODO: slot animations
 #fill the fear/curiosity slots of teenagers that aren't on routine.
 func fill_fc_slots():
@@ -230,3 +218,20 @@ func fast_btn2():
 	else:
 		return
 
+#called when a new score is set. This function set, format and trigger an
+#animation in  the score label.
+func update_score():
+	_score.text = str(score.get_score(base.game.get_level()))
+	#formatting
+	if _score.text.length() < 7:
+		for gap in 7-_score.text.length():
+			_score.text = _score.text.insert(0,'0')
+			
+	base.play_label_animation('score')
+
+func update_points():
+	_points.text = "$"+str(game.get_points())
+	
+	#formating
+	if fmod(1000,game.get_points()):
+		_points.text = _points.text.insert(_points.text.length()-3,',')

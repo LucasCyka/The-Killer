@@ -5,7 +5,7 @@
 [ext_resource path="res://scenes/GameUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://scenes/Teenager.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sprites/traps/female1_head.png" type="Texture" id=5]
-[ext_resource path="res://sprites/traps/dead_1.png" type="Texture" id=6]
+[ext_resource path="res://sprites/traps/misc1.png" type="Texture" id=6]
 [ext_resource path="res://sprites/traps/remains2.png" type="Texture" id=7]
 [ext_resource path="res://sprites/traps/remains3.png" type="Texture" id=8]
 [ext_resource path="res://sprites/characters/female_1/head_neutral.png" type="Texture" id=9]
@@ -619,7 +619,7 @@ texture = ExtResource( 44 )
 position = Vector2( 799.806, 848.917 )
 z_index = 1
 frames = SubResource( 7 )
-frame = 1
+frame = 5
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]

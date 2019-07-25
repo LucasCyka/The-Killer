@@ -102,6 +102,30 @@ func unlock():
 		if btn is TextureButton:
 			btn.set_disabled(false)
 
+#play a animation of a texture button
+func play_button_animation(btn,speed=1):
+	$Canvas/Animations/BtnAnims.play(btn,-1,speed)
+
+#an animation that is played when the teen is transformed into a death
+#trap.
+func play_death_trap_anim(teen_spr,pos):
+	play_button_animation('MiscBtn',1.2)
+	var teen_text = $Canvas/Animations/DeathTrapAnim/TeenSpr
+	var death_anim = $Canvas/Animations/DeathTrapAnim
+	
+	teen_text.texture = teen_spr
+	teen_text.show()
+	teen_text.global_position = pos.origin
+	
+	#setup and start teen anim
+	death_anim.get_animation('misc').track_insert_key(0,0,pos.origin)
+	death_anim.play("misc",-1,2)
+	#TODO: play sound effect
+
+#play an animation on a label
+func play_label_animation(label):
+	$Canvas/Animations/LabelAnims.play(label)
+
 #this signal is emmited when a new element in the user interface is used
 func _on_toggle():
 	emit_signal("element_toggle")
