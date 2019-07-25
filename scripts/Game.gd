@@ -240,27 +240,34 @@ func init_teenagers():
 
 #transform the teen into a misc trap
 func transform_teen(teen):
-	#TODO: transform in more than one trap
-	#transform the teen in a death trap and add it to the misc category
+	#the number of death traps this teen will generate (randomly). MAX:3
+	var parts = int(rand_range(1,4))
+	var parts_textures = [teen.death_trap1,teen.death_trap2,
+	teen.death_trap3]
+	var text_id = 0
 	
-	#this dictionary goes to the new trap
-	var death_data = {'Anim1':teen.death_trap1}
-	
-	#assign new data
-	traps_data[trap_enum.MISC]['ID'].append(traps_data[trap_enum.MISC]['ID'].size())
-	traps_data[trap_enum.MISC]['Icon'].append(teen.death_icon.get_path().get_file())
-	traps_data[trap_enum.MISC]['Fear'].append(100)
-	traps_data[trap_enum.MISC]['Curiosity'].append(0)
-	traps_data[trap_enum.MISC]['Price'].append(0)
-	traps_data[trap_enum.MISC]['OneShot'].append(false)
-	traps_data[trap_enum.MISC]['Requirements'].append(["NULL"])
-	traps_data[trap_enum.MISC]['OnSpot'].append(false)
-	traps_data[trap_enum.MISC]['Walkable'].append(false)
-	traps_data[trap_enum.MISC]['Name'].append("Remains")
-	traps_data[trap_enum.MISC]['Desc'].append("The remains of this poor bastard.")
-	traps_data[trap_enum.MISC]['DeathTrap'].append(death_data)
-	traps_data[trap_enum.MISC]['Placement'].append(get_floor_tile())
-	
+	for trap in parts:
+		#transform the teen in a death trap and add it to the misc category
+		#this dictionary goes to the new trap
+		var death_data = {'Anim1':parts_textures[text_id]}
+		
+		#assign new data
+		traps_data[trap_enum.MISC]['ID'].append(traps_data[trap_enum.MISC]['ID'].size())
+		traps_data[trap_enum.MISC]['Icon'].append(teen.death_icon.get_path().get_file())
+		traps_data[trap_enum.MISC]['Fear'].append(100)
+		traps_data[trap_enum.MISC]['Curiosity'].append(0)
+		traps_data[trap_enum.MISC]['Price'].append(0)
+		traps_data[trap_enum.MISC]['OneShot'].append(false)
+		traps_data[trap_enum.MISC]['Requirements'].append(["NULL"])
+		traps_data[trap_enum.MISC]['OnSpot'].append(false)
+		traps_data[trap_enum.MISC]['Walkable'].append(false)
+		traps_data[trap_enum.MISC]['Name'].append("Remains")
+		traps_data[trap_enum.MISC]['Desc'].append("The remains of this poor bastard.")
+		traps_data[trap_enum.MISC]['DeathTrap'].append(death_data)
+		traps_data[trap_enum.MISC]['Placement'].append(get_floor_tile())
+		
+		text_id += 1
+		
 	teen.call_deferred('free')
 
 #this will remove the last death trap added to the game from the player's

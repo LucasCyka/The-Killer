@@ -72,7 +72,16 @@ func update(delta):
 			#check if the teen isn't on shock
 			if teen.state_machine.get_current_state() == 'Shock' and affected_teenagers.find(teen) == -1:
 				affected_teenagers.append(teen)
+				#give some score points to the player since he's making
+				#someone scary even more scarier.
+				teen.set_fear(50,false)
 				return
+			
+			#check if isn't screaming
+			if teen.state_machine.get_current_state() == 'Screaming' and affected_teenagers.find(teen) == -1:
+				#bonus for seeing someone die
+				affected_teenagers.append(teen)
+				teen.set_fear(50,false)
 			
 			if floor(facing) == -1 and is_visible and affected_teenagers.find(teen) == -1:
 				affected_teenagers.append(teen)

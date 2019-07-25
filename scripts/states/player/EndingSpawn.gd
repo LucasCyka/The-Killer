@@ -63,8 +63,9 @@ func update(delta):
 		set_is_spawn(true)
 
 func input(event):
-	if Input.is_action_just_pressed("cancel_input"):
-		transitions()
+	pass
+	#if Input.is_action_just_pressed("cancel_input"):
+	#	transitions()
 
 func set_is_spawn(value):
 	is_spawn = value

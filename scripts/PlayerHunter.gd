@@ -113,7 +113,7 @@ func _input(event):
 		
 		target = _selected_teenager
 		
-		if state_machine.get_current_state() != 'Spawning' and state_machine.get_current_state() != 'Deployment':
+		if state_machine.get_current_state() != 'Spawning' and state_machine.get_current_state() != 'Deployment' and state_machine.get_current_state() != 'EndingSpawn':
 			#exit the hunter mode when the player hits 'escape'
 			if Input.is_key_pressed(KEY_ESCAPE):
 				#TODO: confirm if the player really wants to exit
