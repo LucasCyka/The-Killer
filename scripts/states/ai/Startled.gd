@@ -41,11 +41,10 @@ func update(delta):
 	
 	#remove all bump traps
 	for trap in base.teenager.traps:
-		if trap != null: #this prevents a random ctd
+		if trap != null: #TODO: use weak instance to prevent random ctd
 			if trap.type == trap.TYPES.BUMP:
 				base.teenager.remove_trap(trap,true)
 				break
-	
 		
 	if stage == 1:
 		stage_timer.stop()

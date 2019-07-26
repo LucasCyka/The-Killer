@@ -126,6 +126,12 @@ func play_death_trap_anim(teen_spr,pos):
 func play_label_animation(label):
 	$Canvas/Animations/LabelAnims.play(label)
 
+#animation of score points
+func play_score_animation(p_pos,text):
+	var label = preload('res://scenes/FlyingLabel2.tscn').instance()
+	label.get_child(0).init(text,p_pos,Vector2(109.809,21.886))
+	$Canvas/Animations.add_child(label)
+
 #this signal is emmited when a new element in the user interface is used
 func _on_toggle():
 	emit_signal("element_toggle")

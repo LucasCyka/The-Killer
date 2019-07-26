@@ -478,11 +478,15 @@ func set_fear(value,cause_panic=true,add_points=true):
 	var points = (score.get_score(level) + value * fear_modifier)
 	if add_points: 
 		score.set_score(level,int(points))
+		#call score animation
+		var game = get_parent().get_parent()
+		game.ui.play_score_animation(get_global_transform_with_canvas().origin,str(value * fear_modifier))
+		
 		#show how many points the player earned
-		var label = preload('res://scenes/FlyingLabel.tscn').instance()
-		label.global_position = global_position
-		label.text = str(int(value * fear_modifier))
-		get_parent().get_parent().add_child(label)
+		#var label = preload('res://scenes/FlyingLabel.tscn').instance()
+		#label.global_position = global_position
+		#label.text = str(int(value * fear_modifier))
+		#get_parent().get_parent().add_child(label)
 	
 	if not cause_panic: return
 	if get_fear() > get_curiosity():
@@ -528,7 +532,8 @@ func remove_trap(value,free):
 	for trap in traps:
 		if trap == value:
 			if free:
-				trap.queue_free()
+				#trap.queue_free()
+				trap.call_deferred('free')
 			traps.erase(trap)
 			current_trap -= 1 
 			break
