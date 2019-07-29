@@ -49,6 +49,9 @@ func _input(event):
 
 #open a panel showing all the lure traps available for this level
 func lure_btn():
+	#sound effect
+	base.game.audio_system.play_sound('Click2')
+	
 	if trap_category.text == "LURES":
 		#the panel for this trap is already open, close it.
 		close_selection()
@@ -60,6 +63,9 @@ func lure_btn():
 	
 #open a panel showing all the misc traps available for this level
 func misc_btn():
+	#sound effect
+	base.game.audio_system.play_sound('Click2')
+	
 	if trap_category.text == "MISC.":
 		#the panel for this trap is already open, close it.
 		close_selection()
@@ -71,6 +77,9 @@ func misc_btn():
 
 #open a panel showing all the vice traps available for this level
 func vice_btn():
+	#sound effect
+	base.game.audio_system.play_sound('Click2')
+	
 	if trap_category.text == "VICES":
 		#the panel for this trap is already open, close it.
 		close_selection()
@@ -82,6 +91,9 @@ func vice_btn():
 
 #open a panel showing all the bump traps available for this level
 func bump_btn():
+	#sound effect
+	base.game.audio_system.play_sound('Click2')
+	
 	if trap_category.text == "NOISES":
 		#the panel for this trap is already open, close it.
 		close_selection()

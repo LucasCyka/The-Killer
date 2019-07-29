@@ -34,6 +34,11 @@ func init(base,state_position,state_time):
 	_timer.connect("timeout",self,"next_stage")
 	_timer.start()
 	
+	#custom balloon over the teen's head
+	self.base.teenager.update_thinking_balloon(false,['vice'])
+	self.base.teenager.is_talking = false
+	self.base.teenager.is_thinking = false
+	
 	emit_signal("entered")
 	
 func update(delta):

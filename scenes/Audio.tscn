@@ -19,6 +19,10 @@ pause_mode = 2
 stream = ExtResource( 2 )
 pitch_scale = 2.0
 
+[node name="Click2" type="AudioStreamPlayer" parent="Sound"]
+pause_mode = 2
+stream = ExtResource( 2 )
+
 [node name="Sound2D" type="Node" parent="."]
 
 [node name="PlayerSlash" type="AudioStreamPlayer2D" parent="Sound2D"]

@@ -32,7 +32,7 @@ editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="camera/Scrollers/AreaLeft"]
 pause_mode = 2
-position = Vector2( 344.658, 201.179 )
+position = Vector2( 340.658, 201.179 )
 shape = SubResource( 1 )
 
 [node name="AreaRight" type="Area2D" parent="camera/Scrollers"]
@@ -42,7 +42,7 @@ position = Vector2( 591, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="camera/Scrollers/AreaRight"]
 pause_mode = 2
-position = Vector2( 344.658, 201.179 )
+position = Vector2( 348.658, 201.179 )
 shape = SubResource( 1 )
 
 [node name="AreaUp" type="Area2D" parent="camera/Scrollers"]
@@ -57,10 +57,15 @@ shape = SubResource( 2 )
 
 [node name="AreaDown" type="Area2D" parent="camera/Scrollers"]
 pause_mode = 2
+editor/display_folded = true
 position = Vector2( 341, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="camera/Scrollers/AreaDown"]
 pause_mode = 2
-position = Vector2( 295.658, 385.179 )
+position = Vector2( 295.658, 384.179 )
 shape = SubResource( 2 )
+
+[node name="ScrollerTimer" type="Timer" parent="camera/Scrollers"]
+wait_time = 0.2
+one_shot = true
 

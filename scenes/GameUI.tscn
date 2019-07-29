@@ -979,6 +979,7 @@ margin_bottom = 99.799
 text = "QUIT"
 
 [node name="Animations" type="Control" parent="Canvas"]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -1001,7 +1002,8 @@ playback_speed = 1.4
 anims/score = SubResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="Canvas/Animations"]
-position = Vector2( 299.047, 328.028 )
+visible = false
+position = Vector2( 300.047, 328.028 )
 texture = ExtResource( 62 )
 
 [node name="Label" type="Label" parent="Canvas/Animations/Sprite"]

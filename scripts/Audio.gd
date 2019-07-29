@@ -8,6 +8,8 @@ onready var sounds2d = $Sound2D
 onready var sounds = $Sound
 onready var musics = $Music
 
+#TODO: solve the problem with duplicated sounds
+
 #initialize
 func _ready():
 	settings.connect("audio_changed",self,"update_volume_db")

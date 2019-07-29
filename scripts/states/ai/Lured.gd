@@ -52,6 +52,11 @@ func init(base,state_position,state_time):
 	#will define the order the teenager will follow the trail
 	trail = common.order_by_distance(trail,initial_position)
 	
+	#custom balloon over the teen's head
+	self.base.teenager.update_thinking_balloon(false,['startled'])
+	self.base.teenager.is_talking = false
+	self.base.teenager.is_thinking = false
+	
 	"""
 	var id = 0
 	for piece in trail:

@@ -21,6 +21,7 @@ var _scroll_left = false
 var _scroll_right = false
 var _scroll_up = false
 var _scroll_down = false
+var _scroller_timer = false
 
 #init
 func _ready():
@@ -33,7 +34,7 @@ func _ready():
 	$camera/Scrollers/AreaUp.connect('mouse_exited',self,'update_scroller',['up',false])
 	$camera/Scrollers/AreaDown.connect('mouse_entered',self,'update_scroller',['down',true])
 	$camera/Scrollers/AreaDown.connect('mouse_exited',self,'update_scroller',['down',false])
-	
+	$camera/Scrollers/ScrollerTimer.connect('timeout',self,'update_scroller',['','',true])
 	
 #camera movement
 func _physics_process(delta):
@@ -75,7 +76,6 @@ func move_camera_to(to,delta):
 	
 	camera.global_position = camera.global_position + dir * camera_speed * delta
 	
-	
 #change the current zoom level of the camera
 func zoom_camera(zoom):
 	if zoom == target_zoom and camera.get_zoom().x >= min_zoom.x:
@@ -94,10 +94,19 @@ func _move_camera_with_mouse(delta):
 	
 	movement.x = int(_scroll_right) + (int(_scroll_left) * -1)
 	movement.y = int(_scroll_down) + int(_scroll_up) * -1
-	move_camera_to(movement,delta)
+	
+	if movement == Vector2(0,0):
+		_scroller_timer = false
+		$camera/Scrollers/ScrollerTimer.stop()
+	elif movement != Vector2(0,0) and _scroller_timer:
+		move_camera_to(movement,delta)
 
 #activate/deactivate scrollers on the edge of the screen
-func update_scroller(scroller,value):
+func update_scroller(scroller,value,timer=false):
+	if timer:
+		_scroller_timer = true
+		return
+	
 	match scroller:
 		'left':
 			_scroll_left = value
@@ -107,4 +116,10 @@ func update_scroller(scroller,value):
 			_scroll_up = value
 		'down':
 			_scroll_down = value
+		_:
+			_scroller_timer = false
+			return
+	
+	$camera/Scrollers/ScrollerTimer.start()
+
 

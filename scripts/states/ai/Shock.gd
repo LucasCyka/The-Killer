@@ -17,6 +17,11 @@ func init(base,state_position,state_time):
 	self.base.is_forced_state = false
 	self.base.connect("timer_finished",self,"exit")
 	
+	#custom balloon over the teen's head
+	self.base.teenager.update_thinking_balloon(false,['skull'])
+	self.base.teenager.is_talking = false
+	self.base.teenager.is_thinking = false
+	
 func update(delta):
 	pass
 	

@@ -73,7 +73,6 @@ func _ready():
 	teen_num = get_teenagers().size()
 	
 	emit_signal("loaded")
-	
 
 #day/night cycle
 func _process(delta):

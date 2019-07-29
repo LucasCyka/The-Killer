@@ -480,7 +480,7 @@ func set_fear(value,cause_panic=true,add_points=true):
 		score.set_score(level,int(points))
 		#call score animation
 		var game = get_parent().get_parent()
-		game.ui.play_score_animation(get_global_transform_with_canvas().origin,str(value * fear_modifier))
+		game.ui.play_score_animation(get_global_transform_with_canvas().origin,str(int(value * fear_modifier)))
 		
 		#show how many points the player earned
 		#var label = preload('res://scenes/FlyingLabel.tscn').instance()
