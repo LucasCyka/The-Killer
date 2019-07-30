@@ -57,6 +57,16 @@ var routine_dictionary = {
 #animations for wich teenager
 var animations = {}
 
+#traits and temporary effects are stored here
+var traits = {}
+
+enum TRAITS {
+	EMPTY = 0,
+	SLOW = 1,
+	FAST = 2,
+	HORNY = 3
+}
+
 #it's true when the teen needs to execute an animation from a state 'activity'
 var state_animation = false
 var custom_animation = null
@@ -76,7 +86,7 @@ var custom_balloons = []
 var current_path = []
 var current_target = Vector2(-666,-666)
 
-#teenager's modifiers
+#teenager's modifiers/effects
 var curiosity = 0 setget set_curiosity,get_curiosity
 var fear = 0 setget set_fear,get_fear
 var slow = false setget set_slow
@@ -85,7 +95,10 @@ var horny = false
 
 const slow_modifier = 0.5
 const fast_modifier = 1.5
-const base_speed = 60
+const base_speed = 50
+const fast_effect_duration = 100
+const normal_effect_duration = 1000
+const slow_effect_duration = 10000
 
 #the traps the teenagers has just falled to. Null is no trap.
 var traps = []
@@ -113,6 +126,9 @@ export (Texture) var mugshot
 #name of this teen
 export var teen_name = "Name Surname"
 
+#traits
+export (PoolIntArray) var teen_traits
+
 #world nodes
 onready var state_machine = $States
 onready var kinematic_teenager =  self
@@ -130,6 +146,7 @@ func _ready():
 	generate_animations()
 	update_talking_balloon()
 	update_thinking_balloon()
+	add_traits(teen_traits,false)
 	#update_animations()
 	
 func _process(delta):
@@ -138,7 +155,7 @@ func _process(delta):
 		decrease_modifiers()
 	update_animations()
 	check_tiredness()
-	
+	print(speed)
 #	print(traps)
 	#updates the debug label
 	$Animations/DebugState.text = state_machine.get_current_state()
@@ -543,9 +560,53 @@ func set_slow(value):
 	slow = value
 	
 	if slow:
+		print(speed)
 		speed -= speed * slow_modifier
+		print(speed)
 	else:
 		speed = base_speed
+		print(speed)
+		
+
+#add fixed traits/temporary effects
+func add_traits(traits,permanent=false):
+	#LAYOUT: traits[TRAIT][DURATION]
+	for trait in traits:
+		#don't add duplicated traits
+		if self.traits.keys().find(trait) != -1: continue
+		
+		match trait:
+			TRAITS.SLOW:
+				self.traits[TRAITS.SLOW] = fast_effect_duration
+				set_slow(true)
+			_:
+				#this teen don't have any traits
+				return
+				
+		if not permanent:
+			var effect_timer = preload('res://scenes/CustomTimer.tscn').instance()
+			effect_timer.connect('timeout',self,'remove_traits',[[trait],effect_timer])
+			add_child(effect_timer)
+			effect_timer.stop()
+			effect_timer.set_wait_time(self.traits[TRAITS.SLOW])
+			effect_timer.start()
+			
+#remove traits/effects from a teen
+func remove_traits(traits,timer=null):
+	if timer != null:
+		timer.disconnect('timeout',self,'remove_traits')
+		timer.call_deferred ('free')
+	
+	for trait in traits:
+		match trait:
+			TRAITS.SLOW:
+				set_slow(false)
+			_:
+				print("tried to remove a trait that doesn't exist")
+				return
+		self.traits.erase(trait)
+	
+	
 
 func set_is_indoor(value):
 	is_indoor = value

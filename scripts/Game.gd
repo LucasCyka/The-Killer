@@ -1,4 +1,4 @@
-tool
+#tool
 extends Node2D
 """
 	Control several aspects of the gameplay.
@@ -49,6 +49,9 @@ var teens_speed = {}
 #the initial number of teens in game
 var teen_num = 0 setget , get_teenagers_num
 
+#if theres light in the buildings on the game.
+var has_light = true
+
 #user interface
 onready var ui = $GameUI
 #types of traps
@@ -57,7 +60,8 @@ onready var trap_enum = preload("res://scripts/Traps.gd").TYPES
 onready var canvas_m = get_node("Lights'Shadows/CanvasModulate")
 #audio system, it plays music and sound effects.
 onready var audio_system = $Audio
-export (NodePath) var audio_path
+#2d lights
+onready var lights = $Lights
 
 #INITIALIZE
 func _ready():
@@ -77,13 +81,6 @@ func _ready():
 #day/night cycle
 func _process(delta):
 	daynightcycle()
-
-#give configuration warnings
-func _get_configuration_warning():
-	var warning = ""
-	if not audio_path:
-		warning = "Audio system not found! Added one as child of this node."
-	return warning
 
 #return all the teenagers in the game
 func get_teenagers():
@@ -173,17 +170,6 @@ func set_current_mode(value):
 		_:
 			#the game is paused...
 			pass
-	"""
-	if current_mode == MODE.HUNTING:
-		#init the hunting mode
-		disable_spawn_points()
-		ui.lock()
-	elif current_mode == MODE.PLANNING:
-		ui.unlock()
-	else:
-		#the game is paused...
-		pass
-	"""
 	
 func get_current_mode():
 	return current_mode
@@ -389,6 +375,7 @@ func update_time_speed(value):
 
 #update the speed of several things in-game. Timers, K-bodies etc...
 func update_game_speed():
+	print('da')
 	var teenagers = get_tree().get_nodes_in_group("AI")
 	##Teenagers speed##
 	for teen in teenagers:
@@ -447,7 +434,20 @@ func set_time(value):
 	if time / 60 == 24 or time >= 1440:
 		#one day has passed, restart the clock
 		time = 0
+	
+	if ((time / 60) >= 20 or (time / 60) <= 6) and has_light:
+		update_lights(true)
+	else:
+		update_lights(false)
 
+#turn lights on/off
+func update_lights(value):
+	if lights == null: return
+	
+	if value:
+		self.lights.show()
+	else: self.lights.hide()
+	
 func get_time():
 	return time
 

@@ -192,9 +192,8 @@ animations = [ {
 
 [node name="Main" type="Node2D"]
 script = ExtResource( 1 )
-time = 724
+time = 720
 points = 10000
-audio_path = NodePath("Audio")
 
 [node name="PlayerController" parent="." instance=ExtResource( 2 )]
 max_constraints = Vector2( 1349, 884 )
@@ -211,7 +210,6 @@ editor/display_folded = true
 position = Vector2( 761.936, 251.661 )
 gender = 1
 id = 1
-speed = 50
 sleep_time = 1200
 sleep_hours = 10
 death_icon = ExtResource( 5 )
@@ -237,7 +235,6 @@ tile_data = PoolIntArray( 524317, 3, 0, 524318, 42, 0, 524319, 38, 0, 589852, 0,
 [node name="Teenager2" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
 position = Vector2( 811.569, 251.553 )
-speed = 50
 sleep_time = 1
 is_talkative = false
 death_icon = ExtResource( 14 )
@@ -249,6 +246,7 @@ portrait_fear = ExtResource( 18 )
 portrait_panic = ExtResource( 19 )
 mugshot = ExtResource( 20 )
 teen_name = "Jack Bacon"
+teen_traits = PoolIntArray( 0 )
 
 [node name="Routines" type="Node" parent="AI/Teenager2"]
 editor/display_folded = true
@@ -535,7 +533,7 @@ tile_data = PoolIntArray( -1441770, 0, 0, -1441767, 0, 0, -1441758, 0, 0, -14417
 editor/display_folded = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Lights'Shadows"]
-color = Color( 0.998609, 0.993836, 0.946721, 1 )
+color = Color( 0.997706, 0.993609, 0.947153, 1 )
 
 [node name="IndoorLamp" type="Light2D" parent="Lights'Shadows"]
 visible = false
@@ -619,7 +617,7 @@ texture = ExtResource( 44 )
 position = Vector2( 799.806, 848.917 )
 z_index = 1
 frames = SubResource( 7 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]
@@ -642,4 +640,13 @@ texture = ExtResource( 52 )
 [node name="CustomTimer" parent="." instance=ExtResource( 53 )]
 
 [node name="Audio" parent="." instance=ExtResource( 54 )]
+
+[node name="Lights" type="Node2D" parent="."]
+visible = false
+
+[node name="Light1" type="Light2D" parent="Lights"]
+position = Vector2( 899.807, 193.161 )
+scale = Vector2( 0.719567, 0.580805 )
+z_index = 5
+texture = ExtResource( 38 )
 

@@ -65,6 +65,7 @@ func get_buttons():
 	var buttons = traps_ui.get_child(0).get_children() 
 	buttons = buttons + traps_ui.get_child(1).get_child(0).get_children()
 	buttons = buttons + misc_ui.get_child(0).get_children()
+	buttons = buttons + info_ui.get_child(1).get_children()
 	
 	for element in buttons:
 		if !element is TextureButton:
