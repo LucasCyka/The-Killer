@@ -9,6 +9,7 @@ var selected_teenager = null
 var _is_mouse_over = false
 var _mouse_click_pos = Vector2(-666,-666)
 
+onready var stats = [$Panel/Stat1,$Panel/Stat2,$Panel/Stat3] 
 onready var _panel_default_position = $Panel.rect_global_position
 
 #initialize
@@ -31,6 +32,25 @@ func _process(delta):
 	$Panel/Curiosity.text = "Cur.: " + str(int(selected_teenager.get_curiosity()))
 	$Panel/Traps.text = "TRAPS: " + str(selected_teenager.traps.size())
 	$Panel/TrapsID.text = "TRAP ID: " + str(selected_teenager.current_trap)
+	
+	#traits - sorry for the spaghetti below, i'm really tired, I can't
+	#think right.
+	if selected_teenager.traits.keys().size() != 0:
+		for trait in selected_teenager.traits.keys():
+			var txt_trait = ""
+			match trait:
+				selected_teenager.TRAITS.SLOW:
+					txt_trait = 'slow'
+			
+			if stats[0].text == "" and stats[0].text != txt_trait:
+				stats[0].text = txt_trait
+				stats[0].show()
+			elif stats[1].text == "" and stats[1].text != txt_trait:
+				stats[1].text = txt_trait
+				stats[1].show()
+			elif stats[2].text == "" and stats[2].text != txt_trait:
+				stats[2].text = txt_trait
+				stats[2].show()
 	
 	#drag the panel
 	if _is_mouse_over and _mouse_click_pos != Vector2(-666,-666):

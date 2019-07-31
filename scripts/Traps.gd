@@ -73,8 +73,14 @@ price,walkable,_name,desc,death_trap):
 func enter_panic(teenager):
 	teenager.state_machine.force_state('Panic')
 
+#add slow trait
 func decrease_speed(teenager):
-	teenager.set_slow(true)
+	teenager.add_traits([teenager.TRAITS.SLOW],false)
+	#teenager.set_slow(true)
+
+#lmao
+func make_horny():
+	pass
 
 func increase_fear():
 	pass

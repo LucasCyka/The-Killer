@@ -246,7 +246,7 @@ portrait_fear = ExtResource( 18 )
 portrait_panic = ExtResource( 19 )
 mugshot = ExtResource( 20 )
 teen_name = "Jack Bacon"
-teen_traits = PoolIntArray( 0 )
+teen_traits = PoolIntArray( 1 )
 
 [node name="Routines" type="Node" parent="AI/Teenager2"]
 editor/display_folded = true
@@ -617,7 +617,6 @@ texture = ExtResource( 44 )
 position = Vector2( 799.806, 848.917 )
 z_index = 1
 frames = SubResource( 7 )
-frame = 1
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]

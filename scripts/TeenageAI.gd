@@ -93,7 +93,7 @@ var slow = false setget set_slow
 var fast = false
 var horny = false
 
-const slow_modifier = 0.5
+const slow_modifier = 0.3
 const fast_modifier = 1.5
 const base_speed = 50
 const fast_effect_duration = 100
@@ -146,7 +146,7 @@ func _ready():
 	generate_animations()
 	update_talking_balloon()
 	update_thinking_balloon()
-	add_traits(teen_traits,false)
+	add_traits(teen_traits,true)
 	#update_animations()
 	
 func _process(delta):
@@ -155,7 +155,7 @@ func _process(delta):
 		decrease_modifiers()
 	update_animations()
 	check_tiredness()
-	print(speed)
+#	print(speed)
 #	print(traps)
 	#updates the debug label
 	$Animations/DebugState.text = state_machine.get_current_state()
@@ -560,11 +560,9 @@ func set_slow(value):
 	slow = value
 	
 	if slow:
-		print(speed)
-		speed -= speed * slow_modifier
-		print(speed)
+		speed -= base_speed * slow_modifier
 	else:
-		speed = base_speed
+		speed += base_speed * slow_modifier
 		print(speed)
 		
 
@@ -579,6 +577,7 @@ func add_traits(traits,permanent=false):
 			TRAITS.SLOW:
 				self.traits[TRAITS.SLOW] = fast_effect_duration
 				set_slow(true)
+				
 			_:
 				#this teen don't have any traits
 				return
