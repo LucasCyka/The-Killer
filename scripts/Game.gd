@@ -76,7 +76,6 @@ func _ready():
 	#initialzie the ai
 	init_teenagers()
 	teen_num = get_teenagers().size()
-	
 	emit_signal("loaded")
 
 #day/night cycle
@@ -395,6 +394,10 @@ func update_game_speed():
 						new_speed = new_speed * -1
 					ultra_speed:
 						new_speed = ((new_speed * 3.5) - base_spd) * -1
+					_:
+						#the game was paused, do nothing
+						new_speed = 0
+						pass
 				
 				#if teens_speed.keys().find(teen) != -1:
 				#	new_speed = teens_speed[teen]
@@ -410,6 +413,9 @@ func update_game_speed():
 						new_speed = ((new_speed * 2) - new_speed * 3.5)
 					default_speed:
 						new_speed = (new_speed * 2) - base_spd
+					_:
+						#the game was paused, do nothing
+						new_speed = 0
 				
 				#if teens_speed.keys().find(teen) == -1:
 				#	common.merge_dict(teens_speed,{teen:teen.speed})
@@ -427,13 +433,17 @@ func update_game_speed():
 						new_speed = (new_speed * 3.5 - (new_speed * 2))
 					default_speed:
 						new_speed = (new_speed * 3.5) - base_spd
-				
+					_:
+						#the game was paused, do nothing
+						new_speed = 0
+					
 				#if teens_speed.keys().find(teen) == -1:
 				#	common.merge_dict(teens_speed,{teen:teen.speed})
 				#	new_speed *= 3.5
 				#else:
 				#	new_speed = teens_speed[teen]
 				#	new_speed *= 3.5
+				"""
 			debug_speed:
 				previous_time_speed = debug_speed
 				anim_speed = 4
@@ -445,6 +455,7 @@ func update_game_speed():
 				else:
 					new_speed = teens_speed[teen]
 					new_speed *= 5
+				"""
 		
 		#kinematic body speed
 		teen.speed += new_speed
@@ -483,6 +494,7 @@ func get_points():
 
 func pause_game():
 	last_mode = get_current_mode()
+	previous_time_speed = -1
 	set_current_mode(MODE.PAUSED)
 	get_tree().paused = true
 	

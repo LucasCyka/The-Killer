@@ -4,18 +4,18 @@
 [ext_resource path="res://resources/anims/teenager.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://sprites/misc/thinking_balloon.png" type="Texture" id=3]
 [ext_resource path="res://sprites/misc/talking_balloon.png" type="Texture" id=4]
-[ext_resource path="res://sprites/misc/heart_icon.png" type="Texture" id=5]
-[ext_resource path="res://sprites/misc/pizza.png" type="Texture" id=6]
+[ext_resource path="res://sprites/misc/pizza.png" type="Texture" id=5]
+[ext_resource path="res://sprites/misc/bag.png" type="Texture" id=6]
 [ext_resource path="res://sprites/misc/money.png" type="Texture" id=7]
-[ext_resource path="res://sprites/misc/bag.png" type="Texture" id=8]
+[ext_resource path="res://sprites/misc/heart_icon.png" type="Texture" id=8]
 [ext_resource path="res://scenes/CustomTimer.tscn" type="PackedScene" id=9]
 [ext_resource path="res://sprites/misc/vice.png" type="Texture" id=10]
-[ext_resource path="res://sprites/misc/fish.png" type="Texture" id=11]
-[ext_resource path="res://sprites/misc/bait.png" type="Texture" id=12]
-[ext_resource path="res://sprites/misc/startled.png" type="Texture" id=13]
-[ext_resource path="res://sprites/misc/skull.png" type="Texture" id=14]
-[ext_resource path="res://sprites/misc/screaming.png" type="Texture" id=15]
-[ext_resource path="res://sprites/misc/fish2.png" type="Texture" id=16]
+[ext_resource path="res://sprites/misc/bait.png" type="Texture" id=11]
+[ext_resource path="res://sprites/misc/startled.png" type="Texture" id=12]
+[ext_resource path="res://sprites/misc/screaming.png" type="Texture" id=13]
+[ext_resource path="res://sprites/misc/fish2.png" type="Texture" id=14]
+[ext_resource path="res://sprites/misc/fish.png" type="Texture" id=15]
+[ext_resource path="res://sprites/misc/skull.png" type="Texture" id=16]
 [ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_1.png" type="Texture" id=17]
 [ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_2.png" type="Texture" id=18]
 [ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_3.png" type="Texture" id=19]
@@ -115,12 +115,12 @@ animations = [ {
 animations = [ {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "heart",
+"name": "pizza",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "pizza",
+"name": "bag",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
@@ -130,7 +130,7 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "bag",
+"name": "heart",
 "speed": 5.0
 } ]
 
@@ -143,37 +143,37 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "fish",
+"name": "bait",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "bait",
+"name": "startled",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "startled",
+"name": "screaming",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "love",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
-"name": "skull",
+"name": "fish2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
-"name": "screaming",
+"name": "fish",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
-"name": "fish2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "love",
+"name": "skull",
 "speed": 5.0
 } ]
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://scripts/Audio.gd" type="Script" id=1]
 [ext_resource path="res://audio/sounds/click.wav" type="AudioStream" id=2]
 [ext_resource path="res://audio/sounds/slash.wav" type="AudioStream" id=3]
 [ext_resource path="res://audio/sounds/blood.wav" type="AudioStream" id=4]
+[ext_resource path="res://audio/sounds/falling.wav" type="AudioStream" id=5]
 
 [node name="Audio" type="Node"]
 script = ExtResource( 1 )
@@ -32,4 +33,7 @@ pitch_scale = 0.5
 [node name="Blood" type="AudioStreamPlayer2D" parent="Sound2D"]
 stream = ExtResource( 4 )
 pitch_scale = 1.2
+
+[node name="Falling" type="AudioStreamPlayer2D" parent="Sound2D"]
+stream = ExtResource( 5 )
 
