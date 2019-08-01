@@ -146,6 +146,12 @@ func get_wall_tile():
 	#TODO: this will also return some floor tiles, change this later...
 	return $Tiles/Buildings
 
+#return the closest point on the map where the ai can get nasty
+func get_love_point(teen_pos):
+	var points = common.convert_to_world($Tiles/LovePoints.get_used_cells(),$Tiles/LovePoints)
+	points = common.order_by_distance(points,teen_pos)
+	return points.front()
+	
 #returns the tilemap for the pathfinding algorithm
 func get_pathfinding_tile():
 	return $Tiles/Path

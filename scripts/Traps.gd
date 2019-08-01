@@ -79,7 +79,8 @@ func decrease_speed(teenager):
 	#teenager.set_slow(true)
 
 #lmao
-func make_horny():
+func make_horny(teenager):
+	#TODO
 	pass
 
 func increase_fear():

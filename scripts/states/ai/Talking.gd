@@ -16,7 +16,6 @@ var teenagers = []
 #constructor
 func init(base,state_position,state_time):
 	self.base = base
-	
 	self.base.teenager.custom_animation = base.get_node('Idle')
 	self.base.connect("timer_finished",self,"exit")
 	self.position = state_position

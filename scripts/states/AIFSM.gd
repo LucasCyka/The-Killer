@@ -43,7 +43,8 @@ func _ready():
 		$Shitting:$Shitting.name,
 		$OnBed:$OnBed.name,
 		$SittingFloor:$SittingFloor.name,
-		$Fishing:$Fishing.name
+		$Fishing:$Fishing.name,
+		$InLove:$InLove.name
 	}
 	
 	for state in states:
@@ -79,7 +80,7 @@ func finish_state():
 		#print("STACKED TRAPS:")
 		#print(teenager.traps.size())
 	if _on_routine == true and is_routine_over == false:
-		#TODO: check if the routine is paused, if so then resume it instead
+		#check if the routine is paused, if so then resume it instead
 		#of going to the next one
 		if teenager.is_routine_paused:
 			#print("resuming routine...")
@@ -167,6 +168,12 @@ func check_forced_state(state):
 	if state == 'Lured' and current_state.name == 'Escaping':
 		return false
 	if current_state.name == 'Escaped':
+		return false
+	if state == 'InLove' and current_state.name == 'Escaping':
+		return false
+	if state == 'InLove' and current_state.name == 'Panic':
+		return false
+	if state == 'InLove' and current_state.name == 'Screaming':
 		return false
 #	if state == 'Panic' and current_state.name == 'Shock':
 #		return false

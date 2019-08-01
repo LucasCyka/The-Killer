@@ -77,4 +77,3 @@ func merge_dict(dest, source):
                 dest[key] = source_value     # add to dictionary 
 		else:
 			dest[key] = source[key]          # just add value to the dest
-

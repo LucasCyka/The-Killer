@@ -1,4 +1,4 @@
-[gd_scene load_steps=62 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/PlayerController.tscn" type="PackedScene" id=2]
@@ -37,23 +37,24 @@
 [ext_resource path="res://sprites/misc/path_0.png" type="Texture" id=35]
 [ext_resource path="res://sprites/misc/path_1.png" type="Texture" id=36]
 [ext_resource path="res://sprites/misc/exit_tile.png" type="Texture" id=37]
-[ext_resource path="res://sprites/misc/light2.png" type="Texture" id=38]
-[ext_resource path="res://sprites/misc/shadow.png" type="Texture" id=39]
-[ext_resource path="res://sprites/misc/shadow_interior.png" type="Texture" id=40]
-[ext_resource path="res://sprites/world_objects/female_bed_iteration1.png" type="Texture" id=41]
-[ext_resource path="res://sprites/world_objects/double_bed.png" type="Texture" id=42]
-[ext_resource path="res://sprites/world_objects/door.png" type="Texture" id=43]
-[ext_resource path="res://sprites/world_objects/pier_testing.png" type="Texture" id=44]
-[ext_resource path="res://sprites/world_objects/boat2.png" type="Texture" id=45]
-[ext_resource path="res://sprites/world_objects/boat3.png" type="Texture" id=46]
-[ext_resource path="res://sprites/world_objects/boat4.png" type="Texture" id=47]
-[ext_resource path="res://sprites/world_objects/boat5.png" type="Texture" id=48]
-[ext_resource path="res://sprites/world_objects/boat6.png" type="Texture" id=49]
-[ext_resource path="res://sprites/world_objects/boat.png" type="Texture" id=50]
-[ext_resource path="res://sprites/world_objects/table_iteration2.png" type="Texture" id=51]
-[ext_resource path="res://sprites/world_objects/bathroom.png" type="Texture" id=52]
-[ext_resource path="res://scenes/CustomTimer.tscn" type="PackedScene" id=53]
-[ext_resource path="res://scenes/Audio.tscn" type="PackedScene" id=54]
+[ext_resource path="res://sprites/prototype/misc/love_points.png" type="Texture" id=38]
+[ext_resource path="res://sprites/misc/light2.png" type="Texture" id=39]
+[ext_resource path="res://sprites/misc/shadow.png" type="Texture" id=40]
+[ext_resource path="res://sprites/misc/shadow_interior.png" type="Texture" id=41]
+[ext_resource path="res://sprites/world_objects/female_bed_iteration1.png" type="Texture" id=42]
+[ext_resource path="res://sprites/world_objects/double_bed.png" type="Texture" id=43]
+[ext_resource path="res://sprites/world_objects/door.png" type="Texture" id=44]
+[ext_resource path="res://sprites/world_objects/pier_testing.png" type="Texture" id=45]
+[ext_resource path="res://sprites/world_objects/boat2.png" type="Texture" id=46]
+[ext_resource path="res://sprites/world_objects/boat3.png" type="Texture" id=47]
+[ext_resource path="res://sprites/world_objects/boat4.png" type="Texture" id=48]
+[ext_resource path="res://sprites/world_objects/boat5.png" type="Texture" id=49]
+[ext_resource path="res://sprites/world_objects/boat6.png" type="Texture" id=50]
+[ext_resource path="res://sprites/world_objects/boat.png" type="Texture" id=51]
+[ext_resource path="res://sprites/world_objects/table_iteration2.png" type="Texture" id=52]
+[ext_resource path="res://sprites/world_objects/bathroom.png" type="Texture" id=53]
+[ext_resource path="res://scenes/CustomTimer.tscn" type="PackedScene" id=54]
+[ext_resource path="res://scenes/Audio.tscn" type="PackedScene" id=55]
 
 [sub_resource type="TileSet" id=1]
 0/name = "higher_walls.png 0"
@@ -182,9 +183,21 @@
 0/shapes = [  ]
 0/z_index = 0
 
-[sub_resource type="SpriteFrames" id=7]
+[sub_resource type="TileSet" id=7]
+0/name = "love_points.png 0"
+0/texture = ExtResource( 38 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 25, 25 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shapes = [  ]
+0/z_index = 0
+
+[sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ) ],
+"frames": [ ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -204,6 +217,7 @@ min_constraints = Vector2( -674, -369 )
 [node name="GameTimer" type="Timer" parent="."]
 
 [node name="AI" type="YSort" parent="."]
+editor/display_folded = true
 
 [node name="Teenager" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -220,6 +234,7 @@ portrait_neutral = ExtResource( 9 )
 portrait_fear = ExtResource( 10 )
 portrait_panic = ExtResource( 11 )
 mugshot = ExtResource( 12 )
+lover_path = NodePath("../Teenager2")
 teen_name = "Debra Claudette"
 
 [node name="Routines" type="Node" parent="AI/Teenager"]
@@ -530,6 +545,14 @@ cell_quadrant_size = 1
 format = 1
 tile_data = PoolIntArray( -1441770, 0, 0, -1441767, 0, 0, -1441758, 0, 0, -1441755, 0, 0, -1441751, 0, 0, -1441744, 0, 0, -1441739, 0, 0, -1376198, 0, 0, -1310709, 0, 0, -1310707, 0, 0, -1310704, 0, 0, -1310659, 0, 0, -1245176, 0, 0, -1179583, 0, 0, -1114107, 0, 0, -1048572, 0, 0, -982967, 0, 0, -720898, 0, 0, -720820, 0, 0, -393223, 0, 0, -393139, 0, 0, -196617, 0, 0, -65458, 0, 0, 65521, 0, 0, 393296, 0, 0 )
 
+[node name="LovePoints" type="TileMap" parent="Tiles"]
+z_index = 2
+tile_set = SubResource( 7 )
+cell_size = Vector2( 25, 25 )
+cell_quadrant_size = 1
+format = 1
+tile_data = PoolIntArray( 327746, 0, 0 )
+
 [node name="Lights'Shadows" type="Node" parent="."]
 editor/display_folded = true
 
@@ -540,7 +563,7 @@ color = Color( 0.997706, 0.993609, 0.947153, 1 )
 visible = false
 position = Vector2( 900.899, 199.733 )
 scale = Vector2( 0.747069, 0.666659 )
-texture = ExtResource( 38 )
+texture = ExtResource( 39 )
 energy = 1.3
 
 [node name="WorldSprites(DEBUG)" type="Node2D" parent="."]
@@ -550,104 +573,105 @@ editor/display_folded = true
 visible = false
 position = Vector2( 873.126, 200.078 )
 scale = Vector2( 2.31103, 1.80722 )
-texture = ExtResource( 39 )
+texture = ExtResource( 40 )
 flip_h = true
 
 [node name="Shadow2" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 948.935, -36.9515 )
 scale = Vector2( 2.31103, 1.50895 )
-texture = ExtResource( 39 )
+texture = ExtResource( 40 )
 flip_h = true
 
 [node name="Shadow3" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 611.149, 195.039 )
 scale = Vector2( 1.23358, 1.50895 )
-texture = ExtResource( 40 )
+texture = ExtResource( 41 )
 flip_h = true
 
 [node name="Shadow4" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 871.149, -44.961 )
 scale = Vector2( 1.23358, 1.50895 )
-texture = ExtResource( 40 )
+texture = ExtResource( 41 )
 flip_h = true
 
 [node name="Shadow5" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 710.905, -19.7342 )
 scale = Vector2( 1.23358, 0.96057 )
-texture = ExtResource( 40 )
+texture = ExtResource( 41 )
 flip_h = true
 
 [node name="Bed" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 731.401, 276.005 )
 z_index = -1
-texture = ExtResource( 41 )
+texture = ExtResource( 42 )
 
 [node name="Bed2" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 1025.51, 217.181 )
 z_index = 3
-texture = ExtResource( 42 )
+texture = ExtResource( 43 )
 
 [node name="Door" type="Sprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 912.755, 315.864 )
 z_index = 2
-texture = ExtResource( 43 )
+texture = ExtResource( 44 )
 
 [node name="Door3" type="Sprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 1287.48, 215.789 )
 z_index = 2
-texture = ExtResource( 43 )
+texture = ExtResource( 44 )
 
 [node name="Door2" type="Sprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 1089.06, 191.933 )
 scale = Vector2( 1.08658, 1 )
 z_index = 2
-texture = ExtResource( 43 )
+texture = ExtResource( 44 )
 
 [node name="Pier" type="Sprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 894.745, 776.968 )
 z_index = 2
-texture = ExtResource( 44 )
+texture = ExtResource( 45 )
 
 [node name="Boat" type="AnimatedSprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 799.806, 848.917 )
 z_index = 1
-frames = SubResource( 7 )
-frame = 1
+frames = SubResource( 8 )
+frame = 5
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 1448.07, 266.009 )
-texture = ExtResource( 51 )
+texture = ExtResource( 52 )
 
 [node name="Table5" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 1801.15, 231.735 )
 z_index = 2
-texture = ExtResource( 52 )
+texture = ExtResource( 53 )
 
 [node name="Table6" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 1215.98, -3.39085 )
 z_index = 2
-texture = ExtResource( 52 )
+texture = ExtResource( 53 )
 
-[node name="CustomTimer" parent="." instance=ExtResource( 53 )]
+[node name="CustomTimer" parent="." instance=ExtResource( 54 )]
 
-[node name="Audio" parent="." instance=ExtResource( 54 )]
+[node name="Audio" parent="." instance=ExtResource( 55 )]
 
 [node name="Lights" type="Node2D" parent="."]
+editor/display_folded = true
 visible = false
 
 [node name="Light1" type="Light2D" parent="Lights"]
 position = Vector2( 899.807, 193.161 )
 scale = Vector2( 0.719567, 0.580805 )
 z_index = 5
-texture = ExtResource( 38 )
+texture = ExtResource( 39 )
 

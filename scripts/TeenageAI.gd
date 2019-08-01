@@ -83,6 +83,7 @@ var is_thinking = false
 var facing_direction = Vector2(1,0)
 var custom_balloons = []
 var lover = null
+var was_in_love = false
 
 #used for pathfinding:
 var current_path = []
@@ -223,7 +224,6 @@ func pause_routine():
 #resume the last routine
 func resume_routine():
 	is_routine_paused = false
-	
 	state_machine.execute_routine(routines[id]["state"][last_routine],
 	routines[id]["pos"][last_routine],
 	routines[id]["time"][last_routine])
@@ -285,11 +285,16 @@ func walk(to):
 		
 		kinematic_teenager.move_and_slide(dir * speed)
 		
+		if abs(dir.round().x) == 1 and abs(dir.round().y) == 1:
+			#workaround for walking problem
+			return
+		
 		#get the direction the teenager is facing
 		facing_direction = dir.round()
 		#for some reason godot is returning '-0' sometimes... why?
 		if facing_direction.x == -0: facing_direction.x = 0
 		elif facing_direction.y == -0: facing_direction.y = 0
+		
 		
 		return false
 	else:
@@ -477,12 +482,18 @@ func check_tiredness():
 		
 #check if the teen is horny enough to go to the woods with his lover.
 func check_love():
-	if lover == null or not horny:
+	if lover == null or not horny or was_in_love:
 		return
 	else:
 		#check if this isn't a platonic relationship lmao
 		if lover.lover != self:
 			return
+		
+	
+	if not is_routine_paused and not state_machine.is_routine_over:
+		was_in_love = true
+		state_machine.force_state('InLove')
+		
 	
 	
 
@@ -583,6 +594,7 @@ func set_slow(value):
 #enable/disable horny modifier
 func set_horny(value):
 	horny = value
+	if not horny: was_in_love = false
 
 #set a lover (if this teen has one)
 func init_lover(path):
