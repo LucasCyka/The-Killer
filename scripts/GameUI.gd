@@ -121,7 +121,9 @@ func play_death_trap_anim(teen_spr,pos):
 	#setup and start teen anim
 	death_anim.get_animation('misc').track_insert_key(0,0,pos.origin)
 	death_anim.play("misc",-1,2)
-	#TODO: play sound effect
+	
+	#play sound effect
+	game.audio_system.play_sound('Taking')
 
 #play an animation on a label
 func play_label_animation(label):

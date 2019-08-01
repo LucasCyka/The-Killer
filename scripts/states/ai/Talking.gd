@@ -16,7 +16,7 @@ var teenagers = []
 #constructor
 func init(base,state_position,state_time):
 	self.base = base
-	#TODO: waiting anims instead
+	
 	self.base.teenager.custom_animation = base.get_node('Idle')
 	self.base.connect("timer_finished",self,"exit")
 	self.position = state_position
@@ -34,7 +34,8 @@ func update(delta):
 			base.state_timer.stop()
 		base.teenager.state_animation = false
 		base.teenager.custom_animation = null
-		base.teenager.walk(self.position)
+		if base.teenager.walk(self.position):#fix a weird bug
+			base.teenager.global_position = star.get_closest_tile(base.teenager.global_position)
 		base.teenager.is_talking = false
 	else:
 		if base.state_timer.is_stopped():

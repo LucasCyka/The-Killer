@@ -199,6 +199,13 @@ margin_right = 84.4768
 margin_bottom = 112.877
 text = "Trap ID:"
 
+[node name="STATE" type="Label" parent="Canvas/TeenagerInfo/Panel"]
+margin_left = -8.57962
+margin_top = -18.121
+margin_right = 75.4204
+margin_bottom = 12.8793
+text = "State"
+
 [node name="RecoverButton" type="TextureButton" parent="Canvas/TeenagerInfo/Panel"]
 margin_left = 15.5645
 margin_top = 100.0
@@ -587,6 +594,7 @@ autowrap = true
 
 [node name="InfoUI" type="Control" parent="Canvas"]
 pause_mode = 2
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 34 )

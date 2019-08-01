@@ -32,6 +32,7 @@ func _process(delta):
 	$Panel/Curiosity.text = "Cur.: " + str(int(selected_teenager.get_curiosity()))
 	$Panel/Traps.text = "TRAPS: " + str(selected_teenager.traps.size())
 	$Panel/TrapsID.text = "TRAP ID: " + str(selected_teenager.current_trap)
+	$Panel/STATE.text = str(selected_teenager.state_machine.get_current_state())
 	
 	#traits - sorry for the spaghetti below, i'm really tired, I can't
 	#think right.
@@ -41,6 +42,8 @@ func _process(delta):
 			match trait:
 				selected_teenager.TRAITS.SLOW:
 					txt_trait = 'slow'
+				selected_teenager.TRAITS.HORNY:
+					txt_trait = 'horny'
 			
 			if stats[0].text == "" and stats[0].text != txt_trait:
 				stats[0].text = txt_trait

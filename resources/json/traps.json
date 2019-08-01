@@ -27,7 +27,7 @@
 	"Name":["Underwear","Porn","Blood Trail"],
 	"Desc":["Lure 1.","Lure 2.","Lure 3."],
 	"Placement":["WORLD","WORLD","WORLD"],
-	"Requirements":[["MEN"],["MEN"],["NULL"]]
+	"Requirements":[["MEN","HORNY"],["MEN"],["NULL"]]
   },
   
   "MISC":{

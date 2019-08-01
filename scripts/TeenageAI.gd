@@ -82,6 +82,8 @@ var is_talking = false
 var is_thinking = false
 var facing_direction = Vector2(1,0)
 var custom_balloons = []
+var lover = null
+
 #used for pathfinding:
 var current_path = []
 var current_target = Vector2(-666,-666)
@@ -91,7 +93,7 @@ var curiosity = 0 setget set_curiosity,get_curiosity
 var fear = 0 setget set_fear,get_fear
 var slow = false setget set_slow
 var fast = false
-var horny = false
+var horny = false setget set_horny
 
 const slow_modifier = 0.3
 const fast_modifier = 1.5
@@ -123,6 +125,9 @@ export (Texture) var portrait_fear
 export (Texture) var portrait_panic
 export (Texture) var mugshot
 
+#teen's lover
+export (NodePath) var lover_path = ''
+
 #name of this teen
 export var teen_name = "Name Surname"
 
@@ -147,7 +152,7 @@ func _ready():
 	update_talking_balloon()
 	update_thinking_balloon()
 	add_traits(teen_traits,true)
-	#update_animations()
+	init_lover(lover_path)
 	
 func _process(delta):
 	if not is_routine_paused:
@@ -155,6 +160,7 @@ func _process(delta):
 		decrease_modifiers()
 	update_animations()
 	check_tiredness()
+	check_love()
 #	print(speed)
 #	print(traps)
 	#updates the debug label
@@ -469,7 +475,17 @@ func check_tiredness():
 		is_tired = true
 		state_machine.force_state('Sleeping')
 		
+#check if the teen is horny enough to go to the woods with his lover.
+func check_love():
+	if lover == null or not horny:
+		return
+	else:
+		#check if this isn't a platonic relationship lmao
+		if lover.lover != self:
+			return
 	
+	
+
 #return a string according to the gender
 func get_gender():
 	if gender == GENDER.MALE:
@@ -555,7 +571,7 @@ func remove_trap(value,free):
 			current_trap -= 1 
 			break
 
-#enable/unable slow modifier
+#enable/disable slow modifier
 func set_slow(value):
 	slow = value
 	
@@ -563,8 +579,16 @@ func set_slow(value):
 		speed -= base_speed * slow_modifier
 	else:
 		speed += base_speed * slow_modifier
-		print(speed)
 		
+#enable/disable horny modifier
+func set_horny(value):
+	horny = value
+
+#set a lover (if this teen has one)
+func init_lover(path):
+	if path != '' and path != null:
+		lover = get_node(path)
+		return
 
 #add fixed traits/temporary effects
 func add_traits(traits,permanent=false):
@@ -577,7 +601,9 @@ func add_traits(traits,permanent=false):
 			TRAITS.SLOW:
 				self.traits[TRAITS.SLOW] = fast_effect_duration
 				set_slow(true)
-				
+			TRAITS.HORNY:
+				self.traits[TRAITS.HORNY] = slow_effect_duration
+				set_horny(true)
 			_:
 				#this teen don't have any traits
 				return
@@ -587,7 +613,7 @@ func add_traits(traits,permanent=false):
 			effect_timer.connect('timeout',self,'remove_traits',[[trait],effect_timer])
 			add_child(effect_timer)
 			effect_timer.stop()
-			effect_timer.set_wait_time(self.traits[TRAITS.SLOW])
+			effect_timer.set_wait_time(self.traits[trait])
 			effect_timer.start()
 			
 #remove traits/effects from a teen
@@ -600,6 +626,8 @@ func remove_traits(traits,timer=null):
 		match trait:
 			TRAITS.SLOW:
 				set_slow(false)
+			TRAITS.HORNY:
+				set_horny(false)
 			_:
 				print("tried to remove a trait that doesn't exist")
 				return
