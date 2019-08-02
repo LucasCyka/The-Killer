@@ -80,8 +80,7 @@ func decrease_speed(teenager):
 
 #lmao
 func make_horny(teenager):
-	#TODO
-	pass
+	teenager.add_traits([teenager.TRAITS.HORNY],false)
 
 func increase_fear():
 	pass

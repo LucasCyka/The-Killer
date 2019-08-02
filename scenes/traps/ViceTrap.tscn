@@ -29,6 +29,7 @@ script = ExtResource( 1 )
 
 [node name="Texture" type="AnimatedSprite" parent="."]
 frames = SubResource( 1 )
+frame = 2
 playing = true
 
 [node name="DetectionRadius" type="Area2D" parent="Texture"]

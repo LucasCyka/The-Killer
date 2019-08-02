@@ -39,6 +39,7 @@ var is_broken = false
 #effects this object can cause when activated
 var effects = {
 	0:[funcref(self,"startle")],
+	1:[funcref(self,"turn_off_lights")],
 	
 }
 
@@ -54,18 +55,42 @@ func _ready():
 	else:
 		$Button.hide()
 		
-	
-
 func _process(delta):
 	pass
 
+#when a teen starts to use the object
+func use(teen):
+	current_teen.append(teen)
+
+#when a teen stops using the object
+func leave(teen):
+	current_teen.remove(current_teen.find(teen))
+
 #trys will activate the effects of this trap
 func activate():
-	pass
+	for effect in effects[id]:
+		effect.call_func()
 
 ##Effects##
-func startle(teenager):
-	pass
+func startle():
+	if current_teen == []:return
+	
+	var pos = star.get_closest_tile(self.global_position)
+	pos = star.get_closest_tile(Vector2(pos.x,pos.y+50))
+	
+	for teenager in current_teen:
+		if teenager.state_machine.check_forced_state('Startled'):
+			teenager.state_machine.state_position = pos
+			teenager.state_machine.force_state('Startled')
+			
+			teenager.set_fear(teenager.get_fear()+10,true)
+			teenager.set_curiosity(teenager.get_curiosity()+10,true)
+
+func turn_off_lights():
+	var game = get_parent().get_parent()
+	game.has_light = false
+	game.update_lights(false)
+	#TODO: sound effect
 
 func broke_obj():
 	pass

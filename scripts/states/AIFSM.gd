@@ -44,7 +44,8 @@ func _ready():
 		$OnBed:$OnBed.name,
 		$SittingFloor:$SittingFloor.name,
 		$Fishing:$Fishing.name,
-		$InLove:$InLove.name
+		$InLove:$InLove.name,
+		$CheckingLight:$CheckingLight.name
 	}
 	
 	for state in states:
@@ -174,6 +175,16 @@ func check_forced_state(state):
 	if state == 'InLove' and current_state.name == 'Panic':
 		return false
 	if state == 'InLove' and current_state.name == 'Screaming':
+		return false
+	if state == 'CheckingLight' and current_state.name == 'Sleeping':
+		return false
+	if state == 'CheckingLight' and current_state.name == 'Panic':
+		return false
+	if state == 'CheckingLight' and current_state.name == 'Shock':
+		return false
+	if state == 'CheckingLight' and current_state.name == 'Screaming':
+		return false
+	if state == 'CheckingLight' and current_state.name == 'Crippled':
 		return false
 #	if state == 'Panic' and current_state.name == 'Shock':
 #		return false

@@ -25,6 +25,7 @@ func init(base,state_position,state_time):
 	self.teenager.state_animation = false
 	self.lover = self.teenager.lover
 	self.base.state_timer.stop()
+	self.finished = false
 	timer = preload('res://scenes/CustomTimer.tscn').instance()
 	add_child(timer)
 	timer.stop()
@@ -48,6 +49,7 @@ func update(delta):
 			lover.state_machine.force_state('InLove')
 		else: exit()
 	elif lover_point == null:
+		found_lover = true
 		#search the closest lover point
 		lover_point = teenager.get_parent().get_parent().get_love_point(teenager.global_position)
 		lover.state_machine.get_node('InLove').lover_point = lover_point
@@ -68,23 +70,19 @@ func update(delta):
 
 
 func exit():
+	if base.is_forced_state:
+		base._on_routine = false
+	else: base._on_routine = true
+	
 	timer.disconnect('timeout',self,'exit')
 	timer.call_deferred('free')
+	self.base = null
 	timer = null
 	found_lover = false
 	lover_point = null
 	timer_started = false
 	
-	#if finished:
-	#	base._on_routine = true
-	#elif base.i:
-	#	base._on_routine = false
-	if base.is_forced_state:
-		base._on_routine = false
-	else: base._on_routine = true
-	
 	emit_signal("finished")
-	finished = false
 
 	
 	

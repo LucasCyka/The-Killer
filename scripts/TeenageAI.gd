@@ -84,6 +84,7 @@ var facing_direction = Vector2(1,0)
 var custom_balloons = []
 var lover = null
 var was_in_love = false
+var checked_light = false
 
 #used for pathfinding:
 var current_path = []
@@ -100,8 +101,8 @@ const slow_modifier = 0.3
 const fast_modifier = 1.5
 const base_speed = 50
 const fast_effect_duration = 100
-const normal_effect_duration = 1000
-const slow_effect_duration = 10000
+const normal_effect_duration = 500
+const slow_effect_duration = 700
 
 #the traps the teenagers has just falled to. Null is no trap.
 var traps = []
@@ -162,6 +163,8 @@ func _process(delta):
 	update_animations()
 	check_tiredness()
 	check_love()
+	check_lights()
+	
 #	print(speed)
 #	print(traps)
 	#updates the debug label
@@ -493,10 +496,19 @@ func check_love():
 	if not is_routine_paused and not state_machine.is_routine_over:
 		was_in_love = true
 		state_machine.force_state('InLove')
-		
-	
-	
 
+#check if the lighs on the building you are is off
+func check_lights():
+	var game = get_parent().get_parent()
+	if not ((game.time / 60) >= 20 or (game.time / 60) <= 6):
+		return
+	if checked_light or not is_indoor or game.has_light: return
+	
+	if state_machine.check_forced_state('CheckingLight'):
+		state_machine.force_state('CheckingLight')
+		checked_light = true
+	
+	
 #return a string according to the gender
 func get_gender():
 	if gender == GENDER.MALE:
@@ -595,7 +607,7 @@ func set_slow(value):
 func set_horny(value):
 	horny = value
 	if not horny: was_in_love = false
-
+	
 #set a lover (if this teen has one)
 func init_lover(path):
 	if path != '' and path != null:
@@ -645,8 +657,6 @@ func remove_traits(traits,timer=null):
 				return
 		self.traits.erase(trait)
 	
-	
-
 func set_is_indoor(value):
 	is_indoor = value
 	
@@ -664,6 +674,14 @@ func is_object_visible(object):
 	
 	if wall_cast.is_colliding():
 		return wall_cast.get_collider().name == object.name
+
+func is_teen_visible(teen):
+	wall_cast.set_cast_to(teen.global_position - wall_cast.global_position)
+	wall_cast.force_raycast_update()
+	
+	if wall_cast.is_colliding():
+		return wall_cast.get_collider().get_parent().name == teen.name
+	
 
 #returns the sprite of the current teen's animation-frame.
 func get_teen_texture():

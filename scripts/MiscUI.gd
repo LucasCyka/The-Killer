@@ -9,6 +9,7 @@ signal new_misc
 onready var object_panel = $ObjectPanel
 
 var base = null
+var current_object = null
 
 #constructor
 func init(base):
@@ -21,6 +22,7 @@ func init(base):
 		#only if they are pickable
 		if obj.is_clickable:
 			obj.get_node("Button").connect("pressed",self,"show_object_panel",[obj])
+			
 
 #hunt button pressed state
 func hunt():
@@ -60,13 +62,18 @@ func show_object_panel(obj):
 	if not $ObjectPanel.is_visible():
 		object_panel.show()
 		$ObjectPanel/Object/Close.connect('pressed',self,'hide_object_panel')
+		
+	current_object = obj
 
 func hide_object_panel():
 	$ObjectPanel/Object/Close.disconnect('pressed',self,'hide_object_panel')
 	object_panel.hide()
+	current_object = null
 	
 func activate_object():
-	pass
+	#TODO: sound effect
+	#TODO: use money
+	if current_object != null: current_object.activate()
 
 func _on_new_misc():
 	emit_signal("new_misc")

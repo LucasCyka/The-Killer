@@ -151,7 +151,11 @@ func get_love_point(teen_pos):
 	var points = common.convert_to_world($Tiles/LovePoints.get_used_cells(),$Tiles/LovePoints)
 	points = common.order_by_distance(points,teen_pos)
 	return points.front()
-	
+
+#return all the objects in the game
+func get_world_objects():
+	return get_tree().get_nodes_in_group('Object')
+
 #returns the tilemap for the pathfinding algorithm
 func get_pathfinding_tile():
 	return $Tiles/Path

@@ -41,6 +41,9 @@ func init(base,state_position,state_time):
 	_timer.set_one_shot(true)
 	_timer.start()
 	
+	#trigger panic in nearby teens
+	do_panic()
+	
 	#custom balloon over the teen's head
 	self.base.teenager.update_thinking_balloon(false,['skull'])
 	self.base.teenager.is_talking = false
@@ -259,6 +262,18 @@ func is_player_visible():
 				return true
 	return false
 
+#trigger panic in nearby teenagers
+func do_panic():
+	for teen in teenagers:
+		var state = teen.state_machine.get_current_state()
+		var dis = teen.global_position.distance_to(base.teenager.global_position)
+		if teen != base.teenager:
+			#TODO: check if the other teen can see you
+			if state != 'Shock' and state != 'Panic' and state != 'Escaping':
+				if dis < 70 and base.teenager.is_teen_visible(teen):
+					teen.state_machine.force_state('Panic')
+				elif dis < 20:
+					teen.state_machine.force_state('Panic')
 #destructor
 func exit():
 	if _timer != null:

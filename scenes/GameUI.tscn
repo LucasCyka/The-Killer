@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=2]
+[gd_scene load_steps=70 format=2]
 
 [ext_resource path="res://scripts/GameUI.gd" type="Script" id=1]
 [ext_resource path="res://scripts/TeenagerInfo.gd" type="Script" id=2]
@@ -32,36 +32,38 @@
 [ext_resource path="res://sprites/gui/hunt_btn_presse_iteration3.png" type="Texture" id=30]
 [ext_resource path="res://sprites/gui/hunt_btn_hover_iteration3.png" type="Texture" id=31]
 [ext_resource path="res://sprites/gui/object_info_panel_interation2.png" type="Texture" id=32]
-[ext_resource path="res://sprites/gui/object_close_normal.png" type="Texture" id=33]
-[ext_resource path="res://scripts/InfoUI.gd" type="Script" id=34]
-[ext_resource path="res://sprites/gui/score_background.png" type="Texture" id=35]
-[ext_resource path="res://sprites/gui/money_background.png" type="Texture" id=36]
-[ext_resource path="res://sprites/gui/teensinfo_background.png" type="Texture" id=37]
-[ext_resource path="res://sprites/gui/popcorn.png" type="Texture" id=38]
-[ext_resource path="res://fonts/data/Clock.tres" type="DynamicFont" id=39]
-[ext_resource path="res://sprites/gui/clock_background.png" type="Texture" id=40]
-[ext_resource path="res://sprites/gui/btn_pause_normal.png" type="Texture" id=41]
-[ext_resource path="res://sprites/gui/btn_pause_pressed.png" type="Texture" id=42]
-[ext_resource path="res://sprites/gui/btn_pause_hover.png" type="Texture" id=43]
-[ext_resource path="res://sprites/gui/btn_speed1_normal.png" type="Texture" id=44]
-[ext_resource path="res://sprites/gui/btn_speed1_pressed.png" type="Texture" id=45]
-[ext_resource path="res://sprites/gui/btn_speed1_hover.png" type="Texture" id=46]
-[ext_resource path="res://sprites/gui/btn_speed2_normal.png" type="Texture" id=47]
-[ext_resource path="res://sprites/gui/btn_speed2_pressed.png" type="Texture" id=48]
-[ext_resource path="res://sprites/gui/btn_speed2_hover.png" type="Texture" id=49]
-[ext_resource path="res://sprites/gui/btn_speed3_normal.png" type="Texture" id=50]
-[ext_resource path="res://sprites/gui/btn_speed3_pressed.png" type="Texture" id=51]
-[ext_resource path="res://sprites/gui/btn_speed3_hover.png" type="Texture" id=52]
-[ext_resource path="res://sprites/gui/timeIcon_moon.png" type="Texture" id=53]
-[ext_resource path="res://sprites/prototype/ui/warning_base.png" type="Texture" id=54]
-[ext_resource path="res://sprites/gui/fc_background_bar.png" type="Texture" id=55]
-[ext_resource path="res://sprites/gui/fc_over_bar.png" type="Texture" id=56]
-[ext_resource path="res://sprites/gui/fc_progress_bar.png" type="Texture" id=57]
-[ext_resource path="res://sprites/prototype/ui/fear_progress_background.png" type="Texture" id=58]
-[ext_resource path="res://sprites/prototype/ui/fear_progress.png" type="Texture" id=59]
-[ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=60]
-[ext_resource path="res://sprites/characters/male_1/dying/dying_1_down28.png" type="Texture" id=61]
-[ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=62]
+[ext_resource path="res://sprites/gui/use_btn_pressed.png" type="Texture" id=33]
+[ext_resource path="res://sprites/gui/use_btn_hover.png" type="Texture" id=34]
+[ext_resource path="res://sprites/gui/object_close_normal.png" type="Texture" id=35]
+[ext_resource path="res://scripts/InfoUI.gd" type="Script" id=36]
+[ext_resource path="res://sprites/gui/score_background.png" type="Texture" id=37]
+[ext_resource path="res://sprites/gui/money_background.png" type="Texture" id=38]
+[ext_resource path="res://sprites/gui/teensinfo_background.png" type="Texture" id=39]
+[ext_resource path="res://sprites/gui/popcorn.png" type="Texture" id=40]
+[ext_resource path="res://fonts/data/Clock.tres" type="DynamicFont" id=41]
+[ext_resource path="res://sprites/gui/clock_background.png" type="Texture" id=42]
+[ext_resource path="res://sprites/gui/btn_pause_normal.png" type="Texture" id=43]
+[ext_resource path="res://sprites/gui/btn_pause_pressed.png" type="Texture" id=44]
+[ext_resource path="res://sprites/gui/btn_pause_hover.png" type="Texture" id=45]
+[ext_resource path="res://sprites/gui/btn_speed1_normal.png" type="Texture" id=46]
+[ext_resource path="res://sprites/gui/btn_speed1_pressed.png" type="Texture" id=47]
+[ext_resource path="res://sprites/gui/btn_speed1_hover.png" type="Texture" id=48]
+[ext_resource path="res://sprites/gui/btn_speed2_normal.png" type="Texture" id=49]
+[ext_resource path="res://sprites/gui/btn_speed2_pressed.png" type="Texture" id=50]
+[ext_resource path="res://sprites/gui/btn_speed2_hover.png" type="Texture" id=51]
+[ext_resource path="res://sprites/gui/btn_speed3_normal.png" type="Texture" id=52]
+[ext_resource path="res://sprites/gui/btn_speed3_pressed.png" type="Texture" id=53]
+[ext_resource path="res://sprites/gui/btn_speed3_hover.png" type="Texture" id=54]
+[ext_resource path="res://sprites/gui/timeIcon_moon.png" type="Texture" id=55]
+[ext_resource path="res://sprites/prototype/ui/warning_base.png" type="Texture" id=56]
+[ext_resource path="res://sprites/gui/fc_background_bar.png" type="Texture" id=57]
+[ext_resource path="res://sprites/gui/fc_over_bar.png" type="Texture" id=58]
+[ext_resource path="res://sprites/gui/fc_progress_bar.png" type="Texture" id=59]
+[ext_resource path="res://sprites/prototype/ui/fear_progress_background.png" type="Texture" id=60]
+[ext_resource path="res://sprites/prototype/ui/fear_progress.png" type="Texture" id=61]
+[ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=62]
+[ext_resource path="res://sprites/characters/male_1/dying/dying_1_down28.png" type="Texture" id=63]
+[ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=64]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 25 )
@@ -532,7 +534,6 @@ z_index = -1
 texture = ExtResource( 27 )
 
 [node name="MiscUI" type="Control" parent="Canvas"]
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 28 )
@@ -552,7 +553,6 @@ texture_pressed = ExtResource( 30 )
 texture_hover = ExtResource( 31 )
 
 [node name="ObjectPanel" type="Control" parent="Canvas/MiscUI"]
-editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -567,13 +567,15 @@ margin_top = 7.0
 margin_right = -55.0
 margin_bottom = 32.0
 texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 33 )
+texture_hover = ExtResource( 34 )
 
 [node name="Close" type="TextureButton" parent="Canvas/MiscUI/ObjectPanel/Object"]
 margin_left = 29.6651
 margin_top = -42.0076
 margin_right = 54.6651
 margin_bottom = -32.0076
-texture_normal = ExtResource( 33 )
+texture_normal = ExtResource( 35 )
 
 [node name="Name" type="Label" parent="Canvas/MiscUI/ObjectPanel/Object"]
 margin_left = -55.0
@@ -595,9 +597,10 @@ autowrap = true
 
 [node name="InfoUI" type="Control" parent="Canvas"]
 pause_mode = 2
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 34 )
+script = ExtResource( 36 )
 
 [node name="InfoPanel" type="Control" parent="Canvas/InfoUI"]
 pause_mode = 2
@@ -617,7 +620,7 @@ text = "0000000"
 [node name="background" type="Sprite" parent="Canvas/InfoUI/InfoPanel/Score"]
 position = Vector2( 18.098, 2.552 )
 z_index = -1
-texture = ExtResource( 35 )
+texture = ExtResource( 37 )
 
 [node name="Points" type="Label" parent="Canvas/InfoUI/InfoPanel"]
 editor/display_folded = true
@@ -631,7 +634,7 @@ text = "$10,000"
 [node name="background" type="Sprite" parent="Canvas/InfoUI/InfoPanel/Points"]
 position = Vector2( 17, 3.543 )
 z_index = -1
-texture = ExtResource( 36 )
+texture = ExtResource( 38 )
 
 [node name="Teens" type="Label" parent="Canvas/InfoUI/InfoPanel"]
 editor/display_folded = true
@@ -645,7 +648,7 @@ text = "5/10"
 [node name="background" type="Sprite" parent="Canvas/InfoUI/InfoPanel/Teens"]
 position = Vector2( 2.098, 2.552 )
 z_index = -1
-texture = ExtResource( 37 )
+texture = ExtResource( 39 )
 
 [node name="Fun" type="Label" parent="Canvas/InfoUI/InfoPanel"]
 editor/display_folded = true
@@ -658,7 +661,7 @@ custom_fonts/font = ExtResource( 8 )
 [node name="background" type="Sprite" parent="Canvas/InfoUI/InfoPanel/Fun"]
 position = Vector2( -7.902, 2.552 )
 z_index = -1
-texture = ExtResource( 38 )
+texture = ExtResource( 40 )
 
 [node name="Paused" type="Label" parent="Canvas/InfoUI/InfoPanel"]
 visible = false
@@ -666,7 +669,7 @@ margin_left = 260.0
 margin_top = 190.0
 margin_right = 356.0
 margin_bottom = 225.0
-custom_fonts/font = ExtResource( 39 )
+custom_fonts/font = ExtResource( 41 )
 text = "PAUSED
 "
 
@@ -674,14 +677,14 @@ text = "PAUSED
 pause_mode = 2
 editor/display_folded = true
 position = Vector2( 551.559, 18 )
-texture = ExtResource( 40 )
+texture = ExtResource( 42 )
 
 [node name="Label" type="Label" parent="Canvas/InfoUI/Clock"]
 margin_left = -37.5726
 margin_top = -4.60336
 margin_right = 42.4274
 margin_bottom = 11.3966
-custom_fonts/font = ExtResource( 39 )
+custom_fonts/font = ExtResource( 41 )
 text = "14:00"
 
 [node name="PauseBtn" type="TextureButton" parent="Canvas/InfoUI/Clock"]
@@ -690,9 +693,9 @@ margin_left = -42.0
 margin_top = 18.0
 margin_right = -29.0
 margin_bottom = 32.0
-texture_normal = ExtResource( 41 )
-texture_pressed = ExtResource( 42 )
-texture_hover = ExtResource( 43 )
+texture_normal = ExtResource( 43 )
+texture_pressed = ExtResource( 44 )
+texture_hover = ExtResource( 45 )
 
 [node name="NormalSpdBtn" type="TextureButton" parent="Canvas/InfoUI/Clock"]
 pause_mode = 2
@@ -700,9 +703,9 @@ margin_left = -4.0
 margin_top = 18.0
 margin_right = 10.0
 margin_bottom = 32.0
-texture_normal = ExtResource( 44 )
-texture_pressed = ExtResource( 45 )
-texture_hover = ExtResource( 46 )
+texture_normal = ExtResource( 46 )
+texture_pressed = ExtResource( 47 )
+texture_hover = ExtResource( 48 )
 
 [node name="FastSpdBtn" type="TextureButton" parent="Canvas/InfoUI/Clock"]
 pause_mode = 2
@@ -710,9 +713,9 @@ margin_left = 12.0
 margin_top = 18.0
 margin_right = 26.0
 margin_bottom = 32.0
-texture_normal = ExtResource( 47 )
-texture_pressed = ExtResource( 48 )
-texture_hover = ExtResource( 49 )
+texture_normal = ExtResource( 49 )
+texture_pressed = ExtResource( 50 )
+texture_hover = ExtResource( 51 )
 
 [node name="FastSpdBtn2" type="TextureButton" parent="Canvas/InfoUI/Clock"]
 pause_mode = 2
@@ -720,13 +723,13 @@ margin_left = 28.0
 margin_top = 18.0
 margin_right = 42.0
 margin_bottom = 32.0
-texture_normal = ExtResource( 50 )
-texture_pressed = ExtResource( 51 )
-texture_hover = ExtResource( 52 )
+texture_normal = ExtResource( 52 )
+texture_pressed = ExtResource( 53 )
+texture_hover = ExtResource( 54 )
 
 [node name="TimeIcon" type="Sprite" parent="Canvas/InfoUI/Clock"]
 position = Vector2( -37.3179, -10.4644 )
-texture = ExtResource( 53 )
+texture = ExtResource( 55 )
 
 [node name="FCSlots" type="Control" parent="Canvas/InfoUI"]
 editor/display_folded = true
@@ -737,7 +740,7 @@ margin_bottom = 95.0
 
 [node name="Slot1" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
 position = Vector2( 510, 30 )
-texture = ExtResource( 54 )
+texture = ExtResource( 56 )
 
 [node name="PortraitBtn" type="TextureButton" parent="Canvas/InfoUI/FCSlots/Slot1"]
 margin_left = -62.0
@@ -751,9 +754,9 @@ margin_top = -5.0
 margin_right = 60.0
 margin_bottom = 1.0
 value = 10.0
-texture_under = ExtResource( 55 )
-texture_over = ExtResource( 56 )
-texture_progress = ExtResource( 57 )
+texture_under = ExtResource( 57 )
+texture_over = ExtResource( 58 )
+texture_progress = ExtResource( 59 )
 
 [node name="CuriosityProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot1"]
 margin_left = -21.0
@@ -761,14 +764,14 @@ margin_top = 2.0
 margin_right = 60.0
 margin_bottom = 6.0
 value = 10.0
-texture_under = ExtResource( 58 )
-texture_progress = ExtResource( 59 )
+texture_under = ExtResource( 60 )
+texture_progress = ExtResource( 61 )
 
 [node name="Slot2" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
 editor/display_folded = true
 visible = false
 position = Vector2( 510, 70 )
-texture = ExtResource( 54 )
+texture = ExtResource( 56 )
 
 [node name="PortraitBtn" type="TextureButton" parent="Canvas/InfoUI/FCSlots/Slot2"]
 margin_left = -62.0
@@ -782,9 +785,9 @@ margin_top = -5.0
 margin_right = 60.0
 margin_bottom = 1.0
 value = 10.0
-texture_under = ExtResource( 55 )
-texture_over = ExtResource( 56 )
-texture_progress = ExtResource( 57 )
+texture_under = ExtResource( 57 )
+texture_over = ExtResource( 58 )
+texture_progress = ExtResource( 59 )
 
 [node name="CuriosityProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot2"]
 margin_left = -21.0
@@ -792,14 +795,14 @@ margin_top = 2.0
 margin_right = 60.0
 margin_bottom = 6.0
 value = 10.0
-texture_under = ExtResource( 58 )
-texture_progress = ExtResource( 59 )
+texture_under = ExtResource( 60 )
+texture_progress = ExtResource( 61 )
 
 [node name="Slot3" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
 editor/display_folded = true
 visible = false
 position = Vector2( 510, 110 )
-texture = ExtResource( 54 )
+texture = ExtResource( 56 )
 
 [node name="PortraitBtn" type="TextureButton" parent="Canvas/InfoUI/FCSlots/Slot3"]
 margin_left = -62.0
@@ -813,9 +816,9 @@ margin_top = -5.0
 margin_right = 60.0
 margin_bottom = 1.0
 value = 10.0
-texture_under = ExtResource( 55 )
-texture_over = ExtResource( 56 )
-texture_progress = ExtResource( 57 )
+texture_under = ExtResource( 57 )
+texture_over = ExtResource( 58 )
+texture_progress = ExtResource( 59 )
 
 [node name="CuriosityProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot3"]
 margin_left = -21.0
@@ -823,14 +826,14 @@ margin_top = 2.0
 margin_right = 60.0
 margin_bottom = 6.0
 value = 10.0
-texture_under = ExtResource( 58 )
-texture_progress = ExtResource( 59 )
+texture_under = ExtResource( 60 )
+texture_progress = ExtResource( 61 )
 
 [node name="Slot4" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
 editor/display_folded = true
 visible = false
 position = Vector2( 510, 150 )
-texture = ExtResource( 54 )
+texture = ExtResource( 56 )
 
 [node name="PortraitBtn" type="TextureButton" parent="Canvas/InfoUI/FCSlots/Slot4"]
 margin_left = -62.0
@@ -844,9 +847,9 @@ margin_top = -5.0
 margin_right = 60.0
 margin_bottom = 1.0
 value = 10.0
-texture_under = ExtResource( 55 )
-texture_over = ExtResource( 56 )
-texture_progress = ExtResource( 57 )
+texture_under = ExtResource( 57 )
+texture_over = ExtResource( 58 )
+texture_progress = ExtResource( 59 )
 
 [node name="CuriosityProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot4"]
 margin_left = -21.0
@@ -854,14 +857,14 @@ margin_top = 2.0
 margin_right = 60.0
 margin_bottom = 6.0
 value = 10.0
-texture_under = ExtResource( 58 )
-texture_progress = ExtResource( 59 )
+texture_under = ExtResource( 60 )
+texture_progress = ExtResource( 61 )
 
 [node name="Slot5" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
 editor/display_folded = true
 visible = false
 position = Vector2( 510, 190 )
-texture = ExtResource( 54 )
+texture = ExtResource( 56 )
 
 [node name="PortraitBtn" type="TextureButton" parent="Canvas/InfoUI/FCSlots/Slot5"]
 margin_left = -62.0
@@ -875,9 +878,9 @@ margin_top = -5.0
 margin_right = 60.0
 margin_bottom = 1.0
 value = 10.0
-texture_under = ExtResource( 55 )
-texture_over = ExtResource( 56 )
-texture_progress = ExtResource( 57 )
+texture_under = ExtResource( 57 )
+texture_over = ExtResource( 58 )
+texture_progress = ExtResource( 59 )
 
 [node name="CuriosityProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot5"]
 margin_left = -21.0
@@ -885,14 +888,14 @@ margin_top = 2.0
 margin_right = 60.0
 margin_bottom = 6.0
 value = 10.0
-texture_under = ExtResource( 58 )
-texture_progress = ExtResource( 59 )
+texture_under = ExtResource( 60 )
+texture_progress = ExtResource( 61 )
 
 [node name="Slot6" type="Sprite" parent="Canvas/InfoUI/FCSlots"]
 editor/display_folded = true
 visible = false
 position = Vector2( 510, 230 )
-texture = ExtResource( 54 )
+texture = ExtResource( 56 )
 
 [node name="PortraitBtn" type="TextureButton" parent="Canvas/InfoUI/FCSlots/Slot6"]
 margin_left = -62.0
@@ -906,9 +909,9 @@ margin_top = -5.0
 margin_right = 60.0
 margin_bottom = 1.0
 value = 10.0
-texture_under = ExtResource( 55 )
-texture_over = ExtResource( 56 )
-texture_progress = ExtResource( 57 )
+texture_under = ExtResource( 57 )
+texture_over = ExtResource( 58 )
+texture_progress = ExtResource( 59 )
 
 [node name="CuriosityProgress" type="TextureProgress" parent="Canvas/InfoUI/FCSlots/Slot6"]
 margin_left = -21.0
@@ -916,14 +919,14 @@ margin_top = 2.0
 margin_right = 60.0
 margin_bottom = 6.0
 value = 10.0
-texture_under = ExtResource( 58 )
-texture_progress = ExtResource( 59 )
+texture_under = ExtResource( 60 )
+texture_progress = ExtResource( 61 )
 
 [node name="GameOverUI" type="Control" parent="Canvas"]
 editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 60 )
+script = ExtResource( 62 )
 
 [node name="Panel" type="Control" parent="Canvas/GameOverUI"]
 editor/display_folded = true
@@ -1001,7 +1004,7 @@ anims/misc = SubResource( 4 )
 visible = false
 position = Vector2( 117.28, 314.042 )
 z_index = 4
-texture = ExtResource( 61 )
+texture = ExtResource( 63 )
 
 [node name="LabelAnims" type="AnimationPlayer" parent="Canvas/Animations"]
 playback_speed = 1.4
@@ -1010,7 +1013,7 @@ anims/score = SubResource( 5 )
 [node name="Sprite" type="Sprite" parent="Canvas/Animations"]
 visible = false
 position = Vector2( 300.047, 328.028 )
-texture = ExtResource( 62 )
+texture = ExtResource( 64 )
 
 [node name="Label" type="Label" parent="Canvas/Animations/Sprite"]
 margin_left = -216.0
@@ -1039,6 +1042,7 @@ autowrap = true
 [connection signal="pressed" from="Canvas/TrapsUI/TrapsPanel/ViceBtn" to="Canvas/TrapsUI" method="vice_btn"]
 [connection signal="pressed" from="Canvas/TrapsUI/TrapsPanel/MiscBtn" to="Canvas/TrapsUI" method="misc_btn"]
 [connection signal="pressed" from="Canvas/MiscUI/Control/HuntBtn" to="Canvas/MiscUI" method="hunt"]
+[connection signal="pressed" from="Canvas/MiscUI/ObjectPanel/Object/UseButton" to="Canvas/MiscUI" method="activate_object"]
 [connection signal="pressed" from="Canvas/InfoUI/Clock/PauseBtn" to="Canvas/InfoUI" method="pause_btn"]
 [connection signal="pressed" from="Canvas/InfoUI/Clock/NormalSpdBtn" to="Canvas/InfoUI" method="normal_btn"]
 [connection signal="pressed" from="Canvas/InfoUI/Clock/FastSpdBtn" to="Canvas/InfoUI" method="fast_btn"]
