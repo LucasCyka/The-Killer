@@ -7,7 +7,7 @@ extends "res://scripts/Traps.gd"
 
 var effects = {
 	0:[funcref(self,"decrease_speed")],
-	1:[funcref(self,"decrease_speed")]
+	1:[funcref(self,"cause_diarrhea")]
 	
 }
 var is_used = false
@@ -51,6 +51,8 @@ func _input(event):
 			is_placed = true
 			#set_process(false)
 			ui.disconnect("new_trap",self,"exit")
+			#subtract this trap price
+			get_parent().points -= price
 			#on radius signal
 			#radius.connect("body_entered",self,"_on_radius")
 			

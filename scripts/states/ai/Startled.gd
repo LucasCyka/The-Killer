@@ -45,7 +45,9 @@ func update(delta):
 	
 	#remove all bump traps
 	for trap in base.teenager.traps:
-		if trap != null: #TODO: use weak instance to prevent random ctd
+		var trap_ref = weakref(trap)
+		if trap_ref.get_ref() != null:
+	#	if trap != null: #TODO: use weak instance to prevent random ctd
 			if trap.type == trap.TYPES.BUMP:
 				base.teenager.remove_trap(trap,true)
 				break

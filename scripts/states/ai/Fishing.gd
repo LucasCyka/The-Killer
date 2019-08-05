@@ -20,7 +20,6 @@ func init(base,state_position,state_time):
 	self.teen = base.teenager
 	self.teen.state_animation = false
 	self.base.connect("timer_finished",self,"exit")
-	#custom balloons over the player's head
 	emit_signal("entered")
 	
 func update(delta):
@@ -32,6 +31,7 @@ func update(delta):
 		#change the anim
 		teen.state_animation = true
 		#teen.kinematic_teenager.global_position = position
+		#custom balloons over the player's head
 		self.teen.is_talking = false
 		self.teen.is_thinking = true
 		self.teen.custom_balloons = ['fish','fish2','bait','love']

@@ -88,6 +88,10 @@ func increase_fear():
 func increase_curiosity():
 	pass
 
+#lololol
+func cause_diarrhea(teenager):
+	teenager.add_traits([teenager.TRAITS.DIARRHEA],false)
+
 #put the teenager on the crippled state
 func cripple(teenager):
 	#check if the teenager can be OnVice state

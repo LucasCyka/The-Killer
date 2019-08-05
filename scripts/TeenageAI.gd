@@ -64,7 +64,8 @@ enum TRAITS {
 	EMPTY = 0,
 	SLOW = 1,
 	FAST = 2,
-	HORNY = 3
+	HORNY = 3,
+	DIARRHEA = 4
 }
 
 #it's true when the teen needs to execute an animation from a state 'activity'
@@ -84,6 +85,7 @@ var facing_direction = Vector2(1,0)
 var custom_balloons = []
 var lover = null
 var was_in_love = false
+var was_in_bathroom = false
 var checked_light = false
 
 #used for pathfinding:
@@ -96,6 +98,7 @@ var fear = 0 setget set_fear,get_fear
 var slow = false setget set_slow
 var fast = false
 var horny = false setget set_horny
+var diarrhea = false setget set_diarrhea
 
 const slow_modifier = 0.3
 const fast_modifier = 1.5
@@ -164,6 +167,7 @@ func _process(delta):
 	check_tiredness()
 	check_love()
 	check_lights()
+	check_bowels()
 	
 #	print(speed)
 #	print(traps)
@@ -492,7 +496,6 @@ func check_love():
 		if lover.lover != self:
 			return
 		
-	
 	if not is_routine_paused and not state_machine.is_routine_over:
 		was_in_love = true
 		state_machine.force_state('InLove')
@@ -507,8 +510,18 @@ func check_lights():
 	if state_machine.check_forced_state('CheckingLight'):
 		state_machine.force_state('CheckingLight')
 		checked_light = true
+
+#check if the teenager needs to go to the bathroom
+func check_bowels():
+	if not (diarrhea and not was_in_bathroom):
+		return
 	
+	if not is_routine_paused and not state_machine.is_routine_over:
+		if state_machine.check_forced_state('Shitting'):
+			was_in_bathroom = true
+			state_machine.force_state('Shitting')
 	
+
 #return a string according to the gender
 func get_gender():
 	if gender == GENDER.MALE:
@@ -594,6 +607,12 @@ func remove_trap(value,free):
 			current_trap -= 1 
 			break
 
+func set_diarrhea(value):
+	diarrhea = value
+	
+	if not diarrhea:
+		was_in_bathroom = false
+
 #enable/disable slow modifier
 func set_slow(value):
 	slow = value
@@ -628,6 +647,9 @@ func add_traits(traits,permanent=false):
 			TRAITS.HORNY:
 				self.traits[TRAITS.HORNY] = slow_effect_duration
 				set_horny(true)
+			TRAITS.DIARRHEA:
+				self.traits[TRAITS.DIARRHEA] = normal_effect_duration
+				set_diarrhea(true)
 			_:
 				#this teen don't have any traits
 				return
@@ -652,6 +674,8 @@ func remove_traits(traits,timer=null):
 				set_slow(false)
 			TRAITS.HORNY:
 				set_horny(false)
+			TRAITS.DIARRHEA:
+				set_diarrhea(false)
 			_:
 				print("tried to remove a trait that doesn't exist")
 				return

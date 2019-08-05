@@ -152,6 +152,21 @@ func get_love_point(teen_pos):
 	points = common.order_by_distance(points,teen_pos)
 	return points.front()
 
+#returns a bathroom object that is empty
+func get_free_bathroom():
+	var objects = get_tree().get_nodes_in_group('Object')
+	var bathrooms = []
+	
+	for object in objects:
+		if object.type == object.TYPE.BATHROOM and object.current_teen == []:
+			return object
+		elif object.type == object.TYPE.BATHROOM:
+			bathrooms.append(object)
+	
+	#no free bathrooms? returns one anyway
+	return bathrooms[0]
+	
+
 #return all the objects in the game
 func get_world_objects():
 	return get_tree().get_nodes_in_group('Object')

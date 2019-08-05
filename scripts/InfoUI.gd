@@ -49,8 +49,9 @@ func _process(delta):
 		var is_sleeping = teen.state_machine.get_current_state() == 'Sleeping'
 		var is_dead = teen.state_machine.get_current_state() == 'Dead'
 		var is_love = teen.state_machine.get_current_state() == 'InLove'
+		var is_shitting = teen.state_machine.get_current_state() == 'Shitting'
 		
-		if teen.is_routine_paused and activated_teens.find(teen) == -1 and not is_sleeping and not is_dead and not is_love:
+		if teen.is_routine_paused and activated_teens.find(teen) == -1 and not is_sleeping and not is_dead and not is_love and not is_shitting:
 			activated_teens.append(teen)
 		elif not teen.is_routine_paused and activated_teens.find(teen) != -1:
 			activated_teens.erase(teen)

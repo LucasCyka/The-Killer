@@ -46,18 +46,18 @@
   },
   
   "VICE":{
-    "ID": ["0"],
-    "Icon":["cigarette1.png"],
-	"Fear":["1"],
-	"Curiosity":["10"],
-    "Price": ["1000"],
-	"OneShot":["true"],
-	"OnSpot":["false"],
-	"Walkable":["true"],
-	"Name":["Cigarret"],
-	"Desc":["Will slow down the teen who smoke it."],
-	"Placement":["WORLD"],
-	"Requirements":[["NULL"],["MEN"]]
+    "ID": ["0","1"],
+    "Icon":["cigarette1.png","cigarette1.png"],
+	"Fear":["1","1"],
+	"Curiosity":["10","10"],
+    "Price": ["1000","2000"],
+	"OneShot":["true","true"],
+	"OnSpot":["false","false"],
+	"Walkable":["true","true"],
+	"Name":["Cigarret","Diarrhea cigarette"],
+	"Desc":["Will slow down the teen who smoke it.","Will cause explosive diarrhea on the teen who smoke it."],
+	"Placement":["WORLD","WORLD"],
+	"Requirements":[["NULL"],["NULL"]]
   }
   
 }}

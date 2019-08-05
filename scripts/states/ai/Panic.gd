@@ -66,7 +66,7 @@ func update(delta):
 
 	#print(is_desperado)
 	teen_pos = kinematic_teenager.global_position
-	#since the animations speed can be chaned by the clock feature
+	#since the animations speed can be changed by the clock feature
 	self.base.teenager.teenager_anims.set_speed_scale(2)
 	#TODO: irregular movements, nerf the running effect etc
 	#TODO: check if the closest teenager still alive
