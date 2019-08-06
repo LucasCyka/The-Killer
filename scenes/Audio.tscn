@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/Audio.gd" type="Script" id=1]
 [ext_resource path="res://audio/sounds/click.wav" type="AudioStream" id=2]
@@ -6,6 +6,12 @@
 [ext_resource path="res://audio/sounds/slash.wav" type="AudioStream" id=4]
 [ext_resource path="res://audio/sounds/blood.wav" type="AudioStream" id=5]
 [ext_resource path="res://audio/sounds/falling.wav" type="AudioStream" id=6]
+[ext_resource path="res://audio/sounds/panic.wav" type="AudioStream" id=7]
+[ext_resource path="res://audio/sounds/small_fear.wav" type="AudioStream" id=8]
+[ext_resource path="res://audio/sounds/med_fear.wav" type="AudioStream" id=9]
+[ext_resource path="res://audio/sounds/high_fear.wav" type="AudioStream" id=10]
+[ext_resource path="res://audio/sounds/hahahah.wav" type="AudioStream" id=11]
+[ext_resource path="res://audio/sounds/screaming2.wav" type="AudioStream" id=12]
 
 [node name="Audio" type="Node"]
 script = ExtResource( 1 )
@@ -41,4 +47,24 @@ pitch_scale = 1.2
 
 [node name="Falling" type="AudioStreamPlayer2D" parent="Sound2D"]
 stream = ExtResource( 6 )
+
+[node name="Panic" type="AudioStreamPlayer2D" parent="Sound2D"]
+stream = ExtResource( 7 )
+attenuation = 1.03526
+
+[node name="SmallFear" type="AudioStreamPlayer2D" parent="Sound2D"]
+stream = ExtResource( 8 )
+
+[node name="MedFear" type="AudioStreamPlayer2D" parent="Sound2D"]
+stream = ExtResource( 9 )
+
+[node name="HighFear" type="AudioStreamPlayer2D" parent="Sound2D"]
+stream = ExtResource( 10 )
+
+[node name="Laughter" type="AudioStreamPlayer2D" parent="Sound2D"]
+stream = ExtResource( 11 )
+pitch_scale = 1.5
+
+[node name="Screaming" type="AudioStreamPlayer2D" parent="Sound2D"]
+stream = ExtResource( 12 )
 

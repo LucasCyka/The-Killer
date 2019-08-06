@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/hahahah.wav-1b12def9372741894b6422b29eb521af.sample"
+
+[deps]
+
+source_file="res://audio/sounds/hahahah.wav"
+dest_files=[ "res://.import/hahahah.wav-1b12def9372741894b6422b29eb521af.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

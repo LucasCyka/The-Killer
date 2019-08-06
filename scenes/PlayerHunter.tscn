@@ -148,7 +148,6 @@ editor/display_folded = true
 shape = SubResource( 4 )
 
 [node name="States" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 24 )
 
 [node name="Deployment" type="Node" parent="States"]

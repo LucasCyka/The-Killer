@@ -61,6 +61,12 @@ func _input(event):
 					startle_teenager(teenager,get_bump_position(teen_pos))
 		#spend points for this trap
 		get_parent().points -= price
+		
+		if sound != 'NULL':
+			#play sound
+			var audio = get_parent().audio_system
+			audio.play_2d_sound(sound,$Texture.global_position)
+		
 		queue_free()
 
 func on_free():

@@ -22,6 +22,9 @@ func init(base,state_position,state_time):
 	self.base.teenager.is_talking = false
 	self.base.teenager.is_thinking = false
 	
+	#sound effect
+	self.base.teenager.get_parent().get_parent().audio_system.play_2d_sound('Panic',base.teenager.global_position)
+	
 func update(delta):
 	pass
 	

@@ -561,7 +561,7 @@ func set_fear(value,cause_panic=true,add_points=true):
 	if get_fear() > get_curiosity():
 		if state_machine.check_forced_state('Panic'):
 			state_machine.set_state_queue('Panic')
-	
+		
 func get_fear():
 	return fear
 

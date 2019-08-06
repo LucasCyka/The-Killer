@@ -274,6 +274,7 @@ func transform_teen(teen):
 		traps_data[trap_enum.MISC]['Walkable'].append(false)
 		traps_data[trap_enum.MISC]['Name'].append("Remains")
 		traps_data[trap_enum.MISC]['Desc'].append("The remains of this poor bastard.")
+		traps_data[trap_enum.MISC]['Sound'].append("NULL")
 		traps_data[trap_enum.MISC]['DeathTrap'].append(death_data)
 		traps_data[trap_enum.MISC]['Placement'].append(get_floor_tile())
 		
@@ -311,10 +312,10 @@ func load_trap_info():
 	
 	#dictionary structury
 	traps_data = {
-	trap_enum.BUMP:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[],"Placement":[]},
-	trap_enum.LURE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[],"Placement":[]},
-	trap_enum.MISC:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[],"DeathTrap":[],"Placement":[]},
-	trap_enum.VICE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[],"Placement":[]
+	trap_enum.BUMP:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[],"Placement":[],"Sound":[]},
+	trap_enum.LURE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[],"Placement":[],"Sound":[]},
+	trap_enum.MISC:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[],"DeathTrap":[],"Placement":[],"Sound":[]},
+	trap_enum.VICE:{"ID":[],"Icon":[],"Fear":[],"Curiosity":[],"Price":[],"Requirements":[],"OneShot":[],"OnSpot":[],"Walkable":[],"Name":[],"Desc":[],"Placement":[],"Sound":[]
 	}
 	}
 	#all traps
@@ -349,6 +350,7 @@ func load_trap_info():
 				var _name = str(traps['Traps'][type]['Name'][id])
 				var description = str(traps['Traps'][type]['Desc'][id])
 				var placement = str(traps['Traps'][type]['Placement'][id])
+				var sound = str(traps['Traps'][type]['Sound'][id])
 				
 				#change the trap type to an enum
 				match type:
@@ -384,6 +386,7 @@ func load_trap_info():
 				traps_data[_type]['Name'].append(_name)
 				traps_data[_type]['Desc'].append(description)
 				traps_data[_type]['Placement'].append(placement)
+				traps_data[_type]['Sound'].append(sound)
 				
 				#misc traps have a special property
 				if _type == trap_enum.MISC:

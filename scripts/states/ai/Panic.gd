@@ -18,6 +18,7 @@ var kinematic_teenager
 var teen_pos
 var game
 var avoidant_tile
+var first_panic = true #don't reset this
 
 #constructor
 func init(base,state_position,state_time):
@@ -48,6 +49,11 @@ func init(base,state_position,state_time):
 	self.base.teenager.update_thinking_balloon(false,['skull'])
 	self.base.teenager.is_talking = false
 	self.base.teenager.is_thinking = false
+	
+	#sound effect
+	if first_panic:
+		self.base.teenager.get_parent().get_parent().audio_system.play_2d_sound('Panic',base.teenager.global_position)
+		first_panic = false
 	
 	emit_signal("entered")
 	

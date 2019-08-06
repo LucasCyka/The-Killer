@@ -10,15 +10,24 @@ var base
 var mouse_position
 var spawn_points
 var is_on_spawn = false
+var is_spawn_set = false
+var transition = false
 
 #constructor
 func init(base,state_position,state_time):
 	self.base = base
+	self.is_spawn_set = false
+	self.transition = false
 	set_process_input(true)
 	self.base.player.is_deployed = false
 
 func update(delta):
-	if base == null:
+	if base == null or is_spawn_set:
+		if is_spawn_set and check_teenagers() and !transition:
+			transition = true
+			transitions()
+			exit()
+		
 		return
 	
 	if spawn_points == null:
@@ -46,8 +55,18 @@ func input(event):
 		if is_on_spawn and check_teenagers():
 			transitions()
 			exit()
+		elif is_on_spawn and !check_teenagers():
+			is_spawn_set = true
+			self.base.player.is_deployed = true
+		else:
+			is_spawn_set = false
+			self.base.player.is_deployed = false
 	elif Input.is_action_just_pressed("cancel_input"):
-		base.player._free()
+		if not is_spawn_set:
+			base.player._free()
+		else:
+			is_spawn_set = false
+			self.base.player.is_deployed = true
 
 #returns true if any teenager is in panic, escaping or any state that 
 #allows the hunter to be spawned

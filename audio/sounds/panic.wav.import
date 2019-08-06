@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/panic.wav-9c15f11003b6a3473a57d65f877bd4ea.sample"
+
+[deps]
+
+source_file="res://audio/sounds/panic.wav"
+dest_files=[ "res://.import/panic.wav-9c15f11003b6a3473a57d65f877bd4ea.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

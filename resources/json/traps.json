@@ -12,6 +12,7 @@
 	"Name":["Knock, Knock","Scream"],
 	"Desc":["Make some noises on the wall.","Play the record of a woman screaming."],
 	"Placement":["WALLS","WORLD"],
+	"Sound":["NULL","Screaming"],
 	"Requirements":[["NULL"],["NULL"],["NULL"]]
   },
   
@@ -27,6 +28,7 @@
 	"Name":["Underwear","Porn","Blood Trail"],
 	"Desc":["Lure 1.","Lure 2.","Lure 3."],
 	"Placement":["WORLD","WORLD","WORLD"],
+	"Sound":["Laughter","Laughter","MedFear"],
 	"Requirements":[["MEN","HORNY"],["MEN"],["NULL"]]
   },
   
@@ -42,6 +44,7 @@
 	"Name":["Severed Head","Bear trap"],
 	"Desc":["A head.","Can cripple a teen in panic."],
 	"Placement":["WORLD","WORLD"],
+	"Sound":["NULL","NULL"],
 	"Requirements":[["NULL"],["PANIC"],["PANIC"]]
   },
   
@@ -57,6 +60,7 @@
 	"Name":["Cigarret","Diarrhea cigarette"],
 	"Desc":["Will slow down the teen who smoke it.","Will cause explosive diarrhea on the teen who smoke it."],
 	"Placement":["WORLD","WORLD"],
+	"Sound":["NULL","NULL"],
 	"Requirements":[["NULL"],["NULL"]]
   }
   

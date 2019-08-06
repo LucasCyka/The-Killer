@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/violin.wav-92863d1a8d1fa57bd66dc072efd1359c.sample"
+
+[deps]
+
+source_file="res://audio/raw/violin.wav"
+dest_files=[ "res://.import/violin.wav-92863d1a8d1fa57bd66dc072efd1359c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0
