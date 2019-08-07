@@ -23,12 +23,16 @@ func _ready():
 func update_volume_db():
 	var music = $Music.get_children()
 	var sound = $Sound.get_children() + $Sound2D.get_children()
+	var background = $Background.get_children()
 	
 	for track in music:
 		track.set_volume_db(settings.get_music_db())
 		
 	for track in sound:
 		track.set_volume_db(settings.get_sound_db())
+		
+	for track in background:
+		track.set_volume_db(settings.get_background_db())
 
 #play a 2d sound effect at a given location
 #if queue == true it will wait for the current sound to end before 

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/just_air.wav-4e18d52c96d2ad0aa5f0980ba66a9769.sample"
+
+[deps]
+
+source_file="res://audio/raw/just_air.wav"
+dest_files=[ "res://.import/just_air.wav-4e18d52c96d2ad0aa5f0980ba66a9769.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

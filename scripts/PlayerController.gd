@@ -51,7 +51,7 @@ func _physics_process(delta):
 	if !left and !right and !up and !down:
 		_move_camera_with_mouse(delta)
 
-#camera zoom-in/zoom-out
+#camera zoom-in/zoom-out.
 func _input(event):
 	var zoom_level = Vector2(0,0)
 	#TODO: remove this from here and put on the process function
@@ -61,7 +61,9 @@ func _input(event):
 			zoom_level = target_zoom
 		elif event.is_action("ZoomOut"):
 			zoom_level = target_zoom * -1
-		else: zoom_level = Vector2(0,0)
+		else: 
+			zoom_level = Vector2(0,0)
+			settings.background_db = 5
 
 		zoom_camera(zoom_level)
 
@@ -76,7 +78,8 @@ func move_camera_to(to,delta):
 	
 	camera.global_position = camera.global_position + dir * camera_speed * delta
 	
-#change the current zoom level of the camera
+#change the current zoom level of the camera. also increase/decrease 
+#background noises as the player approaches/leave the level.
 func zoom_camera(zoom):
 	if zoom == target_zoom and camera.get_zoom().x >= min_zoom.x:
 		return false
@@ -85,6 +88,15 @@ func zoom_camera(zoom):
 	else:
 		#TODO: zoom smoothing
 		camera.set_zoom(camera.get_zoom() + zoom)
+		
+		#background noise
+		if camera.get_zoom().x == 1:
+			settings.background_db = 5
+		elif common.is_float_equal(camera.get_zoom().x,0.6):
+			settings.background_db = 10
+		elif common.is_float_equal(camera.get_zoom().x,0.4):
+			settings.background_db = 15
+		
 		return true
 
 #will detect when the player is moving the camera by hovering the edges
