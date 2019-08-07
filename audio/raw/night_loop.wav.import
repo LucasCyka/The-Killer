@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/night_loop.wav-1bb4e494158d2e094f2b44e1c09c7605.sample"
+
+[deps]
+
+source_file="res://audio/raw/night_loop.wav"
+dest_files=[ "res://.import/night_loop.wav-1bb4e494158d2e094f2b44e1c09c7605.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=false
+edit/loop=true
+compress/mode=0

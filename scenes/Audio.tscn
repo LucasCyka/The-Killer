@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://scripts/Audio.gd" type="Script" id=1]
 [ext_resource path="res://audio/sounds/click.wav" type="AudioStream" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://audio/sounds/hahahah.wav" type="AudioStream" id=11]
 [ext_resource path="res://audio/sounds/screaming2.wav" type="AudioStream" id=12]
 [ext_resource path="res://audio/sounds/daylight_far.wav" type="AudioStream" id=13]
+[ext_resource path="res://audio/sounds/night_loop.wav" type="AudioStream" id=14]
 
 [node name="Audio" type="Node"]
 script = ExtResource( 1 )
@@ -78,4 +79,8 @@ stream = ExtResource( 12 )
 stream = ExtResource( 13 )
 volume_db = 5.0
 autoplay = true
+
+[node name="NightTimeBackground" type="AudioStreamPlayer" parent="Background"]
+stream = ExtResource( 14 )
+volume_db = 5.0
 
