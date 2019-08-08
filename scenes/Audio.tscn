@@ -78,7 +78,6 @@ stream = ExtResource( 12 )
 [node name="DaylightBackground" type="AudioStreamPlayer" parent="Background"]
 stream = ExtResource( 13 )
 volume_db = 5.0
-autoplay = true
 
 [node name="NightTimeBackground" type="AudioStreamPlayer" parent="Background"]
 stream = ExtResource( 14 )

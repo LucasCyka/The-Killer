@@ -7,6 +7,7 @@ extends Node
 onready var sounds2d = $Sound2D
 onready var sounds = $Sound
 onready var musics = $Music
+onready var background = $Background
 
 #store 2d tracks in queue to be played
 var queues_2d = {
@@ -52,9 +53,21 @@ func play_sound(sound):
 	track.play()
 
 #play a music from the track
-func play_music(music):
+func play_music(music,solo=true):
 	var track = musics.get_node(music)
 	track.play()
+	
+	#TODO: if solo, then stop any other music that is playing
+
+#play background ambience
+func play_background(sound,solo=true):
+	var track = background.get_node(sound)
+	track.play()
+	
+	if solo:
+		for noise in background.get_children():
+			if track != noise and noise.is_playing():
+				noise.stop()
 
 #queue 2d sound effects to be played a given amount of times
 func _queue_2d_sound(track,at,playing=false):
