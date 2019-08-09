@@ -9,6 +9,9 @@ onready var sounds = $Sound
 onready var musics = $Music
 onready var background = $Background
 
+var playlist = [] setget , get_playlist
+var is_playing_list = false setget, is_playing_list
+
 #store 2d tracks in queue to be played
 var queues_2d = {
 	'track_node':'times'
@@ -69,6 +72,17 @@ func play_background(sound,solo=true):
 			if track != noise and noise.is_playing():
 				noise.stop()
 
+#check if there's a background track playing
+func is_track_playing(track):
+	var tracks = musics.get_children() + sounds.get_children() + sounds2d.get_children() + background.get_children()
+	
+	for _track in tracks:
+		if _track.name == track:
+			return _track.is_playing()
+	
+	return false
+	
+
 #queue 2d sound effects to be played a given amount of times
 func _queue_2d_sound(track,at,playing=false):
 	if not playing:
@@ -85,12 +99,44 @@ func _queue_2d_sound(track,at,playing=false):
 		if queues_2d[track] == 0:
 			track.disconnect('finished',self,'_queue_2d_sound')
 			queues_2d.erase(track)
+
+#starts a playlist of muscis
+func start_play_list(tracks):
+	is_playing_list = true
+	for track in tracks:
+		var music = musics.get_node(track)
+		playlist.append(music)
 		
+		if not music.is_connected('finished',self,'_next_playlist'):
+			music.connect('finished',self,'_next_playlist',[playlist.size()-1])
 	
+	playlist[0].play()
+	print('starting with: ' + str(playlist[0].name))
+	
+func _next_playlist(id):
+	if id == playlist.size()-1:
+		playlist[id].disconnect('finished',self,'_next_playlist')
+		stop_play_list()
+		return
+		
+	playlist[id+1].play()
+	playlist[id].disconnect('finished',self,'_next_playlist')
+	print('next:' + str(playlist[id+1].name) )
 
+#stops any ongoing playlist
+func stop_play_list():
+	for track in playlist:
+		if track.is_connected('finished',self,'_next_playlist'):
+			track.disconnect('finished',self,'_next_playlist')
+		track.stop()
+	playlist.clear()
+	is_playing_list = false
 
+func get_playlist():
+	return playlist
 
-
+func is_playing_list():
+	return is_playing_list
 
 
 

@@ -94,7 +94,7 @@ func check_teenagers():
 				dead_teen.append(teen)
 				
 	if dead_teen.size() == teenagers.size()-1:
-		#when there's only one teenager left, the player can 
+		#when there's only one teenager left, the player can spawn
 		#whenever he wants
 		
 		return true

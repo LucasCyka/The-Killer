@@ -10,7 +10,7 @@ signal audio_changed
 
 #audio system
 var sound_db = 0 setget set_sound_db, get_sound_db
-var music_db = 0 setget set_music_db, get_music_db
+var music_db = -10 setget set_music_db, get_music_db
 var background_db = 5 setget set_background_db, get_background_db
 
 func set_sound_db(value):

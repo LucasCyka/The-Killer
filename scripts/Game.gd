@@ -81,6 +81,7 @@ func _ready():
 #day/night cycle
 func _process(delta):
 	daynightcycle()
+	update_ambience()
 
 #return all the teenagers in the game
 func get_teenagers():
@@ -563,6 +564,77 @@ func daynightcycle():
 	b = min(b,1)
 	canvas_m.color = Color(r,g,b,1)
 	canvas_m.show()
+
+#returns true if any teenager is in panic, escaping or any state that 
+#allows the hunter to be spawned
+func check_teenagers():
+	var teenagers = get_tree().get_nodes_in_group("AI")
+	var dead_teen = []
+	
+	for teen in teenagers:
+		var state = teen.state_machine.get_current_state()
+		
+		match state:
+			'Panic':
+				return true
+			'Escaping':
+				return true
+			'Crippled':
+				return true
+			'Shock':
+				return true
+			'Fighting':
+				return true
+			'Screaming':
+				return true
+			'Dead':
+				dead_teen.append(teen)
+				
+	if dead_teen.size() == teenagers.size()-1:
+		#when there's only one teenager left, the player can spawn
+		#whenever he wants
+		
+		return true
+	
+	return false
+
+#update the sounds/musics of the level.
+func update_ambience():
+	var night = false
+	var day = false
+	
+	
+	if time/60 > 6 and time/60 < 19:
+		day = true
+		night = false
+	else:
+		day = false
+		night = true
+	
+	
+	if check_teenagers():
+		if current_mode == MODE.HUNTING:
+			if audio_system.is_playing_list():
+				audio_system.stop_playlist()
+		else:
+			pass
+		return
+	
+	if day and !check_teenagers():
+		if !audio_system.is_track_playing('DaylightBackground'):
+			audio_system.play_background('DaylightBackground')
+	elif night and !check_teenagers():
+		if !audio_system.is_track_playing('NightTimeBackground'):
+			audio_system.play_background('NightTimeBackground')
+			
+	
+	#create playlist
+	if not audio_system.is_playing_list():
+		audio_system.start_play_list(['Tension','Tension2','MoreTension',
+		'Scary'])
+	
+
+
 
 
 

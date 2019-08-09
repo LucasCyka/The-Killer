@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/knockknock.wav-475c5b5ade858f37d9d8a030e93cc9d6.sample"
+
+[deps]
+
+source_file="res://audio/sounds/knockknock.wav"
+dest_files=[ "res://.import/knockknock.wav-475c5b5ade858f37d9d8a030e93cc9d6.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=false
+compress/mode=0

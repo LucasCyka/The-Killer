@@ -643,6 +643,7 @@ texture = ExtResource( 45 )
 position = Vector2( 799.806, 848.917 )
 z_index = 1
 frames = SubResource( 8 )
+frame = 1
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]
@@ -677,7 +678,7 @@ z_index = 5
 texture = ExtResource( 39 )
 
 [node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 453.76, -210.548 )
+position = Vector2( 445.887, -217.386 )
 z_index = 4
 texture = ExtResource( 56 )
 

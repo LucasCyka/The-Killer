@@ -12,7 +12,7 @@
 	"Name":["Knock, Knock","Scream"],
 	"Desc":["Make some noises on the wall.","Play the record of a woman screaming."],
 	"Placement":["WALLS","WORLD"],
-	"Sound":["NULL","Screaming"],
+	"Sound":["Knock","Screaming"],
 	"Requirements":[["NULL"],["NULL"],["NULL"]]
   },
   

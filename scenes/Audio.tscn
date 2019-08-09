@@ -1,19 +1,26 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scripts/Audio.gd" type="Script" id=1]
-[ext_resource path="res://audio/sounds/click.wav" type="AudioStream" id=2]
-[ext_resource path="res://audio/sounds/taking.wav" type="AudioStream" id=3]
-[ext_resource path="res://audio/sounds/slash.wav" type="AudioStream" id=4]
-[ext_resource path="res://audio/sounds/blood.wav" type="AudioStream" id=5]
-[ext_resource path="res://audio/sounds/falling.wav" type="AudioStream" id=6]
-[ext_resource path="res://audio/sounds/panic.wav" type="AudioStream" id=7]
-[ext_resource path="res://audio/sounds/small_fear.wav" type="AudioStream" id=8]
-[ext_resource path="res://audio/sounds/med_fear.wav" type="AudioStream" id=9]
-[ext_resource path="res://audio/sounds/high_fear.wav" type="AudioStream" id=10]
-[ext_resource path="res://audio/sounds/hahahah.wav" type="AudioStream" id=11]
-[ext_resource path="res://audio/sounds/screaming2.wav" type="AudioStream" id=12]
-[ext_resource path="res://audio/sounds/daylight_far.wav" type="AudioStream" id=13]
-[ext_resource path="res://audio/sounds/night_loop.wav" type="AudioStream" id=14]
+[ext_resource path="res://audio/music/1980s-Horror-Music-1-Royalty-Free-Music_wave.wav" type="AudioStream" id=2]
+[ext_resource path="res://audio/music/1980s-Horror-Music-2-Royalty-Free-Music.wav" type="AudioStream" id=3]
+[ext_resource path="res://audio/music/1980s-Horror-Music-3-Royalty-Free.wav" type="AudioStream" id=4]
+[ext_resource path="res://audio/music/1980s-Horror-Music-5-Royalty-Free.wav" type="AudioStream" id=5]
+[ext_resource path="res://audio/music/She_s-Dead-Soundtrack-16-Psycho-clankies.wav" type="AudioStream" id=6]
+[ext_resource path="res://audio/music/1980s-Horror-Music-6-Royalty-Free.wav" type="AudioStream" id=7]
+[ext_resource path="res://audio/sounds/click.wav" type="AudioStream" id=8]
+[ext_resource path="res://audio/sounds/taking.wav" type="AudioStream" id=9]
+[ext_resource path="res://audio/sounds/slash.wav" type="AudioStream" id=10]
+[ext_resource path="res://audio/sounds/blood.wav" type="AudioStream" id=11]
+[ext_resource path="res://audio/sounds/falling.wav" type="AudioStream" id=12]
+[ext_resource path="res://audio/sounds/panic.wav" type="AudioStream" id=13]
+[ext_resource path="res://audio/sounds/small_fear.wav" type="AudioStream" id=14]
+[ext_resource path="res://audio/sounds/med_fear.wav" type="AudioStream" id=15]
+[ext_resource path="res://audio/sounds/high_fear.wav" type="AudioStream" id=16]
+[ext_resource path="res://audio/sounds/hahahah.wav" type="AudioStream" id=17]
+[ext_resource path="res://audio/sounds/screaming2.wav" type="AudioStream" id=18]
+[ext_resource path="res://audio/sounds/knockknock.wav" type="AudioStream" id=19]
+[ext_resource path="res://audio/sounds/daylight_far.wav" type="AudioStream" id=20]
+[ext_resource path="res://audio/sounds/night_loop.wav" type="AudioStream" id=21]
 
 [node name="Audio" type="Node"]
 script = ExtResource( 1 )
@@ -23,63 +30,85 @@ editor/display_folded = true
 
 [node name="Menu" type="AudioStreamPlayer" parent="Music"]
 
+[node name="Tension" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 2 )
+
+[node name="Tension2" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 3 )
+
+[node name="MoreTension" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 4 )
+
+[node name="Scary" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 5 )
+
+[node name="Psyco" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 6 )
+
+[node name="Credits" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 7 )
+
 [node name="Sound" type="Node" parent="."]
 editor/display_folded = true
 
 [node name="Click" type="AudioStreamPlayer" parent="Sound"]
 pause_mode = 2
-stream = ExtResource( 2 )
+stream = ExtResource( 8 )
 pitch_scale = 2.0
 
 [node name="Click2" type="AudioStreamPlayer" parent="Sound"]
 pause_mode = 2
-stream = ExtResource( 2 )
+stream = ExtResource( 8 )
 
 [node name="Taking" type="AudioStreamPlayer" parent="Sound"]
-stream = ExtResource( 3 )
+stream = ExtResource( 9 )
 pitch_scale = 1.5
 
 [node name="Sound2D" type="Node" parent="."]
 editor/display_folded = true
 
 [node name="PlayerSlash" type="AudioStreamPlayer2D" parent="Sound2D"]
-stream = ExtResource( 4 )
+stream = ExtResource( 10 )
 pitch_scale = 0.5
 
 [node name="Blood" type="AudioStreamPlayer2D" parent="Sound2D"]
-stream = ExtResource( 5 )
+stream = ExtResource( 11 )
 pitch_scale = 1.2
 
 [node name="Falling" type="AudioStreamPlayer2D" parent="Sound2D"]
-stream = ExtResource( 6 )
+stream = ExtResource( 12 )
 
 [node name="Panic" type="AudioStreamPlayer2D" parent="Sound2D"]
-stream = ExtResource( 7 )
+stream = ExtResource( 13 )
 attenuation = 1.03526
 
 [node name="SmallFear" type="AudioStreamPlayer2D" parent="Sound2D"]
-stream = ExtResource( 8 )
+stream = ExtResource( 14 )
 
 [node name="MedFear" type="AudioStreamPlayer2D" parent="Sound2D"]
-stream = ExtResource( 9 )
+stream = ExtResource( 15 )
 
 [node name="HighFear" type="AudioStreamPlayer2D" parent="Sound2D"]
-stream = ExtResource( 10 )
+stream = ExtResource( 16 )
 
 [node name="Laughter" type="AudioStreamPlayer2D" parent="Sound2D"]
-stream = ExtResource( 11 )
+stream = ExtResource( 17 )
 pitch_scale = 1.5
 
 [node name="Screaming" type="AudioStreamPlayer2D" parent="Sound2D"]
-stream = ExtResource( 12 )
+stream = ExtResource( 18 )
+
+[node name="Knock" type="AudioStreamPlayer2D" parent="Sound2D"]
+stream = ExtResource( 19 )
 
 [node name="Background" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="DaylightBackground" type="AudioStreamPlayer" parent="Background"]
-stream = ExtResource( 13 )
+stream = ExtResource( 20 )
 volume_db = 5.0
 
 [node name="NightTimeBackground" type="AudioStreamPlayer" parent="Background"]
-stream = ExtResource( 14 )
+stream = ExtResource( 21 )
 volume_db = 5.0
 
