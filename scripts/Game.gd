@@ -569,7 +569,6 @@ func daynightcycle():
 #allows the hunter to be spawned
 func check_teenagers():
 	var teenagers = get_tree().get_nodes_in_group("AI")
-	var dead_teen = []
 	
 	for teen in teenagers:
 		var state = teen.state_machine.get_current_state()
@@ -579,20 +578,13 @@ func check_teenagers():
 				return true
 			'Escaping':
 				return true
-			'Crippled':
-				return true
 			'Shock':
 				return true
 			'Fighting':
 				return true
 			'Screaming':
 				return true
-			'Dead':
-				dead_teen.append(teen)
 				
-	if dead_teen.size() == teenagers.size()-1:
-		#when there's only one teenager left, the player can spawn
-		#whenever he wants
 		
 		return true
 	
@@ -616,6 +608,9 @@ func update_ambience():
 		if current_mode == MODE.HUNTING:
 			if audio_system.is_playing_list():
 				audio_system.stop_playlist()
+			
+			if not audio_system.is_track_playing('Psyco'):
+				audio_system.play_music('Psyco')
 		else:
 			pass
 		return
