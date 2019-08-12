@@ -87,6 +87,7 @@ var lover = null
 var was_in_love = false
 var was_in_bathroom = false
 var checked_light = false
+var is_immune = false
 
 #used for pathfinding:
 var current_path = []
@@ -489,9 +490,15 @@ func check_tiredness():
 		
 #check if the teen is horny enough to go to the woods with his lover.
 func check_love():
+
 	if lover == null or not horny or was_in_love:
 		return
 	else:
+		var lover_ref = weakref(lover)
+		if lover_ref.get_ref() == null:
+			lover = null
+			return 
+			
 		#check if this isn't a platonic relationship lmao
 		if lover.lover != self:
 			return

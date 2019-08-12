@@ -206,6 +206,22 @@ func get_escaping_point(teen_pos):
 	points = common.order_by_distance(points,teen_pos)
 	return points.front()
 
+#return the closest escape object from a teen. Escape objects are things
+#like cars, boats etc...
+func get_escape_object(teen_pos):
+	var objects = get_tree().get_nodes_in_group('Object')
+	var escape_objects = {}
+	
+	for object in objects:
+		match object.type:
+			object.TYPE.CAR:
+				escape_objects[object.global_position] = object
+			_:
+				continue
+	
+	objects = common.order_by_distance(escape_objects.keys(),teen_pos)
+	return escape_objects[objects.front()]
+
 #get traps that are placed on the map
 func get_placed_traps():
 	var traps = get_tree().get_nodes_in_group("Misc")
@@ -585,8 +601,6 @@ func check_teenagers():
 			'Screaming':
 				return true
 				
-		
-		return true
 	
 	return false
 
@@ -603,18 +617,20 @@ func update_ambience():
 		day = false
 		night = true
 	
-	
 	if check_teenagers():
-		if current_mode == MODE.HUNTING:
-			if audio_system.is_playing_list():
-				audio_system.stop_playlist()
+		if audio_system.is_playing_list():
+			audio_system.stop_play_list()
 			
-			if not audio_system.is_track_playing('Psyco'):
-				audio_system.play_music('Psyco')
-		else:
-			pass
+		if not audio_system.is_track_playing('Psycho'):
+			audio_system.play_music('Psycho')
+		
+		audio_system.stop_track('DaylightBackground')
+		audio_system.stop_track('NightTimeBackground')
 		return
-	
+	else:
+		if audio_system.is_track_playing('Psycho'):
+			audio_system.stop_track('Psycho')
+		
 	if day and !check_teenagers():
 		if !audio_system.is_track_playing('DaylightBackground'):
 			audio_system.play_background('DaylightBackground')
@@ -626,7 +642,7 @@ func update_ambience():
 	#create playlist
 	if not audio_system.is_playing_list():
 		audio_system.start_play_list(['Tension','Tension2','MoreTension',
-		'Scary'])
+		'Scary'],true)
 	
 
 

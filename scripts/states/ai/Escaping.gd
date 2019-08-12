@@ -9,6 +9,8 @@ signal entered
 
 var base
 var escape_point
+var escape_object
+var tried_escape_object = false
 var is_avoiding_player = false
 var is_desperado = false
 var avoidant_tile = null
@@ -30,6 +32,7 @@ func init(base,state_position,state_time):
 	self.base.teenager.set_fear(100,false)
 	self.game = self.base.teenager.get_parent().get_parent()
 	self.escape_point = game.get_escaping_point(base.teenager.get_position())
+	self.escape_object = game.get_escape_object(base.teenager.get_position())
 	
 	#custom anim
 	var custom = Node.new()
@@ -48,7 +51,7 @@ func update(delta):
 	if base.teenager.saw_player: is_avoiding_player = true
 	
 	#is seeing the player, check if he can reach the exit point
-	if is_avoiding_player:
+	if is_avoiding_player and not base.teenager.is_immune:
 		var player = game.get_player()
 		
 		if player == null and !is_desperado:
@@ -58,7 +61,7 @@ func update(delta):
 		elif is_desperado:
 			if base.teenager.walk(avoidant_tile):
 				self.escape_point = game.get_escaping_point(base.teenager.get_position())
-				if is_path_free(escape_point):
+				if is_path_free(escape_point) or (is_path_free(escape_object.global_position) and !tried_escape_object):
 					avoidant_tile = null
 					base.teenager.saw_player = false
 					is_avoiding_player = false
@@ -67,22 +70,42 @@ func update(delta):
 			return
 		else:
 			if not is_path_free(escape_point):
-				is_desperado = true
-				avoidant_tile = get_avoidant_tile()
-				if avoidant_tile == null:
-					base.force_state('Cornered')
 				
-				
-				return
+				if is_path_free(escape_object.global_position) and not tried_escape_object:
+					#just for debug
+					print("The AI should go check the car")
+				else:
+					is_desperado = true
+					avoidant_tile = get_avoidant_tile()
+					if avoidant_tile == null:
+						base.force_state('Cornered')
+					
+					
+					return
 			
 			#TODO: check if he can't escape the level avoiding the player.
 			#if not then he needs to enter on the 'desperado state'. He
 			#can only exit this 'state' when he is: 1- far enough from
 			#the player or reached an 'avoidant tile'.
-		
-	#walk towards the exit point
-	if base.teenager.walk(escape_point) or teen_pos.distance_to(escape_point) < 80:
-		base.force_state('Escaped')
+	
+	if base.teenager.is_immune:
+		#the teen is trying to escape, just wait
+		return
+	
+	if is_path_free(escape_object.global_position) and not tried_escape_object:
+		if base.teenager.walk(escape_object.global_position) or teen_pos.distance_to(escape_point) < 80:
+			print('arrived at the object')
+			escape_object.use(base.teenager)
+			base.teenager.hide()
+			base.teenager.is_immune = true #the player can't attack him here
+			tried_escape_object = true
+			if escape_object.is_broken:
+				leave_object()
+			else: escape_on_object()
+	else:
+		#walk towards the exit point
+		if base.teenager.walk(escape_point) or teen_pos.distance_to(escape_point) < 80:
+			base.force_state('Escaped')
 	
 	#TODO: call other teens into escaping aswell.
 
@@ -130,6 +153,32 @@ func get_avoidant_tile():
 	
 	return final_tile
 
+#escape from the game using the escape object
+func escape_on_object(timer=false):
+	if timer:
+		base.force_state('Escaped')
+	else:
+		var escape_timer = Timer.new()
+		escape_timer.wait_time = 3
+		escape_timer.connect('timeout',self,'escape_on_object',[true])
+		escape_timer.one_shot = true
+		add_child(escape_timer)
+		escape_timer.start()
+
+#can't use this escape object, try to reach the escaping point
+func leave_object(timer=false):
+	if timer:
+		base.teenager.is_immune = false
+		base.teenager.show()
+	else:
+		var escape_timer = Timer.new()
+		escape_timer.wait_time = 3
+		escape_timer.connect('timeout',self,'leave_object',[true])
+		escape_timer.one_shot = true
+		add_child(escape_timer)
+		escape_timer.start()
+
+
 #destructor
 func exit():
 	self.base.teenager.speed -= 10
@@ -137,6 +186,7 @@ func exit():
 	avoidant_tile = null
 	is_desperado  = false
 	is_avoiding_player = false
+	base.teenager.is_immune = false
 	base.teenager.custom_animation = null
 	emit_signal("finished")
 	

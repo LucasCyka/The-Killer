@@ -41,7 +41,7 @@ stream = ExtResource( 4 )
 [node name="Scary" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource( 5 )
 
-[node name="Psyco" type="AudioStreamPlayer" parent="Music"]
+[node name="Psycho" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource( 6 )
 
 [node name="Credits" type="AudioStreamPlayer" parent="Music"]

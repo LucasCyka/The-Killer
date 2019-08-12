@@ -175,8 +175,9 @@ func walk(to):
 func attack(teenager):
 	#TODO: check if the teenager is fighting before killig him
 	#TODO: check if he's not dead already
-	teenager.state_machine.force_state("Dead")
-	current_attacking_id = 0
+	if not teenager.is_immune:
+		teenager.state_machine.force_state("Dead")
+		current_attacking_id = 0
 
 #remove the player hunter
 func _free():
@@ -223,6 +224,9 @@ func check_teenager_sight():
 		var distance = teen.global_position.distance_to(kinematic_player.global_position)
 		var dir = teen_pos - player_pos
 		var behind_wall = false
+		
+		if teen.is_immune:
+			continue
 		
 		#raycast to ensure that the teen can really see him
 		wall_cast.set_cast_to(teen.global_position - wall_cast.global_position)

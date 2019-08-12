@@ -25,6 +25,8 @@ export var owner_id = 0
 export var owner_id_2 = 0
 export var is_activable = false
 export var is_clickable = true
+#if it can be activated when someone else is using this object
+export var can_activated_when_using = true
 
 #this means that it will cause effects (if activated) when the teen is
 #close to the object, without using it.
@@ -32,6 +34,12 @@ export var is_detectable = false
 
 export(String) var obj_name
 export(String) var obj_desc
+#sound to be played the AI is using the object normally
+export(String) var use_sound
+#sound to be played when the ai uses an object that is broken
+export(String) var use_broken_sound
+#sound to be palyed when the object is activated
+export(String) var activated_sound
 
 var current_teen = []
 var is_broken = false
@@ -40,6 +48,7 @@ var is_broken = false
 var effects = {
 	0:[funcref(self,"startle")],
 	1:[funcref(self,"turn_off_lights")],
+	2:[funcref(self,"break_obj")]
 	
 }
 
@@ -49,9 +58,11 @@ func _ready():
 		#create a button mask for this object
 		var mask = BitMap.new()
 		var image = get_sprite_frames().get_frame(get_animation(),0).get_data()
-		mask.create_from_image_alpha(image,0.1)
+		mask.create_from_image_alpha(image,0.1) #0.1
 		$Button.texture_click_mask = mask
 		$Button.rect_global_position = Vector2($Button.rect_global_position.x-25,$Button.rect_global_position.y)
+	
+		
 	else:
 		$Button.hide()
 		
@@ -61,6 +72,8 @@ func _process(delta):
 #when a teen starts to use the object
 func use(teen):
 	current_teen.append(teen)
+	
+	#TODO: sounds if have any
 
 #when a teen stops using the object
 func leave(teen):
@@ -68,6 +81,9 @@ func leave(teen):
 
 #trys will activate the effects of this trap
 func activate():
+	if current_teen != [] and not can_activated_when_using:
+		return
+		
 	for effect in effects[id]:
 		effect.call_func()
 
@@ -92,5 +108,7 @@ func turn_off_lights():
 	game.update_lights(false)
 	#TODO: sound effect
 
-func broke_obj():
-	pass
+func break_obj():
+	#TODO: sounds if any
+	print('the object is now broken')
+	is_broken = true

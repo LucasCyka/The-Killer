@@ -38,6 +38,8 @@ func transitions():
 		
 	else:
 	### IDLE TO ATTACKING ###
+		if base.player.target.is_immune: return 
+		
 		base.stack.append(base.get_node("Attacking"))
 		base.state_position = base.player.target.kinematic_teenager.global_position
 		exit()

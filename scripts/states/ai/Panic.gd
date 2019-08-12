@@ -116,6 +116,8 @@ func update(delta):
 					base.force_state('Cornered')
 					return
 				#TODO: check if he can enter inside a building
+				#TODO: telephone mechanic here
+				
 				#try to escape, avoiding the player
 				if avoidant_tile == null:
 					avoidant_tile = get_avoidant_tile()

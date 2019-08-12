@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/PlayerController.tscn" type="PackedScene" id=2]
@@ -55,7 +55,6 @@
 [ext_resource path="res://sprites/world_objects/bathroom.png" type="Texture" id=53]
 [ext_resource path="res://scenes/CustomTimer.tscn" type="PackedScene" id=54]
 [ext_resource path="res://scenes/Audio.tscn" type="PackedScene" id=55]
-[ext_resource path="res://sprites/mockups/car_test.png" type="Texture" id=56]
 
 [sub_resource type="TileSet" id=1]
 0/name = "higher_walls.png 0"
@@ -218,7 +217,6 @@ min_constraints = Vector2( -674, -369 )
 [node name="GameTimer" type="Timer" parent="."]
 
 [node name="AI" type="YSort" parent="."]
-editor/display_folded = true
 
 [node name="Teenager" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -429,19 +427,31 @@ obj_name = "Power Generator"
 obj_desc = "Supplies power to the house"
 
 [node name="Bathroom" parent="AI" instance=ExtResource( 21 )]
-position = Vector2( 1212.53, 9.98178 )
+position = Vector2( 1206.31, 6.26155 )
 z_index = 1
 animation = "Bathroom"
-offset = Vector2( 3.45313, -15.3728 )
+offset = Vector2( 12.4783, -11.6528 )
 type = 7
 owner_id = 1
 is_activable = true
 obj_name = "Bathroom"
 obj_desc = "Bathroom object"
 
+[node name="Car" parent="AI" instance=ExtResource( 21 )]
+position = Vector2( 402.106, -283.21 )
+animation = "Car"
+offset = Vector2( 54.4164, 64.2193 )
+type = 3
+id = 2
+is_activable = true
+can_activated_when_using = false
+obj_name = "Pickup"
+obj_desc = "A pickup truck"
+
 [node name="CanvasLayer" type="CanvasLayer" parent="AI"]
 
 [node name="Tiles" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Floor" type="TileMap" parent="Tiles"]
 z_index = -2
@@ -676,9 +686,4 @@ position = Vector2( 899.807, 193.161 )
 scale = Vector2( 0.719567, 0.580805 )
 z_index = 5
 texture = ExtResource( 39 )
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 445.887, -217.386 )
-z_index = 4
-texture = ExtResource( 56 )
 

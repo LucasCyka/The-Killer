@@ -81,7 +81,17 @@ func is_track_playing(track):
 			return _track.is_playing()
 	
 	return false
+
+#stop a given track
+func stop_track(track,fade=false):
+	var tracks = musics.get_children() + sounds.get_children() + sounds2d.get_children() + background.get_children()
 	
+	for _track in tracks:
+		if _track.name == track:
+			_track.stop()
+	
+	#TODO: fade music 
+	return false
 
 #queue 2d sound effects to be played a given amount of times
 func _queue_2d_sound(track,at,playing=false):
@@ -101,8 +111,10 @@ func _queue_2d_sound(track,at,playing=false):
 			queues_2d.erase(track)
 
 #starts a playlist of muscis
-func start_play_list(tracks):
+func start_play_list(tracks,shuffle=false):
 	is_playing_list = true
+	if shuffle: tracks.shuffle()
+	
 	for track in tracks:
 		var music = musics.get_node(track)
 		playlist.append(music)
