@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=2]
+[gd_scene load_steps=71 format=2]
 
 [ext_resource path="res://scripts/GameUI.gd" type="Script" id=1]
 [ext_resource path="res://scripts/TeenagerInfo.gd" type="Script" id=2]
@@ -64,6 +64,7 @@
 [ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=62]
 [ext_resource path="res://sprites/characters/male_1/dying/dying_1_down28.png" type="Texture" id=63]
 [ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=64]
+[ext_resource path="res://sprites/misc/art_test.png" type="Texture" id=65]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 25 )
@@ -1034,6 +1035,66 @@ margin_bottom = -9.84852
 custom_fonts/font = ExtResource( 8 )
 text = "<ENTER>"
 autowrap = true
+
+[node name="Sprite" type="Sprite" parent="Canvas"]
+visible = false
+position = Vector2( 299.297, 64.5994 )
+texture = ExtResource( 64 )
+
+[node name="Sprite2" type="Sprite" parent="Canvas"]
+visible = false
+position = Vector2( 299.297, 184.599 )
+texture = ExtResource( 65 )
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="Canvas/Sprite2"]
+visible = false
+position = Vector2( -90.9, 71.6284 )
+emission_shape = 1
+emission_sphere_radius = 3.61
+gravity = Vector2( 0, -90 )
+scale_amount_random = 1.0
+color = Color( 0.929412, 0.780392, 0.780392, 1 )
+hue_variation = 0.11
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="Canvas/Sprite2"]
+visible = false
+position = Vector2( -83.7921, 96.7154 )
+emission_shape = 1
+emission_sphere_radius = 3.61
+gravity = Vector2( 0, -90 )
+scale_amount_random = 1.0
+color = Color( 0.929412, 0.780392, 0.780392, 1 )
+hue_variation = 0.11
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="Canvas/Sprite2"]
+visible = false
+position = Vector2( 23.2457, 101.733 )
+emission_shape = 1
+emission_sphere_radius = 3.61
+gravity = Vector2( 0, -90 )
+scale_amount_random = 1.0
+color = Color( 0.929412, 0.780392, 0.780392, 1 )
+hue_variation = 0.11
+
+[node name="CPUParticles2D4" type="CPUParticles2D" parent="Canvas/Sprite2"]
+visible = false
+position = Vector2( 40.3885, 79.9907 )
+emission_shape = 1
+emission_sphere_radius = 3.61
+gravity = Vector2( 0, -90 )
+scale_amount_random = 1.0
+color = Color( 0.929412, 0.780392, 0.780392, 1 )
+hue_variation = 0.11
+
+[node name="CPUParticles2D5" type="CPUParticles2D" parent="Canvas/Sprite2"]
+visible = false
+position = Vector2( -75.0117, 54.9037 )
+emission_shape = 1
+emission_sphere_radius = 3.61
+gravity = Vector2( 0, -90 )
+scale_amount_random = 1.0
+color = Color( 0.929412, 0.780392, 0.780392, 1 )
+hue_variation = 0.11
 
 [connection signal="mouse_entered" from="Canvas/TeenagerInfo/Panel" to="Canvas/TeenagerInfo" method="mouse_entered"]
 [connection signal="mouse_exited" from="Canvas/TeenagerInfo/Panel" to="Canvas/TeenagerInfo" method="mouse_exited"]

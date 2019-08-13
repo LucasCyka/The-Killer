@@ -38,6 +38,12 @@ func update_volume_db():
 	for track in background:
 		track.set_volume_db(settings.get_background_db())
 
+#return all tracks in game
+func get_tracks():
+	var tracks = $Music.get_children() + $Sound.get_children() 
+	tracks = tracks + $Background.get_children() + $Sound2D.get_children()
+	return tracks
+
 #play a 2d sound effect at a given location
 #if queue == true it will wait for the current sound to end before 
 #starting the other
@@ -56,11 +62,26 @@ func play_sound(sound):
 	track.play()
 
 #play a music from the track
-func play_music(music,solo=true):
+func play_music(music,solo=true,solo_queue=false):
 	var track = musics.get_node(music)
+	var tracks = get_tracks()
+	tracks.erase(track)
+	#TODO: if solo, then stop any other music that is playing
+	
+	if solo_queue:
+		#only start the music when there are not sounds playing
+		for _track in tracks:
+			if _track.is_playing():
+				if not _track.is_connected('finished',self,'play_music'):
+					_track.connect('finished',self,'play_music',[music,false,true])
+				return
+			else:
+				if _track.is_connected('finished',self,'play_music'):
+					_track.disconnect('finished',self,'play_music')
+		
+	
 	track.play()
 	
-	#TODO: if solo, then stop any other music that is playing
 
 #play background ambience
 func play_background(sound,solo=true):

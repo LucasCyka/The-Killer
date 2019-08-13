@@ -622,7 +622,7 @@ func update_ambience():
 			audio_system.stop_play_list()
 			
 		if not audio_system.is_track_playing('Psycho'):
-			audio_system.play_music('Psycho')
+			audio_system.play_music('Psycho',false,true)
 		
 		audio_system.stop_track('DaylightBackground')
 		audio_system.stop_track('NightTimeBackground')
