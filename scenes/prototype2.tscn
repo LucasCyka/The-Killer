@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=2]
+[gd_scene load_steps=65 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/PlayerController.tscn" type="PackedScene" id=2]
@@ -55,6 +55,7 @@
 [ext_resource path="res://sprites/world_objects/bathroom.png" type="Texture" id=53]
 [ext_resource path="res://scenes/CustomTimer.tscn" type="PackedScene" id=54]
 [ext_resource path="res://scenes/Audio.tscn" type="PackedScene" id=55]
+[ext_resource path="res://scenes/Tutorial.tscn" type="PackedScene" id=56]
 
 [sub_resource type="TileSet" id=1]
 0/name = "higher_walls.png 0"
@@ -654,7 +655,7 @@ texture = ExtResource( 45 )
 position = Vector2( 799.806, 848.917 )
 z_index = 1
 frames = SubResource( 8 )
-frame = 1
+frame = 3
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]
@@ -687,4 +688,6 @@ position = Vector2( 899.807, 193.161 )
 scale = Vector2( 0.719567, 0.580805 )
 z_index = 5
 texture = ExtResource( 39 )
+
+[node name="Tutorial" parent="." instance=ExtResource( 56 )]
 

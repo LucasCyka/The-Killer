@@ -1042,8 +1042,11 @@ position = Vector2( 299.297, 64.5994 )
 texture = ExtResource( 64 )
 
 [node name="Sprite2" type="Sprite" parent="Canvas"]
+editor/display_folded = true
 visible = false
 position = Vector2( 299.297, 184.599 )
+z_index = 9
+z_as_relative = false
 texture = ExtResource( 65 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Canvas/Sprite2"]
@@ -1077,8 +1080,7 @@ color = Color( 0.929412, 0.780392, 0.780392, 1 )
 hue_variation = 0.11
 
 [node name="CPUParticles2D4" type="CPUParticles2D" parent="Canvas/Sprite2"]
-visible = false
-position = Vector2( 40.3885, 79.9907 )
+position = Vector2( -93.4548, 129.733 )
 emission_shape = 1
 emission_sphere_radius = 3.61
 gravity = Vector2( 0, -90 )
@@ -1087,14 +1089,21 @@ color = Color( 0.929412, 0.780392, 0.780392, 1 )
 hue_variation = 0.11
 
 [node name="CPUParticles2D5" type="CPUParticles2D" parent="Canvas/Sprite2"]
-visible = false
-position = Vector2( -75.0117, 54.9037 )
+position = Vector2( -79.0117, 112.904 )
 emission_shape = 1
 emission_sphere_radius = 3.61
 gravity = Vector2( 0, -90 )
 scale_amount_random = 1.0
 color = Color( 0.929412, 0.780392, 0.780392, 1 )
 hue_variation = 0.11
+
+[node name="Sprite" type="Sprite" parent="Canvas/Sprite2"]
+visible = false
+position = Vector2( -18.4998, -7.49993 )
+scale = Vector2( 7.22993, 4.32975 )
+z_index = 4
+z_as_relative = false
+texture = ExtResource( 24 )
 
 [connection signal="mouse_entered" from="Canvas/TeenagerInfo/Panel" to="Canvas/TeenagerInfo" method="mouse_entered"]
 [connection signal="mouse_exited" from="Canvas/TeenagerInfo/Panel" to="Canvas/TeenagerInfo" method="mouse_exited"]

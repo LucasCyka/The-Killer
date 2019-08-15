@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://scripts/Tutorial.gd" type="Script" id=1]
+[ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=2]
+
+[node name="Tutorial" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 1 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+pause_mode = 2
+layer = 2
+
+[node name="TextBox" type="Sprite" parent="CanvasLayer"]
+pause_mode = 2
+editor/display_folded = true
+visible = false
+position = Vector2( 300, 68 )
+z_index = 1
+texture = ExtResource( 2 )
+
+[node name="Label" type="Label" parent="CanvasLayer/TextBox"]
+margin_left = -217.0
+margin_top = -64.0
+margin_right = 299.0
+margin_bottom = -9.0
+text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make."
+autowrap = true
+
+[node name="TutorialTimer" type="Timer" parent="CanvasLayer"]
+pause_mode = 2
+
