@@ -1,7 +1,24 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://scripts/Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=2]
+[ext_resource path="res://sprites/gui/tutorial_anim_frame1.png" type="Texture" id=3]
+[ext_resource path="res://sprites/gui/morty_speaking1.png" type="Texture" id=4]
+[ext_resource path="res://sprites/gui/morty_speaking2.png" type="Texture" id=5]
+[ext_resource path="res://sprites/gui/morty_speaking3.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "neutral",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"loop": true,
+"name": "talking",
+"speed": 5.0
+} ]
 
 [node name="Tutorial" type="Node2D"]
 pause_mode = 2
@@ -13,7 +30,6 @@ layer = 2
 
 [node name="TextBox" type="Sprite" parent="CanvasLayer"]
 pause_mode = 2
-editor/display_folded = true
 visible = false
 position = Vector2( 300, 68 )
 z_index = 1
@@ -26,7 +42,22 @@ margin_right = 299.0
 margin_bottom = -9.0
 text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make."
 autowrap = true
+percent_visible = -0.00537634
+
+[node name="Enter" type="Label" parent="CanvasLayer/TextBox/Label"]
+margin_left = 458.568
+margin_top = 42.5791
+margin_right = 513.568
+margin_bottom = 56.5791
+text = "<ENTER>"
+
+[node name="Animation" type="AnimatedSprite" parent="CanvasLayer/TextBox"]
+position = Vector2( -262.955, -31.1978 )
+frames = SubResource( 1 )
+animation = "neutral"
+playing = true
 
 [node name="TutorialTimer" type="Timer" parent="CanvasLayer"]
 pause_mode = 2
+one_shot = true
 
