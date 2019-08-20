@@ -1,22 +1,115 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://scripts/Tutorial.gd" type="Script" id=1]
-[ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=2]
-[ext_resource path="res://sprites/gui/tutorial_anim_frame1.png" type="Texture" id=3]
-[ext_resource path="res://sprites/gui/morty_speaking1.png" type="Texture" id=4]
-[ext_resource path="res://sprites/gui/morty_speaking2.png" type="Texture" id=5]
-[ext_resource path="res://sprites/gui/morty_speaking3.png" type="Texture" id=6]
+[ext_resource path="res://sprites/tutorial/left_key_normal.png" type="Texture" id=2]
+[ext_resource path="res://sprites/tutorial/left_key_pressed.png" type="Texture" id=3]
+[ext_resource path="res://sprites/tutorial/down_key_normal.png" type="Texture" id=4]
+[ext_resource path="res://sprites/tutorial/down_key_pressed.png" type="Texture" id=5]
+[ext_resource path="res://sprites/tutorial/right_key_normal.png" type="Texture" id=6]
+[ext_resource path="res://sprites/tutorial/right_key_pressed.png" type="Texture" id=7]
+[ext_resource path="res://sprites/tutorial/up_key_normal.png" type="Texture" id=8]
+[ext_resource path="res://sprites/tutorial/up_key_pressed.png" type="Texture" id=9]
+[ext_resource path="res://sprites/tutorial/a_key_normal.png" type="Texture" id=10]
+[ext_resource path="res://sprites/tutorial/a_key_pressed.png" type="Texture" id=11]
+[ext_resource path="res://sprites/tutorial/s_key_normal.png" type="Texture" id=12]
+[ext_resource path="res://sprites/tutorial/s_key_pressed.png" type="Texture" id=13]
+[ext_resource path="res://sprites/tutorial/d_key_normal.png" type="Texture" id=14]
+[ext_resource path="res://sprites/tutorial/d_key_pressed.png" type="Texture" id=15]
+[ext_resource path="res://sprites/tutorial/w_key_normal.png" type="Texture" id=16]
+[ext_resource path="res://sprites/tutorial/w_key_pressed.png" type="Texture" id=17]
+[ext_resource path="res://fonts/data/Clock.tres" type="DynamicFont" id=18]
+[ext_resource path="res://sprites/tutorial/mouse.png" type="Texture" id=19]
+[ext_resource path="res://sprites/tutorial/1_key_normal.png" type="Texture" id=20]
+[ext_resource path="res://sprites/tutorial/2_key_normal.png" type="Texture" id=21]
+[ext_resource path="res://sprites/tutorial/highlight.png" type="Texture" id=22]
+[ext_resource path="res://sprites/tutorial/highlight2.png" type="Texture" id=23]
+[ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=24]
+[ext_resource path="res://sprites/gui/morty_speaking1.png" type="Texture" id=25]
+[ext_resource path="res://sprites/gui/morty_speaking2.png" type="Texture" id=26]
+[ext_resource path="res://sprites/gui/morty_speaking3.png" type="Texture" id=27]
+[ext_resource path="res://sprites/gui/tutorial_anim_frame1.png" type="Texture" id=28]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="InputEventKey" id=1]
+pressed = true
+scancode = 16777231
+
+[sub_resource type="ShortCut" id=2]
+shortcut = SubResource( 1 )
+
+[sub_resource type="InputEventKey" id=3]
+pressed = true
+scancode = 16777234
+
+[sub_resource type="ShortCut" id=4]
+shortcut = SubResource( 3 )
+
+[sub_resource type="InputEventKey" id=5]
+pressed = true
+scancode = 16777233
+
+[sub_resource type="ShortCut" id=6]
+shortcut = SubResource( 5 )
+
+[sub_resource type="InputEventKey" id=7]
+scancode = 16777232
+
+[sub_resource type="ShortCut" id=8]
+shortcut = SubResource( 7 )
+
+[sub_resource type="InputEventKey" id=9]
+pressed = true
+scancode = 65
+
+[sub_resource type="ShortCut" id=10]
+shortcut = SubResource( 9 )
+
+[sub_resource type="InputEventKey" id=11]
+pressed = true
+scancode = 83
+
+[sub_resource type="ShortCut" id=12]
+shortcut = SubResource( 11 )
+
+[sub_resource type="InputEventKey" id=13]
+pressed = true
+scancode = 68
+
+[sub_resource type="ShortCut" id=14]
+shortcut = SubResource( 13 )
+
+[sub_resource type="InputEventKey" id=15]
+pressed = true
+scancode = 87
+
+[sub_resource type="ShortCut" id=16]
+shortcut = SubResource( 15 )
+
+[sub_resource type="SpriteFrames" id=18]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ null, null, ExtResource( 22 ) ],
 "loop": true,
-"name": "neutral",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="SpriteFrames" id=19]
+animations = [ {
+"frames": [ null, null, ExtResource( 23 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="SpriteFrames" id=17]
+animations = [ {
+"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
 "loop": true,
 "name": "talking",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 28 ) ],
+"loop": true,
+"name": "neutral",
 "speed": 5.0
 } ]
 
@@ -28,21 +121,152 @@ script = ExtResource( 1 )
 pause_mode = 2
 layer = 2
 
+[node name="Infographic" type="Node2D" parent="CanvasLayer"]
+position = Vector2( 300, 68 )
+
+[node name="Keys" type="Node2D" parent="CanvasLayer/Infographic"]
+editor/display_folded = true
+visible = false
+position = Vector2( 33.5746, 150.731 )
+
+[node name="Left" type="TextureButton" parent="CanvasLayer/Infographic/Keys"]
+margin_left = -234.0
+margin_top = 3.0
+margin_right = -180.0
+margin_bottom = 53.0
+shortcut = SubResource( 2 )
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 3 )
+
+[node name="Down" type="TextureButton" parent="CanvasLayer/Infographic/Keys"]
+margin_left = -176.0
+margin_top = 3.0
+margin_right = -122.0
+margin_bottom = 53.0
+shortcut = SubResource( 4 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+
+[node name="Right" type="TextureButton" parent="CanvasLayer/Infographic/Keys"]
+margin_left = -118.0
+margin_top = 3.0
+margin_right = -64.0
+margin_bottom = 53.0
+shortcut = SubResource( 6 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 7 )
+
+[node name="Up" type="TextureButton" parent="CanvasLayer/Infographic/Keys"]
+margin_left = -176.0
+margin_top = -50.0
+margin_right = -122.0
+shortcut = SubResource( 8 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+
+[node name="A" type="TextureButton" parent="CanvasLayer/Infographic/Keys"]
+margin_left = -6.0
+margin_top = 3.0
+margin_right = 48.0
+margin_bottom = 53.0
+shortcut = SubResource( 10 )
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+
+[node name="S" type="TextureButton" parent="CanvasLayer/Infographic/Keys"]
+margin_left = 54.0
+margin_top = 3.0
+margin_right = 108.0
+margin_bottom = 53.0
+shortcut = SubResource( 12 )
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+
+[node name="D" type="TextureButton" parent="CanvasLayer/Infographic/Keys"]
+margin_left = 114.0
+margin_top = 3.0
+margin_right = 168.0
+margin_bottom = 53.0
+shortcut = SubResource( 14 )
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 15 )
+
+[node name="W" type="TextureButton" parent="CanvasLayer/Infographic/Keys"]
+margin_left = 54.0
+margin_top = -49.0
+margin_right = 108.0
+margin_bottom = 1.0
+shortcut = SubResource( 16 )
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 17 )
+
+[node name="Or" type="Label" parent="CanvasLayer/Infographic/Keys"]
+margin_left = -50.885
+margin_top = 21.1742
+margin_right = -10.885
+margin_bottom = 37.1742
+custom_fonts/font = ExtResource( 18 )
+text = "OR"
+
+[node name="Keys2" type="Node2D" parent="CanvasLayer/Infographic"]
+editor/display_folded = true
+visible = false
+
+[node name="Label" type="Label" parent="CanvasLayer/Infographic/Keys2"]
+margin_left = -44.9985
+margin_top = 122.999
+margin_right = -4.99854
+margin_bottom = 138.999
+custom_fonts/font = ExtResource( 18 )
+text = "OR"
+
+[node name="Mouse" type="Sprite" parent="CanvasLayer/Infographic/Keys2"]
+position = Vector2( -95.9985, 122.999 )
+texture = ExtResource( 19 )
+
+[node name="One" type="Sprite" parent="CanvasLayer/Infographic/Keys2"]
+position = Vector2( 34.0015, 129.999 )
+texture = ExtResource( 20 )
+
+[node name="Two" type="Sprite" parent="CanvasLayer/Infographic/Keys2"]
+position = Vector2( 94.0015, 129.999 )
+texture = ExtResource( 21 )
+
+[node name="HighLight" type="Node2D" parent="CanvasLayer/Infographic"]
+editor/display_folded = true
+visible = false
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight"]
+position = Vector2( -207.615, 280.879 )
+frames = SubResource( 18 )
+frame = 2
+playing = true
+
+[node name="HighLight2" type="Node2D" parent="CanvasLayer/Infographic"]
+visible = false
+z_index = 20
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight2"]
+frames = SubResource( 19 )
+frame = 2
+playing = true
+
 [node name="TextBox" type="Sprite" parent="CanvasLayer"]
 pause_mode = 2
+editor/display_folded = true
 visible = false
 position = Vector2( 300, 68 )
 z_index = 1
-texture = ExtResource( 2 )
+texture = ExtResource( 24 )
 
 [node name="Label" type="Label" parent="CanvasLayer/TextBox"]
+editor/display_folded = true
 margin_left = -217.0
 margin_top = -64.0
 margin_right = 299.0
 margin_bottom = -9.0
 text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make."
 autowrap = true
-percent_visible = -0.00537634
 
 [node name="Enter" type="Label" parent="CanvasLayer/TextBox/Label"]
 margin_left = 458.568
@@ -53,7 +277,7 @@ text = "<ENTER>"
 
 [node name="Animation" type="AnimatedSprite" parent="CanvasLayer/TextBox"]
 position = Vector2( -262.955, -31.1978 )
-frames = SubResource( 1 )
+frames = SubResource( 17 )
 animation = "neutral"
 playing = true
 

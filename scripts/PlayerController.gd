@@ -4,6 +4,9 @@ extends Node
 	Player input and events.
 """
 
+signal changed_zoom
+signal travel_finished
+
 #world nodes
 onready var camera = $camera
 
@@ -23,6 +26,11 @@ var _scroll_up = false
 var _scroll_down = false
 var _scroller_timer = false
 
+#automatically moves the camera to a given position
+var is_travelling = false
+var travel_position = Vector2(0,0)
+var travel_speed = 10
+
 #init
 func _ready():
 	#connect edge scrollers signals
@@ -39,6 +47,9 @@ func _ready():
 #camera movement
 func _physics_process(delta):
 	var movement = Vector2(0,0)
+	if is_travelling:
+		travel_camera_to(travel_position,travel_speed)
+		return
 	
 	var right = Input.is_action_pressed("Right")
 	var left = Input.is_action_pressed("Left")
@@ -97,6 +108,8 @@ func zoom_camera(zoom):
 		elif common.is_float_equal(camera.get_zoom().x,0.4):
 			settings.background_db = 15
 		
+		emit_signal("changed_zoom")
+		
 		return true
 
 #will detect when the player is moving the camera by hovering the edges
@@ -133,5 +146,26 @@ func update_scroller(scroller,value,timer=false):
 			return
 	
 	$camera/Scrollers/ScrollerTimer.start()
+
+#move the camera smoothly to a given location
+func travel_camera_to(to,speed=10):
+	travel_position = to
+	travel_speed = speed
+	is_travelling = true
+	
+	var dir = to - camera.global_position
+	dir = dir.normalized()
+	var dis = camera.global_position.distance_to(to)
+	
+	if dis > 10:
+		camera.global_position += dir * speed  
+	else:
+		emit_signal("travel_finished")
+		is_travelling = false
+	
+
+
+
+
 
 
