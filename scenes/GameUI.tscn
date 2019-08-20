@@ -292,6 +292,7 @@ margin_bottom = 40.0
 script = ExtResource( 10 )
 
 [node name="TrapsPanel" type="Control" parent="Canvas/TrapsUI"]
+editor/display_folded = true
 margin_top = 8.0
 margin_right = 40.0
 margin_bottom = 48.0

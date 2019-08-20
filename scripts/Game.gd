@@ -9,6 +9,7 @@ extends Node2D
 signal loaded
 signal game_over
 signal changed_points
+signal speed_changed
 
 enum MODE {
 	PLANNING,
@@ -418,6 +419,8 @@ func update_time_speed(value):
 	timer_speed = value
 	$GameTimer.start()
 	update_game_speed()
+	emit_signal("speed_changed")
+	
 
 #update the speed of several things in-game. Timers, K-bodies etc...
 func update_game_speed():

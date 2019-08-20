@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=53 format=2]
 
 [ext_resource path="res://scripts/Tutorial.gd" type="Script" id=1]
 [ext_resource path="res://sprites/tutorial/left_key_normal.png" type="Texture" id=2]
@@ -23,11 +23,13 @@
 [ext_resource path="res://sprites/tutorial/2_key_normal.png" type="Texture" id=21]
 [ext_resource path="res://sprites/tutorial/highlight.png" type="Texture" id=22]
 [ext_resource path="res://sprites/tutorial/highlight2.png" type="Texture" id=23]
-[ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=24]
-[ext_resource path="res://sprites/gui/morty_speaking1.png" type="Texture" id=25]
-[ext_resource path="res://sprites/gui/morty_speaking2.png" type="Texture" id=26]
-[ext_resource path="res://sprites/gui/morty_speaking3.png" type="Texture" id=27]
-[ext_resource path="res://sprites/gui/tutorial_anim_frame1.png" type="Texture" id=28]
+[ext_resource path="res://sprites/tutorial/highlight3.png" type="Texture" id=24]
+[ext_resource path="res://sprites/tutorial/highlight4.png" type="Texture" id=25]
+[ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=26]
+[ext_resource path="res://sprites/gui/morty_speaking1.png" type="Texture" id=27]
+[ext_resource path="res://sprites/gui/morty_speaking2.png" type="Texture" id=28]
+[ext_resource path="res://sprites/gui/morty_speaking3.png" type="Texture" id=29]
+[ext_resource path="res://sprites/gui/tutorial_anim_frame1.png" type="Texture" id=30]
 
 [sub_resource type="InputEventKey" id=1]
 pressed = true
@@ -84,7 +86,7 @@ scancode = 87
 [sub_resource type="ShortCut" id=16]
 shortcut = SubResource( 15 )
 
-[sub_resource type="SpriteFrames" id=18]
+[sub_resource type="SpriteFrames" id=17]
 animations = [ {
 "frames": [ null, null, ExtResource( 22 ) ],
 "loop": true,
@@ -92,7 +94,7 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[sub_resource type="SpriteFrames" id=19]
+[sub_resource type="SpriteFrames" id=18]
 animations = [ {
 "frames": [ null, null, ExtResource( 23 ) ],
 "loop": true,
@@ -100,14 +102,38 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[sub_resource type="SpriteFrames" id=17]
+[sub_resource type="SpriteFrames" id=19]
 animations = [ {
-"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ) ],
+"frames": [ null, null, ExtResource( 24 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="SpriteFrames" id=21]
+animations = [ {
+"frames": [ null, null, ExtResource( 25 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="SpriteFrames" id=22]
+animations = [ {
+"frames": [ null, null, ExtResource( 24 ) ],
+"loop": true,
+"name": "default",
+"speed": 3.0
+} ]
+
+[sub_resource type="SpriteFrames" id=20]
+animations = [ {
+"frames": [ ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ) ],
 "loop": true,
 "name": "talking",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 28 ) ],
+"frames": [ ExtResource( 30 ) ],
 "loop": true,
 "name": "neutral",
 "speed": 5.0
@@ -238,17 +264,49 @@ visible = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight"]
 position = Vector2( -207.615, 280.879 )
-frames = SubResource( 18 )
-frame = 2
+frames = SubResource( 17 )
+frame = 1
 playing = true
 
 [node name="HighLight2" type="Node2D" parent="CanvasLayer/Infographic"]
+editor/display_folded = true
 visible = false
 z_index = 20
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight2"]
+frames = SubResource( 18 )
+frame = 1
+playing = true
+
+[node name="HighLight3" type="Node2D" parent="CanvasLayer/Infographic"]
+editor/display_folded = true
+visible = false
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight3"]
+position = Vector2( 287.029, -26.4282 )
 frames = SubResource( 19 )
 frame = 2
+playing = true
+
+[node name="HighLight4" type="Node2D" parent="CanvasLayer/Infographic"]
+editor/display_folded = true
+visible = false
+position = Vector2( -2.21185, -1.45993 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight4"]
+position = Vector2( -278.875, 286.658 )
+frames = SubResource( 21 )
+frame = 2
+playing = true
+
+[node name="HighLight5" type="Node2D" parent="CanvasLayer/Infographic"]
+editor/display_folded = true
+visible = false
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight5"]
+position = Vector2( -279.274, 129.008 )
+frames = SubResource( 22 )
+frame = 1
 playing = true
 
 [node name="TextBox" type="Sprite" parent="CanvasLayer"]
@@ -257,7 +315,7 @@ editor/display_folded = true
 visible = false
 position = Vector2( 300, 68 )
 z_index = 1
-texture = ExtResource( 24 )
+texture = ExtResource( 26 )
 
 [node name="Label" type="Label" parent="CanvasLayer/TextBox"]
 editor/display_folded = true
@@ -277,7 +335,7 @@ text = "<ENTER>"
 
 [node name="Animation" type="AnimatedSprite" parent="CanvasLayer/TextBox"]
 position = Vector2( -262.955, -31.1978 )
-frames = SubResource( 17 )
+frames = SubResource( 20 )
 animation = "neutral"
 playing = true
 
