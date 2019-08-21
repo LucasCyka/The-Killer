@@ -9,13 +9,13 @@
 [ext_resource path="res://sprites/misc/pizza.png" type="Texture" id=7]
 [ext_resource path="res://sprites/misc/money.png" type="Texture" id=8]
 [ext_resource path="res://scenes/CustomTimer.tscn" type="PackedScene" id=9]
-[ext_resource path="res://sprites/misc/vice.png" type="Texture" id=10]
-[ext_resource path="res://sprites/misc/bait.png" type="Texture" id=11]
-[ext_resource path="res://sprites/misc/skull.png" type="Texture" id=12]
-[ext_resource path="res://sprites/misc/fish.png" type="Texture" id=13]
-[ext_resource path="res://sprites/misc/fish2.png" type="Texture" id=14]
-[ext_resource path="res://sprites/misc/screaming.png" type="Texture" id=15]
-[ext_resource path="res://sprites/misc/startled.png" type="Texture" id=16]
+[ext_resource path="res://sprites/misc/skull.png" type="Texture" id=10]
+[ext_resource path="res://sprites/misc/startled.png" type="Texture" id=11]
+[ext_resource path="res://sprites/misc/fish.png" type="Texture" id=12]
+[ext_resource path="res://sprites/misc/fish2.png" type="Texture" id=13]
+[ext_resource path="res://sprites/misc/screaming.png" type="Texture" id=14]
+[ext_resource path="res://sprites/misc/vice.png" type="Texture" id=15]
+[ext_resource path="res://sprites/misc/bait.png" type="Texture" id=16]
 [ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_1.png" type="Texture" id=17]
 [ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_2.png" type="Texture" id=18]
 [ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_3.png" type="Texture" id=19]
@@ -138,44 +138,44 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=5]
 animations = [ {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "love",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "vice",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "bait",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
 "loop": true,
 "name": "skull",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "fish",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "fish2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "screaming",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "startled",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "love",
+"name": "fish",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "fish2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "screaming",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "vice",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "bait",
 "speed": 5.0
 } ]
 

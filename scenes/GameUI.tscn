@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=2]
+[gd_scene load_steps=74 format=2]
 
 [ext_resource path="res://scripts/GameUI.gd" type="Script" id=1]
 [ext_resource path="res://scripts/TeenagerInfo.gd" type="Script" id=2]
@@ -62,12 +62,22 @@
 [ext_resource path="res://sprites/prototype/ui/fear_progress_background.png" type="Texture" id=60]
 [ext_resource path="res://sprites/prototype/ui/fear_progress.png" type="Texture" id=61]
 [ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=62]
-[ext_resource path="res://sprites/characters/male_1/dying/dying_1_down28.png" type="Texture" id=63]
-[ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=64]
-[ext_resource path="res://sprites/misc/art_test.png" type="Texture" id=65]
+[ext_resource path="res://scripts/MouseUI.gd" type="Script" id=63]
+[ext_resource path="res://sprites/misc/machette1.png" type="Texture" id=64]
+[ext_resource path="res://sprites/characters/male_1/dying/dying_1_down28.png" type="Texture" id=65]
+[ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=66]
+[ext_resource path="res://sprites/misc/art_test.png" type="Texture" id=67]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 25 )
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 64 ) ],
+"loop": true,
+"name": "Machete",
+"speed": 5.0
+} ]
 
 [sub_resource type="Animation" id=2]
 resource_name = "MiscBtn"
@@ -536,17 +546,19 @@ z_index = -1
 texture = ExtResource( 27 )
 
 [node name="MiscUI" type="Control" parent="Canvas"]
+pause_mode = 2
 editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 28 )
 
 [node name="Control" type="Control" parent="Canvas/MiscUI"]
-editor/display_folded = true
+pause_mode = 2
 margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="HuntBtn" type="TextureButton" parent="Canvas/MiscUI/Control"]
+pause_mode = 2
 margin_left = 135.896
 margin_top = 340.527
 margin_right = 163.896
@@ -959,6 +971,16 @@ margin_right = 335.003
 margin_bottom = 137.884
 text = "GAME OVER"
 
+[node name="MouseUI" type="Control" parent="Canvas"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 63 )
+
+[node name="MouseAnims" type="AnimatedSprite" parent="Canvas/MouseUI"]
+visible = false
+frames = SubResource( 6 )
+animation = "Machete"
+
 [node name="NextScreenUI" type="Control" parent="Canvas"]
 editor/display_folded = true
 margin_right = 40.0
@@ -1008,7 +1030,7 @@ anims/misc = SubResource( 4 )
 visible = false
 position = Vector2( 117.28, 314.042 )
 z_index = 4
-texture = ExtResource( 63 )
+texture = ExtResource( 65 )
 
 [node name="LabelAnims" type="AnimationPlayer" parent="Canvas/Animations"]
 playback_speed = 1.4
@@ -1017,7 +1039,7 @@ anims/score = SubResource( 5 )
 [node name="Sprite" type="Sprite" parent="Canvas/Animations"]
 visible = false
 position = Vector2( 300.047, 328.028 )
-texture = ExtResource( 64 )
+texture = ExtResource( 66 )
 
 [node name="Label" type="Label" parent="Canvas/Animations/Sprite"]
 margin_left = -216.0
@@ -1040,7 +1062,7 @@ autowrap = true
 [node name="Sprite" type="Sprite" parent="Canvas"]
 visible = false
 position = Vector2( 299.297, 64.5994 )
-texture = ExtResource( 64 )
+texture = ExtResource( 66 )
 
 [node name="Sprite2" type="Sprite" parent="Canvas"]
 editor/display_folded = true
@@ -1048,7 +1070,7 @@ visible = false
 position = Vector2( 299.297, 184.599 )
 z_index = 9
 z_as_relative = false
-texture = ExtResource( 65 )
+texture = ExtResource( 67 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Canvas/Sprite2"]
 visible = false

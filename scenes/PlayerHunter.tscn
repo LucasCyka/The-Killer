@@ -91,6 +91,7 @@ radius = 16.3886
 [node name="PlayerHunter" type="KinematicBody2D" groups=[
 "Player",
 ]]
+pause_mode = 2
 script = ExtResource( 1 )
 
 [node name="StateLabel" type="Label" parent="."]

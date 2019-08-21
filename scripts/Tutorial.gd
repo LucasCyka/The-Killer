@@ -25,7 +25,14 @@ var _next_step_key = true
 var is_tracks_paused = true
 var lowered_sounds = false
 var is_checking_lure = false
+var is_checking_misc = false
+var is_checking_hunter = false
+var is_checking_startled = false
 var lure_trail = []
+var misc_pos = null
+var hunter_pos = null
+var is_checking_hunter_state = false
+var hunter_state = null
 #shhh!
 var _hidden_texts_id = 0
 
@@ -103,7 +110,68 @@ Vector2(537, 412),Vector2(462, 287),Vector2(287, 362),Vector2(137, 462)]]},
 	61:{"methods":[funcref(self,'check_lure_is_placed')],"params":[[Vector2(887, 787),Vector2(887, 737),
 Vector2(912, 737),Vector2(887, 562),Vector2(887, 412),Vector2(687, 412),
 Vector2(537, 412),Vector2(462, 287),Vector2(287, 362),Vector2(137, 462)]]},
+	62:{"methods":[funcref(self,'show_infographic')],"params":['HighLight6']},
+	63:{"methods":[funcref(self,'remove_map_highlight')],"params":[null]},
+	64:{"methods":[funcref(self,'move_text_box')],"params":[50]},
+	65:{"methods":[funcref(self,'next_text')],"params":[null]},
+	66:{"methods":[funcref(self,'show_text')],"params":[true]},
+	67:{"methods":[funcref(self,'hide_infographic')],"params":['HighLight6']},
+	68:{"methods":[funcref(self,'next_text')],"params":[null]},
+	69:{"methods":[funcref(self,'show_text')],"params":[true]},
+	70:{"methods":[funcref(self,'show_infographic')],"params":['HighLight7']},
+	71:{"methods":[funcref(self,'next_text')],"params":[null]},
+	72:{"methods":[funcref(self,'show_text')],"params":[true]},
+	73:{"methods":[funcref(self,'move_text_box')],"params":[-50]},
+	74:{"methods":[funcref(self,'hide_infographic')],"params":['HighLight7']},
+	75:{"methods":[funcref(self,'show_infographic')],"params":['HighLight8']},
+	76:{"methods":[funcref(self,'next_text')],"params":[null]},
+	77:{"methods":[funcref(self,'show_text'),funcref(self,'check_ui_button')],"params":[false,'MiscBtn']},
+	78:{"methods":[funcref(self,'hide_infographic')],"params":['HighLight8']},
+	79:{"methods":[funcref(self,'highlight_map')],"params":[[Vector2(112, 462)]]},
+	80:{"methods":[funcref(self,'next_text')],"params":[null]},
+	81:{"methods":[funcref(self,'show_text'),funcref(self,'check_misc_is_placed')],"params":[false,Vector2(112, 462)]},
+	82:{"methods":[funcref(self,'remove_map_highlight')],"params":[null]},
+	83:{"methods":[funcref(self,'pause')],"params":[null]},
+	84:{"methods":[funcref(self,'next_text')],"params":[null]},
+	85:{"methods":[funcref(self,'show_text')],"params":[true]},
+	86:{"methods":[funcref(self,'show_infographic')],"params":['HighLight9']},
+	87:{"methods":[funcref(self,'next_text')],"params":[null]},
+	88:{"methods":[funcref(self,'show_text'),funcref(self,'check_ui_button')],"params":[false,'HuntBtn']},
+	89:{"methods":[funcref(self,'move_camera')],"params":[Vector2(75,335)]},
+	90:{"methods":[funcref(self,'highlight_map')],"params":[[Vector2(435, 335)]]},
+	91:{"methods":[funcref(self,'next_text')],"params":[null]},
+	92:{"methods":[funcref(self,'show_text'),funcref(self,'check_hunter_is_placed')],"params":[false,Vector2(435, 335)]},
+	93:{"methods":[funcref(self,'hide_infographic')],"params":['HighLight9']},
+	94:{"methods":[funcref(self,'next_text')],"params":[null]},
+	95:{"methods":[funcref(self,'show_text')],"params":[true]},
+	96:{"methods":[funcref(self,'next_text')],"params":[null]},
+	97:{"methods":[funcref(self,'show_text')],"params":[true]},
+	98:{"methods":[funcref(self,'move_camera')],"params":[Vector2(730,779)]},
+	99:{"methods":[funcref(self,'show_infographic')],"params":['HighLight10']},
+	100:{"methods":[funcref(self,'next_text')],"params":[null]},
+	101:{"methods":[funcref(self,'show_text'),funcref(self,'check_ui_button')],"params":[false,'BumpBtn']},
+	102:{"methods":[funcref(self,'hide_infographic')],"params":['HighLight10']},
+	103:{"methods":[funcref(self,'resume')],"params":[null]},
+	104:{"methods":[funcref(self,'highlight_map')],"params":[[Vector2(900,800)]]},
+	105:{"methods":[funcref(self,'next_text')],"params":[null]},
+	106:{"methods":[funcref(self,'show_text')],"params":[true]},
+	107:{"methods":[funcref(self,'next_text')],"params":[null]},
+	108:{"methods":[funcref(self,'show_text'),funcref(self,'check_teen_state')],"params":[false,'Lured']},
+	109:{"methods":[funcref(self,'remove_map_highlight')],"params":[null]},
+	110:{"methods":[funcref(self,'next_text')],"params":[null]},
+	111:{"methods":[funcref(self,'show_text'),funcref(self,'check_teen_state')],"params":[false,'Panic']},
+	112:{"methods":[funcref(self,'check_hunter_state')],"params":['EndingSpawn']},
+	113:{"methods":[funcref(self,'pause')],"params":[null]},
+	114:{"methods":[funcref(self,'next_text')],"params":[null]},
+	115:{"methods":[funcref(self,'show_text'),funcref(self,'check_teen_state')],"params":[false,'Dead']},
+	116:{"methods":[funcref(self,'show_infographic')],"params":['HighLight12']},
+	117:{"methods":[funcref(self,'next_text')],"params":[null]},
+	118:{"methods":[funcref(self,'show_text')],"params":[true]},
+	119:{"methods":[funcref(self,'hide_infographic')],"params":['HighLight12']},
+	120:{"methods":[funcref(self,'next_text')],"params":[null]},
 	
+	#HIGHLIGHT DEAD TEEN
+	121:{"methods":[funcref(self,'show_text')],"params":[true]},
 }
 
 #init tutotiral
@@ -132,7 +200,7 @@ func _process(delta):
 				_step_called = true
 				steps[current_step]['methods'][method].call_func()
 				
-	#functions that don't use signals
+	####functions that don't use signals####
 	if teen_state != null:
 		check_teen_state(teen_state)
 	if not lowered_sounds and text_box.is_visible():
@@ -144,7 +212,14 @@ func _process(delta):
 	
 	if is_checking_lure:
 		check_lure_is_placed(lure_trail)
-		pass
+	elif is_checking_misc:
+		check_misc_is_placed(misc_pos)
+	elif is_checking_hunter:
+		check_hunter_is_placed(hunter_pos)
+	elif is_checking_hunter_state:
+		check_hunter_state(hunter_state)
+	
+	#####
 	
 	#on the tutorial the sounds/music still needs to play when the game
 	#is paused.
@@ -333,7 +408,21 @@ func check_teen_state(state):
 			return
 	
 	teen_state = state
-
+	
+#if the hunter is on a given state, go to the next step
+func check_hunter_state(state):
+	is_checking_hunter_state = true
+	hunter_state = state
+	var hunter = get_tree().get_nodes_in_group('Player')
+	if hunter == []:
+		return
+		
+	hunter = hunter[0]
+	
+	if hunter.state_machine.get_current_state() == state:
+		is_checking_hunter_state = false
+		emit_signal("next_step")
+	
 
 #check if the camera's zoom level is different from 'zoom'
 func check_camera_zoom(zoom,_signal = false):
@@ -432,8 +521,19 @@ func highlight_map(positions):
 		var spr = Sprite.new()
 		spr.texture = preload("res://sprites/tutorial/trail.png")
 		spr.global_position = pos
-		spr.set_z_index(1)
+		spr.add_to_group('_highlightTutorial')
+		if current_step == 90:
+			spr.set_z_index(2)
+		else:
+			spr.set_z_index(1)
 		get_parent().add_child(spr)
+	
+	emit_signal("next_step")
+
+#remove highlights from the map
+func remove_map_highlight():
+	for highlight in get_tree().get_nodes_in_group('_highlightTutorial'):
+		highlight.call_deferred('free')
 	
 	emit_signal("next_step")
 
@@ -485,11 +585,42 @@ func check_lure_is_placed(trail):
 	
 	is_checking_lure = true
 
+#check if a misc trap is placed on the given trail
+func check_misc_is_placed(pos):
+	misc_pos = pos
+	
+	for misc in get_tree().get_nodes_in_group('Misc'):
+		if misc.is_placed:
+			if misc.id != 0:
+				#he put the wrong trap..
+				misc.call_deferred('free')
+				get_parent().points = 10000
+				break
+			#check if he put the misc in the right spot
+			if misc.current_texture.global_position == pos:
+				emit_signal("next_step")
+				is_checking_misc = false
+				return
+	
+	is_checking_misc = true
 
-
-
-
-
+#check if the hunter is set to be spawn on the right location
+func check_hunter_is_placed(pos):
+	is_checking_hunter = true
+	hunter_pos = pos
+	var hunter = get_tree().get_nodes_in_group("Player")
+	
+	if hunter == []:
+		return
+	
+	hunter = hunter[0]
+	
+	if hunter.state_machine.get_node('Deployment').is_spawn_set:
+		if hunter.global_position == pos:
+			is_checking_hunter = false
+			emit_signal("next_step")
+			return
+	
 
 
 

@@ -34,7 +34,7 @@ func _ready():
 func _process(delta):
 	if base == null:
 		return
-	
+		
 	var closest = base.get_closest_tile(tiles,get_global_mouse_position(),20)
 	if closest == get_global_mouse_position():
 		#the player can't place the trap here
