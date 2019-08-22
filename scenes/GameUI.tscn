@@ -972,6 +972,7 @@ margin_bottom = 137.884
 text = "GAME OVER"
 
 [node name="MouseUI" type="Control" parent="Canvas"]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 63 )

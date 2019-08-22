@@ -28,9 +28,11 @@ var is_checking_lure = false
 var is_checking_misc = false
 var is_checking_hunter = false
 var is_checking_startled = false
+var is_checking_removed = false
 var lure_trail = []
 var misc_pos = null
 var hunter_pos = null
+var removed_name = null
 var is_checking_hunter_state = false
 var hunter_state = null
 #shhh!
@@ -163,15 +165,35 @@ Vector2(537, 412),Vector2(462, 287),Vector2(287, 362),Vector2(137, 462)]]},
 	112:{"methods":[funcref(self,'check_hunter_state')],"params":['EndingSpawn']},
 	113:{"methods":[funcref(self,'pause')],"params":[null]},
 	114:{"methods":[funcref(self,'next_text')],"params":[null]},
-	115:{"methods":[funcref(self,'show_text'),funcref(self,'check_teen_state')],"params":[false,'Dead']},
-	116:{"methods":[funcref(self,'show_infographic')],"params":['HighLight12']},
-	117:{"methods":[funcref(self,'next_text')],"params":[null]},
-	118:{"methods":[funcref(self,'show_text')],"params":[true]},
-	119:{"methods":[funcref(self,'hide_infographic')],"params":['HighLight12']},
+	115:{"methods":[funcref(self,'show_text'),funcref(self,'check_hunter_state')],"params":[false,'Attacking']},
+	116:{"methods":[funcref(self,'resume')],"params":[null]},
+	117:{"methods":[funcref(self,'check_teen_state')],"params":['Dead']},
+	118:{"methods":[funcref(self,'move_text_box')],"params":[50]},
+	119:{"methods":[funcref(self,'show_infographic')],"params":['HighLight12']},
 	120:{"methods":[funcref(self,'next_text')],"params":[null]},
-	
-	#HIGHLIGHT DEAD TEEN
 	121:{"methods":[funcref(self,'show_text')],"params":[true]},
+	122:{"methods":[funcref(self,'move_text_box')],"params":[-50]},
+	123:{"methods":[funcref(self,'hide_infographic')],"params":['HighLight12']},
+	124:{"methods":[funcref(self,'next_text')],"params":[null]},
+	125:{"methods":[funcref(self,'highlight_teen')],"params":['Teenager2']},
+	126:{"methods":[funcref(self,'show_text')],"params":[true]},
+	127:{"methods":[funcref(self,'next_text')],"params":[null]},
+	128:{"methods":[funcref(self,'show_text')],"params":[true]},
+	129:{"methods":[funcref(self,'next_text')],"params":[null]},
+	130:{"methods":[funcref(self,'show_text'),funcref(self,'check_teen_is_removed')],"params":[false,'Teenager2']},
+	131:{"methods":[funcref(self,'remove_teen_highlight')],"params":['Teenager2']},
+	132:{"methods":[funcref(self,'next_text')],"params":[null]},
+	133:{"methods":[funcref(self,'show_text')],"params":[true]},
+	134:{"methods":[funcref(self,'next_text')],"params":[null]},
+	135:{"methods":[funcref(self,'show_text')],"params":[true]},
+	136:{"methods":[funcref(self,'move_camera')],"params":[Vector2(681,118)]},
+	137:{"methods":[funcref(self,'next_text')],"params":[null]},
+	138:{"methods":[funcref(self,'show_text')],"params":[true]},
+	139:{"methods":[funcref(self,'next_text')],"params":[null]},
+	140:{"methods":[funcref(self,'show_text')],"params":[true]},
+	141:{"methods":[funcref(self,'next_text')],"params":[null]},
+	142:{"methods":[funcref(self,'show_text')],"params":[true]},
+	#
 }
 
 #init tutotiral
@@ -218,6 +240,8 @@ func _process(delta):
 		check_hunter_is_placed(hunter_pos)
 	elif is_checking_hunter_state:
 		check_hunter_state(hunter_state)
+	elif is_checking_removed:
+		check_teen_is_removed(removed_name)
 	
 	#####
 	
@@ -226,6 +250,11 @@ func _process(delta):
 	if get_parent().audio_system != null:
 		if is_tracks_paused:
 			resume_tracks()
+			
+	#prevent the player from changing the game speed too much
+	if current_step >=50:
+		if get_parent().timer_speed != 1:
+			get_parent().ui.info_ui.normal_btn()
 
 func _exit():
 	#TODO: change pause system for tracks
@@ -234,7 +263,7 @@ func _exit():
 	
 #user input
 func _input(event):
-	if event.is_action_pressed("Enter"):
+	if event.is_action_pressed("Enter") or event.is_action_pressed("Space"):
 		if text_box.is_visible() and text.get_visible_characters()>1:
 			show_text(_next_step_key,true,true)
 
@@ -620,8 +649,18 @@ func check_hunter_is_placed(pos):
 			is_checking_hunter = false
 			emit_signal("next_step")
 			return
-	
 
+#check if a given teen has been removed from the game
+func check_teen_is_removed(teen_name):
+	is_checking_removed = true
+	removed_name = teen_name
+	
+	var teens = get_parent().get_node('AI').get_children()
+	
+	if not teens.has_node(teen_name):
+		is_checking_removed  = false
+		emit_signal("next_step")
+	
 
 
 
