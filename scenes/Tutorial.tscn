@@ -127,7 +127,7 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[sub_resource type="SpriteFrames" id=23]
+[sub_resource type="SpriteFrames" id=22]
 animations = [ {
 "frames": [ null, null, ExtResource( 26 ) ],
 "loop": true,
@@ -135,7 +135,7 @@ animations = [ {
 "speed": 3.0
 } ]
 
-[sub_resource type="SpriteFrames" id=22]
+[sub_resource type="SpriteFrames" id=23]
 animations = [ {
 "frames": [ ExtResource( 28 ) ],
 "loop": true,
@@ -157,6 +157,7 @@ pause_mode = 2
 layer = 2
 
 [node name="Infographic" type="Node2D" parent="CanvasLayer"]
+editor/display_folded = true
 position = Vector2( 300, 68 )
 
 [node name="Keys" type="Node2D" parent="CanvasLayer/Infographic"]
@@ -322,7 +323,7 @@ visible = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight6"]
 position = Vector2( -254.37, -55.0565 )
-frames = SubResource( 23 )
+frames = SubResource( 22 )
 frame = 1
 playing = true
 
@@ -332,7 +333,7 @@ visible = false
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight7"]
 position = Vector2( -160.37, -55.0565 )
-frames = SubResource( 23 )
+frames = SubResource( 22 )
 playing = true
 
 [node name="HighLight8" type="Node2D" parent="CanvasLayer/Infographic"]
@@ -385,19 +386,17 @@ position = Vector2( 173, 0 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight12"]
 position = Vector2( -254.37, -55.0565 )
-frames = SubResource( 23 )
+frames = SubResource( 22 )
 playing = true
 
 [node name="TextBox" type="Sprite" parent="CanvasLayer"]
 pause_mode = 2
-editor/display_folded = true
 visible = false
 position = Vector2( 300, 68 )
 z_index = 1
 texture = ExtResource( 27 )
 
 [node name="Label" type="Label" parent="CanvasLayer/TextBox"]
-editor/display_folded = true
 margin_left = -217.0
 margin_top = -64.0
 margin_right = 299.0
@@ -405,16 +404,16 @@ margin_bottom = -9.0
 text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make."
 autowrap = true
 
-[node name="Enter" type="Label" parent="CanvasLayer/TextBox/Label"]
+[node name="Space" type="Label" parent="CanvasLayer/TextBox/Label"]
 margin_left = 458.568
 margin_top = 42.5791
 margin_right = 513.568
 margin_bottom = 56.5791
-text = "<ENTER>"
+text = "<SPACE>"
 
 [node name="Animation" type="AnimatedSprite" parent="CanvasLayer/TextBox"]
 position = Vector2( -262.955, -31.1978 )
-frames = SubResource( 22 )
+frames = SubResource( 23 )
 animation = "neutral"
 playing = true
 

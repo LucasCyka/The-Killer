@@ -1,4 +1,4 @@
-[gd_scene load_steps=74 format=2]
+[gd_scene load_steps=75 format=2]
 
 [ext_resource path="res://scripts/GameUI.gd" type="Script" id=1]
 [ext_resource path="res://scripts/TeenagerInfo.gd" type="Script" id=2]
@@ -62,25 +62,25 @@
 [ext_resource path="res://sprites/prototype/ui/fear_progress_background.png" type="Texture" id=60]
 [ext_resource path="res://sprites/prototype/ui/fear_progress.png" type="Texture" id=61]
 [ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=62]
-[ext_resource path="res://scripts/MouseUI.gd" type="Script" id=63]
-[ext_resource path="res://sprites/misc/machette1.png" type="Texture" id=64]
-[ext_resource path="res://sprites/characters/male_1/dying/dying_1_down28.png" type="Texture" id=65]
-[ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=66]
-[ext_resource path="res://sprites/misc/art_test.png" type="Texture" id=67]
+[ext_resource path="res://scripts/WinningUI.gd" type="Script" id=63]
+[ext_resource path="res://scripts/MouseUI.gd" type="Script" id=64]
+[ext_resource path="res://sprites/gui/score_icon_prototype.png" type="Texture" id=65]
+[ext_resource path="res://sprites/characters/male_1/dying/dying_1_down28.png" type="Texture" id=66]
+[ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=67]
+[ext_resource path="res://sprites/misc/art_test.png" type="Texture" id=68]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 25 )
 
-[sub_resource type="SpriteFrames" id=6]
+[sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 64 ) ],
+"frames": [ ExtResource( 65 ) ],
 "loop": true,
 "name": "Machete",
 "speed": 5.0
 } ]
 
-[sub_resource type="Animation" id=2]
-resource_name = "MiscBtn"
+[sub_resource type="Animation" id=3]
 tracks/0/type = "value"
 tracks/0/path = NodePath("../TrapsUI/TrapsPanel/MiscBtn:rect_scale")
 tracks/0/interp = 1
@@ -94,8 +94,7 @@ tracks/0/keys = {
 "values": [ Vector2( 1, 1 ), Vector2( 1.2, 1.2 ), Vector2( 1, 1 ) ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "MiscBtn2"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath("../TrapsUI/TrapsPanel/MiscBtn:rect_rotation")
 tracks/0/interp = 1
@@ -109,8 +108,7 @@ tracks/0/keys = {
 "values": [ 0.0, 10.0, -10.0, -5.0, 0.0 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "misc"
+[sub_resource type="Animation" id=5]
 tracks/0/type = "value"
 tracks/0/path = NodePath("DeathTrapAnim/TeenSpr:position")
 tracks/0/interp = 1
@@ -136,8 +134,7 @@ tracks/1/keys = {
 "values": [ false ]
 }
 
-[sub_resource type="Animation" id=5]
-resource_name = "score"
+[sub_resource type="Animation" id=6]
 length = 1.5
 tracks/0/type = "value"
 tracks/0/path = NodePath("../InfoUI/InfoPanel/Score:rect_rotation")
@@ -971,15 +968,88 @@ margin_right = 335.003
 margin_bottom = 137.884
 text = "GAME OVER"
 
-[node name="MouseUI" type="Control" parent="Canvas"]
-editor/display_folded = true
+[node name="WinningUI" type="Control" parent="Canvas"]
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 63 )
 
+[node name="Panel" type="Control" parent="Canvas/WinningUI"]
+editor/display_folded = true
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Background" type="Panel" parent="Canvas/WinningUI/Panel"]
+margin_left = 200.0
+margin_top = 80.0
+margin_right = 400.0
+margin_bottom = 249.0
+
+[node name="Points" type="Label" parent="Canvas/WinningUI/Panel"]
+margin_left = 202.668
+margin_top = 85.6692
+margin_right = 250.668
+margin_bottom = 99.6692
+text = "Points:  00014567"
+
+[node name="Boredom" type="Label" parent="Canvas/WinningUI/Panel"]
+margin_left = 202.668
+margin_top = 115.669
+margin_right = 269.668
+margin_bottom = 129.669
+text = "Boredom: 77%"
+
+[node name="Time" type="Label" parent="Canvas/WinningUI/Panel"]
+margin_left = 202.668
+margin_top = 145.669
+margin_right = 269.668
+margin_bottom = 159.669
+text = "Time: 13:10"
+
+[node name="Budget" type="Label" parent="Canvas/WinningUI/Panel"]
+margin_left = 202.668
+margin_top = 185.669
+margin_right = 269.668
+margin_bottom = 199.669
+text = "Budget: $ 100"
+
+[node name="Total" type="Label" parent="Canvas/WinningUI/Panel"]
+margin_left = 202.668
+margin_top = 225.669
+margin_right = 269.668
+margin_bottom = 239.669
+text = "TOTAL: 180054"
+
+[node name="Score" type="Label" parent="Canvas/WinningUI/Panel"]
+margin_left = 342.668
+margin_top = 165.669
+margin_right = 409.668
+margin_bottom = 179.669
+text = "B++"
+
+[node name="MenuBtn" type="Button" parent="Canvas/WinningUI/Panel"]
+margin_left = 201.0
+margin_top = 253.0
+margin_right = 296.0
+margin_bottom = 283.0
+text = "MENU"
+
+[node name="RestartBtn" type="Button" parent="Canvas/WinningUI/Panel"]
+margin_left = 306.0
+margin_top = 253.0
+margin_right = 401.0
+margin_bottom = 283.0
+text = "RESTART"
+
+[node name="MouseUI" type="Control" parent="Canvas"]
+editor/display_folded = true
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 64 )
+
 [node name="MouseAnims" type="AnimatedSprite" parent="Canvas/MouseUI"]
 visible = false
-frames = SubResource( 6 )
+frames = SubResource( 2 )
 animation = "Machete"
 
 [node name="NextScreenUI" type="Control" parent="Canvas"]
@@ -1020,27 +1090,27 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="BtnAnims" type="AnimationPlayer" parent="Canvas/Animations"]
-anims/MiscBtn = SubResource( 2 )
-anims/MiscBtn2 = SubResource( 3 )
+anims/MiscBtn = SubResource( 3 )
+anims/MiscBtn2 = SubResource( 4 )
 
 [node name="DeathTrapAnim" type="AnimationPlayer" parent="Canvas/Animations"]
 editor/display_folded = true
-anims/misc = SubResource( 4 )
+anims/misc = SubResource( 5 )
 
 [node name="TeenSpr" type="Sprite" parent="Canvas/Animations/DeathTrapAnim"]
 visible = false
 position = Vector2( 117.28, 314.042 )
 z_index = 4
-texture = ExtResource( 65 )
+texture = ExtResource( 66 )
 
 [node name="LabelAnims" type="AnimationPlayer" parent="Canvas/Animations"]
 playback_speed = 1.4
-anims/score = SubResource( 5 )
+anims/score = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Canvas/Animations"]
 visible = false
 position = Vector2( 300.047, 328.028 )
-texture = ExtResource( 66 )
+texture = ExtResource( 67 )
 
 [node name="Label" type="Label" parent="Canvas/Animations/Sprite"]
 margin_left = -216.0
@@ -1063,7 +1133,7 @@ autowrap = true
 [node name="Sprite" type="Sprite" parent="Canvas"]
 visible = false
 position = Vector2( 299.297, 64.5994 )
-texture = ExtResource( 66 )
+texture = ExtResource( 67 )
 
 [node name="Sprite2" type="Sprite" parent="Canvas"]
 editor/display_folded = true
@@ -1071,7 +1141,7 @@ visible = false
 position = Vector2( 299.297, 184.599 )
 z_index = 9
 z_as_relative = false
-texture = ExtResource( 67 )
+texture = ExtResource( 68 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Canvas/Sprite2"]
 visible = false

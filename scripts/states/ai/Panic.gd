@@ -240,6 +240,10 @@ func get_closest_teenager():
 	for teenager in teenagers:
 		if not is_instance_valid(teenager):
 			continue
+		var teen_ref = weakref(teenager)
+		if teen_ref.get_ref() == null:
+			continue
+		
 		
 		var state = teenager.state_machine.get_current_state()
 		#TODO: check if he's not dead

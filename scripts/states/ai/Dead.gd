@@ -24,7 +24,7 @@ func init(base,state_position,state_time):
 	self.teenagers = get_tree().get_nodes_in_group("AI")
 	self.player = get_tree().get_nodes_in_group("Player")[0]
 	self.teenager.set_fear(100,false)
-	
+	self.game.teen_dead_num += 1
 	#TODO: points should be weighted different according to some teenagers
 	#modifiers.
 	

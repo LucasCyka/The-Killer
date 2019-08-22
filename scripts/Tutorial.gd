@@ -16,6 +16,7 @@ onready var timer = $CanvasLayer/TutorialTimer
 onready var infographics = $CanvasLayer/Infographic
 onready var player_controller = get_parent().get_node('PlayerController')
 onready var old_music_db = settings.music_db
+onready var old_background_db = settings.background_db
 onready var trail_positions = []
 
 var current_step = 0
@@ -35,6 +36,8 @@ var hunter_pos = null
 var removed_name = null
 var is_checking_hunter_state = false
 var hunter_state = null
+var is_finished = false
+
 #shhh!
 var _hidden_texts_id = 0
 
@@ -181,18 +184,19 @@ Vector2(537, 412),Vector2(462, 287),Vector2(287, 362),Vector2(137, 462)]]},
 	128:{"methods":[funcref(self,'show_text')],"params":[true]},
 	129:{"methods":[funcref(self,'next_text')],"params":[null]},
 	130:{"methods":[funcref(self,'show_text'),funcref(self,'check_teen_is_removed')],"params":[false,'Teenager2']},
-	131:{"methods":[funcref(self,'remove_teen_highlight')],"params":['Teenager2']},
-	132:{"methods":[funcref(self,'next_text')],"params":[null]},
-	133:{"methods":[funcref(self,'show_text')],"params":[true]},
-	134:{"methods":[funcref(self,'next_text')],"params":[null]},
-	135:{"methods":[funcref(self,'show_text')],"params":[true]},
-	136:{"methods":[funcref(self,'move_camera')],"params":[Vector2(681,118)]},
-	137:{"methods":[funcref(self,'next_text')],"params":[null]},
-	138:{"methods":[funcref(self,'show_text')],"params":[true]},
-	139:{"methods":[funcref(self,'next_text')],"params":[null]},
-	140:{"methods":[funcref(self,'show_text')],"params":[true]},
-	141:{"methods":[funcref(self,'next_text')],"params":[null]},
-	142:{"methods":[funcref(self,'show_text')],"params":[true]},
+	131:{"methods":[funcref(self,'next_text')],"params":[null]},
+	132:{"methods":[funcref(self,'show_text')],"params":[true]},
+	133:{"methods":[funcref(self,'next_text')],"params":[null]},
+	134:{"methods":[funcref(self,'show_text')],"params":[true]},
+	135:{"methods":[funcref(self,'move_camera')],"params":[Vector2(681,118)]},
+	136:{"methods":[funcref(self,'next_text')],"params":[null]},
+	137:{"methods":[funcref(self,'show_text')],"params":[true]},
+	138:{"methods":[funcref(self,'next_text')],"params":[null]},
+	139:{"methods":[funcref(self,'show_text')],"params":[true]},
+	140:{"methods":[funcref(self,'next_text')],"params":[null]},
+	141:{"methods":[funcref(self,'show_text')],"params":[true]},
+	142:{"methods":[funcref(self,'next_text')],"params":[null]},
+	143:{"methods":[funcref(self,'show_text')],"params":[false]},
 	#
 }
 
@@ -205,13 +209,19 @@ func _ready():
 	tutorial_text = parse_json(data)
 	
 	connect('next_step',self,'next_step')
+	get_parent().connect('game_won',self,'tutorial_ended',[true])
+	get_parent().connect('game_over',self,'tutorial_ended',[false])
 	
 	for teen in get_tree().get_nodes_in_group('AI'):
 		teens.append(teen)
-	
+		
 
 #execute the current function of the current step
 func _process(delta):
+	if is_finished:
+		#the tutorial is over
+		return
+	
 	if not _step_called:
 		for method in range(steps[current_step]['methods'].size()):
 			#the curret step wasn't called, call it now.
@@ -263,7 +273,7 @@ func _exit():
 	
 #user input
 func _input(event):
-	if event.is_action_pressed("Enter") or event.is_action_pressed("Space"):
+	if event.is_action_pressed("Space"):
 		if text_box.is_visible() and text.get_visible_characters()>1:
 			show_text(_next_step_key,true,true)
 
@@ -521,7 +531,10 @@ func move_text_box(y_pos):
 
 
 func pause_tracks():
-	pass
+	for track in get_parent().audio_system.get_tracks():
+		track.set_pause_mode(PAUSE_MODE_INHERIT)
+	
+	is_tracks_paused = true
 
 func resume_tracks():
 	for track in get_parent().audio_system.get_tracks():
@@ -532,7 +545,7 @@ func resume_tracks():
 #lower the volume of all tracks for better atmosphere
 func change_tracks_volume(increase=true):
 	if increase:
-		settings.set_background_db(5)
+		settings.set_background_db(old_background_db)
 		settings.set_music_db(old_music_db)
 	else:
 		settings.set_background_db(-5)
@@ -655,13 +668,24 @@ func check_teen_is_removed(teen_name):
 	is_checking_removed = true
 	removed_name = teen_name
 	
-	var teens = get_parent().get_node('AI').get_children()
+	var teens = get_parent().get_node('AI')
 	
 	if not teens.has_node(teen_name):
 		is_checking_removed  = false
 		emit_signal("next_step")
-	
 
+#when the tutorial is over
+func tutorial_ended(won):
+	settings.set_background_db(old_background_db)
+	settings.set_music_db(old_music_db)
+	pause_tracks()
+	
+	if won:
+		current_text = 45
+		show_text(false)
+	else:
+		current_text = 46
+		show_text(false)
 
 
 

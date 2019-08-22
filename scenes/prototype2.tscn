@@ -655,7 +655,7 @@ texture = ExtResource( 45 )
 [node name="Boat" type="AnimatedSprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 799.806, 848.917 )
 frames = SubResource( 8 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]

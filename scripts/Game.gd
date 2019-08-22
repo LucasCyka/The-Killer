@@ -8,6 +8,7 @@ extends Node2D
 #the game has been loaded
 signal loaded
 signal game_over
+signal game_won
 signal changed_points
 signal speed_changed
 
@@ -15,7 +16,8 @@ enum MODE {
 	PLANNING,
 	HUNTING,
 	PAUSED,
-	GAMEOVER
+	GAMEOVER,
+	WON
 }
 
 #the speed the timer will update the time (in seconds).
@@ -50,6 +52,8 @@ var teens_speed = {}
 
 #the initial number of teens in game
 var teen_num = 0 setget , get_teenagers_num
+#number of teenagers that already died
+var teen_dead_num = 0 setget set_teen_dead_num
 
 #if theres light in the buildings on the game.
 var has_light = true
@@ -77,6 +81,7 @@ func _ready():
 	#initialzie the ai
 	init_teenagers()
 	teen_num = get_teenagers().size()
+	connect("game_won",self,"set_current_mode",[MODE.WON])
 	emit_signal("loaded")
 
 #day/night cycle
@@ -194,6 +199,9 @@ func set_current_mode(value):
 			emit_signal("game_over")
 			var player = get_player()
 			if player != null:player.queue_free()
+		MODE.WON:
+			ui.lock()
+			disable_spawn_points()
 		_:
 			#the game is paused...
 			pass
@@ -230,6 +238,15 @@ func get_placed_traps():
 	#traps = traps + get_tree().get_nodes_in_group("Lure")
 	
 	return traps
+
+#update the number of teens that died and check for winning conditions
+func set_teen_dead_num(value):
+	teen_dead_num = value
+	
+	#all teens are dead, the player won.
+	if teen_dead_num == teen_num:
+		emit_signal("game_won")
+	
 
 #show all the spawn points and return an array containing their position
 func enable_spawn_points():
