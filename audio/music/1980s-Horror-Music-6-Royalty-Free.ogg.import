@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/1980s-Horror-Music-6-Royalty-Free.ogg-283eef4353f4c0319d040de271e9baf0.oggstr"
+
+[deps]
+
+source_file="res://audio/music/1980s-Horror-Music-6-Royalty-Free.ogg"
+dest_files=[ "res://.import/1980s-Horror-Music-6-Royalty-Free.ogg-283eef4353f4c0319d040de271e9baf0.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

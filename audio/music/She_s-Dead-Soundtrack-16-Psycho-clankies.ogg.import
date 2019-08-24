@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/She_s-Dead-Soundtrack-16-Psycho-clankies.ogg-31500737e8ea404e4847d3761800dee0.oggstr"
+
+[deps]
+
+source_file="res://audio/music/She_s-Dead-Soundtrack-16-Psycho-clankies.ogg"
+dest_files=[ "res://.import/She_s-Dead-Soundtrack-16-Psycho-clankies.ogg-31500737e8ea404e4847d3761800dee0.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

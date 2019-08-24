@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/1980s-Horror-Music-1-Royalty-Free-Music_wave.ogg-cacab4d663311e5fc4f1cfdedd874924.oggstr"
+
+[deps]
+
+source_file="res://audio/music/1980s-Horror-Music-1-Royalty-Free-Music_wave.ogg"
+dest_files=[ "res://.import/1980s-Horror-Music-1-Royalty-Free-Music_wave.ogg-cacab4d663311e5fc4f1cfdedd874924.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,10 +1,10 @@
 [gd_resource type="SpriteFrames" load_steps=23 format=2]
 
 [ext_resource path="res://sprites/misc/world_objct.png" type="Texture" id=1]
-[ext_resource path="res://sprites/world_objects/table2_iteration1.png" type="Texture" id=2]
-[ext_resource path="res://sprites/world_objects/clock.png" type="Texture" id=3]
-[ext_resource path="res://sprites/world_objects/double_bed.png" type="Texture" id=4]
-[ext_resource path="res://sprites/world_objects/bathroom.png" type="Texture" id=5]
+[ext_resource path="res://sprites/world_objects/bathroom.png" type="Texture" id=2]
+[ext_resource path="res://sprites/world_objects/table2_iteration1.png" type="Texture" id=3]
+[ext_resource path="res://sprites/world_objects/clock.png" type="Texture" id=4]
+[ext_resource path="res://sprites/world_objects/double_bed.png" type="Texture" id=5]
 [ext_resource path="res://sprites/world_objects/carpet.png" type="Texture" id=6]
 [ext_resource path="res://sprites/world_objects/bookshelf.png" type="Texture" id=7]
 [ext_resource path="res://sprites/world_objects/armchair.png" type="Texture" id=8]
@@ -32,22 +32,22 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "table",
+"name": "Bathroom",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "Clock",
+"name": "table",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "bed",
+"name": "Clock",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "Bathroom",
+"name": "bed",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],

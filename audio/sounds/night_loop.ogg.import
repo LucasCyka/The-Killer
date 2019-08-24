@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/night_loop.ogg-e818f3534b274bda84e9cbb77caecc48.oggstr"
+
+[deps]
+
+source_file="res://audio/sounds/night_loop.ogg"
+dest_files=[ "res://.import/night_loop.ogg-e818f3534b274bda84e9cbb77caecc48.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

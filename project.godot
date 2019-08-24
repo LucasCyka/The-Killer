@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="The Killer"
-run/main_scene="res://scenes/MainMenu.tscn"
+run/main_scene="res://scenes/prototype2.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -67,6 +67,10 @@ wav={
 "force/max_rate": false,
 "force/max_rate_hz": 44100,
 "force/mono": false
+}
+ogg_vorbis={
+"loop": false,
+"loop_offset": 0
 }
 
 [input]
