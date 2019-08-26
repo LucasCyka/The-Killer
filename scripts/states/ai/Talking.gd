@@ -26,7 +26,7 @@ func init(base,state_position,state_time):
 func update(delta):
 	if base == null or teenagers == []:
 		return
-		
+	
 	#only continue this state if he's on the right position
 	if self.position.distance_to(base.teenager.kinematic_teenager.global_position) > 20:
 		if not base.state_timer.is_stopped():

@@ -12,7 +12,7 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "New Anim"
-length = 2.0
+length = 3.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("BackgroundAnimation/Label:rect_scale")
 tracks/0/interp = 1
@@ -20,7 +20,7 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
+"times": PoolRealArray( 0, 2.6 ),
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector2( 1, 1 ), Vector2( 2.5, 2.5 ) ]
@@ -47,6 +47,7 @@ text = "THE SLASHER"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BackgroundAnimation"]
 root_node = NodePath("../..")
+autoplay = "New Anim"
 "anims/New Anim" = SubResource( 2 )
 
 [node name="BlackBackground" type="Sprite" parent="."]

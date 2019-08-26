@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 12.1356, 12.4263 )
+
+[node name="DoorDrawing" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -0.257023, 1.02809 )
+shape = SubResource( 1 )
+

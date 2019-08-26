@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=63 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/PlayerController.tscn" type="PackedScene" id=2]
@@ -43,19 +43,17 @@
 [ext_resource path="res://sprites/misc/shadow_interior.png" type="Texture" id=41]
 [ext_resource path="res://sprites/world_objects/female_bed_iteration1.png" type="Texture" id=42]
 [ext_resource path="res://sprites/world_objects/double_bed.png" type="Texture" id=43]
-[ext_resource path="res://sprites/world_objects/door.png" type="Texture" id=44]
-[ext_resource path="res://sprites/world_objects/pier_testing.png" type="Texture" id=45]
-[ext_resource path="res://sprites/world_objects/boat2.png" type="Texture" id=46]
-[ext_resource path="res://sprites/world_objects/boat3.png" type="Texture" id=47]
-[ext_resource path="res://sprites/world_objects/boat4.png" type="Texture" id=48]
-[ext_resource path="res://sprites/world_objects/boat5.png" type="Texture" id=49]
-[ext_resource path="res://sprites/world_objects/boat6.png" type="Texture" id=50]
-[ext_resource path="res://sprites/world_objects/boat.png" type="Texture" id=51]
-[ext_resource path="res://sprites/world_objects/table_iteration2.png" type="Texture" id=52]
-[ext_resource path="res://sprites/world_objects/bathroom.png" type="Texture" id=53]
-[ext_resource path="res://scenes/CustomTimer.tscn" type="PackedScene" id=54]
-[ext_resource path="res://scenes/Audio.tscn" type="PackedScene" id=55]
-[ext_resource path="res://scenes/Tutorial.tscn" type="PackedScene" id=56]
+[ext_resource path="res://sprites/world_objects/pier_testing.png" type="Texture" id=44]
+[ext_resource path="res://sprites/world_objects/boat2.png" type="Texture" id=45]
+[ext_resource path="res://sprites/world_objects/boat3.png" type="Texture" id=46]
+[ext_resource path="res://sprites/world_objects/boat4.png" type="Texture" id=47]
+[ext_resource path="res://sprites/world_objects/boat5.png" type="Texture" id=48]
+[ext_resource path="res://sprites/world_objects/boat6.png" type="Texture" id=49]
+[ext_resource path="res://sprites/world_objects/boat.png" type="Texture" id=50]
+[ext_resource path="res://sprites/world_objects/table_iteration2.png" type="Texture" id=51]
+[ext_resource path="res://sprites/world_objects/bathroom.png" type="Texture" id=52]
+[ext_resource path="res://scenes/CustomTimer.tscn" type="PackedScene" id=53]
+[ext_resource path="res://scenes/Audio.tscn" type="PackedScene" id=54]
 
 [sub_resource type="TileSet" id=1]
 0/name = "higher_walls.png 0"
@@ -198,7 +196,7 @@
 
 [sub_resource type="SpriteFrames" id=8]
 animations = [ {
-"frames": [ ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ) ],
+"frames": [ ExtResource( 45 ), ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
@@ -218,7 +216,6 @@ min_constraints = Vector2( -674, -369 )
 [node name="GameTimer" type="Timer" parent="."]
 
 [node name="AI" type="YSort" parent="."]
-editor/display_folded = true
 
 [node name="Teenager" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -279,7 +276,7 @@ tile_data = PoolIntArray( 458782, 3, 0, 458783, 42, 0, 458784, 38, 0, 589854, 0,
 position = Vector2( 1024.33, 219.489 )
 z_index = 2
 animation = "bed"
-type = 1
+type = 2
 owner_id = 1
 is_clickable = false
 obj_name = "Testing"
@@ -340,7 +337,7 @@ obj_desc = "This object"
 position = Vector2( 765.118, 201.333 )
 z_index = 2
 animation = "table"
-type = 5
+type = 6
 owner_id = 1
 is_clickable = false
 obj_name = "Testing"
@@ -411,7 +408,7 @@ obj_desc = "This object"
 position = Vector2( 1063.18, 485.791 )
 z_index = 1
 animation = "PicNic"
-type = 2
+type = 3
 owner_id = 1
 is_clickable = false
 obj_name = "Testing"
@@ -421,7 +418,7 @@ obj_desc = "This object"
 position = Vector2( 1278.1, 155.498 )
 z_index = 1
 animation = "PowerGenerator"
-type = 6
+type = 7
 id = 1
 owner_id = 1
 is_activable = true
@@ -433,7 +430,7 @@ position = Vector2( 1206.31, 6.26155 )
 z_index = 1
 animation = "Bathroom"
 offset = Vector2( 12.4783, -11.6528 )
-type = 7
+type = 8
 owner_id = 1
 is_activable = true
 obj_name = "Bathroom"
@@ -443,7 +440,42 @@ obj_desc = "Bathroom object"
 position = Vector2( 402.106, -283.21 )
 animation = "Car"
 offset = Vector2( 54.4164, 64.2193 )
-type = 3
+type = 4
+id = 2
+is_activable = true
+can_activated_when_using = false
+obj_name = "Pickup"
+obj_desc = "A pickup truck"
+
+[node name="Door" parent="AI" instance=ExtResource( 21 )]
+position = Vector2( 911.755, 315.864 )
+animation = "door"
+playing = false
+type = 1
+id = 2
+is_activable = true
+can_activated_when_using = false
+obj_name = "Pickup"
+obj_desc = "A pickup truck"
+
+[node name="Door2" parent="AI" instance=ExtResource( 21 )]
+position = Vector2( 1088.06, 189.933 )
+scale = Vector2( 1.087, 1 )
+animation = "door"
+playing = false
+type = 1
+id = 2
+is_activable = true
+can_activated_when_using = false
+obj_name = "Pickup"
+obj_desc = "A pickup truck"
+
+[node name="Door3" parent="AI" instance=ExtResource( 21 )]
+position = Vector2( 1287.48, 215.789 )
+scale = Vector2( 1.087, 1 )
+animation = "door"
+playing = false
+type = 1
 id = 2
 is_activable = true
 can_activated_when_using = false
@@ -582,7 +614,6 @@ texture = ExtResource( 39 )
 energy = 1.3
 
 [node name="WorldSprites(DEBUG)" type="Node2D" parent="."]
-editor/display_folded = true
 
 [node name="Shadow1" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
@@ -631,53 +662,36 @@ position = Vector2( 1025.51, 217.181 )
 z_index = 3
 texture = ExtResource( 43 )
 
-[node name="Door" type="Sprite" parent="WorldSprites(DEBUG)"]
-position = Vector2( 912.755, 315.864 )
-z_index = 2
-texture = ExtResource( 44 )
-
-[node name="Door3" type="Sprite" parent="WorldSprites(DEBUG)"]
-position = Vector2( 1287.48, 215.789 )
-z_index = 2
-texture = ExtResource( 44 )
-
-[node name="Door2" type="Sprite" parent="WorldSprites(DEBUG)"]
-position = Vector2( 1089.06, 191.933 )
-scale = Vector2( 1.08658, 1 )
-z_index = 2
-texture = ExtResource( 44 )
-
 [node name="Pier" type="Sprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 894.745, 776.968 )
 z_index = 1
-texture = ExtResource( 45 )
+texture = ExtResource( 44 )
 
 [node name="Boat" type="AnimatedSprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 799.806, 848.917 )
 frames = SubResource( 8 )
-frame = 2
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 1448.07, 266.009 )
-texture = ExtResource( 52 )
+texture = ExtResource( 51 )
 
 [node name="Table5" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 1801.15, 231.735 )
 z_index = 2
-texture = ExtResource( 53 )
+texture = ExtResource( 52 )
 
 [node name="Table6" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
 position = Vector2( 1215.98, -3.39085 )
 z_index = 2
-texture = ExtResource( 53 )
+texture = ExtResource( 52 )
 
-[node name="CustomTimer" parent="." instance=ExtResource( 54 )]
+[node name="CustomTimer" parent="." instance=ExtResource( 53 )]
 
-[node name="Audio" parent="." instance=ExtResource( 55 )]
+[node name="Audio" parent="." instance=ExtResource( 54 )]
 
 [node name="Lights" type="Node2D" parent="."]
 editor/display_folded = true
@@ -688,6 +702,4 @@ position = Vector2( 899.807, 193.161 )
 scale = Vector2( 0.719567, 0.580805 )
 z_index = 5
 texture = ExtResource( 39 )
-
-[node name="Tutorial" parent="." instance=ExtResource( 56 )]
 

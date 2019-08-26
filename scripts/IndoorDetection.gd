@@ -14,6 +14,9 @@ func _ready():
 	teenagers = game.get_teenagers()
 
 func _process(delta):
+	#TODO: this is taking too much of the game's performance.
+	#change things a bit or remove it completely.
+	
 	#check if any teenager is close enough to any indoor tile
 	for teenager in game.get_teenagers():
 		var pos = teenager.kinematic_teenager.global_position

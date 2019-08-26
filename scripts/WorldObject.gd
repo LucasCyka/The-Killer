@@ -9,6 +9,7 @@ extends AnimatedSprite
 
 enum TYPE{
 	CHAIR,
+	DOOR,
 	BED,
 	PICNIC,
 	CAR,
@@ -65,9 +66,28 @@ func _ready():
 		
 	else:
 		$Button.hide()
-		
+	
+	if type == TYPE.DOOR:
+		init_door()
+	
 func _process(delta):
 	pass
+
+#initialize this door
+func init_door():
+	var area = load("res://scenes/DoorDrawing.tscn").instance()
+	area.connect('area_entered',self,'open_door')
+	area.connect('area_exited',self,'close_door')
+	add_child(area)
+	area.global_position = self.global_position
+	
+func open_door(area):
+	if area.name == 'DetectionArea' or area.name == 'TreeSight':
+		self.frame = 1 
+
+func close_door(area):
+	if area.name == 'DetectionArea' or area.name == 'TreeSight':
+		self.frame = 0
 
 #when a teen starts to use the object
 func use(teen):
@@ -112,3 +132,4 @@ func break_obj():
 	#TODO: sounds if any
 	print('the object is now broken')
 	is_broken = true
+	
