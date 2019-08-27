@@ -559,7 +559,7 @@ tile_set = SubResource( 4 )
 cell_size = Vector2( 25, 25 )
 cell_quadrant_size = 1
 format = 1
-tile_data = PoolIntArray( -720888, 0, 0, 262140, 0, 0, 393256, 0, 0, 393285, 0, 0, 786439, 0, 0, 851985, 0, 0, 1048576, 0, 0, 1441783, 0, 0, 1835021, 0, 0, 2555970, 0, 0 )
+tile_data = PoolIntArray( -720888, 0, 0, 262140, 0, 0, 393285, 0, 0, 786439, 0, 0, 851985, 0, 0, 1048576, 0, 0, 1441783, 0, 0, 1835021, 0, 0, 2555970, 0, 0 )
 
 [node name="IndoorDetection" type="TileMap" parent="Tiles"]
 visible = false
@@ -677,7 +677,7 @@ texture = ExtResource( 44 )
 [node name="Boat" type="AnimatedSprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 799.806, 848.917 )
 frames = SubResource( 8 )
-frame = 3
+frame = 4
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]

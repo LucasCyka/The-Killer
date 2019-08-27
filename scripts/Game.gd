@@ -38,7 +38,8 @@ export var time = 0 setget set_time, get_time
 export var points = 0 setget set_points, get_points
 #enable/disable the debug mode
 export var debug_mode = false
-
+#the interval between killing the player should stay if he wants 
+#a score of 100% on the 'killing score'.
 export var perfect_killing_interval = 10
 
 #Default: 1 minute in-game = 1 second.

@@ -48,6 +48,11 @@ func update(delta):
 			base.teenager.custom_animation = base.get_node('Idle')
 			for teen in teenagers:
 				if teen == base.teenager: continue
+				
+				#this prevents some crashes
+				var ref = weakref(teen)
+				if ref.get_ref() == null: continue
+				
 				if not teen.is_object_visible(base.teenager.detection_area): continue
 				
 				var teen_pos = teen.kinematic_teenager.global_position

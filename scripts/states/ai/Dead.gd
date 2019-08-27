@@ -46,6 +46,11 @@ func init(base,state_position,state_time):
 	#TODO: change the position according to the direction the hunter is facing
 	teenager.global_position = Vector2(player.global_position.x,player.global_position.y+20)
 	teenager.dead_anims.play(_anim)
+	
+	#add killing score
+	var old_score = score.get_killing_score(game.get_level())
+	score.set_killing_score(game.get_level(),old_score + ((100/game.teen_num)+game.perfect_killing_interval))
+	
 	emit_signal("entered")
 	
 func update(delta):
