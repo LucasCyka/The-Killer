@@ -36,7 +36,7 @@ func init(base,state_position,state_time):
 	#TODO: bowels balloons
 	self.base.teenager.is_talking = false
 	self.base.teenager.is_thinking = true
-	self.base.teenager.custom_balloons = ['fish','fish2','bait','love']
+	self.base.teenager.custom_balloons = ['shit','bad','loo']
 	
 	emit_signal("entered")
 	

@@ -232,7 +232,8 @@ portrait_neutral = ExtResource( 9 )
 portrait_fear = ExtResource( 10 )
 portrait_panic = ExtResource( 11 )
 mugshot = ExtResource( 12 )
-teen_name = "Debra Claudette"
+teen_name = "Eve Claudette"
+teen_traits = PoolIntArray( 5 )
 
 [node name="Routines" type="Node" parent="AI/Teenager"]
 
@@ -258,7 +259,7 @@ portrait_fear = ExtResource( 18 )
 portrait_panic = ExtResource( 19 )
 mugshot = ExtResource( 20 )
 lover_path = NodePath("../Teenager")
-teen_name = "Jack Bacon"
+teen_name = "Adam Bacon"
 teen_traits = PoolIntArray( 3 )
 
 [node name="Routines" type="Node" parent="AI/Teenager2"]
@@ -614,6 +615,7 @@ texture = ExtResource( 39 )
 energy = 1.3
 
 [node name="WorldSprites(DEBUG)" type="Node2D" parent="."]
+editor/display_folded = true
 
 [node name="Shadow1" type="Sprite" parent="WorldSprites(DEBUG)"]
 visible = false
@@ -670,6 +672,7 @@ texture = ExtResource( 44 )
 [node name="Boat" type="AnimatedSprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 799.806, 848.917 )
 frames = SubResource( 8 )
+frame = 2
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]

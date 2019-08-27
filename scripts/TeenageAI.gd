@@ -65,7 +65,8 @@ enum TRAITS {
 	SLOW = 1,
 	FAST = 2,
 	HORNY = 3,
-	DIARRHEA = 4
+	DIARRHEA = 4,
+	FINAL_GIRL = 5
 }
 
 #it's true when the teen needs to execute an animation from a state 'activity'
@@ -116,6 +117,7 @@ export (GENDER) var gender = GENDER.MALE setget , get_gender
 export var id = 0
 export var speed = base_speed setget set_speed
 export var sleep_time = 1080
+export var wake_time = 420
 export var sleep_hours = 5
 export var is_talkative = true
 
@@ -651,6 +653,8 @@ func add_traits(traits,permanent=false):
 			TRAITS.DIARRHEA:
 				self.traits[TRAITS.DIARRHEA] = normal_effect_duration
 				set_diarrhea(true)
+			TRAITS.FINAL_GIRL:
+				self.traits[TRAITS.FINAL_GIRL] = slow_effect_duration
 			_:
 				#this teen don't have any traits
 				return

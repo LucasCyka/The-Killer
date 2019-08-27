@@ -213,6 +213,8 @@ func check_requirements(teenager):
 			return false
 		elif requirement == 'HORNY' and teenager.traits.keys().find(teenager.TRAITS.HORNY) == -1:
 			return false
+		elif requirement == 'FINALGIRL' and teenager.traits.keys().find(teenager.TRAITS.FINAL_GIRL) != -1:
+			return false
 			
 	return true
 
