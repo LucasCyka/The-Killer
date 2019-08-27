@@ -266,7 +266,6 @@ text = "Cur.: 100"
 autowrap = true
 
 [node name="Stat1" type="Label" parent="Canvas/TeenagerInfo/Panel"]
-visible = false
 margin_left = -1.0
 margin_top = 63.0
 margin_right = 48.0
@@ -275,22 +274,24 @@ custom_fonts/font = ExtResource( 9 )
 autowrap = true
 
 [node name="Stat2" type="Label" parent="Canvas/TeenagerInfo/Panel"]
-visible = false
 margin_left = -1.0
 margin_top = 73.0
-margin_right = 48.0
+margin_right = 55.0
 margin_bottom = 87.0
 custom_fonts/font = ExtResource( 9 )
 autowrap = true
 
 [node name="Stat3" type="Label" parent="Canvas/TeenagerInfo/Panel"]
-visible = false
 margin_left = -1.0
 margin_top = 83.0
 margin_right = 48.0
 margin_bottom = 97.0
 custom_fonts/font = ExtResource( 9 )
 autowrap = true
+
+[node name="Stats" type="Control" parent="Canvas/TeenagerInfo/Panel"]
+margin_right = 40.0
+margin_bottom = 40.0
 
 [node name="TrapsUI" type="Control" parent="Canvas"]
 editor/display_folded = true
@@ -610,14 +611,12 @@ autowrap = true
 
 [node name="InfoUI" type="Control" parent="Canvas"]
 pause_mode = 2
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 36 )
 
 [node name="InfoPanel" type="Control" parent="Canvas/InfoUI"]
 pause_mode = 2
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -663,16 +662,16 @@ position = Vector2( 2.098, 2.552 )
 z_index = -1
 texture = ExtResource( 39 )
 
-[node name="Fun" type="Label" parent="Canvas/InfoUI/InfoPanel"]
-editor/display_folded = true
-margin_left = 300.0
-margin_top = 11.0
-margin_right = 352.0
-margin_bottom = 25.0
+[node name="KillingScore" type="Label" parent="Canvas/InfoUI/InfoPanel"]
+margin_left = 288.392
+margin_top = 11.4757
+margin_right = 340.392
+margin_bottom = 25.4757
 custom_fonts/font = ExtResource( 8 )
+text = "0%"
 
-[node name="background" type="Sprite" parent="Canvas/InfoUI/InfoPanel/Fun"]
-position = Vector2( -7.902, 2.552 )
+[node name="background" type="Sprite" parent="Canvas/InfoUI/InfoPanel/KillingScore"]
+position = Vector2( 4.22858, 2.31267 )
 z_index = -1
 texture = ExtResource( 40 )
 
@@ -969,6 +968,7 @@ margin_bottom = 137.884
 text = "GAME OVER"
 
 [node name="WinningUI" type="Control" parent="Canvas"]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 63 )

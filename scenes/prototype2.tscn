@@ -216,6 +216,7 @@ min_constraints = Vector2( -674, -369 )
 [node name="GameTimer" type="Timer" parent="."]
 
 [node name="AI" type="YSort" parent="."]
+editor/display_folded = true
 
 [node name="Teenager" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -425,6 +426,8 @@ owner_id = 1
 is_activable = true
 obj_name = "Power Generator"
 obj_desc = "Supplies power to the house"
+use_sound = "TurnOn"
+activated_sound = "TurnOff"
 
 [node name="Bathroom" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 1206.31, 6.26155 )
@@ -447,6 +450,8 @@ is_activable = true
 can_activated_when_using = false
 obj_name = "Pickup"
 obj_desc = "A pickup truck"
+use_sound = "CarRunning"
+activated_sound = "TurnOff"
 
 [node name="Door" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 911.755, 315.864 )
@@ -672,7 +677,7 @@ texture = ExtResource( 44 )
 [node name="Boat" type="AnimatedSprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 799.806, 848.917 )
 frames = SubResource( 8 )
-frame = 2
+frame = 3
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]

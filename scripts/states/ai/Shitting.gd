@@ -33,7 +33,7 @@ func init(base,state_position,state_time):
 	timer.set_wait_time(start_duration)
 	timer.start()
 	
-	#TODO: bowels balloons
+	#bowels balloons
 	self.base.teenager.is_talking = false
 	self.base.teenager.is_thinking = true
 	self.base.teenager.custom_balloons = ['shit','bad','loo']
@@ -50,7 +50,7 @@ func update(delta):
 	elif bathroom.global_position.distance_to(base.teenager.global_position) > 20:
 		base.teenager.walk(bathroom.global_position)
 		self.base.teenager.custom_animation = null
-	elif bathroom.current_teen != []:
+	elif bathroom.current_teen != [] and bathroom.current_teen.find(base.teenager) == -1:
 		#the bathroom is occupied, wait in there
 		self.base.teenager.custom_animation = base.get_node('Shock')
 	else:
@@ -58,6 +58,8 @@ func update(delta):
 		self.base.teenager.global_position = bathroom.global_position
 		self.base.teenager.teenager_anims.hide()
 		self.base.teenager.custom_animation = base.get_node('Idle')
+		if bathroom.current_teen.find(base.teenager) == -1:
+			bathroom.use(base.teenager)
 		
 		if not self.base.teenager.diarrhea: 
 			started = false
@@ -79,6 +81,7 @@ func exit():
 	
 	if base.teenager.diarrhea:
 		base.teenager.was_in_bathroom = false
+	bathroom.leave(base.teenager)
 	started = false
 	bathroom = null
 	base.teenager.teenager_anims.show()

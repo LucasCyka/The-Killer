@@ -33,27 +33,7 @@ func _process(delta):
 	$Panel/Traps.text = "TRAPS: " + str(selected_teenager.traps.size())
 	$Panel/TrapsID.text = "TRAP ID: " + str(selected_teenager.current_trap)
 	$Panel/STATE.text = str(selected_teenager.state_machine.get_current_state())
-	
-	#traits - sorry for the spaghetti below, i'm really tired, I can't
-	#think right.
-	if selected_teenager.traits.keys().size() != 0:
-		for trait in selected_teenager.traits.keys():
-			var txt_trait = ""
-			match trait:
-				selected_teenager.TRAITS.SLOW:
-					txt_trait = 'slow'
-				selected_teenager.TRAITS.HORNY:
-					txt_trait = 'horny'
 			
-			if stats[0].text == "" and stats[0].text != txt_trait:
-				stats[0].text = txt_trait
-				stats[0].show()
-			elif stats[1].text == "" and stats[1].text != txt_trait:
-				stats[1].text = txt_trait
-				stats[1].show()
-			elif stats[2].text == "" and stats[2].text != txt_trait:
-				stats[2].text = txt_trait
-				stats[2].show()
 	
 	#drag the panel
 	if _is_mouse_over and _mouse_click_pos != Vector2(-666,-666):
@@ -88,6 +68,7 @@ func show_panel(teenager):
 	#AI static info
 	$Panel/Mugshot.texture_normal = selected_teenager.mugshot
 	$Panel/Name.text = selected_teenager.teen_name
+	fill_traits()
 
 #hide the panel
 func hide_panel():
@@ -95,6 +76,7 @@ func hide_panel():
 	$Panel.rect_global_position = _panel_default_position
 	selected_teenager = null
 	update()
+	fill_traits(true)
 
 func _draw():
 	if selected_teenager != null:
@@ -129,6 +111,46 @@ func recovery_pressed():
 	base.game.set_points(base.game.get_points()-base.game.body_recovery_cost)
 	hide_panel()
 	base.emit_signal("element_changed_focus")
+
+#fill labels for traits
+func fill_traits(hide=false):
+	if hide:
+		#clean all traits label
+		for label in stats:
+			label.text = ""
+		return
+		
+	#fill labels
+	if selected_teenager.traits.keys().size() != 0:
+		var trait_id = 0
+		for trait in selected_teenager.traits.keys():
+			if trait_id > stats.size()-1:
+				print('no more labels for filling the traits')
+				return
+				
+			var txt_trait = ""
+			match trait:
+				selected_teenager.TRAITS.HORNY:
+					txt_trait = "horny"
+				selected_teenager.TRAITS.SLOW:
+					txt_trait = "slow"
+				selected_teenager.TRAITS.FAST:
+					txt_trait = "fast"
+				selected_teenager.TRAITS.FINAL_GIRL:
+					txt_trait = "final girl"
+				selected_teenager.TRAITS.DIARRHEA:
+					txt_trait = "diarrhea"
+					
+			stats[trait_id].text = txt_trait
+			
+			trait_id += 1
+
+
+
+
+
+
+
 
 
 

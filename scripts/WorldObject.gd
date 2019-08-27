@@ -93,6 +93,10 @@ func close_door(area):
 func use(teen):
 	current_teen.append(teen)
 	
+	var game = get_parent().get_parent()
+	
+	if use_sound != "" and not is_broken and current_teen.size() == 1:
+		game.audio_system.play_2d_sound(use_sound,global_position)
 	#TODO: sounds if have any
 
 #when a teen stops using the object
@@ -106,6 +110,11 @@ func activate():
 		
 	for effect in effects[id]:
 		effect.call_func()
+	
+	#sound effect
+	if activated_sound != "":
+		var game = get_parent().get_parent()
+		game.audio_system.play_2d_sound(activated_sound,global_position)
 
 ##Effects##
 func startle():
@@ -120,7 +129,7 @@ func startle():
 			teenager.state_machine.force_state('Startled')
 			
 			teenager.set_fear(teenager.get_fear()+10,true)
-			teenager.set_curiosity(teenager.get_curiosity()+10,true)
+			teenager.set_curiosity(teenager.get_curiosity()+10)
 
 func turn_off_lights():
 	var game = get_parent().get_parent()

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/car_running.wav-78529a5c5e8eb762b0be5dd07946fe88.sample"
+
+[deps]
+
+source_file="res://audio/sounds/car_running.wav"
+dest_files=[ "res://.import/car_running.wav-78529a5c5e8eb762b0be5dd07946fe88.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=true
+edit/loop=false
+compress/mode=0

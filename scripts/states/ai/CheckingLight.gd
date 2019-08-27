@@ -11,6 +11,7 @@ const fix_duration = 20
 
 var base
 var generator
+var generator_obj = null
 var teenager
 var game
 var timer
@@ -30,6 +31,7 @@ func init(base,state_position,state_time):
 	for object in game.get_world_objects():
 		if object.type == object.TYPE.POWER:
 			self.generator = star.get_closest_tile(object.global_position)
+			self.generator_obj = object
 			break
 	if generator == null:
 		print('Generator not found!')
@@ -78,6 +80,7 @@ func update(delta):
 				teenager.custom_animation = _custom
 
 func fix_lights():
+	generator_obj.use(base.teenager)
 	game.has_light = true
 	game.update_lights(true)
 	finished = true
@@ -93,6 +96,8 @@ func exit():
 		timer.call_deferred('free')
 		timer = null
 		teenager.custom_animation = null
+	if generator_obj != null: generator_obj.leave(base.teenager)
 	generator = null
+	generator_obj = null
 	emit_signal("finished")
 

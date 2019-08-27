@@ -94,6 +94,7 @@ func update(delta):
 	
 	if is_path_free(escape_object.global_position) and not tried_escape_object:
 		if base.teenager.walk(escape_object.global_position) or teen_pos.distance_to(escape_point) < 80:
+			game.audio_system.play_2d_sound('CarDoor',base.teenager.global_position)
 			print('arrived at the object')
 			escape_object.use(base.teenager)
 			base.teenager.hide()
@@ -159,7 +160,7 @@ func escape_on_object(timer=false):
 		base.force_state('Escaped')
 	else:
 		var escape_timer = Timer.new()
-		escape_timer.wait_time = 3
+		escape_timer.wait_time = 2
 		escape_timer.connect('timeout',self,'escape_on_object',[true])
 		escape_timer.one_shot = true
 		add_child(escape_timer)

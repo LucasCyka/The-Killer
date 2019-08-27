@@ -39,6 +39,8 @@ export var points = 0 setget set_points, get_points
 #enable/disable the debug mode
 export var debug_mode = false
 
+export var perfect_killing_interval = 10
+
 #Default: 1 minute in-game = 1 second.
 var timer_speed = default_speed
 var ai_timer_speed = default_speed
@@ -78,8 +80,10 @@ func _ready():
 	load_trap_info()
 	#start timer
 	init_timer()
-	#initialzie the ai
+	#initialze the ai
 	init_teenagers()
+	#initialize score
+	init_score()
 	teen_num = get_teenagers().size()
 	connect("game_won",self,"set_current_mode",[MODE.WON])
 	emit_signal("loaded")
@@ -283,6 +287,11 @@ func init_teenagers():
 	for teen in get_teenagers():
 		#signals
 		teen.connect("recover_teen",self,"transform_teen",[teen])
+
+#initialized the game score
+func init_score():
+	score.set_killing_score(get_level(),0)
+	score.set_score(get_level(),0)
 
 #transform the teen into a misc trap
 func transform_teen(teen):
@@ -526,7 +535,15 @@ func update_game_speed():
 		teen.speed += new_speed
 		#animations speed
 		teen.teenager_anims.set_speed_scale(anim_speed)
-		
+
+#decrease the killing score
+func update_killing_score():
+	if get_level() == '':
+		return
+	var scr = score.get_killing_score(get_level())
+	if scr > 0:
+		score.set_killing_score(get_level(),scr-1)
+
 func set_time(value):
 	time += value
 	
@@ -538,6 +555,7 @@ func set_time(value):
 		update_lights(true)
 	else:
 		update_lights(false)
+	update_killing_score()
 
 #turn lights on/off
 func update_lights(value):

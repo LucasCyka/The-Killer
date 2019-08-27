@@ -26,7 +26,7 @@
 	"OnSpot":["false","false","false"],
 	"Walkable":["true","true","true"],
 	"Name":["Underwear","Porn","Blood Trail"],
-	"Desc":["Lure 1.","Lure 2.","Lure 3."],
+	"Desc":["A trail of women's underwear.","Lure 2.","Lure 3."],
 	"Placement":["WORLD","WORLD","WORLD"],
 	"Sound":["Laughter","Laughter","MedFear"],
 	"Requirements":[["MEN","HORNY"],["MEN"],["NULL"]]

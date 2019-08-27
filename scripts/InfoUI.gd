@@ -18,6 +18,7 @@ onready var game = get_parent().get_parent().get_parent()
 onready var _score = $InfoPanel/Score
 onready var _points = $InfoPanel/Points
 onready var fc_slots = $FCSlots.get_children()
+onready var _killing_score = $InfoPanel/KillingScore
 
 #f/c bars textures
 onready var red_bar = preload('res://sprites/gui/fc_progress_bar3.png')
@@ -30,6 +31,7 @@ func init(base):
 	self.teens = base.game.get_teenagers()
 	highlight_clock($Clock/NormalSpdBtn)
 	score.connect("score_changed",self,"update_score")
+	score.connect("killing_score_changed",self,"update_killing_score")
 	base.game.connect('changed_points',self,'update_points')
 	
 func _process(delta):
@@ -230,6 +232,11 @@ func update_score():
 			_score.text = _score.text.insert(0,'0')
 			
 	base.play_label_animation('score')
+
+#called when a new killing is set.
+func update_killing_score():
+	_killing_score.text = str(score.get_killing_score(base.game.get_level())) + "%"
+	#TODO: maybe some animations?
 
 func update_points():
 	_points.text = "$"+str(game.get_points())

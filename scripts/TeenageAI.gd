@@ -73,6 +73,7 @@ enum TRAITS {
 var state_animation = false
 var custom_animation = null
 var is_tired = false
+var queue_sleep = false
 var remaining_sleep_time = 0
 var current_routine = 0
 var last_routine = 0
@@ -98,7 +99,7 @@ var current_target = Vector2(-666,-666)
 var curiosity = 0 setget set_curiosity,get_curiosity
 var fear = 0 setget set_fear,get_fear
 var slow = false setget set_slow
-var fast = false
+var fast = false setget set_fast
 var horny = false setget set_horny
 var diarrhea = false setget set_diarrhea
 
@@ -482,13 +483,23 @@ func check_tiredness():
 		#send him back to the bed.
 		state_machine.force_state('Sleeping')
 		return
+	if not is_tired and queue_sleep and not is_routine_paused:
+		#now he/she can sleep
+		is_tired = true
+		state_machine.force_state('Sleeping')
+		queue_sleep = false
+	
 	
 	if not is_tired and game.get_time() == sleep_time and not is_routine_paused:
 		#time to sleep
-		#TODO: send him to bed
+		#send him to bed
 		remaining_sleep_time = sleep_hours*60
 		is_tired = true
 		state_machine.force_state('Sleeping')
+	elif not is_tired and game.get_time() == sleep_time and is_routine_paused:
+		#he needs to sleep but his routine is paused. Wait for him to be free
+		#to sleep again
+		queue_sleep = true
 		
 #check if the teen is horny enough to go to the woods with his lover.
 func check_love():
@@ -624,7 +635,15 @@ func set_slow(value):
 		speed -= base_speed * slow_modifier
 	else:
 		speed += base_speed * slow_modifier
-		
+
+func set_fast(value):
+	fast = value
+	
+	if fast:
+		speed += base_speed * fast_modifier 
+	else:
+		speed -= base_speed * fast_modifier 
+	
 #enable/disable horny modifier
 func set_horny(value):
 	horny = value
@@ -653,6 +672,9 @@ func add_traits(traits,permanent=false):
 			TRAITS.DIARRHEA:
 				self.traits[TRAITS.DIARRHEA] = normal_effect_duration
 				set_diarrhea(true)
+			TRAITS.FAST:
+				self.traits[TRAITS.FAST] = fast_effect_duration
+				set_fast(true)
 			TRAITS.FINAL_GIRL:
 				self.traits[TRAITS.FINAL_GIRL] = slow_effect_duration
 			_:
@@ -681,6 +703,8 @@ func remove_traits(traits,timer=null):
 				set_horny(false)
 			TRAITS.DIARRHEA:
 				set_diarrhea(false)
+			TRAITS.FAST:
+				set_fast(false)
 			_:
 				print("tried to remove a trait that doesn't exist")
 				return
