@@ -37,6 +37,11 @@ func hunt():
 	
 	base.emit_signal('element_changed_focus')
 
+#super zoom btn
+func zoom():
+	var controller = base.game.get_player_controller()
+	controller.set_super_zoom(!controller.super_zoom)
+
 #the object panel shows iformation about a object the player selected
 func show_object_panel(obj):
 	#don't select objects when the player is hunting

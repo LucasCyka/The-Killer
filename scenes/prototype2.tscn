@@ -451,6 +451,7 @@ can_activated_when_using = false
 obj_name = "Pickup"
 obj_desc = "A pickup truck"
 use_sound = "CarRunning"
+use_broken_sound = "BrokenCar"
 activated_sound = "TurnOff"
 
 [node name="Door" parent="AI" instance=ExtResource( 21 )]
@@ -677,7 +678,6 @@ texture = ExtResource( 44 )
 [node name="Boat" type="AnimatedSprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 799.806, 848.917 )
 frames = SubResource( 8 )
-frame = 4
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]

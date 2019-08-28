@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://scripts/Audio.gd" type="Script" id=1]
 [ext_resource path="res://audio/music/1980s-Horror-Music-1-Royalty-Free-Music_wave.ogg" type="AudioStream" id=2]
@@ -23,8 +23,9 @@
 [ext_resource path="res://audio/sounds/car_door2.wav" type="AudioStream" id=21]
 [ext_resource path="res://audio/sounds/turn_off.wav" type="AudioStream" id=22]
 [ext_resource path="res://audio/sounds/turn_on.wav" type="AudioStream" id=23]
-[ext_resource path="res://audio/sounds/daylight_far.wav" type="AudioStream" id=24]
-[ext_resource path="res://audio/sounds/night_loop.ogg" type="AudioStream" id=25]
+[ext_resource path="res://audio/sounds/trying_car.wav" type="AudioStream" id=24]
+[ext_resource path="res://audio/sounds/daylight_far.wav" type="AudioStream" id=25]
+[ext_resource path="res://audio/sounds/night_loop.ogg" type="AudioStream" id=26]
 
 [node name="Audio" type="Node"]
 script = ExtResource( 1 )
@@ -69,7 +70,6 @@ stream = ExtResource( 9 )
 pitch_scale = 1.5
 
 [node name="Sound2D" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="PlayerSlash" type="AudioStreamPlayer2D" parent="Sound2D"]
 stream = ExtResource( 10 )
@@ -117,14 +117,17 @@ stream = ExtResource( 22 )
 [node name="TurnOn" type="AudioStreamPlayer2D" parent="Sound2D"]
 stream = ExtResource( 23 )
 
+[node name="BrokenCar" type="AudioStreamPlayer2D" parent="Sound2D"]
+stream = ExtResource( 24 )
+
 [node name="Background" type="Node" parent="."]
 editor/display_folded = true
 
 [node name="DaylightBackground" type="AudioStreamPlayer" parent="Background"]
-stream = ExtResource( 24 )
+stream = ExtResource( 25 )
 volume_db = 5.0
 
 [node name="NightTimeBackground" type="AudioStreamPlayer" parent="Background"]
-stream = ExtResource( 25 )
+stream = ExtResource( 26 )
 volume_db = 5.0
 

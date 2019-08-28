@@ -15,6 +15,7 @@ const camera_speed = 420
 const max_zoom = Vector2(0.2,0.2)
 const min_zoom = Vector2(1,1)
 const target_zoom = Vector2(0.1,0.1)
+const max_super_zoom = Vector2(2,2)
 
 export var max_constraints = Vector2(9999,9999)
 export var min_constraints = Vector2(-9999,-9999)
@@ -30,6 +31,10 @@ var _scroller_timer = false
 var is_travelling = false
 var travel_position = Vector2(0,0)
 var travel_speed = 10
+
+#when the camera is on "super-zoom" mode. That means that the player can
+#is zoomed out by a big amount. 
+var super_zoom = false setget set_super_zoom
 
 #init
 func _ready():
@@ -95,6 +100,8 @@ func zoom_camera(zoom):
 	if zoom == target_zoom and camera.get_zoom().x >= min_zoom.x:
 		return false
 	elif zoom == target_zoom * -1 and !camera.get_zoom().x >= max_zoom.x:
+		return false
+	elif super_zoom:
 		return false
 	else:
 		#TODO: zoom smoothing
@@ -163,7 +170,17 @@ func travel_camera_to(to,speed=10):
 		emit_signal("travel_finished")
 		is_travelling = false
 	
-
+#super zoom out/in
+func set_super_zoom(value):
+	super_zoom = value
+	
+	if super_zoom:
+		camera.set_zoom(max_super_zoom)
+		settings.background_db = -5
+	else:
+		camera.set_zoom(min_zoom)
+		settings.background_db = 5
+		pass
 
 
 

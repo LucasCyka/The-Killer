@@ -62,7 +62,6 @@ func _ready():
 		mask.create_from_image_alpha(image,0.1) #0.1
 		$Button.texture_click_mask = mask
 		$Button.rect_global_position = Vector2($Button.rect_global_position.x-25,$Button.rect_global_position.y)
-	
 		
 	else:
 		$Button.hide()
@@ -95,9 +94,11 @@ func use(teen):
 	
 	var game = get_parent().get_parent()
 	
+	#sounds if have any
 	if use_sound != "" and not is_broken and current_teen.size() == 1:
 		game.audio_system.play_2d_sound(use_sound,global_position)
-	#TODO: sounds if have any
+	elif use_broken_sound != "" and is_broken and current_teen.size() == 1:
+		game.audio_system.play_2d_sound(use_broken_sound,global_position)
 
 #when a teen stops using the object
 func leave(teen):
@@ -138,7 +139,6 @@ func turn_off_lights():
 	#TODO: sound effect
 
 func break_obj():
-	#TODO: sounds if any
 	print('the object is now broken')
 	is_broken = true
 	
