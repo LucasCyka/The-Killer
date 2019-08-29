@@ -17,6 +17,8 @@ func init(base,state_position,state_time):
 	
 	#hunting mode
 	if self.game.get_current_mode() != game.MODE.HUNTING and !base.player.exiting:
+		if self.game.get_current_mode() == game.MODE.WON: return
+		if self.game.get_current_mode() == game.MODE.GAMEOVER: return
 		self.game.set_current_mode(game.MODE.HUNTING)
 	
 func update(delta):

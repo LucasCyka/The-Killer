@@ -10,6 +10,7 @@ signal loaded
 signal game_over
 signal game_over_music
 signal game_won
+signal game_won_music
 signal changed_points
 signal speed_changed
 
@@ -94,7 +95,7 @@ func _ready():
 func _process(delta):
 	daynightcycle()
 	update_ambience()
-
+	
 #return all the teenagers in the game
 func get_teenagers():
 	return get_tree().get_nodes_in_group("AI")
@@ -714,6 +715,32 @@ func update_ambience():
 		audio_system.stop_track('NightTimeBackground')
 		
 		
+		return
+	if get_current_mode() == MODE.WON:
+		if audio_system.is_playing_list():
+			audio_system.stop_play_list()
+		
+		if not audio_system.is_track_playing('Credits'):
+			var can_play = true
+			#game over music, after the teen is gone
+			if get_teenagers().size() == 0:
+				audio_system.play_music('Credits')
+				emit_signal("game_won_music")
+				return
+			else:
+				for teen in get_teenagers():
+					if  teen.dead_anims.get_frame() == teen.dead_anims.frames.get_frame_count(teen.dead_anims.animation)-1:
+						continue
+					else: can_play = false
+			if can_play: 
+				audio_system.play_music('Credits')
+				emit_signal("game_won_music")
+						
+		if audio_system.is_track_playing('Psycho'):
+			audio_system.stop_track('Psycho')
+		
+		audio_system.stop_track('DaylightBackground')
+		audio_system.stop_track('NightTimeBackground')
 		return
 	
 	if check_teenagers():

@@ -13,7 +13,7 @@ onready var panel = $Panel
 func init(base):
 	self.base = base
 	
-	self.base.game.connect('game_won',self,'show_panel')
+	self.base.game.connect('game_won_music',self,'show_panel')
 
 #ending screen and all the information
 func show_panel():

@@ -185,7 +185,8 @@ func _free():
 	exiting = true
 	#this signal is used by the 'Game' script to detect when to exit the 
 	#hunter mode.
-	base.set_current_mode(base.MODE.PLANNING)
+	if base.get_current_mode() != base.MODE.WON:
+		base.set_current_mode(base.MODE.PLANNING)
 	queue_free()
 	
 func set_is_deployed(value):
@@ -273,7 +274,7 @@ func update_animations():
 	
 	if state != 'Attacking':
 		if animations_data.keys().find(state) == -1:
-			push_warning('No animations found for this state')
+			#push_warning('No animations found for this state')
 			return
 		
 		player_anims.play(animations_data[state][facing_direction]['anim'])

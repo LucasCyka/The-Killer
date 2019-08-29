@@ -4,28 +4,28 @@
 [ext_resource path="res://sprites/world_objects/table2_iteration1.png" type="Texture" id=2]
 [ext_resource path="res://sprites/world_objects/clock.png" type="Texture" id=3]
 [ext_resource path="res://sprites/world_objects/double_bed.png" type="Texture" id=4]
-[ext_resource path="res://sprites/world_objects/wardrobre2.png" type="Texture" id=5]
-[ext_resource path="res://sprites/world_objects/door_front.png" type="Texture" id=6]
-[ext_resource path="res://sprites/world_objects/door_opened.png" type="Texture" id=7]
-[ext_resource path="res://sprites/world_objects/carpet3_iteration2.png" type="Texture" id=8]
-[ext_resource path="res://sprites/world_objects/bookshelf.png" type="Texture" id=9]
-[ext_resource path="res://sprites/world_objects/fireplace.png" type="Texture" id=10]
-[ext_resource path="res://sprites/world_objects/wardrobre1.png" type="Texture" id=11]
-[ext_resource path="res://sprites/world_objects/carpet.png" type="Texture" id=12]
-[ext_resource path="res://sprites/world_objects/armchair.png" type="Texture" id=13]
-[ext_resource path="res://sprites/world_objects/carpet2.png" type="Texture" id=14]
-[ext_resource path="res://sprites/world_objects/power_generator.png" type="Texture" id=15]
-[ext_resource path="res://sprites/world_objects/door.png" type="Texture" id=16]
-[ext_resource path="res://sprites/world_objects/door_2.png" type="Texture" id=17]
-[ext_resource path="res://sprites/world_objects/car_test.png" type="Texture" id=18]
-[ext_resource path="res://sprites/world_objects/picnic.png" type="Texture" id=19]
-[ext_resource path="res://sprites/world_objects/wardrobre3.png" type="Texture" id=20]
-[ext_resource path="res://sprites/world_objects/deer_or_dog_idk.png" type="Texture" id=21]
-[ext_resource path="res://sprites/world_objects/dresser_iteration2.png" type="Texture" id=22]
-[ext_resource path="res://sprites/world_objects/table_playingcards.png" type="Texture" id=23]
-[ext_resource path="res://sprites/world_objects/bookshelf2.png" type="Texture" id=24]
-[ext_resource path="res://sprites/world_objects/bathroom.png" type="Texture" id=25]
-[ext_resource path="res://sprites/world_objects/sofa.png" type="Texture" id=26]
+[ext_resource path="res://sprites/world_objects/door.png" type="Texture" id=5]
+[ext_resource path="res://sprites/world_objects/door_2.png" type="Texture" id=6]
+[ext_resource path="res://sprites/world_objects/fireplace.png" type="Texture" id=7]
+[ext_resource path="res://sprites/world_objects/bookshelf.png" type="Texture" id=8]
+[ext_resource path="res://sprites/world_objects/armchair.png" type="Texture" id=9]
+[ext_resource path="res://sprites/world_objects/carpet3_iteration2.png" type="Texture" id=10]
+[ext_resource path="res://sprites/world_objects/bookshelf2.png" type="Texture" id=11]
+[ext_resource path="res://sprites/world_objects/car_test.png" type="Texture" id=12]
+[ext_resource path="res://sprites/world_objects/sofa.png" type="Texture" id=13]
+[ext_resource path="res://sprites/world_objects/wardrobre3.png" type="Texture" id=14]
+[ext_resource path="res://sprites/world_objects/deer_or_dog_idk.png" type="Texture" id=15]
+[ext_resource path="res://sprites/world_objects/dresser_iteration2.png" type="Texture" id=16]
+[ext_resource path="res://sprites/world_objects/picnic.png" type="Texture" id=17]
+[ext_resource path="res://sprites/world_objects/carpet.png" type="Texture" id=18]
+[ext_resource path="res://sprites/world_objects/wardrobre1.png" type="Texture" id=19]
+[ext_resource path="res://sprites/world_objects/carpet2.png" type="Texture" id=20]
+[ext_resource path="res://sprites/world_objects/wardrobre2.png" type="Texture" id=21]
+[ext_resource path="res://sprites/world_objects/bathroom.png" type="Texture" id=22]
+[ext_resource path="res://sprites/world_objects/door_front.png" type="Texture" id=23]
+[ext_resource path="res://sprites/world_objects/door_opened.png" type="Texture" id=24]
+[ext_resource path="res://sprites/world_objects/table_playingcards.png" type="Texture" id=25]
+[ext_resource path="res://sprites/world_objects/power_generator.png" type="Texture" id=26]
 
 [resource]
 animations = [ {
@@ -49,104 +49,104 @@ animations = [ {
 "name": "bed",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
-"loop": true,
-"name": "wardrobe",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "door",
-"speed": 2.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "BearCarpet",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ) ],
-"loop": true,
-"name": "book1",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 10 ) ],
-"loop": true,
-"name": "Fireplace",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 11 ) ],
-"loop": true,
-"name": "wardrobe2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 12 ) ],
-"loop": true,
-"name": "Carpet",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 13 ) ],
-"loop": true,
-"name": "Armchair",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 14 ) ],
-"loop": true,
-"name": "Carpet 2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ) ],
-"loop": true,
-"name": "PowerGenerator",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 16 ), ExtResource( 17 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "door 1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 18 ) ],
+"frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "Car",
+"name": "Fireplace",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 19 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "PicNic",
+"name": "book1",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 20 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
-"name": "Wardrobe",
+"name": "Armchair",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 21 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
-"name": "Deer?",
+"name": "BearCarpet",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 22 ) ],
-"loop": true,
-"name": "wardrobe3",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 23 ) ],
-"loop": true,
-"name": "Table",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 24 ) ],
+"frames": [ ExtResource( 11 ) ],
 "loop": true,
 "name": "book2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 25 ) ],
+"frames": [ ExtResource( 12 ) ],
+"loop": true,
+"name": "Car",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 13 ) ],
+"loop": true,
+"name": "Sofa",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 14 ) ],
+"loop": true,
+"name": "Wardrobe",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ) ],
+"loop": true,
+"name": "Deer?",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "wardrobe3",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 17 ) ],
+"loop": true,
+"name": "PicNic",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 18 ) ],
+"loop": true,
+"name": "Carpet",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 19 ) ],
+"loop": true,
+"name": "wardrobe2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 20 ) ],
+"loop": true,
+"name": "Carpet 2",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "wardrobe",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ) ],
 "loop": true,
 "name": "Bathroom",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 23 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "door",
+"speed": 2.0
+}, {
+"frames": [ ExtResource( 25 ) ],
+"loop": true,
+"name": "Table",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 26 ) ],
 "loop": true,
-"name": "Sofa",
+"name": "PowerGenerator",
 "speed": 5.0
 } ]
 
