@@ -53,7 +53,7 @@ func _ready():
 func _physics_process(delta):
 	var movement = Vector2(0,0)
 	if is_travelling:
-		travel_camera_to(travel_position,travel_speed)
+		#travel_camera_to(travel_position,travel_speed,delta)
 		return
 	
 	var right = Input.is_action_pressed("Right")
@@ -66,6 +66,11 @@ func _physics_process(delta):
 	
 	if !left and !right and !up and !down:
 		_move_camera_with_mouse(delta)
+
+#camera auto-travelling
+func _process(delta):
+	if is_travelling:
+		travel_camera_to(travel_position,travel_speed,delta)
 
 #camera zoom-in/zoom-out.
 func _input(event):
@@ -155,7 +160,7 @@ func update_scroller(scroller,value,timer=false):
 	$camera/Scrollers/ScrollerTimer.start()
 
 #move the camera smoothly to a given location
-func travel_camera_to(to,speed=10):
+func travel_camera_to(to,speed=400,delta=0):
 	travel_position = to
 	travel_speed = speed
 	is_travelling = true
@@ -165,7 +170,7 @@ func travel_camera_to(to,speed=10):
 	var dis = camera.global_position.distance_to(to)
 	
 	if dis > 10:
-		camera.global_position += dir * speed  
+		camera.global_position += (dir * speed) * delta 
 	else:
 		emit_signal("travel_finished")
 		is_travelling = false
@@ -182,7 +187,11 @@ func set_super_zoom(value):
 		settings.background_db = 5
 		pass
 
-
+#the player controller is disabled
+func lock():
+	set_process_input(false)
+	set_physics_process(false)
+	camera.set_zoom(Vector2(1,1))
 
 
 

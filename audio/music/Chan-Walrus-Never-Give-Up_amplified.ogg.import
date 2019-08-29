@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Chan-Walrus-Never-Give-Up_amplified.ogg-9d6724bf73422991b7d6f403df33966c.oggstr"
+
+[deps]
+
+source_file="res://audio/music/Chan-Walrus-Never-Give-Up_amplified.ogg"
+dest_files=[ "res://.import/Chan-Walrus-Never-Give-Up_amplified.ogg-9d6724bf73422991b7d6f403df33966c.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

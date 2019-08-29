@@ -275,7 +275,7 @@ visible = false
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight"]
 position = Vector2( -207.615, 280.879 )
 frames = SubResource( 17 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="HighLight2" type="Node2D" parent="CanvasLayer/Infographic"]
@@ -285,7 +285,7 @@ z_index = 20
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight2"]
 frames = SubResource( 18 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="HighLight3" type="Node2D" parent="CanvasLayer/Infographic"]
@@ -295,6 +295,7 @@ visible = false
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight3"]
 position = Vector2( 287.029, -26.4282 )
 frames = SubResource( 19 )
+frame = 2
 playing = true
 
 [node name="HighLight4" type="Node2D" parent="CanvasLayer/Infographic"]
@@ -305,6 +306,7 @@ position = Vector2( -2.21185, -1.45993 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight4"]
 position = Vector2( -278.875, 286.658 )
 frames = SubResource( 20 )
+frame = 2
 playing = true
 
 [node name="HighLight5" type="Node2D" parent="CanvasLayer/Infographic"]
@@ -314,7 +316,7 @@ visible = false
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight5"]
 position = Vector2( -279.274, 129.008 )
 frames = SubResource( 21 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="HighLight6" type="Node2D" parent="CanvasLayer/Infographic"]
@@ -324,7 +326,6 @@ visible = false
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight6"]
 position = Vector2( -254.37, -55.0565 )
 frames = SubResource( 22 )
-frame = 1
 playing = true
 
 [node name="HighLight7" type="Node2D" parent="CanvasLayer/Infographic"]
@@ -334,6 +335,7 @@ visible = false
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight7"]
 position = Vector2( -160.37, -55.0565 )
 frames = SubResource( 22 )
+frame = 2
 playing = true
 
 [node name="HighLight8" type="Node2D" parent="CanvasLayer/Infographic"]
@@ -344,6 +346,7 @@ position = Vector2( 96.7881, -0.45993 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight8"]
 position = Vector2( -278.875, 286.658 )
 frames = SubResource( 20 )
+frame = 2
 playing = true
 
 [node name="HighLight9" type="Node2D" parent="CanvasLayer/Infographic"]
@@ -354,7 +357,7 @@ position = Vector2( 128.788, -0.45993 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight9"]
 position = Vector2( -278.875, 286.658 )
 frames = SubResource( 20 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="HighLight10" type="Node2D" parent="CanvasLayer/Infographic"]
@@ -365,7 +368,6 @@ position = Vector2( 30.7881, -0.45993 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight10"]
 position = Vector2( -278.875, 286.658 )
 frames = SubResource( 20 )
-frame = 1
 playing = true
 
 [node name="HighLight11" type="Node2D" parent="CanvasLayer/Infographic"]
@@ -376,7 +378,6 @@ position = Vector2( 24, 0 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight11"]
 position = Vector2( -279.274, 129.008 )
 frames = SubResource( 21 )
-frame = 1
 playing = true
 
 [node name="HighLight12" type="Node2D" parent="CanvasLayer/Infographic"]
@@ -387,6 +388,7 @@ position = Vector2( 173, 0 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="CanvasLayer/Infographic/HighLight12"]
 position = Vector2( -254.37, -55.0565 )
 frames = SubResource( 22 )
+frame = 2
 playing = true
 
 [node name="TextBox" type="Sprite" parent="CanvasLayer"]

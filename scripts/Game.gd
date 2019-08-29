@@ -8,6 +8,7 @@ extends Node2D
 #the game has been loaded
 signal loaded
 signal game_over
+signal game_over_music
 signal game_won
 signal changed_points
 signal speed_changed
@@ -204,6 +205,12 @@ func set_current_mode(value):
 			emit_signal("game_over")
 			var player = get_player()
 			if player != null:player.queue_free()
+			get_player_controller().lock()
+			var cam_pos = get_escaped_teens()[0].global_position
+			cam_pos.x -= 320
+			cam_pos.y -= 100
+			get_player_controller().connect('travel_finished',get_player_controller(),'zoom_camera',[Vector2(-0.2,-0.2)])
+			get_player_controller().travel_camera_to(cam_pos,500)
 		MODE.WON:
 			ui.lock()
 			disable_spawn_points()
@@ -243,6 +250,15 @@ func get_placed_traps():
 	#traps = traps + get_tree().get_nodes_in_group("Lure")
 	
 	return traps
+
+#will return an array containing teens on escaped state
+func get_escaped_teens():
+	var teenagers = []
+	for teen in get_teenagers():
+		if teen.state_machine.get_current_state() == 'Escaped':
+			teenagers.append(teen)
+			
+	return teenagers
 
 #update the number of teens that died and check for winning conditions
 func set_teen_dead_num(value):
@@ -418,24 +434,47 @@ func load_trap_info():
 					"WALLS":
 						placement = get_wall_tile()
 				
+				if id > traps_data[_type]['ID'].size():
+					#the trap mus be inserted at the same positions of its
+					#id. If that can't be done, fill the array with trash
+					#until theres room to be inserted.
+					for trash in range(id - traps_data[_type]['ID'].size()):
+						traps_data[_type]['ID'].append(-666)
+						traps_data[_type]['Icon'].append(icon)
+						traps_data[_type]['Fear'].append(fear)
+						traps_data[_type]['Curiosity'].append(curiosity)
+						traps_data[_type]['Price'].append(price)
+						traps_data[_type]['OneShot'].append(oneshot)
+						traps_data[_type]['Requirements'].append(requirements)
+						traps_data[_type]['OnSpot'].append(onspot)
+						traps_data[_type]['Walkable'].append(walkable)
+						traps_data[_type]['Name'].append(_name)
+						traps_data[_type]['Desc'].append(description)
+						traps_data[_type]['Placement'].append(placement)
+						traps_data[_type]['Sound'].append(sound)
+						
+						if _type == trap_enum.MISC:
+							traps_data[_type]['DeathTrap'].append(null)
+				
+				
 				#assign data
-				traps_data[_type]['ID'].append(id)
-				traps_data[_type]['Icon'].append(icon)
-				traps_data[_type]['Fear'].append(fear)
-				traps_data[_type]['Curiosity'].append(curiosity)
-				traps_data[_type]['Price'].append(price)
-				traps_data[_type]['OneShot'].append(oneshot)
-				traps_data[_type]['Requirements'].append(requirements)
-				traps_data[_type]['OnSpot'].append(onspot)
-				traps_data[_type]['Walkable'].append(walkable)
-				traps_data[_type]['Name'].append(_name)
-				traps_data[_type]['Desc'].append(description)
-				traps_data[_type]['Placement'].append(placement)
-				traps_data[_type]['Sound'].append(sound)
+				traps_data[_type]['ID'].insert(id,id)
+				traps_data[_type]['Icon'].insert(id,icon)
+				traps_data[_type]['Fear'].insert(id,fear)
+				traps_data[_type]['Curiosity'].insert(id,curiosity)
+				traps_data[_type]['Price'].insert(id,price)
+				traps_data[_type]['OneShot'].insert(id,oneshot)
+				traps_data[_type]['Requirements'].insert(id,requirements)
+				traps_data[_type]['OnSpot'].insert(id,onspot)
+				traps_data[_type]['Walkable'].insert(id,walkable)
+				traps_data[_type]['Name'].insert(id,_name)
+				traps_data[_type]['Desc'].insert(id,description)
+				traps_data[_type]['Placement'].insert(id,placement)
+				traps_data[_type]['Sound'].insert(id,sound)
 				
 				#misc traps have a special property
 				if _type == trap_enum.MISC:
-					traps_data[_type]['DeathTrap'].append(null)
+					traps_data[_type]['DeathTrap'].insert(id,null)
 				
 				
 #change the current timer speed in seconds
@@ -648,13 +687,34 @@ func update_ambience():
 	var night = false
 	var day = false
 	
-	
 	if time/60 > 6 and time/60 < 19:
 		day = true
 		night = false
 	else:
 		day = false
 		night = true
+	
+	if get_current_mode() == MODE.GAMEOVER:
+		if audio_system.is_playing_list():
+			audio_system.stop_play_list()
+		
+		if not audio_system.is_track_playing('GameOver'):
+			#game over music, after the teen is gone
+			for escaped in get_escaped_teens():
+				var modulate = escaped.get_modulate()
+				if modulate.a < 0.3:
+					audio_system.play_music('GameOver')
+					emit_signal("game_over_music")
+		
+		
+		if audio_system.is_track_playing('Psycho'):
+			audio_system.stop_track('Psycho')
+		
+		audio_system.stop_track('DaylightBackground')
+		audio_system.stop_track('NightTimeBackground')
+		
+		
+		return
 	
 	if check_teenagers():
 		if audio_system.is_playing_list():

@@ -14,7 +14,7 @@ func init(base):
 	self.base = base
 	
 	#connect to the signal that will be emitted when the player lost the game
-	self.base.game.connect("game_over",self,"show_screen")
+	self.base.game.connect("game_over_music",self,"show_screen")
 	
 func show_screen():
 	panel.show()

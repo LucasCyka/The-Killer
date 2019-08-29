@@ -30,7 +30,11 @@ func hunt():
 	#the hunter.
 	if base.game.get_current_mode() == base.game.MODE.GAMEOVER:
 		return
-		 
+	
+	if get_tree().get_nodes_in_group('Player').size() != 0 :
+		get_tree().get_nodes_in_group('Player')[0].call_deferred('free')
+		return
+	
 	var hunter = preload("res://scenes/PlayerHunter.tscn").instance()
 	hunter.init(base.game,base)
 	base.game.get_node("AI").add_child(hunter)

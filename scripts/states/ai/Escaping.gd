@@ -44,6 +44,10 @@ func init(base,state_position,state_time):
 func update(delta):
 	if game == null:
 		return
+	
+	#call other teens into escaping aswell.
+	base.teenager.call_into_escaping()
+	
 	teen_pos = kinematic_teenager.global_position
 	#since the animations speed can be chaned by the clock feature
 	self.base.teenager.teenager_anims.set_speed_scale(2)
@@ -108,7 +112,6 @@ func update(delta):
 		if base.teenager.walk(escape_point) or teen_pos.distance_to(escape_point) < 80:
 			base.force_state('Escaped')
 	
-	#TODO: call other teens into escaping aswell.
 
 #check if the teenager can arrive in a given position and avoid the player
 func is_path_free(pos):

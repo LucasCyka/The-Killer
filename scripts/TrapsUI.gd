@@ -125,6 +125,10 @@ func fill_grid(data,type):
 			#only fill the buttons till a certain amount
 			break
 		
+		if trap <0:
+			#just trash, continue
+			continue
+		
 		#trap data
 		var texture = load("res://sprites/traps/" + data['Icon'][trap])
 		var price = data['Price'][trap]

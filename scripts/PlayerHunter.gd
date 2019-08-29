@@ -215,7 +215,7 @@ func select_target(target):
 	
 #check if the teenager can see the player hunter
 func check_teenager_sight():
-	if not is_deployed:
+	if not is_deployed or state_machine.get_current_state() == 'Deployment':
 		return
 		
 	for teen in teenager_on_sight:

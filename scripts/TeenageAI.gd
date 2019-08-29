@@ -22,7 +22,9 @@ var routines = {
 	
 	1:{"state":[],"pos":[],"time":[]},
 	
-	2:{"state":[],"pos":[],"time":[]}
+	2:{"state":[],"pos":[],"time":[]},
+	
+	3:{"state":[],"pos":[],"time":[]}
 }
 
 #dictionary for the tilemap that will genearate new routines
@@ -752,9 +754,24 @@ func get_dead_teen_texture():
 	
 	return spr_frame
 
-
-
-
+#call other teens into escaping if they are close and can see this 
+#teen in panic.
+func call_into_escaping():
+	var game = get_parent().get_parent()
+	var teenagers = game.get_teenagers_alive()
+	
+	for teen in teenagers:
+		if teen == self:continue
+		if teen.state_machine.get_current_state() == 'Panic': continue
+		if teen.state_machine.get_current_state() == 'Escaping': continue
+		if teen.state_machine.get_current_state() == 'Escaped': continue
+		if teen.state_machine.get_current_state() == 'Crippled': continue
+		
+		var dis = teen.global_position.distance_to(self.global_position)
+		
+		if dis < 40:
+			if teen.is_object_visible(detection_area):
+				teen.state_machine.force_state('Escaping')
 
 
 
