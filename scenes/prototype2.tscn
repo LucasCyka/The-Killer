@@ -244,7 +244,7 @@ z_index = 2
 tile_set = ExtResource( 13 )
 cell_size = Vector2( 25, 25 )
 format = 1
-tile_data = PoolIntArray( 524317, 3, 0, 524318, 42, 0, 524319, 38, 0, 589852, 0, 0, 589853, 33, 0, 589854, 40, 0, 589865, 6, 0, 589866, 36, 0, 589867, 40, 0, 655401, 1, 0, 655402, 36, 0, 655403, 38, 0, 720937, 5, 0, 720938, 36, 0, 720939, 40, 0, 1179689, 2, 0, 1179690, 41, 0, 1179691, 40, 0, 2293792, 4, 0, 2293793, 43, 0, 2293794, 40, 0 )
+tile_data = PoolIntArray( 524317, 3, 0, 524318, 42, 0, 524319, 38, 0, 589852, 0, 0, 589853, 33, 0, 589854, 40, 0, 589865, 6, 0, 589866, 36, 0, 589867, 40, 0, 655401, 1, 0, 655402, 36, 0, 655403, 38, 0, 720937, 5, 0, 720938, 36, 0, 720939, 40, 0, 1245225, 2, 0, 1245226, 41, 0, 1245227, 40, 0, 2293792, 4, 0, 2293793, 43, 0, 2293794, 40, 0 )
 
 [node name="Teenager2" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -264,7 +264,6 @@ teen_name = "Adam Bacon"
 teen_traits = PoolIntArray( 3 )
 
 [node name="Routines" type="Node" parent="AI/Teenager2"]
-editor/display_folded = true
 
 [node name="Routine" type="TileMap" parent="AI/Teenager2/Routines"]
 visible = false
@@ -678,7 +677,7 @@ texture = ExtResource( 44 )
 [node name="Boat" type="AnimatedSprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 799.806, 848.917 )
 frames = SubResource( 8 )
-frame = 5
+frame = 4
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]

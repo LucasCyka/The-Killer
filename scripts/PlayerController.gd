@@ -11,11 +11,13 @@ signal travel_finished
 onready var camera = $camera
 
 #params
-const camera_speed = 420
 const max_zoom = Vector2(0.2,0.2)
 const min_zoom = Vector2(1,1)
 const target_zoom = Vector2(0.1,0.1)
 const max_super_zoom = Vector2(2,2)
+
+#the px/frame the camera will move
+var camera_speed = 420
 
 export var max_constraints = Vector2(9999,9999)
 export var min_constraints = Vector2(-9999,-9999)
@@ -182,10 +184,19 @@ func set_super_zoom(value):
 	if super_zoom:
 		camera.set_zoom(max_super_zoom)
 		settings.background_db = -5
+		max_constraints.x /= 1.2
+		max_constraints.y /= 1.2
+		min_constraints.x /= 2
+		min_constraints.y /= 2
+		camera_speed *=2
 	else:
 		camera.set_zoom(min_zoom)
 		settings.background_db = 5
-		pass
+		max_constraints.x *= 1.2
+		max_constraints.y *= 1.2
+		min_constraints.x *= 2
+		min_constraints.y *= 2
+		camera_speed /=2
 
 #the player controller is disabled
 func lock():

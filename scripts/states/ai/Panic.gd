@@ -107,6 +107,13 @@ func update(delta):
 		#	base.teenager.saw_player = false
 		#	is_avoiding_player = false
 		else:
+			#workaround here
+			if closest_teenager == null:
+				closest_teenager = get_closest_teenager()
+				if closest_teenager == null:
+					base.state_machine.force_state('Escaping')
+					return
+			
 			if is_path_free(closest_teenager.kinematic_teenager.global_position) and !is_desperado:
 				pass
 				#print("walk to the teenager")
@@ -302,4 +309,5 @@ func exit():
 		is_desperado = false
 		base.teenager.custom_animation = null
 		game = null
+		avoidant_tile = null
 	emit_signal("finished")

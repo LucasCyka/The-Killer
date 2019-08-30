@@ -41,7 +41,7 @@ func update(delta):
 			exit() #theres no picnic, exit this state
 			return
 	
-	#check if the teen is close enough to the bed
+	#check if the teen is close enough to the picnic
 	if base.teenager.walk(table.global_position):
 		#change the anim and position and start talking baloons
 		if base.teenager.is_talkative: base.teenager.is_talking = true

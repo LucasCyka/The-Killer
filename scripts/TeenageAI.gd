@@ -92,6 +92,7 @@ var was_in_love = false
 var was_in_bathroom = false
 var checked_light = false
 var is_immune = false
+var is_moving = false setget set_is_moving
 
 #used for pathfinding:
 var current_path = []
@@ -106,7 +107,7 @@ var horny = false setget set_horny
 var diarrhea = false setget set_diarrhea
 
 const slow_modifier = 0.3
-const fast_modifier = 1.5
+const fast_modifier = 0.3
 const base_speed = 50
 const fast_effect_duration = 100
 const normal_effect_duration = 500
@@ -174,7 +175,6 @@ func _process(delta):
 	check_love()
 	check_lights()
 	check_bowels()
-	
 #	print(speed)
 #	print(traps)
 	#updates the debug label
@@ -296,7 +296,11 @@ func walk(to):
 		dir = current_path[1] - from
 		dir = dir.normalized()
 		
+		if not check_overlapping_teens():
+			return false
+		
 		kinematic_teenager.move_and_slide(dir * speed)
+		set_is_moving(true)
 		
 		if abs(dir.round().x) == 1 and abs(dir.round().y) == 1:
 			#workaround for walking problem
@@ -312,6 +316,7 @@ func walk(to):
 		return false
 	else:
 		return true
+
 
 #update animations according to its state, id etc...
 func update_animations():
@@ -542,7 +547,26 @@ func check_bowels():
 		if state_machine.check_forced_state('Shitting'):
 			was_in_bathroom = true
 			state_machine.force_state('Shitting')
+
+#check if this teenager is at the same tile that another one.
+#when that happens, the teenager with the higher id number should wait
+#on the tile while the smaller one moves away.
+func check_overlapping_teens():
+	var game = get_parent().get_parent()
 	
+	for teen in game.get_teenagers_alive():
+		if teen == self: continue
+		if not teen.is_moving: continue
+		
+		var pos = teen.global_position
+		var tile = star.get_closest_tile(pos)
+		var s_tile = star.get_closest_tile(global_position)
+		
+		if tile == s_tile:
+			if id > teen.id:
+				return false
+	
+	return true
 
 #return a string according to the gender
 func get_gender():
@@ -657,6 +681,25 @@ func init_lover(path):
 		lover = get_node(path)
 		return
 
+#check if the ai is moving or not
+func set_is_moving(value):
+	is_moving = value
+	if is_moving:
+		if not has_node('MovingTimer'):
+			var timer = Timer.new()
+			timer.name = 'MovingTimer'
+			timer.wait_time = 0.1
+			add_child(timer)
+			timer.connect("timeout",self,"set_is_moving",[false])
+			timer.start()
+		else:
+			get_node('MovingTimer').stop()
+			get_node('MovingTimer').wait_time = 0.1
+			get_node('MovingTimer').start()
+	else:
+		if has_node('MovingTimer'):
+			get_node('MovingTimer').stop()
+
 #add fixed traits/temporary effects
 func add_traits(traits,permanent=false):
 	#LAYOUT: traits[TRAIT][DURATION]
@@ -763,13 +806,16 @@ func call_into_escaping():
 	for teen in teenagers:
 		if teen == self:continue
 		if teen.state_machine.get_current_state() == 'Panic': continue
+		if teen.state_machine.get_current_state() == 'Shock': continue
+		if teen.state_machine.get_current_state() == 'Screaming': continue
+		if teen.state_machine.get_current_state() == 'Cornered': continue
 		if teen.state_machine.get_current_state() == 'Escaping': continue
 		if teen.state_machine.get_current_state() == 'Escaped': continue
 		if teen.state_machine.get_current_state() == 'Crippled': continue
 		
 		var dis = teen.global_position.distance_to(self.global_position)
 		
-		if dis < 40:
+		if dis < 60:
 			if teen.is_object_visible(detection_area):
 				teen.state_machine.force_state('Escaping')
 
