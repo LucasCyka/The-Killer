@@ -189,6 +189,11 @@ func get_world_objects():
 func get_pathfinding_tile():
 	return $Tiles/Path
 
+#return the tile that is responsible for checking if things 
+#are inside/outside a building.
+func get_indoor_detection():
+	return $Tiles/IndoorDetection
+
 #change the current game mode
 func set_current_mode(value):
 	if current_mode != MODE.GAMEOVER:

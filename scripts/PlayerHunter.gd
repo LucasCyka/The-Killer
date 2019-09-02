@@ -21,6 +21,7 @@ var current_path = []
 var teenager_on_sight = []
 var current_target = Vector2(0,0)
 var facing_direction = Vector2(0,1)
+var indoor_detection = null
 
 #world nodes
 onready var state_machine = $States
@@ -102,6 +103,7 @@ func _process(delta):
 	
 	update_animations()
 	play_attacking_sound()
+	set_indoor_detection()
 	
 #click on teenagers to attack them
 func _input(event):
@@ -209,6 +211,12 @@ func set_is_indoor(value):
 		$IndoorLabel.text = "Indoor"
 	else:
 		$IndoorLabel.text = "Outdoor"
+
+#check if the player is indoor or outdoor
+func set_indoor_detection():
+	if indoor_detection == null: indoor_detection = game.get_indoor_detection()
+	
+	indoor_detection.set_player_indoor(self)
 
 #the teenager target this player selected with right click
 func select_target(target):

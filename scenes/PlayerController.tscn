@@ -17,7 +17,6 @@ pause_mode = 2
 position = Vector2( 320, 100 )
 offset = Vector2( 320, 100 )
 current = true
-limit_smoothed = true
 drag_margin_h_enabled = false
 drag_margin_v_enabled = false
 smoothing_speed = 20.0

@@ -93,6 +93,8 @@ var was_in_bathroom = false
 var checked_light = false
 var is_immune = false
 var is_moving = false setget set_is_moving
+var indoor_detection = null
+var last_tile = null
 
 #used for pathfinding:
 var current_path = []
@@ -175,6 +177,7 @@ func _process(delta):
 	check_love()
 	check_lights()
 	check_bowels()
+	init_indoor_detection()
 #	print(speed)
 #	print(traps)
 	#updates the debug label
@@ -210,6 +213,21 @@ func init_routine():
 	state_machine.execute_routine(routines[id]["state"][current_routine],
 	routines[id]["pos"][current_routine],
 	routines[id]["time"][current_routine])
+
+#initialize the system that checks if a teen is indoor or outdoor
+func init_indoor_detection():
+	var game = get_parent().get_parent()
+	var tiles = game.get_pathfinding_tile()
+	
+	if last_tile == null:
+		last_tile = tiles.world_to_map(global_position)
+		return
+	elif last_tile == tiles.world_to_map(global_position):
+		return
+	
+	indoor_detection = game.get_indoor_detection()
+	indoor_detection.set_teen_indoor(self)
+	last_tile = tiles.world_to_map(global_position)
 
 #go to the next routine, if it's available. If not, then, restart it over.
 func next_routine():
@@ -685,6 +703,7 @@ func init_lover(path):
 func set_is_moving(value):
 	is_moving = value
 	if is_moving:
+		if indoor_detection != null: indoor_detection.set_teen_indoor(self)
 		if not has_node('MovingTimer'):
 			var timer = Timer.new()
 			timer.name = 'MovingTimer'
