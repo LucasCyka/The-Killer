@@ -45,7 +45,8 @@ func _ready():
 		$SittingFloor:$SittingFloor.name,
 		$Fishing:$Fishing.name,
 		$InLove:$InLove.name,
-		$CheckingLight:$CheckingLight.name
+		$CheckingLight:$CheckingLight.name,
+		$Barricading:$Barricading.name
 	}
 	
 	for state in states:
@@ -160,6 +161,10 @@ func check_forced_state(state):
 		return false
 	if state =='Panic' and current_state.name == 'Crippled':
 		return false 
+	if state == 'Panic' and current_state.name == 'Barricading':
+		state_time = 2
+		force_state("Shock")
+		return false
 	if state == 'Escaping' and current_state.name == 'Crippled':
 		return false
 	if state == 'Startled' and current_state.name == 'Escaping':

@@ -18,6 +18,11 @@ var teen_pos
 var teenagers
 var kinematic_teenager
 var game
+var buildings_tiles
+var building_tile
+var last_path_free = null
+var last_path_pos = null
+var last_current_pos = null
 
 #constructor
 func init(base,state_position,state_time):
@@ -78,10 +83,18 @@ func update(delta):
 				if is_path_free(escape_object.global_position) and not tried_escape_object:
 					#just for debug
 					print("The AI should go check the car")
+				elif is_building_free(teen_pos):
+					#try to escape to a building
+					base.teenager.is_escaping = false
+					base.teenager.is_barricading = true
+					game = null
+					base.force_state('Barricading')
+					return
 				else:
 					is_desperado = true
 					avoidant_tile = get_avoidant_tile()
 					if avoidant_tile == null:
+						game = null
 						base.force_state('Cornered')
 					
 					
@@ -115,8 +128,26 @@ func update(delta):
 
 #check if the teenager can arrive in a given position and avoid the player
 func is_path_free(pos):
-	#the path the teen must walk
-	var path = star.find_path(kinematic_teenager.global_position,pos)
+	#path the teen must walk
+	var path = null
+	var reuse_path = false
+	#try to use old paths to save performance/memory
+	if last_path_free != null:
+		if pos == last_path_pos:
+			#he wants to go to the position he wanted before.
+			#if he's not so far from pos than he can reuse the path
+			if kinematic_teenager.global_position.distance_to(last_current_pos) < 100:
+				reuse_path = true
+				path = last_path_free
+				last_current_pos = kinematic_teenager.global_position
+			
+		
+	if not reuse_path:
+		#create a new path the teen must walk
+		path = star.find_path(kinematic_teenager.global_position,pos)
+		last_path_free = path
+		last_path_pos = pos
+		last_current_pos = kinematic_teenager.global_position
 	
 	#check if any spot of the path is too close to the player
 	if path.size() > 1 and game.current_mode == game.MODE.HUNTING:
@@ -125,8 +156,46 @@ func is_path_free(pos):
 		for spot in path:
 			if spot.distance_to(player.kinematic_player.global_position) < 50:
 				return false
+	#else:
+	#	last_path_free = null
+	#	last_path_pos = null
+	#	last_current_pos = kinematic_teenager.global_position
 	
 	return true
+	
+	#check if any spot of the path is too close to the player
+	if path.size() > 1 and game.current_mode == game.MODE.HUNTING:
+		var player = game.get_player()
+		
+		for spot in path:
+			if spot.distance_to(player.kinematic_player.global_position) < 50:
+				return false
+	else:
+		last_path_free = null
+		last_path_pos = null
+	
+	return true
+
+#check if the teenager can enter a building and barricade himself
+func is_building_free(pos):
+	if buildings_tiles == null: 
+		buildings_tiles = game.get_indoor_detection()
+		buildings_tiles = common.convert_to_world(buildings_tiles.get_used_cells(),buildings_tiles)
+		buildings_tiles = common.order_by_distance(buildings_tiles,kinematic_teenager.global_position)
+	
+	var last_tile = null
+	for tile in buildings_tiles:
+		if last_tile != null:
+			if last_tile.distance_to(tile) < 150:
+				continue
+		
+		last_tile = tile
+		if is_path_free(tile):
+			building_tile = tile
+			return true
+	
+	return false
+
 
 #return a tile in the map that can be reach while avoiding the player
 func get_avoidant_tile():
@@ -192,6 +261,9 @@ func exit():
 	is_avoiding_player = false
 	base.teenager.is_immune = false
 	base.teenager.custom_animation = null
+	last_path_free = null
+	last_path_pos = null
+	last_current_pos = null
 	emit_signal("finished")
 	
 	

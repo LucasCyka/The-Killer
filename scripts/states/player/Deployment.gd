@@ -90,6 +90,8 @@ func check_teenagers():
 				return true
 			'Screaming':
 				return true
+			'Barricading':
+				return true
 			'Dead':
 				dead_teen.append(teen)
 				

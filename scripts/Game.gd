@@ -684,8 +684,9 @@ func check_teenagers():
 				return true
 			'Screaming':
 				return true
+			'Barricading':
+				return true
 				
-	
 	return false
 
 #update the sounds/musics of the level.

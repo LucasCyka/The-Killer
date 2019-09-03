@@ -248,7 +248,7 @@ func check_teenager_sight():
 		#check if he didn't see the player before
 		if not teen.saw_player and not behind_wall:
 			var facing = dir.dot(teen.facing_direction)
-			if distance < 80 and is_indoor == teen.is_indoor:
+			if distance < 100 and is_indoor == teen.is_indoor:
 				#he's close enough to be in panic or in shock
 				teen.state_machine.force_state('Panic')
 				teen.saw_player = true

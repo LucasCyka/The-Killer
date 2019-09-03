@@ -19,6 +19,7 @@ var teen_pos
 var game
 var avoidant_tile
 var first_panic = true #don't reset this
+var buildings_tiles = null
 
 #constructor
 func init(base,state_position,state_time):
@@ -118,11 +119,12 @@ func update(delta):
 				pass
 				#print("walk to the teenager")
 			else:
+				
 				#check if he's too close to the player
 				if player.kinematic_player.global_position.distance_to(teen_pos) < 30:
 					base.force_state('Cornered')
 					return
-				#TODO: check if he can enter inside a building
+
 				#TODO: telephone mechanic here
 				
 				#try to escape, avoiding the player
@@ -254,7 +256,7 @@ func get_closest_teenager():
 		
 		var state = teenager.state_machine.get_current_state()
 		#TODO: check if he's not dead
-		if teenager != base.teenager and state != 'Panic' and state != 'Dead':
+		if teenager != base.teenager and state != 'Panic' and state != 'Dead' and state != 'Barricading':
 			positions.append(teenager.get_child(0).global_position)
 	
 	positions = common.order_by_distance(positions,base.teenager.get_child(0).global_position)
@@ -310,4 +312,5 @@ func exit():
 		base.teenager.custom_animation = null
 		game = null
 		avoidant_tile = null
+		buildings_tiles = null
 	emit_signal("finished")

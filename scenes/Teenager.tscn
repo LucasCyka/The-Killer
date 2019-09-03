@@ -1,24 +1,24 @@
-[gd_scene load_steps=131 format=2]
+[gd_scene load_steps=132 format=2]
 
 [ext_resource path="res://scripts/TeenageAI.gd" type="Script" id=1]
 [ext_resource path="res://resources/anims/teenager.tres" type="SpriteFrames" id=2]
 [ext_resource path="res://sprites/misc/talking_balloon.png" type="Texture" id=3]
 [ext_resource path="res://sprites/misc/thinking_balloon.png" type="Texture" id=4]
-[ext_resource path="res://sprites/misc/bag.png" type="Texture" id=5]
-[ext_resource path="res://sprites/misc/pizza.png" type="Texture" id=6]
-[ext_resource path="res://sprites/misc/money.png" type="Texture" id=7]
-[ext_resource path="res://sprites/misc/heart_icon.png" type="Texture" id=8]
+[ext_resource path="res://sprites/misc/heart_icon.png" type="Texture" id=5]
+[ext_resource path="res://sprites/misc/money.png" type="Texture" id=6]
+[ext_resource path="res://sprites/misc/bag.png" type="Texture" id=7]
+[ext_resource path="res://sprites/misc/pizza.png" type="Texture" id=8]
 [ext_resource path="res://scenes/CustomTimer.tscn" type="PackedScene" id=9]
 [ext_resource path="res://sprites/misc/vice.png" type="Texture" id=10]
-[ext_resource path="res://sprites/misc/fish2.png" type="Texture" id=11]
-[ext_resource path="res://sprites/misc/skull.png" type="Texture" id=12]
+[ext_resource path="res://sprites/misc/fish.png" type="Texture" id=11]
+[ext_resource path="res://sprites/misc/bait.png" type="Texture" id=12]
 [ext_resource path="res://sprites/misc/loo.png" type="Texture" id=13]
-[ext_resource path="res://sprites/misc/screaming.png" type="Texture" id=14]
-[ext_resource path="res://sprites/misc/shit.png" type="Texture" id=15]
-[ext_resource path="res://sprites/misc/bad.png" type="Texture" id=16]
-[ext_resource path="res://sprites/misc/fish.png" type="Texture" id=17]
-[ext_resource path="res://sprites/misc/bait.png" type="Texture" id=18]
-[ext_resource path="res://sprites/misc/startled.png" type="Texture" id=19]
+[ext_resource path="res://sprites/misc/skull.png" type="Texture" id=14]
+[ext_resource path="res://sprites/misc/bad.png" type="Texture" id=15]
+[ext_resource path="res://sprites/misc/fish2.png" type="Texture" id=16]
+[ext_resource path="res://sprites/misc/screaming.png" type="Texture" id=17]
+[ext_resource path="res://sprites/misc/startled.png" type="Texture" id=18]
+[ext_resource path="res://sprites/misc/shit.png" type="Texture" id=19]
 [ext_resource path="res://sprites/characters/male_1/dying/dying_fixed/dying_1_down1.png" type="Texture" id=20]
 [ext_resource path="res://sprites/characters/male_1/dying/dying_fixed/dying_1_down2.png" type="Texture" id=21]
 [ext_resource path="res://sprites/characters/male_1/dying/dying_fixed/dying_1_down3.png" type="Texture" id=22]
@@ -122,8 +122,9 @@
 [ext_resource path="res://scripts/states/ai/OnBed.gd" type="Script" id=120]
 [ext_resource path="res://scripts/states/ai/InLove.gd" type="Script" id=121]
 [ext_resource path="res://scripts/states/ai/CheckingLight.gd" type="Script" id=122]
-[ext_resource path="res://scripts/states/ai/Dead.gd" type="Script" id=123]
-[ext_resource path="res://scenes/AITimer.tscn" type="PackedScene" id=124]
+[ext_resource path="res://scripts/states/ai/Barricading.gd" type="Script" id=123]
+[ext_resource path="res://scripts/states/ai/Dead.gd" type="Script" id=124]
+[ext_resource path="res://scenes/AITimer.tscn" type="PackedScene" id=125]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 14.1448
@@ -148,22 +149,22 @@ animations = [ {
 animations = [ {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "bag",
+"name": "heart",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "pizza",
+"name": "money",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "money",
+"name": "bag",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "heart",
+"name": "pizza",
 "speed": 5.0
 } ]
 
@@ -174,19 +175,19 @@ animations = [ {
 "name": "vice",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "love",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "fish2",
+"name": "fish",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "skull",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "love",
+"name": "bait",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
@@ -196,32 +197,32 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
-"name": "screaming",
+"name": "skull",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
 "loop": true,
-"name": "shit",
+"name": "bad",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
-"name": "bad",
+"name": "fish2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 17 ) ],
 "loop": true,
-"name": "fish",
+"name": "screaming",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 18 ) ],
 "loop": true,
-"name": "bait",
+"name": "startled",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 19 ) ],
 "loop": true,
-"name": "startled",
+"name": "shit",
 "speed": 5.0
 } ]
 
@@ -267,13 +268,13 @@ shape = SubResource( 2 )
 disabled = true
 
 [node name="Animations" type="AnimatedSprite" parent="."]
+editor/display_folded = true
 z_index = 3
 frames = ExtResource( 2 )
 animation = "0:Idle-Down"
 playing = true
 
 [node name="DebugState" type="Label" parent="Animations"]
-visible = false
 margin_left = -20.4689
 margin_top = -27.9031
 margin_right = 22.5311
@@ -331,7 +332,6 @@ margin_right = 15.0
 margin_bottom = 15.0
 
 [node name="States" type="Node" parent="."]
-editor/display_folded = true
 script = ExtResource( 98 )
 
 [node name="Idle" type="Node" parent="States"]
@@ -406,10 +406,13 @@ script = ExtResource( 121 )
 [node name="CheckingLight" type="Node" parent="States"]
 script = ExtResource( 122 )
 
-[node name="Dead" type="Node" parent="States"]
+[node name="Barricading" type="Node" parent="States"]
 script = ExtResource( 123 )
+
+[node name="Dead" type="Node" parent="States"]
+script = ExtResource( 124 )
 
 [node name="StateTimer" parent="States" instance=ExtResource( 9 )]
 
-[node name="OLDTimer" parent="States" instance=ExtResource( 124 )]
+[node name="OLDTimer" parent="States" instance=ExtResource( 125 )]
 

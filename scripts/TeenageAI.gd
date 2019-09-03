@@ -83,6 +83,7 @@ var is_routine_paused = false
 var saw_player = false
 var is_indoor = false setget set_is_indoor
 var is_escaping = false
+var is_barricading = false
 var is_talking = false
 var is_thinking = false
 var facing_direction = Vector2(1,0)
@@ -831,10 +832,11 @@ func call_into_escaping():
 		if teen.state_machine.get_current_state() == 'Escaping': continue
 		if teen.state_machine.get_current_state() == 'Escaped': continue
 		if teen.state_machine.get_current_state() == 'Crippled': continue
+		if teen.state_machine.get_current_state() == 'Barricading': continue
 		
 		var dis = teen.global_position.distance_to(self.global_position)
 		
-		if dis < 60:
+		if dis < 120:
 			if teen.is_object_visible(detection_area):
 				teen.state_machine.force_state('Escaping')
 

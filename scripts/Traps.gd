@@ -205,8 +205,8 @@ func check_requirements(teenager):
 			#wrong gender
 			return false
 		elif requirement == 'PANIC' and teenager_state != 'Panic':
-			if teenager_state != 'Escaping':
-				#isn't in panic or escaping
+			if teenager_state != 'Escaping' and teenager_state != 'Barricading':
+				#isn't in panic or escaping/barricading
 				return false
 		elif requirement == 'MIN10' and teenager.get_curiosity() < 10:
 			#not enough curiosity points
