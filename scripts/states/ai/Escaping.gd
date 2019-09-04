@@ -78,6 +78,7 @@ func update(delta):
 					is_desperado = false
 			return
 		else:
+			#print('checking... 1')
 			if not is_path_free(escape_point):
 				
 				if is_path_free(escape_object.global_position) and not tried_escape_object:
@@ -110,7 +111,8 @@ func update(delta):
 		#the teen is trying to escape, just wait
 		return
 	
-	if is_path_free(escape_object.global_position) and not tried_escape_object:
+	if is_path_free2(escape_object.global_position) and not tried_escape_object:
+	#	print('checking... 2')
 		if base.teenager.walk(escape_object.global_position) or teen_pos.distance_to(escape_point) < 80:
 			game.audio_system.play_2d_sound('CarDoor',base.teenager.global_position)
 			print('arrived at the object')
@@ -125,7 +127,22 @@ func update(delta):
 		#walk towards the exit point
 		if base.teenager.walk(escape_point) or teen_pos.distance_to(escape_point) < 80:
 			base.force_state('Escaped')
+
+#like is_path_free but more performance wise
+func is_path_free2(pos):
+	if last_path_free == null:
+		return is_path_free(pos)
 	
+	#check if any spot of the path is too close to the player
+	if last_path_free.size() > 1 and game.current_mode == game.MODE.HUNTING:
+		var player = game.get_player()
+		
+		for spot in last_path_free:
+			if spot.distance_to(player.kinematic_player.global_position) < 50:
+				return false
+	
+	return true
+	#just reuse older paths. 
 
 #check if the teenager can arrive in a given position and avoid the player
 func is_path_free(pos):
@@ -149,7 +166,7 @@ func is_path_free(pos):
 		last_path_free = path
 		last_path_pos = pos
 		last_current_pos = kinematic_teenager.global_position
-	
+		
 	#check if any spot of the path is too close to the player
 	if path.size() > 1 and game.current_mode == game.MODE.HUNTING:
 		var player = game.get_player()

@@ -151,6 +151,7 @@ editor/display_folded = true
 shape = SubResource( 4 )
 
 [node name="DoorCollision" type="Area2D" parent="."]
+editor/display_folded = true
 collision_layer = 524288
 collision_mask = 524288
 
