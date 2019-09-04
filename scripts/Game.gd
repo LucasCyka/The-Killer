@@ -31,6 +31,12 @@ const debug_speed = 0.04
 #fixed costs in the game
 const body_recovery_cost = 30
 
+#the maximum value the tiredness modifier can hold
+const max_tiredness = 6
+
+#the amount of time the player needs to rest to lose 1 tiredness point
+const resting_time = 4 
+
 var current_mode = MODE.PLANNING setget set_current_mode, get_current_mode
 var last_mode = MODE.PLANNING
 
@@ -63,6 +69,10 @@ var teen_dead_num = 0 setget set_teen_dead_num
 #if theres light in the buildings on the game.
 var has_light = true
 
+#it will increase each time the player spawns, and decreases as he's out
+#of the hunting mode.
+var player_tiredness = 0
+
 #user interface
 onready var ui = $GameUI
 #types of traps
@@ -90,11 +100,18 @@ func _ready():
 	teen_num = get_teenagers().size()
 	connect("game_won",self,"set_current_mode",[MODE.WON])
 	emit_signal("loaded")
+	
 
 #day/night cycle
 func _process(delta):
 	daynightcycle()
 	update_ambience()
+	
+	if debug_mode:
+		#helps when listening to music while programming
+		settings.background_db = -100
+		settings.music_db = -100
+		settings.sound_db = -100
 	
 #return all the teenagers in the game
 func get_teenagers():
@@ -214,6 +231,8 @@ func set_current_mode(value):
 		MODE.HUNTING:
 			disable_spawn_points()
 			ui.lock()
+			if player_tiredness < max_tiredness:
+				set_player_tiredness(player_tiredness + 2)
 		MODE.PLANNING:
 			ui.unlock()
 		MODE.GAMEOVER:
@@ -284,7 +303,27 @@ func set_teen_dead_num(value):
 	#all teens are dead, the player won.
 	if teen_dead_num == teen_num:
 		emit_signal("game_won")
+
+func set_player_tiredness(value,_signal = false):
+	if value != -1: player_tiredness = value
 	
+	if not _signal:
+		if not has_node('RestingTimer'):
+			#create a timer that will decrease the player tiredness
+			var resting_timer = preload("res://scenes/CustomTimer.tscn").instance()
+			add_child(resting_timer)
+			resting_timer.name = 'RestingTimer'
+			resting_timer.stop()
+			resting_timer.connect('timeout',self,'set_player_tiredness',[-1,true])
+			resting_timer.wait_time = resting_time
+			resting_timer.start()
+	else:
+		if player_tiredness != 0:
+			if get_current_mode() == MODE.PLANNING:
+				player_tiredness -= 1
+		else:
+			get_node('RestingTimer').stop()
+			get_node('RestingTimer').queue_free()
 
 #show all the spawn points and return an array containing their position
 func enable_spawn_points():

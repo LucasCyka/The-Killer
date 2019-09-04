@@ -23,6 +23,7 @@ var current_target = Vector2(0,0)
 var facing_direction = Vector2(0,1)
 var door_collision = Vector2(0,0)
 var indoor_detection = null
+var tiredness = 0
 
 #world nodes
 onready var state_machine = $States
@@ -31,6 +32,7 @@ onready var player_anims = $PlayerAnims
 onready var game = get_parent().get_parent()
 onready var sight_area = $SightArea
 onready var wall_cast = $SightArea/WallCast
+onready var tiredness_bar = $Tiredness
 
 #some attacking animations have sound effects attrached to it,
 #their sound(s) and the time that they must be played is stored in this
@@ -79,6 +81,7 @@ var animations_data = {
 func init(base,ui):
 	self.base = base
 	self.ui = ui
+	set_tiredness()
 	#TODO: set ID
 	
 	ui.connect("element_toggle",self,"_free")
@@ -235,6 +238,14 @@ func set_indoor_detection():
 	
 	indoor_detection.set_player_indoor(self)
 
+#the tiredness will affect the time the player needs before spawning
+func set_tiredness():
+	tiredness = base.player_tiredness
+	tiredness_bar = $Tiredness
+	tiredness_bar.set_min(0)
+	tiredness_bar.set_max(base.max_tiredness)
+	tiredness_bar.set_value(tiredness)
+
 #the teenager target this player selected with right click
 func select_target(target):
 	_selected_teenager = target
@@ -324,7 +335,6 @@ func play_attacking_sound():
 			game.audio_system.play_2d_sound(animations_sound_data[1][1][current_attacking_id],global_position)
 			
 			current_attacking_id += 1
-
 
 
 
