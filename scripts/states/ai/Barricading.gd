@@ -16,6 +16,11 @@ var last_path_free = null
 var last_path_pos = null
 var last_current_pos = null
 var arrived = false
+var door = null
+var doors = null
+var timer = null
+var escape_point = null
+var escape_object = null
 
 func init(base,state_position,state_time):
 	self.base = base
@@ -25,22 +30,57 @@ func init(base,state_position,state_time):
 	self.base.teenager.custom_animation = base.get_node('Panic')
 	self.kinematic_teenager = base.teenager
 	self.game = base.teenager.get_parent().get_parent()
-	is_building_free()
+	self.doors = game.get_doors()
+	self.escape_point = game.get_escaping_point(base.teenager.get_position())
+	self.escape_object = game.get_escape_object(base.teenager.get_position())
+	
+	if is_building_free():
+		#create the timer that will check from time to time if the teen
+		#can escape the level
+		timer = preload("res://scenes/CustomTimer.tscn").instance()
+		add_child(timer)
+		timer.stop()
+		timer.name = 'CheckTimer'
+		timer.wait_time = 10
+		timer.one_shot = false
+		timer.connect('timeout',self,'check_escape')
+		
+		
 	emit_signal("entered")
 	
 func update(delta):
 	if base == null: return
+	base.teenager.call_into_escaping()
+	
+	if game.get_current_mode() == game.MODE.HUNTING:
+		#when the player is too close from the teenager
+		var player = game.get_player()
+		var dis = player.global_position.distance_to(kinematic_teenager.global_position)
+		
+		if dis < 30:
+			base.force_state('Cornered')
+			return
+
 	
 	if building_tile == null:
+		#print('go escaping')
 		base.teenager.is_escaping = true
 		base.teenager.is_barricading = false
 		base.force_state('Escaping')
 		return
 	
+	if door == null:
+		for _door in doors:
+			if _door.current_teen.find(base.teenager) != -1:
+				door = _door
+				_door.is_door_locked = true
+				break
+				
 	if arrived:
 		#TODO: check if there's a telephone nearby to use, if so
 		#go to the "calling the cops" state.
-		
+		if timer.is_stopped():
+			timer.start()
 		if game.get_current_mode() == game.MODE.HUNTING:
 			var player = game.get_player()
 			self.base.teenager.custom_animation = base.get_node('Shock')
@@ -58,12 +98,16 @@ func update(delta):
 			#animations yet.
 			if not abs(dir.x) == abs(dir.y):
 				base.teenager.facing_direction = dir
+		else:
+			base.force_state('Escaping')
 		return
 		
 		
 	if kinematic_teenager.walk(building_tile):
 		arrived = true
 	else:
+		pass
+		"""
 		if game.get_current_mode() == game.MODE.HUNTING:
 			#when the player is too close from the teenager
 			var player = game.get_player()
@@ -72,6 +116,7 @@ func update(delta):
 			if dis < 30:
 				base.force_state('Cornered')
 				return
+		"""
 			
 			
 
@@ -81,13 +126,12 @@ func is_path_free(pos):
 	#path the teen must walk
 	var path = null
 	var reuse_path = false
-	
 	#try to use old paths to save performance/memory
 	if last_path_free != null:
 		if pos == last_path_pos:
 			#he wants to go to the position he wanted before.
 			#if he's not so far from pos than he can reuse the path
-			if pos.distance_to(last_current_pos) < 100:
+			if kinematic_teenager.global_position.distance_to(last_current_pos) < 100:
 				reuse_path = true
 				path = last_path_free
 				last_current_pos = kinematic_teenager.global_position
@@ -107,10 +151,10 @@ func is_path_free(pos):
 		for spot in path:
 			if spot.distance_to(player.kinematic_player.global_position) < 50:
 				return false
-	else:
-		last_path_free = null
-		last_path_pos = null
-		last_current_pos = kinematic_teenager.global_position
+	#else:
+	#	last_path_free = null
+	#	last_path_pos = null
+	#	last_current_pos = kinematic_teenager.global_position
 	
 	return true
 
@@ -129,20 +173,44 @@ func is_building_free():
 		
 		last_tile = tile
 		if is_path_free(tile):
+			if tile.distance_to(kinematic_teenager.global_position) < 25:
+				#it's the same tile he already is
+				continue
+			
 			building_tile = tile
 			return true
 	
 	return false
 
+#check if he can escape again
+func check_escape():
+	var player = game.get_player()
+	var dis = player.global_position.distance_to(kinematic_teenager.global_position)
+	if dis >= 250:
+		#check if he can escape on escape objects
+		if not base.get_node('Escaping').tried_escape_object:
+			if is_path_free(escape_object.global_position):
+				base.force_state('Escaping')
+				return
+		
+		if is_path_free(escape_point):
+			base.force_state('Escaping')
+
 func exit():
 	if base.is_forced_state:
 		base._on_routine = false
 	else: base._on_routine = true
+	if has_node('CheckTimer'):
+		get_node('CheckTimer').stop()
+		get_node('CheckTimer').queue_free()
+	
 	base.teenager.speed -= 10 
 	building_tile = null
 	building_tiles = null
 	last_path_free = null
 	last_path_pos = null
+	door = null
 	arrived = false
 	base.teenager.custom_animation = null
+	base = null
 	emit_signal("finished")

@@ -29,6 +29,7 @@ settings="*res://scripts/singletons/settings.gd"
 [debug]
 
 gdscript/warnings/enable=false
+gdscript/completion/autocomplete_setters_and_getters=true
 
 [display]
 

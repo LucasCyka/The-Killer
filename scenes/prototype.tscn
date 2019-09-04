@@ -350,7 +350,7 @@ texture = ExtResource( 19 )
 position = Vector2( 799.806, 848.917 )
 z_index = 1
 frames = SubResource( 4 )
-frame = 1
+frame = 5
 playing = true
 
 [node name="GameUI" parent="." instance=ExtResource( 26 )]

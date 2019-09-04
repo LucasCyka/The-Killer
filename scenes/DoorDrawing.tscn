@@ -1,11 +1,21 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.1356, 12.4263 )
+
+[sub_resource type="RectangleShape2D" id=2]
 
 [node name="DoorDrawing" type="Area2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.257023, 1.02809 )
 shape = SubResource( 1 )
+
+[node name="DoorCollision" type="Area2D" parent="."]
+collision_layer = 524288
+collision_mask = 524288
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorCollision"]
+shape = SubResource( 2 )
+disabled = true
 

@@ -21,6 +21,7 @@ var current_path = []
 var teenager_on_sight = []
 var current_target = Vector2(0,0)
 var facing_direction = Vector2(0,1)
+var door_collision = Vector2(0,0)
 var indoor_detection = null
 
 #world nodes
@@ -154,6 +155,22 @@ func walk(to):
 				
 		dir = path[1] - kinematic_player.global_position	
 		dir = dir.normalized()
+		
+		#door collisions
+		dir.y += int(door_collision.y > 0 and dir.y < 0)
+		dir.y -= int(door_collision.y < 0 and dir.y > 0)
+		dir.x -= int(door_collision.x > 0 and dir.x > 0)
+		dir.x += int(door_collision.x < 0 and dir.x < 0)
+		
+		var door_dir = dir.round()
+		
+		if door_dir.x == -0: door_dir.x = 0
+		elif door_dir.y == -0: door_dir.y = 0
+		
+		if door_dir.x ==0 and door_dir.y ==0:
+			return false
+		#end door collisions
+		
 		kinematic_player.move_and_slide(dir * speed)
 		
 		#get the direction the hunter is facing

@@ -194,6 +194,17 @@ func get_pathfinding_tile():
 func get_indoor_detection():
 	return $Tiles/IndoorDetection
 
+#return all doors in game
+func get_doors():
+	var objects = get_tree().get_nodes_in_group('Object')
+	var doors = []
+	
+	for door in objects:
+		if door.type == door.TYPE.DOOR:
+			doors.append(door)
+	
+	return doors
+
 #change the current game mode
 func set_current_mode(value):
 	if current_mode != MODE.GAMEOVER:

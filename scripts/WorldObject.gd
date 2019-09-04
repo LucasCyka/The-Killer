@@ -45,6 +45,11 @@ export(String) var activated_sound
 var current_teen = []
 var is_broken = false
 
+#when a door is locked the player can't pass throught it...
+var is_door_locked = false setget set_door_locked
+#unless he reduces the door health to zero points
+var door_health = 100
+
 #effects this object can cause when activated
 var effects = {
 	0:[funcref(self,"startle")],
@@ -81,12 +86,20 @@ func init_door():
 	area.global_position = self.global_position
 	
 func open_door(area):
+	if is_door_locked: return 
+	
 	if area.name == 'DetectionArea' or area.name == 'TreeSight':
 		self.frame = 1 
+		current_teen.append(area.get_parent())
 
 func close_door(area):
+	if is_door_locked: 
+		self.frame = 0
+		return 
+		
 	if area.name == 'DetectionArea' or area.name == 'TreeSight':
 		self.frame = 0
+		current_teen.erase(area.get_parent())
 
 #when a teen starts to use the object
 func use(teen):
@@ -139,6 +152,44 @@ func turn_off_lights():
 	#TODO: sound effect
 
 func break_obj():
-	print('the object is now broken')
+	#print('the object is now broken')
 	is_broken = true
+
+func set_door_locked(value):
+	is_door_locked = value
 	
+	if is_door_locked:
+		#this collision prevents the player from passing throught the door
+		var door_col = get_node("DoorDrawing/DoorCollision")
+		door_col.get_node('CollisionShape2D').disabled = false
+		if !door_col.is_connected('area_entered',self,'set_door_collision'):
+			door_col.connect('area_entered',self,'set_door_collision')
+			door_col.connect('area_exited',self,'remove_door_collision')
+
+func set_door_collision(area):
+	if area.name == 'DoorCollision':
+		var hunter = area.get_parent()
+		var hunter_y = hunter.global_position.y
+		var hunter_x = hunter.global_position.x
+		
+		if self.get_animation() == 'door':
+			#vertical collisions
+			if hunter_y < self.global_position.y:
+				hunter.door_collision = Vector2(0,-1)
+			else:
+				hunter.door_collision = Vector2(0,1)
+		else:
+			#horizontal collisions
+			if hunter_x < self.global_position.x:
+				hunter.door_collision = Vector2(1,0)
+			else:
+				hunter.door_collision = Vector2(-1,0)
+		
+func remove_door_collision(area):
+	if area.name == 'DoorCollision':
+		area.get_parent().door_collision = Vector2(0,0)
+
+
+
+
+

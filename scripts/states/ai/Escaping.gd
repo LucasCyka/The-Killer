@@ -89,6 +89,7 @@ func update(delta):
 					base.teenager.is_barricading = true
 					game = null
 					base.force_state('Barricading')
+					#print('go barricading')
 					return
 				else:
 					is_desperado = true
@@ -163,18 +164,6 @@ func is_path_free(pos):
 	
 	return true
 	
-	#check if any spot of the path is too close to the player
-	if path.size() > 1 and game.current_mode == game.MODE.HUNTING:
-		var player = game.get_player()
-		
-		for spot in path:
-			if spot.distance_to(player.kinematic_player.global_position) < 50:
-				return false
-	else:
-		last_path_free = null
-		last_path_pos = null
-	
-	return true
 
 #check if the teenager can enter a building and barricade himself
 func is_building_free(pos):
@@ -191,6 +180,9 @@ func is_building_free(pos):
 		
 		last_tile = tile
 		if is_path_free(tile):
+			if tile.distance_to(kinematic_teenager.global_position) < 25:
+				#it's the same tile he already is
+				continue
 			building_tile = tile
 			return true
 	

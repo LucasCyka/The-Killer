@@ -112,7 +112,7 @@ func update(delta):
 			if closest_teenager == null:
 				closest_teenager = get_closest_teenager()
 				if closest_teenager == null:
-					base.state_machine.force_state('Escaping')
+					base.force_state('Escaping')
 					return
 			
 			if is_path_free(closest_teenager.kinematic_teenager.global_position) and !is_desperado:
