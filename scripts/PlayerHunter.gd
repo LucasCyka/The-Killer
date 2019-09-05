@@ -4,6 +4,10 @@ extends KinematicBody2D
 	Player/hunter. This what the player controlls in the hunter mode
 """
 
+#interval (in seconds) that the player will take to decrease health points
+#from a door
+const door_attacking_interval = 1
+
 var id = 0
 var attacking_animation_id = 0
 var base = null
@@ -24,6 +28,8 @@ var facing_direction = Vector2(0,1)
 var door_collision = Vector2(0,0)
 var indoor_detection = null
 var tiredness = 0
+var attacking_door = false setget set_attacking_door
+var attacking_door_modifier = 10 #TODO: this should be in an array if I want more player's characters
 
 #world nodes
 onready var state_machine = $States
@@ -201,6 +207,13 @@ func attack(teenager):
 		teenager.state_machine.force_state("Dead")
 		current_attacking_id = 0
 
+func attack_door(door):
+	var door_ref = weakref(door)
+	if door_ref.get_ref() == null: 
+		set_attacking_door(false)
+		return
+	door.set_door_health(door.get_door_health()-attacking_door_modifier)
+
 #remove the player hunter
 func _free():
 	game.disable_spawn_points()
@@ -245,6 +258,36 @@ func set_tiredness():
 	tiredness_bar.set_min(0)
 	tiredness_bar.set_max(base.max_tiredness)
 	tiredness_bar.set_value(tiredness)
+
+#start/stop door attacks
+func set_attacking_door(value):
+	attacking_door = value
+	
+	if attacking_door:
+		if not has_node("DoorTimer"):
+			var door = null
+			var doors = game.get_doors()
+			
+			for _door in doors:
+				if _door.current_player == self:
+					door = _door
+					break
+			if door == null: 
+				print('set_attacking_door() couldnt find any doors!')
+				return
+			
+			var door_timer = preload('res://scenes/CustomTimer.tscn').instance()
+			add_child(door_timer)
+			door_timer.stop()
+			door_timer.name = 'DoorTimer'
+			door_timer.connect('timeout',self,'attack_door',[door])
+			door_timer.start()
+		pass
+	else:
+		if has_node("DoorTimer"):
+			get_node("DoorTimer").queue_free()
+			pass
+	
 
 #the teenager target this player selected with right click
 func select_target(target):

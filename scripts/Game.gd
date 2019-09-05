@@ -35,7 +35,7 @@ const body_recovery_cost = 30
 const max_tiredness = 6
 
 #the amount of time the player needs to rest to lose 1 tiredness point
-const resting_time = 4 
+const resting_time = 7
 
 var current_mode = MODE.PLANNING setget set_current_mode, get_current_mode
 var last_mode = MODE.PLANNING

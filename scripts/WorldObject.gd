@@ -43,12 +43,13 @@ export(String) var use_broken_sound
 export(String) var activated_sound
 
 var current_teen = []
+var current_player = null
 var is_broken = false
 
 #when a door is locked the player can't pass throught it...
 var is_door_locked = false setget set_door_locked
 #unless he reduces the door health to zero points
-var door_health = 100
+var door_health = 100 setget set_door_health, get_door_health
 
 #effects this object can cause when activated
 var effects = {
@@ -91,6 +92,20 @@ func open_door(area):
 	if area.name == 'DetectionArea' or area.name == 'TreeSight':
 		self.frame = 1 
 		current_teen.append(area.get_parent())
+
+func set_door_health(value):
+	door_health = value
+	print(door_health)
+	if door_health == 0:
+		if current_player != null:
+			current_player.set_attacking_door(false)
+			is_broken = true
+			if has_node('DoorDrawing'):
+				get_node('DoorDrawing').queue_free()
+			current_player.door_collision = Vector2(0,0)
+
+func get_door_health():
+	return door_health
 
 func close_door(area):
 	if is_door_locked: 
@@ -158,7 +173,7 @@ func break_obj():
 func set_door_locked(value):
 	is_door_locked = value
 	
-	if is_door_locked:
+	if is_door_locked and not is_broken:
 		#this collision prevents the player from passing throught the door
 		var door_col = get_node("DoorDrawing/DoorCollision")
 		door_col.get_node('CollisionShape2D').disabled = false
@@ -171,6 +186,11 @@ func set_door_collision(area):
 		var hunter = area.get_parent()
 		var hunter_y = hunter.global_position.y
 		var hunter_x = hunter.global_position.x
+	
+		
+		if current_player != hunter:
+			current_player = hunter
+			hunter.set_attacking_door(true)
 		
 		if self.get_animation() == 'door':
 			#vertical collisions
@@ -188,6 +208,12 @@ func set_door_collision(area):
 func remove_door_collision(area):
 	if area.name == 'DoorCollision':
 		area.get_parent().door_collision = Vector2(0,0)
+		
+		var hunter = area.get_parent()
+		
+		if current_player == hunter:
+			current_player = null
+			hunter.set_attacking_door(false)
 
 
 

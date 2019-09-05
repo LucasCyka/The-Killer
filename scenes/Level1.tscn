@@ -1,4 +1,4 @@
-[gd_scene load_steps=57 format=2]
+[gd_scene load_steps=58 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/PlayerController.tscn" type="PackedScene" id=2]
@@ -48,6 +48,7 @@
 [ext_resource path="res://sprites/world_objects/boat.png" type="Texture" id=46]
 [ext_resource path="res://scenes/CustomTimer.tscn" type="PackedScene" id=47]
 [ext_resource path="res://scenes/Audio.tscn" type="PackedScene" id=48]
+[ext_resource path="res://sprites/characters/female_2/test.png" type="Texture" id=49]
 
 [sub_resource type="TileSet" id=1]
 0/name = "higher_walls.png 0"
@@ -200,7 +201,6 @@ animations = [ {
 script = ExtResource( 1 )
 time = 720
 points = 10000
-debug_mode = true
 
 [node name="PlayerController" parent="." instance=ExtResource( 2 )]
 max_constraints = Vector2( 1849, 1384 )
@@ -606,6 +606,7 @@ obj_desc = "A bathroom"
 [node name="CanvasLayer" type="CanvasLayer" parent="AI"]
 
 [node name="Tiles" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Floor" type="TileMap" parent="Tiles"]
 z_index = -2
@@ -675,6 +676,7 @@ format = 1
 tile_data = PoolIntArray( -720888, 0, 0, 262140, 0, 0, 393242, 0, 0, 393256, 0, 0, 393285, 0, 0, 786439, 0, 0, 851985, 0, 0, 1048576, 0, 0, 1245213, 0, 0, 1441783, 0, 0, 1835021, 0, 0, 2555970, 0, 0 )
 
 [node name="IndoorDetection" type="TileMap" parent="Tiles"]
+visible = false
 tile_set = ExtResource( 32 )
 cell_size = Vector2( 25, 25 )
 cell_quadrant_size = 1
@@ -810,7 +812,7 @@ texture = ExtResource( 40 )
 [node name="Boat" type="AnimatedSprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 687.594, 1325.05 )
 frames = SubResource( 8 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="CustomTimer" parent="." instance=ExtResource( 47 )]
@@ -826,4 +828,16 @@ position = Vector2( 899.807, 193.161 )
 scale = Vector2( 0.719567, 0.580805 )
 z_index = 5
 texture = ExtResource( 39 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 518.424, 401.671 )
+texture = ExtResource( 49 )
+
+[node name="Sprite2" type="Sprite" parent="."]
+position = Vector2( 628.063, 255.02 )
+texture = ExtResource( 49 )
+
+[node name="Sprite3" type="Sprite" parent="."]
+position = Vector2( 850.124, 178.713 )
+texture = ExtResource( 49 )
 
