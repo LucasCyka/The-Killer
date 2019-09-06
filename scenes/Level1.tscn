@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=2]
+[gd_scene load_steps=57 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/PlayerController.tscn" type="PackedScene" id=2]
@@ -48,7 +48,6 @@
 [ext_resource path="res://sprites/world_objects/boat.png" type="Texture" id=46]
 [ext_resource path="res://scenes/CustomTimer.tscn" type="PackedScene" id=47]
 [ext_resource path="res://scenes/Audio.tscn" type="PackedScene" id=48]
-[ext_resource path="res://sprites/characters/female_2/test.png" type="Texture" id=49]
 
 [sub_resource type="TileSet" id=1]
 0/name = "higher_walls.png 0"
@@ -211,7 +210,6 @@ min_constraints = Vector2( -894, -419 )
 [node name="GameTimer" type="Timer" parent="."]
 
 [node name="AI" type="YSort" parent="."]
-editor/display_folded = true
 
 [node name="Teenager" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -295,6 +293,32 @@ tile_set = ExtResource( 13 )
 cell_size = Vector2( 25, 25 )
 format = 1
 tile_data = PoolIntArray( 917535, 1, 0, 917536, 27, 0, 917537, 40, 0, 1114143, 2, 0, 1114144, 27, 0, 1114145, 40, 0, 3932159, 0, 0, 3866624, 27, 0, 3866625, 30, 0 )
+
+[node name="Teenager4" parent="AI" instance=ExtResource( 4 )]
+editor/display_folded = true
+position = Vector2( 610.377, 432.56 )
+gender = 1
+id = 3
+sleep_time = 4
+death_icon = ExtResource( 14 )
+death_trap1 = ExtResource( 15 )
+death_trap2 = ExtResource( 16 )
+death_trap3 = ExtResource( 7 )
+portrait_neutral = ExtResource( 17 )
+portrait_fear = ExtResource( 18 )
+portrait_panic = ExtResource( 19 )
+mugshot = ExtResource( 20 )
+teen_name = "Alice King"
+
+[node name="Routines" type="Node" parent="AI/Teenager4"]
+
+[node name="Routine" type="TileMap" parent="AI/Teenager4/Routines"]
+visible = false
+z_index = 2
+tile_set = ExtResource( 13 )
+cell_size = Vector2( 25, 25 )
+format = 1
+tile_data = PoolIntArray( 917535, 0, 0, 917536, 27, 0, 917537, 40, 0, 1703965, 1, 0, 1703966, 27, 0, 1703967, 40, 0 )
 
 [node name="Car" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 179.68, -157.877 )
@@ -812,7 +836,7 @@ texture = ExtResource( 40 )
 [node name="Boat" type="AnimatedSprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 687.594, 1325.05 )
 frames = SubResource( 8 )
-frame = 1
+frame = 4
 playing = true
 
 [node name="CustomTimer" parent="." instance=ExtResource( 47 )]
@@ -828,16 +852,4 @@ position = Vector2( 899.807, 193.161 )
 scale = Vector2( 0.719567, 0.580805 )
 z_index = 5
 texture = ExtResource( 39 )
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 518.424, 401.671 )
-texture = ExtResource( 49 )
-
-[node name="Sprite2" type="Sprite" parent="."]
-position = Vector2( 628.063, 255.02 )
-texture = ExtResource( 49 )
-
-[node name="Sprite3" type="Sprite" parent="."]
-position = Vector2( 850.124, 178.713 )
-texture = ExtResource( 49 )
 

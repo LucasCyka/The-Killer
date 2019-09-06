@@ -19,12 +19,10 @@ enum GENDER {
 #or the state machine decides so.
 var routines = {
 	0:{"state":[],"pos":[],"time":[]},
-	
 	1:{"state":[],"pos":[],"time":[]},
-	
 	2:{"state":[],"pos":[],"time":[]},
-	
-	3:{"state":[],"pos":[],"time":[]}
+	3:{"state":[],"pos":[],"time":[]},
+	4:{"state":[],"pos":[],"time":[]}
 }
 
 #dictionary for the tilemap that will genearate new routines
