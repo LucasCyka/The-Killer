@@ -216,7 +216,6 @@ min_constraints = Vector2( -674, -369 )
 [node name="GameTimer" type="Timer" parent="."]
 
 [node name="AI" type="YSort" parent="."]
-editor/display_folded = true
 
 [node name="Teenager" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -427,17 +426,19 @@ obj_name = "Power Generator"
 obj_desc = "Supplies power to the house"
 use_sound = "TurnOn"
 activated_sound = "TurnOff"
+cursor = "LIGHTCUT"
 
 [node name="Bathroom" parent="AI" instance=ExtResource( 21 )]
-position = Vector2( 1206.31, 6.26155 )
+position = Vector2( 1210.75, -27.7904 )
 z_index = 1
 animation = "Bathroom"
-offset = Vector2( 12.4783, -11.6528 )
+offset = Vector2( 8.03751, 22.3991 )
 type = 8
 owner_id = 1
 is_activable = true
 obj_name = "Bathroom"
 obj_desc = "Bathroom object"
+cursor = "BUMP"
 
 [node name="Car" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 402.106, -283.21 )
@@ -452,6 +453,7 @@ obj_desc = "A pickup truck"
 use_sound = "CarRunning"
 use_broken_sound = "BrokenCar"
 activated_sound = "TurnOff"
+cursor = "LIGHTCUT"
 
 [node name="Door" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 911.755, 315.864 )
@@ -491,6 +493,7 @@ obj_desc = "A pickup truck"
 [node name="CanvasLayer" type="CanvasLayer" parent="AI"]
 
 [node name="Tiles" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Floor" type="TileMap" parent="Tiles"]
 z_index = -2
@@ -676,7 +679,7 @@ texture = ExtResource( 44 )
 [node name="Boat" type="AnimatedSprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 799.806, 848.917 )
 frames = SubResource( 8 )
-frame = 4
+frame = 5
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]

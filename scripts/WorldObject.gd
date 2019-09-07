@@ -41,6 +41,8 @@ export(String) var use_sound
 export(String) var use_broken_sound
 #sound to be palyed when the object is activated
 export(String) var activated_sound
+#icon that will appear when the player hover the object
+export(String) var cursor
 
 var current_teen = []
 var current_player = null

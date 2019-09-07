@@ -25,7 +25,7 @@ func _ready():
 	type = TYPES.BUMP
 	#I guess this won't work on the web version...
 	#Correction: it works!
-	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	#Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 	if show_radius[id]:
 		$Texture/radius.show()
@@ -70,7 +70,8 @@ func _input(event):
 		queue_free()
 
 func on_free():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	pass
+	#Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 #get the position the teenager will search for the bump
 func get_bump_position(teenager_pos):

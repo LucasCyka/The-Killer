@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=2]
+[gd_scene load_steps=82 format=2]
 
 [ext_resource path="res://scripts/GameUI.gd" type="Script" id=1]
 [ext_resource path="res://scripts/TeenagerInfo.gd" type="Script" id=2]
@@ -66,10 +66,15 @@
 [ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=64]
 [ext_resource path="res://scripts/WinningUI.gd" type="Script" id=65]
 [ext_resource path="res://scripts/MouseUI.gd" type="Script" id=66]
-[ext_resource path="res://sprites/gui/score_icon_prototype.png" type="Texture" id=67]
-[ext_resource path="res://sprites/characters/male_1/dying/dying_1_down28.png" type="Texture" id=68]
-[ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=69]
-[ext_resource path="res://sprites/misc/art_test.png" type="Texture" id=70]
+[ext_resource path="res://sprites/mouse/pointer.png" type="Texture" id=67]
+[ext_resource path="res://sprites/traps/knock1.png" type="Texture" id=68]
+[ext_resource path="res://sprites/traps/knock2.png" type="Texture" id=69]
+[ext_resource path="res://sprites/traps/knock3.png" type="Texture" id=70]
+[ext_resource path="res://sprites/gui/score_icon_prototype.png" type="Texture" id=71]
+[ext_resource path="res://sprites/mouse/scissor.png" type="Texture" id=72]
+[ext_resource path="res://sprites/characters/male_1/dying/dying_1_down28.png" type="Texture" id=73]
+[ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=74]
+[ext_resource path="res://sprites/misc/art_test.png" type="Texture" id=75]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 25 )
@@ -78,7 +83,27 @@ font_data = ExtResource( 25 )
 animations = [ {
 "frames": [ ExtResource( 67 ) ],
 "loop": true,
-"name": "Machete",
+"name": "DEFAULT",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ) ],
+"loop": true,
+"name": "BUMP",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 71 ) ],
+"loop": true,
+"name": "MACHETE",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 72 ) ],
+"loop": true,
+"name": "LIGHTCUT",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "TRAP",
 "speed": 5.0
 } ]
 
@@ -177,15 +202,14 @@ margin_bottom = 312.0
 rect_pivot_offset = Vector2( 49.1224, 53.5745 )
 
 [node name="background" type="Sprite" parent="Canvas/TeenagerInfo/Panel"]
-editor/display_folded = true
 position = Vector2( 48.4768, 48.8767 )
 texture = ExtResource( 3 )
 
 [node name="Close" type="TextureButton" parent="Canvas/TeenagerInfo/Panel/background"]
 margin_left = 25.0
 margin_top = -58.0
-margin_right = 50.0
-margin_bottom = -49.0
+margin_right = 53.0
+margin_bottom = -41.0
 texture_normal = ExtResource( 4 )
 
 [node name="Gender" type="Label" parent="Canvas/TeenagerInfo/Panel"]
@@ -1060,15 +1084,13 @@ margin_bottom = 283.0
 text = "RESTART"
 
 [node name="MouseUI" type="Control" parent="Canvas"]
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 66 )
 
 [node name="MouseAnims" type="AnimatedSprite" parent="Canvas/MouseUI"]
-visible = false
 frames = SubResource( 2 )
-animation = "Machete"
+animation = "DEFAULT"
 
 [node name="NextScreenUI" type="Control" parent="Canvas"]
 editor/display_folded = true
@@ -1119,7 +1141,7 @@ anims/misc = SubResource( 5 )
 visible = false
 position = Vector2( 117.28, 314.042 )
 z_index = 4
-texture = ExtResource( 68 )
+texture = ExtResource( 73 )
 
 [node name="LabelAnims" type="AnimationPlayer" parent="Canvas/Animations"]
 playback_speed = 1.4
@@ -1128,7 +1150,7 @@ anims/score = SubResource( 6 )
 [node name="Sprite" type="Sprite" parent="Canvas/Animations"]
 visible = false
 position = Vector2( 300.047, 328.028 )
-texture = ExtResource( 69 )
+texture = ExtResource( 74 )
 
 [node name="Label" type="Label" parent="Canvas/Animations/Sprite"]
 margin_left = -216.0
@@ -1151,7 +1173,7 @@ autowrap = true
 [node name="Sprite" type="Sprite" parent="Canvas"]
 visible = false
 position = Vector2( 299.297, 64.5994 )
-texture = ExtResource( 69 )
+texture = ExtResource( 74 )
 
 [node name="Sprite2" type="Sprite" parent="Canvas"]
 editor/display_folded = true
@@ -1159,7 +1181,7 @@ visible = false
 position = Vector2( 299.297, 184.599 )
 z_index = 9
 z_as_relative = false
-texture = ExtResource( 70 )
+texture = ExtResource( 75 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Canvas/Sprite2"]
 visible = false

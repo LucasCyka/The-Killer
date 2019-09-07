@@ -30,7 +30,6 @@ script = ExtResource( 1 )
 z_index = 5
 frames = SubResource( 1 )
 animation = "0"
-frame = 1
 playing = true
 
 [node name="DetectionRadius" type="Area2D" parent="Texture"]

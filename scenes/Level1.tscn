@@ -333,16 +333,18 @@ obj_desc = "A pickup truck"
 use_sound = "CarRunning"
 use_broken_sound = "BrokenCar"
 activated_sound = "TurnOff"
+cursor = "LIGHTCUT"
 
 [node name="Bathroom" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 1907.59, 4.45916 )
 animation = "Bathroom"
-offset = Vector2( 12.478, -11.653 )
+offset = Vector2( 8.038, 22.399 )
 type = 8
 is_activable = true
 can_activated_when_using = false
 obj_name = "Bathroom"
 obj_desc = "A bathroom"
+cursor = "BUMP"
 
 [node name="PowerGenator" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 431.346, -42.8064 )
@@ -355,6 +357,7 @@ obj_name = "Generator"
 obj_desc = "Supplies Power to the house."
 use_sound = "TurnOff"
 activated_sound = "TurnOn"
+cursor = "LIGHTCUT"
 
 [node name="Door" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 787.05, 265.235 )
