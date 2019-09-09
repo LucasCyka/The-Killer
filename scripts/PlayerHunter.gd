@@ -375,7 +375,7 @@ func play_attacking_sound():
 			return
 		
 		if player_anims.get_frame() == animations_sound_data[1][0][current_attacking_id]:
-			game.audio_system.play_2d_sound(animations_sound_data[1][1][current_attacking_id],global_position)
+			game.audio_system.play_2d_sound(animations_sound_data[1][1][current_attacking_id],global_position,false)
 			
 			current_attacking_id += 1
 

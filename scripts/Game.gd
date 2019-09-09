@@ -230,6 +230,7 @@ func set_current_mode(value):
 	match current_mode:
 		MODE.HUNTING:
 			disable_spawn_points()
+			ui.info_ui.normal_btn()
 			ui.lock()
 			if player_tiredness < max_tiredness:
 				set_player_tiredness(player_tiredness + 2)

@@ -571,6 +571,7 @@ texture = ExtResource( 27 )
 
 [node name="MiscUI" type="Control" parent="Canvas"]
 pause_mode = 2
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 28 )
@@ -601,6 +602,7 @@ texture_normal = ExtResource( 32 )
 texture_hover = ExtResource( 33 )
 
 [node name="ObjectPanel" type="Control" parent="Canvas/MiscUI"]
+editor/display_folded = true
 visible = false
 margin_left = 310.0
 margin_top = 190.0
@@ -663,7 +665,6 @@ text = "CANCEL"
 
 [node name="InfoUI" type="Control" parent="Canvas"]
 pause_mode = 2
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 38 )
