@@ -33,7 +33,7 @@
 [ext_resource path="res://sprites/gui/hunt_btn_hover_iteration3.png" type="Texture" id=31]
 [ext_resource path="res://sprites/gui/magnifier.png" type="Texture" id=32]
 [ext_resource path="res://sprites/gui/magnifier_over.png" type="Texture" id=33]
-[ext_resource path="res://sprites/gui/object_info_panel_interation2.png" type="Texture" id=34]
+[ext_resource path="res://sprites/gui/object_info_panel_interation3.png" type="Texture" id=34]
 [ext_resource path="res://sprites/gui/use_btn_pressed.png" type="Texture" id=35]
 [ext_resource path="res://sprites/gui/use_btn_hover.png" type="Texture" id=36]
 [ext_resource path="res://sprites/gui/object_close_normal.png" type="Texture" id=37]
@@ -70,8 +70,8 @@
 [ext_resource path="res://sprites/traps/knock1.png" type="Texture" id=68]
 [ext_resource path="res://sprites/traps/knock2.png" type="Texture" id=69]
 [ext_resource path="res://sprites/traps/knock3.png" type="Texture" id=70]
-[ext_resource path="res://sprites/gui/score_icon_prototype.png" type="Texture" id=71]
-[ext_resource path="res://sprites/mouse/scissor.png" type="Texture" id=72]
+[ext_resource path="res://sprites/mouse/scissor.png" type="Texture" id=71]
+[ext_resource path="res://sprites/gui/score_icon_prototype.png" type="Texture" id=72]
 [ext_resource path="res://sprites/characters/male_1/dying/dying_1_down28.png" type="Texture" id=73]
 [ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=74]
 [ext_resource path="res://sprites/misc/art_test.png" type="Texture" id=75]
@@ -91,19 +91,19 @@ animations = [ {
 "name": "BUMP",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 71 ) ],
+"frames": [  ],
 "loop": true,
-"name": "MACHETE",
+"name": "TRAP",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 72 ) ],
+"frames": [ ExtResource( 71 ) ],
 "loop": true,
 "name": "LIGHTCUT",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 72 ) ],
 "loop": true,
-"name": "TRAP",
+"name": "MACHETE",
 "speed": 5.0
 } ]
 
@@ -571,13 +571,13 @@ texture = ExtResource( 27 )
 
 [node name="MiscUI" type="Control" parent="Canvas"]
 pause_mode = 2
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 28 )
 
 [node name="Control" type="Control" parent="Canvas/MiscUI"]
 pause_mode = 2
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -601,33 +601,35 @@ texture_normal = ExtResource( 32 )
 texture_hover = ExtResource( 33 )
 
 [node name="ObjectPanel" type="Control" parent="Canvas/MiscUI"]
-editor/display_folded = true
 visible = false
-margin_right = 40.0
-margin_bottom = 40.0
+margin_left = 310.0
+margin_top = 190.0
+margin_right = 350.0
+margin_bottom = 230.0
 
 [node name="Object" type="Sprite" parent="Canvas/MiscUI/ObjectPanel"]
-editor/display_folded = true
-position = Vector2( 544.146, 334.128 )
 texture = ExtResource( 34 )
 
 [node name="UseButton" type="TextureButton" parent="Canvas/MiscUI/ObjectPanel/Object"]
-margin_left = -81.0
-margin_top = 7.0
-margin_right = -55.0
-margin_bottom = 32.0
+visible = false
+margin_left = -75.3533
+margin_top = 51.6605
+margin_right = -49.3533
+margin_bottom = 76.6605
 texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 35 )
 texture_hover = ExtResource( 36 )
 
 [node name="Close" type="TextureButton" parent="Canvas/MiscUI/ObjectPanel/Object"]
-margin_left = 29.6651
-margin_top = -42.0076
-margin_right = 54.6651
-margin_bottom = -32.0076
+visible = false
+margin_left = -24.7488
+margin_top = 60.1468
+margin_right = 0.251221
+margin_bottom = 70.1468
 texture_normal = ExtResource( 37 )
 
 [node name="Name" type="Label" parent="Canvas/MiscUI/ObjectPanel/Object"]
+visible = false
 margin_left = -55.0
 margin_top = -33.0
 margin_right = 55.0
@@ -637,13 +639,27 @@ text = "Power Generator"
 autowrap = true
 
 [node name="Desc" type="Label" parent="Canvas/MiscUI/ObjectPanel/Object"]
-margin_left = -55.0
-margin_top = -13.0
-margin_right = 55.0
-margin_bottom = 31.0
+margin_left = -74.0
+margin_top = -23.0
+margin_right = 74.0
+margin_bottom = 19.0
 custom_fonts/font = ExtResource( 9 )
-text = "Supplies powers to the house"
+text = "Cut power supply for $1,000 ?"
 autowrap = true
+
+[node name="OkBtn" type="Button" parent="Canvas/MiscUI/ObjectPanel/Object"]
+margin_left = -64.0
+margin_top = 29.0
+margin_right = -3.0
+margin_bottom = 49.0
+text = "OK"
+
+[node name="CancelBtn" type="Button" parent="Canvas/MiscUI/ObjectPanel/Object"]
+margin_left = 3.0
+margin_top = 29.0
+margin_right = 64.0
+margin_bottom = 49.0
+text = "CANCEL"
 
 [node name="InfoUI" type="Control" parent="Canvas"]
 pause_mode = 2
@@ -1084,6 +1100,7 @@ margin_bottom = 283.0
 text = "RESTART"
 
 [node name="MouseUI" type="Control" parent="Canvas"]
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 66 )
@@ -1249,7 +1266,7 @@ texture = ExtResource( 24 )
 [connection signal="pressed" from="Canvas/TrapsUI/TrapsPanel/MiscBtn" to="Canvas/TrapsUI" method="misc_btn"]
 [connection signal="pressed" from="Canvas/MiscUI/Control/HuntBtn" to="Canvas/MiscUI" method="hunt"]
 [connection signal="pressed" from="Canvas/MiscUI/Control/SuperZoomBtn" to="Canvas/MiscUI" method="zoom"]
-[connection signal="pressed" from="Canvas/MiscUI/ObjectPanel/Object/UseButton" to="Canvas/MiscUI" method="activate_object"]
+[connection signal="pressed" from="Canvas/MiscUI/ObjectPanel/Object/OkBtn" to="Canvas/MiscUI" method="activate_object"]
 [connection signal="pressed" from="Canvas/InfoUI/Clock/PauseBtn" to="Canvas/InfoUI" method="pause_btn"]
 [connection signal="pressed" from="Canvas/InfoUI/Clock/NormalSpdBtn" to="Canvas/InfoUI" method="normal_btn"]
 [connection signal="pressed" from="Canvas/InfoUI/Clock/FastSpdBtn" to="Canvas/InfoUI" method="fast_btn"]

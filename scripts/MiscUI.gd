@@ -20,7 +20,7 @@ func init(base):
 	var objects = get_tree().get_nodes_in_group("Object")
 	for obj in objects:
 		#only if they are pickable
-		if obj.is_clickable:
+		if obj.is_activable:
 			obj.get_node("Button").connect("pressed",self,"show_object_panel",[obj])
 			
 
@@ -51,6 +51,8 @@ func show_object_panel(obj):
 	#don't select objects when the player is hunting
 	if get_tree().get_nodes_in_group("Player").size() > 0:
 		return
+	if obj.activated:
+		return
 		
 	#also don't select objects when the player is putting traps on the world
 	if base.get_selected_traps().size() > 0:
@@ -60,29 +62,38 @@ func show_object_panel(obj):
 	base.emit_signal('element_toggle')
 	base.emit_signal('element_changed_focus')
 	
-	$ObjectPanel/Object/Name.text = obj.obj_name
-	$ObjectPanel/Object/Desc.text = obj.obj_desc
+	#replaces '[' by the price
+	var price = obj.price
+	var price_text = "$" + str(price)
+	var desc = obj.obj_desc
 	
-	if obj.is_activable:
-		$ObjectPanel/Object/UseButton.show()
-	else:
-		$ObjectPanel/Object/UseButton.hide()
+	if fmod(1000,price) or price == 1000:
+		price_text = price_text.insert(price_text.length()-3,',')
+	desc = desc.replace('[',price_text)
+	
+	$ObjectPanel/Object/Desc.text = desc
+	
 	
 	if not $ObjectPanel.is_visible():
 		object_panel.show()
-		$ObjectPanel/Object/Close.connect('pressed',self,'hide_object_panel')
+		$ObjectPanel/Object/CancelBtn.connect('pressed',self,'hide_object_panel')
 		
 	current_object = obj
 
 func hide_object_panel():
-	$ObjectPanel/Object/Close.disconnect('pressed',self,'hide_object_panel')
+	$ObjectPanel/Object/CancelBtn.disconnect('pressed',self,'hide_object_panel')
 	object_panel.hide()
 	current_object = null
 	
 func activate_object():
 	#TODO: sound effect
 	#TODO: use money
-	if current_object != null: current_object.activate()
+	if current_object != null: 
+		if current_object.price <= base.game.points:
+			base.game.points -= current_object.price
+			current_object.activate()
+			hide_object_panel()
+	
 
 func _on_new_misc():
 	emit_signal("new_misc")

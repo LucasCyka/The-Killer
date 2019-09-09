@@ -328,12 +328,12 @@ type = 4
 id = 2
 is_activable = true
 can_activated_when_using = false
-obj_name = "Pickup"
-obj_desc = "A pickup truck"
+obj_desc = "Damage the car for [?"
 use_sound = "CarRunning"
 use_broken_sound = "BrokenCar"
 activated_sound = "TurnOff"
 cursor = "LIGHTCUT"
+price = 1000
 
 [node name="Bathroom" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 1907.59, 4.45916 )
@@ -341,10 +341,12 @@ animation = "Bathroom"
 offset = Vector2( 8.038, 22.399 )
 type = 8
 is_activable = true
+is_oneshot = false
 can_activated_when_using = false
-obj_name = "Bathroom"
-obj_desc = "A bathroom"
+obj_desc = "Knock on the bathrrom for [?"
+activated_sound = "Knock"
 cursor = "BUMP"
+price = 500
 
 [node name="PowerGenator" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 431.346, -42.8064 )
@@ -353,20 +355,18 @@ animation = "PowerGenerator"
 type = 7
 id = 1
 is_activable = true
-obj_name = "Generator"
-obj_desc = "Supplies Power to the house."
-use_sound = "TurnOff"
-activated_sound = "TurnOn"
+obj_desc = "Cut power supply for [?"
+use_sound = "TurnOn"
+activated_sound = "TurnOff"
 cursor = "LIGHTCUT"
+price = 1000
 
 [node name="Door" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 787.05, 265.235 )
 animation = "door"
 playing = false
 type = 1
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Door2" parent="AI" instance=ExtResource( 21 )]
@@ -374,9 +374,7 @@ position = Vector2( 186.911, 241.096 )
 animation = "door"
 playing = false
 type = 1
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Door3" parent="AI" instance=ExtResource( 21 )]
@@ -384,9 +382,7 @@ position = Vector2( 436.998, 15.8737 )
 animation = "door"
 playing = false
 type = 1
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Door4" parent="AI" instance=ExtResource( 21 )]
@@ -394,9 +390,7 @@ position = Vector2( 1311.9, 265.949 )
 animation = "door"
 playing = false
 type = 1
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Door5" parent="AI" instance=ExtResource( 21 )]
@@ -404,9 +398,7 @@ position = Vector2( 1662.2, 290.833 )
 animation = "door"
 playing = false
 type = 1
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Door6" parent="AI" instance=ExtResource( 21 )]
@@ -415,9 +407,7 @@ scale = Vector2( 1.01296, 1 )
 animation = "door"
 playing = false
 type = 1
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Door7" parent="AI" instance=ExtResource( 21 )]
@@ -426,9 +416,7 @@ scale = Vector2( 1.01296, 1 )
 animation = "door"
 playing = false
 type = 1
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Door8" parent="AI" instance=ExtResource( 21 )]
@@ -437,9 +425,7 @@ scale = Vector2( 1.01296, 1 )
 animation = "door"
 playing = false
 type = 1
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Door9" parent="AI" instance=ExtResource( 21 )]
@@ -448,9 +434,7 @@ scale = Vector2( 1.01296, 1 )
 animation = "door 1"
 playing = false
 type = 1
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Door10" parent="AI" instance=ExtResource( 21 )]
@@ -459,9 +443,7 @@ scale = Vector2( 1.01296, 1 )
 animation = "door 1"
 playing = false
 type = 1
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Bunk" parent="AI" instance=ExtResource( 21 )]
@@ -470,9 +452,7 @@ scale = Vector2( 1.01296, 1 )
 z_index = -1
 animation = "BunkBed"
 playing = false
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Bunk2" parent="AI" instance=ExtResource( 21 )]
@@ -481,9 +461,7 @@ scale = Vector2( 1.01296, 1 )
 z_index = -1
 animation = "BunkBed"
 playing = false
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Bunk3" parent="AI" instance=ExtResource( 21 )]
@@ -492,9 +470,7 @@ scale = Vector2( 1.01296, 1 )
 z_index = -1
 animation = "BunkBed"
 playing = false
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Bunk4" parent="AI" instance=ExtResource( 21 )]
@@ -503,9 +479,7 @@ scale = Vector2( 1.01296, 1 )
 z_index = -1
 animation = "BunkBed"
 playing = false
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Bunk10" parent="AI" instance=ExtResource( 21 )]
@@ -514,9 +488,7 @@ scale = Vector2( 1.01296, 1 )
 z_index = -1
 animation = "BunkBed"
 playing = false
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Bunk5" parent="AI" instance=ExtResource( 21 )]
@@ -525,9 +497,7 @@ scale = Vector2( 1.01296, 1 )
 z_index = -1
 animation = "BunkBed"
 playing = false
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Bunk9" parent="AI" instance=ExtResource( 21 )]
@@ -536,9 +506,7 @@ scale = Vector2( 1.01296, 1 )
 z_index = -1
 animation = "BunkBed"
 playing = false
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Bunk6" parent="AI" instance=ExtResource( 21 )]
@@ -547,9 +515,7 @@ scale = Vector2( 1.01296, 1 )
 z_index = -1
 animation = "BunkBed"
 playing = false
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Bunk7" parent="AI" instance=ExtResource( 21 )]
@@ -558,9 +524,7 @@ scale = Vector2( 1.01296, 1 )
 z_index = -1
 animation = "BunkBed"
 playing = false
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Bunk8" parent="AI" instance=ExtResource( 21 )]
@@ -569,9 +533,7 @@ scale = Vector2( 1.01296, 1 )
 z_index = -1
 animation = "BunkBed"
 playing = false
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Bed" parent="AI" instance=ExtResource( 21 )]
@@ -582,9 +544,7 @@ animation = "bed"
 playing = false
 type = 2
 owner_id_2 = 1
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Wardrobe" parent="AI" instance=ExtResource( 21 )]
@@ -593,9 +553,7 @@ scale = Vector2( 1.01296, 1 )
 z_index = 1
 animation = "wardrobe"
 playing = false
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Wardrobe2" parent="AI" instance=ExtResource( 21 )]
@@ -604,9 +562,7 @@ scale = Vector2( 1.01296, 1 )
 z_index = 1
 animation = "wardrobe2"
 playing = false
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Carpet" parent="AI" instance=ExtResource( 21 )]
@@ -615,9 +571,7 @@ scale = Vector2( 1.01296, 1 )
 z_index = -1
 animation = "Carpet"
 playing = false
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="Wardrobe3" parent="AI" instance=ExtResource( 21 )]
@@ -625,9 +579,7 @@ position = Vector2( 1766.31, 464.826 )
 scale = Vector2( 1.01296, 1 )
 animation = "wardrobe3"
 playing = false
-is_clickable = false
 can_activated_when_using = false
-obj_name = "Bathroom"
 obj_desc = "A bathroom"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="AI"]

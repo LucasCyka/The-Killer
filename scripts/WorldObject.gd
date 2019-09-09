@@ -25,7 +25,8 @@ export var id = 0
 export var owner_id = 0
 export var owner_id_2 = 0
 export var is_activable = false
-export var is_clickable = true
+export var is_oneshot = true
+
 #if it can be activated when someone else is using this object
 export var can_activated_when_using = true
 
@@ -33,7 +34,6 @@ export var can_activated_when_using = true
 #close to the object, without using it.
 export var is_detectable = false
 
-export(String) var obj_name
 export(String) var obj_desc
 #sound to be played the AI is using the object normally
 export(String) var use_sound
@@ -43,10 +43,13 @@ export(String) var use_broken_sound
 export(String) var activated_sound
 #icon that will appear when the player hover the object
 export(String) var cursor
+#the price to use this object
+export(int) var price
 
 var current_teen = []
 var current_player = null
 var is_broken = false
+var activated = false
 
 #when a door is locked the player can't pass throught it...
 var is_door_locked = false setget set_door_locked
@@ -63,7 +66,7 @@ var effects = {
 
 #initialize
 func _ready():
-	if is_clickable:
+	if is_activable:
 		#create a button mask for this object
 		var mask = BitMap.new()
 		var image = get_sprite_frames().get_frame(get_animation(),0).get_data()
@@ -141,6 +144,8 @@ func activate():
 		
 	for effect in effects[id]:
 		effect.call_func()
+	if is_oneshot: activated = true
+	
 	
 	#sound effect
 	if activated_sound != "":

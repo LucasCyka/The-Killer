@@ -278,15 +278,12 @@ z_index = 2
 animation = "bed"
 type = 2
 owner_id = 1
-is_clickable = false
-obj_name = "Testing"
 obj_desc = "This object"
 
 [node name="Bookshelf" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 735.954, 102.862 )
 z_index = 3
 animation = "book1"
-obj_name = "Testing"
 obj_desc = "This object"
 
 [node name="Bookshelf2" parent="AI" instance=ExtResource( 21 )]
@@ -294,43 +291,36 @@ position = Vector2( 711.954, 102.862 )
 z_index = 3
 animation = "book2"
 flip_h = true
-obj_name = "Testing"
 obj_desc = "This object"
 
 [node name="BearCarpet" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 767.071, 146.938 )
 z_index = 2
 animation = "BearCarpet"
-is_clickable = false
-obj_name = "Testing"
 obj_desc = "This object"
 
 [node name="Fireplace" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 771.214, 100.827 )
 z_index = 3
 animation = "Fireplace"
-obj_name = "Testing"
 obj_desc = "This object"
 
 [node name="Armchair" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 720.198, 260.409 )
 z_index = 3
 animation = "Armchair"
-obj_name = "Testing"
 obj_desc = "This object"
 
 [node name="Table" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 725.779, 275.648 )
 z_index = 3
 animation = "Table"
-obj_name = "Testing"
 obj_desc = "This object"
 
 [node name="Wardrobe" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 811.214, 104.827 )
 z_index = 3
 animation = "Wardrobe"
-obj_name = "Testing"
 obj_desc = "This object"
 
 [node name="Table2" parent="AI" instance=ExtResource( 21 )]
@@ -339,69 +329,56 @@ z_index = 2
 animation = "table"
 type = 6
 owner_id = 1
-is_clickable = false
-obj_name = "Testing"
 obj_desc = "This object"
 
 [node name="Carpet" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 1025.77, 246.229 )
 animation = "Carpet"
-obj_name = "Testing"
 obj_desc = "This object"
 
 [node name="Carpet2" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 783.508, 212.457 )
 animation = "Carpet 2"
-is_clickable = false
-obj_name = "Testing"
 obj_desc = "This object"
 
 [node name="Carpet3" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 912.396, 152.273 )
 animation = "Carpet 2"
-is_clickable = false
-obj_name = "Testing"
 obj_desc = "This object"
 
 [node name="Deer?" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 860.206, 89.14 )
 z_index = 3
 animation = "Deer?"
-obj_name = "Testing"
 obj_desc = "This object"
 
 [node name="Clock" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 999.206, 104.14 )
 z_index = 3
 animation = "Clock"
-obj_name = "Testing"
 obj_desc = "This object"
 
 [node name="Sofa" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 911.206, 108.14 )
 z_index = 3
 animation = "Sofa"
-obj_name = "Testing"
 obj_desc = "This object"
 
 [node name="wardrobe" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 984.182, 207.473 )
 z_index = 3
 animation = "wardrobe"
-obj_name = "Testing"
 obj_desc = "This object"
 
 [node name="wardrobe3" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 1001.45, 281.178 )
 animation = "wardrobe3"
-obj_name = "Testing"
 obj_desc = "This object"
 
 [node name="wardrobe2" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 1059.18, 207.473 )
 z_index = 2
 animation = "wardrobe2"
-obj_name = "Testing"
 obj_desc = "This object"
 
 [node name="PicNic" parent="AI" instance=ExtResource( 21 )]
@@ -410,8 +387,6 @@ z_index = 1
 animation = "PicNic"
 type = 3
 owner_id = 1
-is_clickable = false
-obj_name = "Testing"
 obj_desc = "This object"
 
 [node name="PowerGenator" parent="AI" instance=ExtResource( 21 )]
@@ -422,8 +397,7 @@ type = 7
 id = 1
 owner_id = 1
 is_activable = true
-obj_name = "Power Generator"
-obj_desc = "Supplies power to the house"
+obj_desc = "Cut power supply for [?"
 use_sound = "TurnOn"
 activated_sound = "TurnOff"
 cursor = "LIGHTCUT"
@@ -436,8 +410,8 @@ offset = Vector2( 8.03751, 22.3991 )
 type = 8
 owner_id = 1
 is_activable = true
-obj_name = "Bathroom"
-obj_desc = "Bathroom object"
+is_oneshot = false
+obj_desc = "Knock on the bathrrom for [?"
 cursor = "BUMP"
 
 [node name="Car" parent="AI" instance=ExtResource( 21 )]
@@ -448,8 +422,7 @@ type = 4
 id = 2
 is_activable = true
 can_activated_when_using = false
-obj_name = "Pickup"
-obj_desc = "A pickup truck"
+obj_desc = "Damage the car for [?"
 use_sound = "CarRunning"
 use_broken_sound = "BrokenCar"
 activated_sound = "TurnOff"
@@ -463,7 +436,6 @@ type = 1
 id = 2
 is_activable = true
 can_activated_when_using = false
-obj_name = "Pickup"
 obj_desc = "A pickup truck"
 
 [node name="Door2" parent="AI" instance=ExtResource( 21 )]
@@ -475,7 +447,6 @@ type = 1
 id = 2
 is_activable = true
 can_activated_when_using = false
-obj_name = "Pickup"
 obj_desc = "A pickup truck"
 
 [node name="Door3" parent="AI" instance=ExtResource( 21 )]
@@ -487,7 +458,6 @@ type = 1
 id = 2
 is_activable = true
 can_activated_when_using = false
-obj_name = "Pickup"
 obj_desc = "A pickup truck"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="AI"]
@@ -679,7 +649,7 @@ texture = ExtResource( 44 )
 [node name="Boat" type="AnimatedSprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 799.806, 848.917 )
 frames = SubResource( 8 )
-frame = 5
+frame = 2
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]

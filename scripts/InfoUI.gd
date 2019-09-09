@@ -242,5 +242,5 @@ func update_points():
 	_points.text = "$"+str(game.get_points())
 	
 	#formating
-	if fmod(1000,game.get_points()):
+	if fmod(1000,game.get_points()) or game.get_points() == 1000:
 		_points.text = _points.text.insert(_points.text.length()-3,',')
