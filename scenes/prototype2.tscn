@@ -412,6 +412,7 @@ owner_id = 1
 is_activable = true
 is_oneshot = false
 obj_desc = "Knock on the bathrrom for [?"
+activated_sound = "Knock"
 cursor = "BUMP"
 
 [node name="Car" parent="AI" instance=ExtResource( 21 )]
@@ -649,7 +650,7 @@ texture = ExtResource( 44 )
 [node name="Boat" type="AnimatedSprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 799.806, 848.917 )
 frames = SubResource( 8 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]
