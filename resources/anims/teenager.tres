@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=236 format=2]
+[gd_resource type="SpriteFrames" load_steps=251 format=2]
 
 [ext_resource path="res://sprites/prototype/characters/male_iteration1.png" type="Texture" id=1]
 [ext_resource path="res://sprites/prototype/characters/male_iteration1_side.png" type="Texture" id=2]
@@ -235,6 +235,21 @@
 [ext_resource path="res://sprites/characters/female_3/panic_down2.png" type="Texture" id=233]
 [ext_resource path="res://sprites/characters/female_3/panic_down3.png" type="Texture" id=234]
 [ext_resource path="res://sprites/characters/female_3/panic_down4.png" type="Texture" id=235]
+[ext_resource path="res://sprites/characters/male_3/walking_down1.png" type="Texture" id=236]
+[ext_resource path="res://sprites/characters/male_3/walking_down2.png" type="Texture" id=237]
+[ext_resource path="res://sprites/characters/male_3/walking_down3.png" type="Texture" id=238]
+[ext_resource path="res://sprites/characters/male_3/walking_down4.png" type="Texture" id=239]
+[ext_resource path="res://sprites/characters/male_3/idle_down.png" type="Texture" id=240]
+[ext_resource path="res://sprites/characters/male_3/walking_up1.png" type="Texture" id=241]
+[ext_resource path="res://sprites/characters/male_3/walking_up2.png" type="Texture" id=242]
+[ext_resource path="res://sprites/characters/male_3/walking_up3.png" type="Texture" id=243]
+[ext_resource path="res://sprites/characters/male_3/walking_up4.png" type="Texture" id=244]
+[ext_resource path="res://sprites/characters/male_3/idle_up.png" type="Texture" id=245]
+[ext_resource path="res://sprites/characters/male_3/walking_side1.png" type="Texture" id=246]
+[ext_resource path="res://sprites/characters/male_3/walking_side2.png" type="Texture" id=247]
+[ext_resource path="res://sprites/characters/male_3/walking_side3.png" type="Texture" id=248]
+[ext_resource path="res://sprites/characters/male_3/walking_side4.png" type="Texture" id=249]
+[ext_resource path="res://sprites/characters/male_3/idle_side.png" type="Texture" id=250]
 
 [resource]
 animations = [ {
@@ -1001,6 +1016,81 @@ animations = [ {
 "frames": [ ExtResource( 223 ) ],
 "loop": true,
 "name": "4:Screaming-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 236 ), ExtResource( 237 ), ExtResource( 238 ), ExtResource( 239 ) ],
+"loop": true,
+"name": "5:Panic-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 240 ) ],
+"loop": true,
+"name": "5:Shock-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 241 ), ExtResource( 242 ), ExtResource( 243 ), ExtResource( 244 ) ],
+"loop": true,
+"name": "5:Moving-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 245 ) ],
+"loop": true,
+"name": "5:Idle-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 246 ), ExtResource( 247 ), ExtResource( 248 ), ExtResource( 249 ) ],
+"loop": true,
+"name": "5:Moving-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 245 ) ],
+"loop": true,
+"name": "5:Waiting-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 240 ) ],
+"loop": true,
+"name": "5:Waiting-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 250 ) ],
+"loop": true,
+"name": "5:Idle-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 250 ) ],
+"loop": true,
+"name": "5:Waiting-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 240 ) ],
+"loop": true,
+"name": "5:Idle-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 250 ) ],
+"loop": true,
+"name": "5:Shock-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 246 ), ExtResource( 247 ), ExtResource( 248 ), ExtResource( 249 ) ],
+"loop": true,
+"name": "5:Panic-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 236 ), ExtResource( 237 ), ExtResource( 238 ), ExtResource( 239 ) ],
+"loop": true,
+"name": "5:Moving-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 241 ), ExtResource( 242 ), ExtResource( 243 ), ExtResource( 244 ) ],
+"loop": true,
+"name": "5:Panic-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 245 ) ],
+"loop": true,
+"name": "5:Shock-Up",
 "speed": 5.0
 } ]
 

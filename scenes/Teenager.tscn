@@ -1,24 +1,24 @@
-[gd_scene load_steps=185 format=2]
+[gd_scene load_steps=213 format=2]
 
 [ext_resource path="res://scripts/TeenageAI.gd" type="Script" id=1]
 [ext_resource path="res://resources/anims/teenager.tres" type="SpriteFrames" id=2]
-[ext_resource path="res://sprites/misc/thinking_balloon.png" type="Texture" id=3]
-[ext_resource path="res://sprites/misc/talking_balloon.png" type="Texture" id=4]
-[ext_resource path="res://sprites/misc/money.png" type="Texture" id=5]
-[ext_resource path="res://sprites/misc/heart_icon.png" type="Texture" id=6]
-[ext_resource path="res://sprites/misc/pizza.png" type="Texture" id=7]
-[ext_resource path="res://sprites/misc/bag.png" type="Texture" id=8]
+[ext_resource path="res://sprites/misc/talking_balloon.png" type="Texture" id=3]
+[ext_resource path="res://sprites/misc/thinking_balloon.png" type="Texture" id=4]
+[ext_resource path="res://sprites/misc/bag.png" type="Texture" id=5]
+[ext_resource path="res://sprites/misc/pizza.png" type="Texture" id=6]
+[ext_resource path="res://sprites/misc/heart_icon.png" type="Texture" id=7]
+[ext_resource path="res://sprites/misc/money.png" type="Texture" id=8]
 [ext_resource path="res://scenes/CustomTimer.tscn" type="PackedScene" id=9]
 [ext_resource path="res://sprites/misc/vice.png" type="Texture" id=10]
-[ext_resource path="res://sprites/misc/bait.png" type="Texture" id=11]
-[ext_resource path="res://sprites/misc/fish.png" type="Texture" id=12]
-[ext_resource path="res://sprites/misc/shit.png" type="Texture" id=13]
-[ext_resource path="res://sprites/misc/screaming.png" type="Texture" id=14]
+[ext_resource path="res://sprites/misc/bad.png" type="Texture" id=11]
+[ext_resource path="res://sprites/misc/skull.png" type="Texture" id=12]
+[ext_resource path="res://sprites/misc/fish2.png" type="Texture" id=13]
+[ext_resource path="res://sprites/misc/startled.png" type="Texture" id=14]
 [ext_resource path="res://sprites/misc/loo.png" type="Texture" id=15]
-[ext_resource path="res://sprites/misc/startled.png" type="Texture" id=16]
-[ext_resource path="res://sprites/misc/fish2.png" type="Texture" id=17]
-[ext_resource path="res://sprites/misc/bad.png" type="Texture" id=18]
-[ext_resource path="res://sprites/misc/skull.png" type="Texture" id=19]
+[ext_resource path="res://sprites/misc/fish.png" type="Texture" id=16]
+[ext_resource path="res://sprites/misc/shit.png" type="Texture" id=17]
+[ext_resource path="res://sprites/misc/screaming.png" type="Texture" id=18]
+[ext_resource path="res://sprites/misc/bait.png" type="Texture" id=19]
 [ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_1.png" type="Texture" id=20]
 [ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_2.png" type="Texture" id=21]
 [ext_resource path="res://sprites/characters/female_1/fermale_anims9/dying_down_3.png" type="Texture" id=22]
@@ -69,115 +69,143 @@
 [ext_resource path="res://sprites/characters/male_1/dying/dying_fixed/dying_1_down26.png" type="Texture" id=67]
 [ext_resource path="res://sprites/characters/male_1/dying/dying_fixed/dying_1_down27.png" type="Texture" id=68]
 [ext_resource path="res://sprites/characters/male_1/dying/dying_fixed/dying_1_down28.png" type="Texture" id=69]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims1.png" type="Texture" id=70]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims2.png" type="Texture" id=71]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims3.png" type="Texture" id=72]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims4.png" type="Texture" id=73]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims5.png" type="Texture" id=74]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims6.png" type="Texture" id=75]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims7.png" type="Texture" id=76]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims8.png" type="Texture" id=77]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims9.png" type="Texture" id=78]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims10.png" type="Texture" id=79]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims11.png" type="Texture" id=80]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims12.png" type="Texture" id=81]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims13.png" type="Texture" id=82]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims14.png" type="Texture" id=83]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims15.png" type="Texture" id=84]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims16.png" type="Texture" id=85]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims17.png" type="Texture" id=86]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims18.png" type="Texture" id=87]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims19.png" type="Texture" id=88]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims20.png" type="Texture" id=89]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims21.png" type="Texture" id=90]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims22.png" type="Texture" id=91]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims23.png" type="Texture" id=92]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims24.png" type="Texture" id=93]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims25.png" type="Texture" id=94]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims26.png" type="Texture" id=95]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims27.png" type="Texture" id=96]
-[ext_resource path="res://sprites/characters/male_2/dying/dying_anims28.png" type="Texture" id=97]
-[ext_resource path="res://sprites/characters/female_2/dying/dying1.png" type="Texture" id=98]
-[ext_resource path="res://sprites/characters/female_2/dying/dying2.png" type="Texture" id=99]
-[ext_resource path="res://sprites/characters/female_2/dying/dying3.png" type="Texture" id=100]
-[ext_resource path="res://sprites/characters/female_2/dying/dying4.png" type="Texture" id=101]
-[ext_resource path="res://sprites/characters/female_2/dying/dying5.png" type="Texture" id=102]
-[ext_resource path="res://sprites/characters/female_2/dying/dying6.png" type="Texture" id=103]
-[ext_resource path="res://sprites/characters/female_2/dying/dying7.png" type="Texture" id=104]
-[ext_resource path="res://sprites/characters/female_2/dying/dying8.png" type="Texture" id=105]
-[ext_resource path="res://sprites/characters/female_2/dying/dying9.png" type="Texture" id=106]
-[ext_resource path="res://sprites/characters/female_2/dying/dying10.png" type="Texture" id=107]
-[ext_resource path="res://sprites/characters/female_2/dying/dying11.png" type="Texture" id=108]
-[ext_resource path="res://sprites/characters/female_2/dying/dying12.png" type="Texture" id=109]
-[ext_resource path="res://sprites/characters/female_2/dying/dying13.png" type="Texture" id=110]
-[ext_resource path="res://sprites/characters/female_2/dying/dying14.png" type="Texture" id=111]
-[ext_resource path="res://sprites/characters/female_2/dying/dying15.png" type="Texture" id=112]
-[ext_resource path="res://sprites/characters/female_2/dying/dying16.png" type="Texture" id=113]
-[ext_resource path="res://sprites/characters/female_2/dying/dying17.png" type="Texture" id=114]
-[ext_resource path="res://sprites/characters/female_2/dying/dying18.png" type="Texture" id=115]
-[ext_resource path="res://sprites/characters/female_2/dying/dying19.png" type="Texture" id=116]
-[ext_resource path="res://sprites/characters/female_2/dying/dying20.png" type="Texture" id=117]
-[ext_resource path="res://sprites/characters/female_2/dying/dying21.png" type="Texture" id=118]
-[ext_resource path="res://sprites/characters/female_2/dying/dying22.png" type="Texture" id=119]
-[ext_resource path="res://sprites/characters/female_2/dying/dying23.png" type="Texture" id=120]
-[ext_resource path="res://sprites/characters/female_2/dying/dying24.png" type="Texture" id=121]
-[ext_resource path="res://sprites/characters/female_2/dying/dying25.png" type="Texture" id=122]
-[ext_resource path="res://sprites/characters/female_2/dying/dying26.png" type="Texture" id=123]
-[ext_resource path="res://sprites/characters/female_2/dying/dying27.png" type="Texture" id=124]
-[ext_resource path="res://sprites/characters/female_2/dying/dying28.png" type="Texture" id=125]
-[ext_resource path="res://sprites/characters/female_3/dying/dying1.png" type="Texture" id=126]
-[ext_resource path="res://sprites/characters/female_3/dying/dying2.png" type="Texture" id=127]
-[ext_resource path="res://sprites/characters/female_3/dying/dying3.png" type="Texture" id=128]
-[ext_resource path="res://sprites/characters/female_3/dying/dying4.png" type="Texture" id=129]
-[ext_resource path="res://sprites/characters/female_3/dying/dying5.png" type="Texture" id=130]
-[ext_resource path="res://sprites/characters/female_3/dying/dying6.png" type="Texture" id=131]
-[ext_resource path="res://sprites/characters/female_3/dying/dying7.png" type="Texture" id=132]
-[ext_resource path="res://sprites/characters/female_3/dying/dying8.png" type="Texture" id=133]
-[ext_resource path="res://sprites/characters/female_3/dying/dying9.png" type="Texture" id=134]
-[ext_resource path="res://sprites/characters/female_3/dying/dying10.png" type="Texture" id=135]
-[ext_resource path="res://sprites/characters/female_3/dying/dying11.png" type="Texture" id=136]
-[ext_resource path="res://sprites/characters/female_3/dying/dying12.png" type="Texture" id=137]
-[ext_resource path="res://sprites/characters/female_3/dying/dying13.png" type="Texture" id=138]
-[ext_resource path="res://sprites/characters/female_3/dying/dying14.png" type="Texture" id=139]
-[ext_resource path="res://sprites/characters/female_3/dying/dying15.png" type="Texture" id=140]
-[ext_resource path="res://sprites/characters/female_3/dying/dying16.png" type="Texture" id=141]
-[ext_resource path="res://sprites/characters/female_3/dying/dying17.png" type="Texture" id=142]
-[ext_resource path="res://sprites/characters/female_3/dying/dying18.png" type="Texture" id=143]
-[ext_resource path="res://sprites/characters/female_3/dying/dying19.png" type="Texture" id=144]
-[ext_resource path="res://sprites/characters/female_3/dying/dying20.png" type="Texture" id=145]
-[ext_resource path="res://sprites/characters/female_3/dying/dying21.png" type="Texture" id=146]
-[ext_resource path="res://sprites/characters/female_3/dying/dying22.png" type="Texture" id=147]
-[ext_resource path="res://sprites/characters/female_3/dying/dying23.png" type="Texture" id=148]
-[ext_resource path="res://sprites/characters/female_3/dying/dying24.png" type="Texture" id=149]
-[ext_resource path="res://sprites/characters/female_3/dying/dying25.png" type="Texture" id=150]
-[ext_resource path="res://scripts/states/AIFSM.gd" type="Script" id=151]
-[ext_resource path="res://scripts/states/ai/Idle.gd" type="Script" id=152]
-[ext_resource path="res://scripts/states/ai/Moving.gd" type="Script" id=153]
-[ext_resource path="res://scripts/states/ai/Wait.gd" type="Script" id=154]
-[ext_resource path="res://scripts/states/ai/Lured.gd" type="Script" id=155]
-[ext_resource path="res://scripts/states/ai/Panic.gd" type="Script" id=156]
-[ext_resource path="res://scripts/states/ai/Escaping.gd" type="Script" id=157]
-[ext_resource path="res://scripts/states/ai/OnVice.gd" type="Script" id=158]
-[ext_resource path="res://scripts/states/ai/Startled.gd" type="Script" id=159]
-[ext_resource path="res://scripts/states/ai/Crippled.gd" type="Script" id=160]
-[ext_resource path="res://scripts/states/ai/Shock.gd" type="Script" id=161]
-[ext_resource path="res://scripts/states/ai/Fighting.gd" type="Script" id=162]
-[ext_resource path="res://scripts/states/ai/Cornered.gd" type="Script" id=163]
-[ext_resource path="res://scripts/states/ai/Screaming.gd" type="Script" id=164]
-[ext_resource path="res://scripts/states/ai/Escaped.gd" type="Script" id=165]
-[ext_resource path="res://scripts/states/ai/Talking.gd" type="Script" id=166]
-[ext_resource path="res://scripts/states/ai/Sleeping.gd" type="Script" id=167]
-[ext_resource path="res://scripts/states/ai/EatingTable.gd" type="Script" id=168]
-[ext_resource path="res://scripts/states/ai/OnPicNic.gd" type="Script" id=169]
-[ext_resource path="res://scripts/states/ai/Shitting.gd" type="Script" id=170]
-[ext_resource path="res://scripts/states/ai/SittingFloor.gd" type="Script" id=171]
-[ext_resource path="res://scripts/states/ai/Fishing.gd" type="Script" id=172]
-[ext_resource path="res://scripts/states/ai/OnBed.gd" type="Script" id=173]
-[ext_resource path="res://scripts/states/ai/InLove.gd" type="Script" id=174]
-[ext_resource path="res://scripts/states/ai/CheckingLight.gd" type="Script" id=175]
-[ext_resource path="res://scripts/states/ai/Barricading.gd" type="Script" id=176]
-[ext_resource path="res://scripts/states/ai/Dead.gd" type="Script" id=177]
-[ext_resource path="res://scenes/AITimer.tscn" type="PackedScene" id=178]
+[ext_resource path="res://sprites/characters/female_3/dying/dying1.png" type="Texture" id=70]
+[ext_resource path="res://sprites/characters/female_3/dying/dying2.png" type="Texture" id=71]
+[ext_resource path="res://sprites/characters/female_3/dying/dying3.png" type="Texture" id=72]
+[ext_resource path="res://sprites/characters/female_3/dying/dying4.png" type="Texture" id=73]
+[ext_resource path="res://sprites/characters/female_3/dying/dying5.png" type="Texture" id=74]
+[ext_resource path="res://sprites/characters/female_3/dying/dying6.png" type="Texture" id=75]
+[ext_resource path="res://sprites/characters/female_3/dying/dying7.png" type="Texture" id=76]
+[ext_resource path="res://sprites/characters/female_3/dying/dying8.png" type="Texture" id=77]
+[ext_resource path="res://sprites/characters/female_3/dying/dying9.png" type="Texture" id=78]
+[ext_resource path="res://sprites/characters/female_3/dying/dying10.png" type="Texture" id=79]
+[ext_resource path="res://sprites/characters/female_3/dying/dying11.png" type="Texture" id=80]
+[ext_resource path="res://sprites/characters/female_3/dying/dying12.png" type="Texture" id=81]
+[ext_resource path="res://sprites/characters/female_3/dying/dying13.png" type="Texture" id=82]
+[ext_resource path="res://sprites/characters/female_3/dying/dying14.png" type="Texture" id=83]
+[ext_resource path="res://sprites/characters/female_3/dying/dying15.png" type="Texture" id=84]
+[ext_resource path="res://sprites/characters/female_3/dying/dying16.png" type="Texture" id=85]
+[ext_resource path="res://sprites/characters/female_3/dying/dying17.png" type="Texture" id=86]
+[ext_resource path="res://sprites/characters/female_3/dying/dying18.png" type="Texture" id=87]
+[ext_resource path="res://sprites/characters/female_3/dying/dying19.png" type="Texture" id=88]
+[ext_resource path="res://sprites/characters/female_3/dying/dying20.png" type="Texture" id=89]
+[ext_resource path="res://sprites/characters/female_3/dying/dying21.png" type="Texture" id=90]
+[ext_resource path="res://sprites/characters/female_3/dying/dying22.png" type="Texture" id=91]
+[ext_resource path="res://sprites/characters/female_3/dying/dying23.png" type="Texture" id=92]
+[ext_resource path="res://sprites/characters/female_3/dying/dying24.png" type="Texture" id=93]
+[ext_resource path="res://sprites/characters/female_3/dying/dying25.png" type="Texture" id=94]
+[ext_resource path="res://sprites/characters/female_2/dying/dying1.png" type="Texture" id=95]
+[ext_resource path="res://sprites/characters/female_2/dying/dying2.png" type="Texture" id=96]
+[ext_resource path="res://sprites/characters/female_2/dying/dying3.png" type="Texture" id=97]
+[ext_resource path="res://sprites/characters/female_2/dying/dying4.png" type="Texture" id=98]
+[ext_resource path="res://sprites/characters/female_2/dying/dying5.png" type="Texture" id=99]
+[ext_resource path="res://sprites/characters/female_2/dying/dying6.png" type="Texture" id=100]
+[ext_resource path="res://sprites/characters/female_2/dying/dying7.png" type="Texture" id=101]
+[ext_resource path="res://sprites/characters/female_2/dying/dying8.png" type="Texture" id=102]
+[ext_resource path="res://sprites/characters/female_2/dying/dying9.png" type="Texture" id=103]
+[ext_resource path="res://sprites/characters/female_2/dying/dying10.png" type="Texture" id=104]
+[ext_resource path="res://sprites/characters/female_2/dying/dying11.png" type="Texture" id=105]
+[ext_resource path="res://sprites/characters/female_2/dying/dying12.png" type="Texture" id=106]
+[ext_resource path="res://sprites/characters/female_2/dying/dying13.png" type="Texture" id=107]
+[ext_resource path="res://sprites/characters/female_2/dying/dying14.png" type="Texture" id=108]
+[ext_resource path="res://sprites/characters/female_2/dying/dying15.png" type="Texture" id=109]
+[ext_resource path="res://sprites/characters/female_2/dying/dying16.png" type="Texture" id=110]
+[ext_resource path="res://sprites/characters/female_2/dying/dying17.png" type="Texture" id=111]
+[ext_resource path="res://sprites/characters/female_2/dying/dying18.png" type="Texture" id=112]
+[ext_resource path="res://sprites/characters/female_2/dying/dying19.png" type="Texture" id=113]
+[ext_resource path="res://sprites/characters/female_2/dying/dying20.png" type="Texture" id=114]
+[ext_resource path="res://sprites/characters/female_2/dying/dying21.png" type="Texture" id=115]
+[ext_resource path="res://sprites/characters/female_2/dying/dying22.png" type="Texture" id=116]
+[ext_resource path="res://sprites/characters/female_2/dying/dying23.png" type="Texture" id=117]
+[ext_resource path="res://sprites/characters/female_2/dying/dying24.png" type="Texture" id=118]
+[ext_resource path="res://sprites/characters/female_2/dying/dying25.png" type="Texture" id=119]
+[ext_resource path="res://sprites/characters/female_2/dying/dying26.png" type="Texture" id=120]
+[ext_resource path="res://sprites/characters/female_2/dying/dying27.png" type="Texture" id=121]
+[ext_resource path="res://sprites/characters/female_2/dying/dying28.png" type="Texture" id=122]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims1.png" type="Texture" id=123]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims2.png" type="Texture" id=124]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims3.png" type="Texture" id=125]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims4.png" type="Texture" id=126]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims5.png" type="Texture" id=127]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims6.png" type="Texture" id=128]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims7.png" type="Texture" id=129]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims8.png" type="Texture" id=130]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims9.png" type="Texture" id=131]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims10.png" type="Texture" id=132]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims11.png" type="Texture" id=133]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims12.png" type="Texture" id=134]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims13.png" type="Texture" id=135]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims14.png" type="Texture" id=136]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims15.png" type="Texture" id=137]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims16.png" type="Texture" id=138]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims17.png" type="Texture" id=139]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims18.png" type="Texture" id=140]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims19.png" type="Texture" id=141]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims20.png" type="Texture" id=142]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims21.png" type="Texture" id=143]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims22.png" type="Texture" id=144]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims23.png" type="Texture" id=145]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims24.png" type="Texture" id=146]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims25.png" type="Texture" id=147]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims26.png" type="Texture" id=148]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims27.png" type="Texture" id=149]
+[ext_resource path="res://sprites/characters/male_2/dying/dying_anims28.png" type="Texture" id=150]
+[ext_resource path="res://sprites/characters/male_3/dying/dying1.png" type="Texture" id=151]
+[ext_resource path="res://sprites/characters/male_3/dying/dying2.png" type="Texture" id=152]
+[ext_resource path="res://sprites/characters/male_3/dying/dying3.png" type="Texture" id=153]
+[ext_resource path="res://sprites/characters/male_3/dying/dying4.png" type="Texture" id=154]
+[ext_resource path="res://sprites/characters/male_3/dying/dying5.png" type="Texture" id=155]
+[ext_resource path="res://sprites/characters/male_3/dying/dying6.png" type="Texture" id=156]
+[ext_resource path="res://sprites/characters/male_3/dying/dying7.png" type="Texture" id=157]
+[ext_resource path="res://sprites/characters/male_3/dying/dying8.png" type="Texture" id=158]
+[ext_resource path="res://sprites/characters/male_3/dying/dying9.png" type="Texture" id=159]
+[ext_resource path="res://sprites/characters/male_3/dying/dying10.png" type="Texture" id=160]
+[ext_resource path="res://sprites/characters/male_3/dying/dying11.png" type="Texture" id=161]
+[ext_resource path="res://sprites/characters/male_3/dying/dying12.png" type="Texture" id=162]
+[ext_resource path="res://sprites/characters/male_3/dying/dying13.png" type="Texture" id=163]
+[ext_resource path="res://sprites/characters/male_3/dying/dying14.png" type="Texture" id=164]
+[ext_resource path="res://sprites/characters/male_3/dying/dying15.png" type="Texture" id=165]
+[ext_resource path="res://sprites/characters/male_3/dying/dying16.png" type="Texture" id=166]
+[ext_resource path="res://sprites/characters/male_3/dying/dying17.png" type="Texture" id=167]
+[ext_resource path="res://sprites/characters/male_3/dying/dying18.png" type="Texture" id=168]
+[ext_resource path="res://sprites/characters/male_3/dying/dying19.png" type="Texture" id=169]
+[ext_resource path="res://sprites/characters/male_3/dying/dying20.png" type="Texture" id=170]
+[ext_resource path="res://sprites/characters/male_3/dying/dying21.png" type="Texture" id=171]
+[ext_resource path="res://sprites/characters/male_3/dying/dying22.png" type="Texture" id=172]
+[ext_resource path="res://sprites/characters/male_3/dying/dying23.png" type="Texture" id=173]
+[ext_resource path="res://sprites/characters/male_3/dying/dying24.png" type="Texture" id=174]
+[ext_resource path="res://sprites/characters/male_3/dying/dying25.png" type="Texture" id=175]
+[ext_resource path="res://sprites/characters/male_3/dying/dying26.png" type="Texture" id=176]
+[ext_resource path="res://sprites/characters/male_3/dying/dying27.png" type="Texture" id=177]
+[ext_resource path="res://sprites/characters/male_3/dying/dying28.png" type="Texture" id=178]
+[ext_resource path="res://scripts/states/AIFSM.gd" type="Script" id=179]
+[ext_resource path="res://scripts/states/ai/Idle.gd" type="Script" id=180]
+[ext_resource path="res://scripts/states/ai/Moving.gd" type="Script" id=181]
+[ext_resource path="res://scripts/states/ai/Wait.gd" type="Script" id=182]
+[ext_resource path="res://scripts/states/ai/Lured.gd" type="Script" id=183]
+[ext_resource path="res://scripts/states/ai/Panic.gd" type="Script" id=184]
+[ext_resource path="res://scripts/states/ai/Escaping.gd" type="Script" id=185]
+[ext_resource path="res://scripts/states/ai/OnVice.gd" type="Script" id=186]
+[ext_resource path="res://scripts/states/ai/Startled.gd" type="Script" id=187]
+[ext_resource path="res://scripts/states/ai/Crippled.gd" type="Script" id=188]
+[ext_resource path="res://scripts/states/ai/Shock.gd" type="Script" id=189]
+[ext_resource path="res://scripts/states/ai/Fighting.gd" type="Script" id=190]
+[ext_resource path="res://scripts/states/ai/Cornered.gd" type="Script" id=191]
+[ext_resource path="res://scripts/states/ai/Screaming.gd" type="Script" id=192]
+[ext_resource path="res://scripts/states/ai/Escaped.gd" type="Script" id=193]
+[ext_resource path="res://scripts/states/ai/Talking.gd" type="Script" id=194]
+[ext_resource path="res://scripts/states/ai/Sleeping.gd" type="Script" id=195]
+[ext_resource path="res://scripts/states/ai/EatingTable.gd" type="Script" id=196]
+[ext_resource path="res://scripts/states/ai/OnPicNic.gd" type="Script" id=197]
+[ext_resource path="res://scripts/states/ai/Shitting.gd" type="Script" id=198]
+[ext_resource path="res://scripts/states/ai/SittingFloor.gd" type="Script" id=199]
+[ext_resource path="res://scripts/states/ai/Fishing.gd" type="Script" id=200]
+[ext_resource path="res://scripts/states/ai/OnBed.gd" type="Script" id=201]
+[ext_resource path="res://scripts/states/ai/InLove.gd" type="Script" id=202]
+[ext_resource path="res://scripts/states/ai/CheckingLight.gd" type="Script" id=203]
+[ext_resource path="res://scripts/states/ai/Barricading.gd" type="Script" id=204]
+[ext_resource path="res://scripts/states/ai/Dead.gd" type="Script" id=205]
+[ext_resource path="res://scenes/AITimer.tscn" type="PackedScene" id=206]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 14.1448
@@ -189,12 +217,12 @@ radius = 14.1088
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": false,
-"name": "thinking",
+"name": "talking",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 4 ) ],
 "loop": false,
-"name": "talking",
+"name": "thinking",
 "speed": 5.0
 } ]
 
@@ -202,22 +230,22 @@ animations = [ {
 animations = [ {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "money",
+"name": "bag",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
-"name": "heart",
+"name": "pizza",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 7 ) ],
 "loop": true,
-"name": "pizza",
+"name": "heart",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 8 ) ],
 "loop": true,
-"name": "bag",
+"name": "money",
 "speed": 5.0
 } ]
 
@@ -230,22 +258,27 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 11 ) ],
 "loop": true,
-"name": "bait",
+"name": "bad",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "love",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 12 ) ],
 "loop": true,
-"name": "fish",
+"name": "skull",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 13 ) ],
 "loop": true,
-"name": "shit",
+"name": "fish2",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 14 ) ],
 "loop": true,
-"name": "screaming",
+"name": "startled",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
@@ -255,27 +288,22 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
-"name": "startled",
+"name": "fish",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 17 ) ],
 "loop": true,
-"name": "fish2",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ) ],
-"loop": true,
-"name": "love",
+"name": "shit",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 18 ) ],
 "loop": true,
-"name": "bad",
+"name": "screaming",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 19 ) ],
 "loop": true,
-"name": "skull",
+"name": "bait",
 "speed": 5.0
 } ]
 
@@ -291,19 +319,24 @@ animations = [ {
 "name": "0:1-Up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 97 ) ],
+"frames": [ ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ), ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ), ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ), ExtResource( 94 ) ],
 "loop": false,
-"name": "2:1-Up",
+"name": "4:1-Up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 98 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 109 ), ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 113 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 119 ), ExtResource( 120 ), ExtResource( 121 ), ExtResource( 122 ), ExtResource( 123 ), ExtResource( 124 ), ExtResource( 125 ) ],
+"frames": [ ExtResource( 95 ), ExtResource( 96 ), ExtResource( 97 ), ExtResource( 98 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 103 ), ExtResource( 104 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 109 ), ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ), ExtResource( 113 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ), ExtResource( 119 ), ExtResource( 120 ), ExtResource( 121 ), ExtResource( 122 ) ],
 "loop": false,
 "name": "3:1-Up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 126 ), ExtResource( 127 ), ExtResource( 128 ), ExtResource( 129 ), ExtResource( 130 ), ExtResource( 131 ), ExtResource( 132 ), ExtResource( 133 ), ExtResource( 134 ), ExtResource( 135 ), ExtResource( 136 ), ExtResource( 137 ), ExtResource( 138 ), ExtResource( 139 ), ExtResource( 140 ), ExtResource( 141 ), ExtResource( 142 ), ExtResource( 143 ), ExtResource( 144 ), ExtResource( 145 ), ExtResource( 146 ), ExtResource( 147 ), ExtResource( 148 ), ExtResource( 149 ), ExtResource( 150 ), ExtResource( 150 ), ExtResource( 150 ), ExtResource( 150 ) ],
+"frames": [ ExtResource( 123 ), ExtResource( 124 ), ExtResource( 125 ), ExtResource( 126 ), ExtResource( 127 ), ExtResource( 128 ), ExtResource( 129 ), ExtResource( 130 ), ExtResource( 131 ), ExtResource( 132 ), ExtResource( 133 ), ExtResource( 134 ), ExtResource( 135 ), ExtResource( 136 ), ExtResource( 137 ), ExtResource( 138 ), ExtResource( 139 ), ExtResource( 140 ), ExtResource( 141 ), ExtResource( 142 ), ExtResource( 143 ), ExtResource( 144 ), ExtResource( 145 ), ExtResource( 146 ), ExtResource( 147 ), ExtResource( 148 ), ExtResource( 149 ), ExtResource( 150 ) ],
 "loop": false,
-"name": "4:1-Up",
+"name": "2:1-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 151 ), ExtResource( 152 ), ExtResource( 153 ), ExtResource( 154 ), ExtResource( 155 ), ExtResource( 156 ), ExtResource( 157 ), ExtResource( 158 ), ExtResource( 159 ), ExtResource( 160 ), ExtResource( 161 ), ExtResource( 162 ), ExtResource( 163 ), ExtResource( 164 ), ExtResource( 165 ), ExtResource( 166 ), ExtResource( 167 ), ExtResource( 168 ), ExtResource( 169 ), ExtResource( 170 ), ExtResource( 171 ), ExtResource( 172 ), ExtResource( 173 ), ExtResource( 174 ), ExtResource( 175 ), ExtResource( 176 ), ExtResource( 177 ), ExtResource( 178 ) ],
+"loop": false,
+"name": "5:1-Up",
 "speed": 5.0
 } ]
 
@@ -398,87 +431,87 @@ margin_bottom = 15.0
 
 [node name="States" type="Node" parent="."]
 editor/display_folded = true
-script = ExtResource( 151 )
+script = ExtResource( 179 )
 
 [node name="Idle" type="Node" parent="States"]
-script = ExtResource( 152 )
+script = ExtResource( 180 )
 
 [node name="Moving" type="Node" parent="States"]
-script = ExtResource( 153 )
+script = ExtResource( 181 )
 
 [node name="Waiting" type="Node" parent="States"]
-script = ExtResource( 154 )
+script = ExtResource( 182 )
 
 [node name="Lured" type="Node" parent="States"]
-script = ExtResource( 155 )
+script = ExtResource( 183 )
 
 [node name="Panic" type="Node" parent="States"]
-script = ExtResource( 156 )
+script = ExtResource( 184 )
 
 [node name="Escaping" type="Node" parent="States"]
-script = ExtResource( 157 )
+script = ExtResource( 185 )
 
 [node name="OnVice" type="Node" parent="States"]
-script = ExtResource( 158 )
+script = ExtResource( 186 )
 
 [node name="Startled" type="Node" parent="States"]
-script = ExtResource( 159 )
+script = ExtResource( 187 )
 
 [node name="Crippled" type="Node" parent="States"]
-script = ExtResource( 160 )
+script = ExtResource( 188 )
 
 [node name="Shock" type="Node" parent="States"]
-script = ExtResource( 161 )
+script = ExtResource( 189 )
 
 [node name="Fighting" type="Node" parent="States"]
-script = ExtResource( 162 )
+script = ExtResource( 190 )
 
 [node name="Cornered" type="Node" parent="States"]
-script = ExtResource( 163 )
+script = ExtResource( 191 )
 
 [node name="Screaming" type="Node" parent="States"]
-script = ExtResource( 164 )
+script = ExtResource( 192 )
 
 [node name="Escaped" type="Node" parent="States"]
-script = ExtResource( 165 )
+script = ExtResource( 193 )
 
 [node name="Talking" type="Node" parent="States"]
-script = ExtResource( 166 )
+script = ExtResource( 194 )
 
 [node name="Sleeping" type="Node" parent="States"]
-script = ExtResource( 167 )
+script = ExtResource( 195 )
 
 [node name="EatingTable" type="Node" parent="States"]
-script = ExtResource( 168 )
+script = ExtResource( 196 )
 
 [node name="OnPicNic" type="Node" parent="States"]
-script = ExtResource( 169 )
+script = ExtResource( 197 )
 
 [node name="Shitting" type="Node" parent="States"]
-script = ExtResource( 170 )
+script = ExtResource( 198 )
 
 [node name="SittingFloor" type="Node" parent="States"]
-script = ExtResource( 171 )
+script = ExtResource( 199 )
 
 [node name="Fishing" type="Node" parent="States"]
-script = ExtResource( 172 )
+script = ExtResource( 200 )
 
 [node name="OnBed" type="Node" parent="States"]
-script = ExtResource( 173 )
+script = ExtResource( 201 )
 
 [node name="InLove" type="Node" parent="States"]
-script = ExtResource( 174 )
+script = ExtResource( 202 )
 
 [node name="CheckingLight" type="Node" parent="States"]
-script = ExtResource( 175 )
+script = ExtResource( 203 )
 
 [node name="Barricading" type="Node" parent="States"]
-script = ExtResource( 176 )
+script = ExtResource( 204 )
 
 [node name="Dead" type="Node" parent="States"]
-script = ExtResource( 177 )
+script = ExtResource( 205 )
 
 [node name="StateTimer" parent="States" instance=ExtResource( 9 )]
 
-[node name="OLDTimer" parent="States" instance=ExtResource( 178 )]
+[node name="OLDTimer" parent="States" instance=ExtResource( 206 )]
 
