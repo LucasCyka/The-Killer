@@ -41,6 +41,10 @@ func update(delta):
 	if base == null:
 		return
 	
+	if target == null:
+		transitions()
+		return
+	
 	#update positions
 	target_pos = self.target.kinematic_teenager.global_position
 	player_pos = self.base.player.kinematic_player.global_position

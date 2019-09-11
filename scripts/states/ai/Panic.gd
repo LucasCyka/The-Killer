@@ -151,6 +151,8 @@ func update(delta):
 	if closest_teenager == null:
 		closest_teenager = get_closest_teenager()
 	
+	if closest_teenager == null: return
+	
 	var distance = closest_teenager.get_child(0).global_position.distance_to(kinematic_teenager.global_position) 
 	var is_visible = base.teenager.is_object_visible(closest_teenager.detection_area)
 	avoidant_tile = null

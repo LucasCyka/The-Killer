@@ -291,7 +291,13 @@ func set_attacking_door(value):
 
 #the teenager target this player selected with right click
 func select_target(target):
+	if target != null and target.state_machine.get_current_state() == 'Dead':
+		#prevent the player from attacking dead teenagers
+		_selected_teenager = null
+		return
+	
 	_selected_teenager = target
+	
 	
 #check if the teenager can see the player hunter
 func check_teenager_sight():

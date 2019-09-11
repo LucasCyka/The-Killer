@@ -186,7 +186,6 @@ func is_building_free():
 func check_escape():
 	var player = game.get_player()
 	if player == null: 
-		base.force_state('Escaping')
 		return
 	if base == null: return
 	
