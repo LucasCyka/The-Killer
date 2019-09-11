@@ -24,7 +24,9 @@ var routines = {
 	3:{"state":[],"pos":[],"time":[]},
 	4:{"state":[],"pos":[],"time":[]},
 	5:{"state":[],"pos":[],"time":[]},
-	6:{"state":[],"pos":[],"time":[]}
+	6:{"state":[],"pos":[],"time":[]},
+	7:{"state":[],"pos":[],"time":[]},
+	8:{"state":[],"pos":[],"time":[]}
 }
 
 #dictionary for the tilemap that will genearate new routines
