@@ -282,7 +282,7 @@ tile_data = PoolIntArray( 983063, 0, 0, 983064, 33, 0, 983065, 40, 0, 1048599, 0
 
 [node name="Teenager3" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
-position = Vector2( 85.7692, -70.4525 )
+position = Vector2( 710.486, 402.59 )
 id = 2
 sleep_time = 4
 death_icon = ExtResource( 21 )
@@ -701,6 +701,7 @@ obj_desc = "A bathroom"
 [node name="CanvasLayer" type="CanvasLayer" parent="AI"]
 
 [node name="Tiles" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Floor" type="TileMap" parent="Tiles"]
 z_index = -2

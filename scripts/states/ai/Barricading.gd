@@ -185,6 +185,11 @@ func is_building_free():
 #check if he can escape again
 func check_escape():
 	var player = game.get_player()
+	if player == null: 
+		base.force_state('Escaping')
+		return
+	if base == null: return
+	
 	var dis = player.global_position.distance_to(kinematic_teenager.global_position)
 	if dis >= 250:
 		#check if he can escape on escape objects

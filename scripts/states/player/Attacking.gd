@@ -71,7 +71,11 @@ func update(delta):
 			
 			player.attack(target)
 			
-		
+	
+	#update targets
+	if base.player.target != target:
+		target = base.player.target
+	
 	transitions()
 	
 func input(event):

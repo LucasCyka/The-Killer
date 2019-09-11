@@ -49,7 +49,7 @@ func zoom():
 #the object panel shows iformation about a object the player selected
 func show_object_panel(obj):
 	#don't select objects when the player is hunting
-	if get_tree().get_nodes_in_group("Player").size() > 0:
+	if base.game.get_current_mode() != base.game.MODE.PLANNING:
 		return
 	if obj.activated:
 		return
