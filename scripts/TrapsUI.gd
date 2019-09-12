@@ -121,7 +121,7 @@ func fill_grid(data,type):
 	var row = 0
 	clear_buttons()
 	for trap in data['ID']:
-		if row > (selection_page * 9)-1: 
+		if row > (selection_page * 18)-1: 
 			#only fill the buttons till a certain amount
 			break
 		
