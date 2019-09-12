@@ -29,7 +29,7 @@ var onspot = false setget , is_on_spot
 var walkable = false setget , is_walkable
 var trapped_teenagers = []
 var price = 0
-var is_placed = false
+var is_placed = false setget set_is_placed
 var trap_name = null
 var trap_desc = null
 var death_trap = null
@@ -143,6 +143,14 @@ func set_is_invalid_tile(value):
 		
 func set_is_indoor(value):
 	is_indoor = value
+
+func set_is_placed(value):
+	is_placed = value
+	
+	if is_placed:
+		if child.name != 'BumpTrap':
+			base.audio_system.play_sound('Money')
+			#TODO: flying label?
 
 #activate a trap again
 func activate_trap(teenager):

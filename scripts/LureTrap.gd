@@ -46,7 +46,8 @@ func _process(delta):
 		#this trap is set and finished
 		#for t in trail:
 		#	print(t)
-		is_placed = true
+		#is_placed = true
+		set_is_placed(true)
 		set_process(false)
 		current_texture.queue_free()
 		current_texture = null

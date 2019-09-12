@@ -66,12 +66,12 @@
 [ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=64]
 [ext_resource path="res://scripts/WinningUI.gd" type="Script" id=65]
 [ext_resource path="res://scripts/MouseUI.gd" type="Script" id=66]
-[ext_resource path="res://sprites/mouse/pointer.png" type="Texture" id=67]
-[ext_resource path="res://sprites/traps/knock1.png" type="Texture" id=68]
-[ext_resource path="res://sprites/traps/knock2.png" type="Texture" id=69]
-[ext_resource path="res://sprites/traps/knock3.png" type="Texture" id=70]
-[ext_resource path="res://sprites/mouse/scissor.png" type="Texture" id=71]
-[ext_resource path="res://sprites/gui/score_icon_prototype.png" type="Texture" id=72]
+[ext_resource path="res://sprites/traps/knock1.png" type="Texture" id=67]
+[ext_resource path="res://sprites/traps/knock2.png" type="Texture" id=68]
+[ext_resource path="res://sprites/traps/knock3.png" type="Texture" id=69]
+[ext_resource path="res://sprites/mouse/pointer.png" type="Texture" id=70]
+[ext_resource path="res://sprites/gui/score_icon_prototype.png" type="Texture" id=71]
+[ext_resource path="res://sprites/mouse/scissor.png" type="Texture" id=72]
 [ext_resource path="res://sprites/characters/male_1/dying/dying_1_down28.png" type="Texture" id=73]
 [ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=74]
 [ext_resource path="res://sprites/misc/art_test.png" type="Texture" id=75]
@@ -81,14 +81,14 @@ font_data = ExtResource( 25 )
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 67 ) ],
-"loop": true,
-"name": "DEFAULT",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ) ],
+"frames": [ ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ) ],
 "loop": true,
 "name": "BUMP",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 70 ) ],
+"loop": true,
+"name": "DEFAULT",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -98,12 +98,12 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 71 ) ],
 "loop": true,
-"name": "LIGHTCUT",
+"name": "MACHETE",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 72 ) ],
 "loop": true,
-"name": "MACHETE",
+"name": "LIGHTCUT",
 "speed": 5.0
 } ]
 
@@ -665,6 +665,7 @@ text = "CANCEL"
 
 [node name="InfoUI" type="Control" parent="Canvas"]
 pause_mode = 2
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 38 )

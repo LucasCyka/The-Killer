@@ -212,7 +212,6 @@ animations = [ {
 script = ExtResource( 1 )
 time = 720
 points = 10000
-debug_mode = true
 
 [node name="PlayerController" parent="." instance=ExtResource( 2 )]
 max_constraints = Vector2( 1849, 1384 )
@@ -1025,7 +1024,7 @@ texture = ExtResource( 52 )
 [node name="Boat" type="AnimatedSprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 687.594, 1325.05 )
 frames = SubResource( 8 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="CustomTimer" parent="." instance=ExtResource( 59 )]
