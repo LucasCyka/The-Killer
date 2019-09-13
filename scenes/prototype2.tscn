@@ -1,4 +1,4 @@
-[gd_scene load_steps=63 format=2]
+[gd_scene load_steps=64 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/PlayerController.tscn" type="PackedScene" id=2]
@@ -54,6 +54,7 @@
 [ext_resource path="res://sprites/world_objects/bathroom.png" type="Texture" id=52]
 [ext_resource path="res://scenes/CustomTimer.tscn" type="PackedScene" id=53]
 [ext_resource path="res://scenes/Audio.tscn" type="PackedScene" id=54]
+[ext_resource path="res://scenes/Tutorial.tscn" type="PackedScene" id=55]
 
 [sub_resource type="TileSet" id=1]
 0/name = "higher_walls.png 0"
@@ -216,6 +217,7 @@ min_constraints = Vector2( -674, -369 )
 [node name="GameTimer" type="Timer" parent="."]
 
 [node name="AI" type="YSort" parent="."]
+editor/display_folded = true
 
 [node name="Teenager" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -650,7 +652,7 @@ texture = ExtResource( 44 )
 [node name="Boat" type="AnimatedSprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 799.806, 848.917 )
 frames = SubResource( 8 )
-frame = 2
+frame = 4
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]
@@ -683,4 +685,6 @@ position = Vector2( 899.807, 193.161 )
 scale = Vector2( 0.719567, 0.580805 )
 z_index = 5
 texture = ExtResource( 39 )
+
+[node name="Tutorial" parent="." instance=ExtResource( 55 )]
 
