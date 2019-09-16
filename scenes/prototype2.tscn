@@ -582,7 +582,6 @@ format = 1
 tile_data = PoolIntArray( 327746, 0, 0 )
 
 [node name="Lights'Shadows" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="CanvasModulate" type="CanvasModulate" parent="Lights'Shadows"]
 color = Color( 0.997706, 0.993609, 0.947153, 1 )
@@ -652,6 +651,7 @@ texture = ExtResource( 44 )
 [node name="Boat" type="AnimatedSprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 799.806, 848.917 )
 frames = SubResource( 8 )
+frame = 1
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]
@@ -676,7 +676,6 @@ texture = ExtResource( 52 )
 [node name="Audio" parent="." instance=ExtResource( 54 )]
 
 [node name="Lights" type="Node2D" parent="."]
-editor/display_folded = true
 visible = false
 
 [node name="Light1" type="Light2D" parent="Lights"]
