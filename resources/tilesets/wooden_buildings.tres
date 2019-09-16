@@ -146,4 +146,14 @@ polygon = PoolVector2Array( -12.7804, 12.0772, 12.1068, 11.9641, 11.936, -13.105
 12/navigation_offset = Vector2( 0, 0 )
 12/shapes = [  ]
 12/z_index = 0
+13/name = "map1.png 13"
+13/texture = ExtResource( 1 )
+13/tex_offset = Vector2( 0, 0 )
+13/modulate = Color( 1, 1, 1, 1 )
+13/region = Rect2( 75, 50, 25, 25 )
+13/tile_mode = 0
+13/occluder_offset = Vector2( 0, 0 )
+13/navigation_offset = Vector2( 0, 0 )
+13/shapes = [  ]
+13/z_index = 0
 
