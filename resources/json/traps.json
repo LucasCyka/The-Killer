@@ -33,19 +33,19 @@
   },
   
   "MISC":{
-    "ID": ["0","1"],
-    "Icon":["misc1.png","bear_trap.png"],
-	"Fear":["100","50"],
-	"Curiosity":["0","0"],
-    "Price": ["1500","1000"],
-	"OneShot":["false","true"],
-	"OnSpot":["false","true"],
-	"Walkable":["false","true"],
-	"Name":["Severed Head","Bear trap"],
-	"Desc":["A head.","Can cripple a teen in panic."],
-	"Placement":["WORLD","WORLD"],
-	"Sound":["NULL","NULL"],
-	"Requirements":[["NULL"],["PANIC"],["PANIC"]]
+    "ID": ["0","1","2","3"],
+    "Icon":["misc1.png","bear_trap.png","chicken.png","fake_dead_body.png"],
+	"Fear":["100","50","60","100"],
+	"Curiosity":["0","0","20","0"],
+    "Price": ["1500","1000","200","1500"],
+	"OneShot":["false","true","false","false"],
+	"OnSpot":["false","true","false","false"],
+	"Walkable":["false","true","false","false"],
+	"Name":["Severed Head","Bear trap","Chicken","Fake dead body"],
+	"Desc":["A head.","Can cripple a teen in panic.","A small and inoffensive chicken.","A dummy covered in ketchup."],
+	"Placement":["WORLD","WORLD","WORLD","WORLD"],
+	"Sound":["NULL","NULL","NULL","NULL"],
+	"Requirements":[["NULL"],["PANIC"],["CHICKENPHOBIC"],["NIGHT"]]
   },
   
   "VICE":{

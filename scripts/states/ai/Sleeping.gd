@@ -37,8 +37,12 @@ func update(delta):
 	self.game_time = game.get_time()
 	
 	#prevent the teen from lying on the wrong side of the bed
-	self.teen.animations[teen.id]['Sleeping'][teen.facing_direction]['flip'] = false
-	
+	if bed != null:
+		if not bed.is_flipped_h():
+			self.teen.animations[teen.id]['Sleeping'][teen.facing_direction]['flip'] = false
+		else:
+			self.teen.animations[teen.id]['Sleeping'][teen.facing_direction]['flip'] = true
+		
 	if bed == null:
 		#search for a bed this teenager owns
 		var found = false

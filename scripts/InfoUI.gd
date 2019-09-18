@@ -9,6 +9,7 @@ var base = null
 var points = 0
 var activated_teens = []
 var teens = []
+var spawn_pointers_data = {}
 
 #used for highlighting pressed buttons on the clock
 var btn_textures_temp = {}
@@ -19,17 +20,25 @@ onready var _score = $InfoPanel/Score
 onready var _points = $InfoPanel/Points
 onready var fc_slots = $FCSlots.get_children()
 onready var _killing_score = $InfoPanel/KillingScore
+onready var spawn_pointers = $InfoPointers
 
 #f/c bars textures
 onready var red_bar = preload('res://sprites/gui/fc_progress_bar3.png')
 onready var orange_bar = preload('res://sprites/gui/fc_progress_bar2.png')
 onready var green_bar = preload('res://sprites/gui/fc_progress_bar.png')
 
+#used in the pointer syste,
+const pointer_right = 587
+const pointer_left = 12
+const pointer_up = 12
+const pointer_down = 354
+
 #constructor
 func init(base):
 	self.base = base
 	self.teens = base.game.get_teenagers()
 	highlight_clock($Clock/NormalSpdBtn)
+	init_spawn_pointers()
 	score.connect("score_changed",self,"update_score")
 	score.connect("killing_score_changed",self,"update_killing_score")
 	base.game.connect('changed_points',self,'update_points')
@@ -39,6 +48,7 @@ func _process(delta):
 		return
 	self.teens = base.game.get_teenagers()
 	update_time()
+	update_spawn_pointers()
 	#search for teens that aren't on routine
 	for teen in teens:
 		#prevent some errors when the teenager is erased
@@ -244,3 +254,66 @@ func update_points():
 	#formating
 	if fmod(1000,game.get_points()) or game.get_points() == 1000:
 		_points.text = _points.text.insert(_points.text.length()-3,',')
+
+#initialize the pointers that will show the player where the spawn points are
+func init_spawn_pointers():
+	var pointers = spawn_pointers.get_children()
+	var spawn_locations = game.get_spawn_points()
+	
+	for point in range(spawn_locations.get_used_cells().size()):
+		#used to mark where the spawn points will be
+		var spr_pos = Sprite.new()
+		spr_pos.name = 'SpawnPosition'
+		game.add_child(spr_pos)
+		
+		spr_pos.global_position = spawn_locations.map_to_world(spawn_locations.get_used_cells()[point])
+		
+		spawn_pointers_data[pointers[point]] = spr_pos
+
+#point to where the spawn points are
+func update_spawn_pointers():
+	if not game.get_spawn_points().is_visible():
+		#player not trying to spawn, hide everything
+		if spawn_pointers_data.keys() != []:
+			for pointer in spawn_pointers_data.keys():
+				pointer.hide()
+		return
+	
+	var camera = game.get_player_controller().camera
+	var fixed_camera = Vector2(camera.global_position.x+300,camera.global_position.y+188)
+	
+	#the player is trying to spawn, show the direction of the spawn points
+	for pointer in spawn_pointers_data:
+		var pos = spawn_pointers_data[pointer].get_global_transform_with_canvas().origin
+		
+		if (pos.x> 0 and pos.x <= 600) and (pos.y >0 and pos.y <= 375):
+			pointer.hide()
+		else:
+			pointer.show()
+			
+			#positions and rotation
+			var pointer_x = clamp(pos.x,10,590)
+			var pointer_y = clamp(pos.y,10,365)
+			pointer.global_position.x = pointer_x
+			pointer.global_position.y = pointer_y
+			
+			pointer.look_at(pos)
+		
+		
+	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

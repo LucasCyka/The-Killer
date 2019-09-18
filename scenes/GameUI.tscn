@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=2]
+[gd_scene load_steps=85 format=2]
 
 [ext_resource path="res://scripts/GameUI.gd" type="Script" id=1]
 [ext_resource path="res://scripts/TeenagerInfo.gd" type="Script" id=2]
@@ -63,32 +63,47 @@
 [ext_resource path="res://sprites/gui/fc_progress_bar.png" type="Texture" id=61]
 [ext_resource path="res://sprites/prototype/ui/fear_progress_background.png" type="Texture" id=62]
 [ext_resource path="res://sprites/prototype/ui/fear_progress.png" type="Texture" id=63]
-[ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=64]
-[ext_resource path="res://scripts/WinningUI.gd" type="Script" id=65]
-[ext_resource path="res://scripts/MouseUI.gd" type="Script" id=66]
-[ext_resource path="res://sprites/traps/knock1.png" type="Texture" id=67]
-[ext_resource path="res://sprites/traps/knock2.png" type="Texture" id=68]
-[ext_resource path="res://sprites/traps/knock3.png" type="Texture" id=69]
-[ext_resource path="res://sprites/mouse/pointer.png" type="Texture" id=70]
-[ext_resource path="res://sprites/gui/score_icon_prototype.png" type="Texture" id=71]
-[ext_resource path="res://sprites/mouse/scissor.png" type="Texture" id=72]
-[ext_resource path="res://sprites/characters/male_1/dying/dying_1_down28.png" type="Texture" id=73]
-[ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=74]
-[ext_resource path="res://sprites/misc/art_test.png" type="Texture" id=75]
+[ext_resource path="res://sprites/prototype/misc/side_point.png" type="Texture" id=64]
+[ext_resource path="res://sprites/prototype/misc/vertical_point.png" type="Texture" id=65]
+[ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=66]
+[ext_resource path="res://scripts/WinningUI.gd" type="Script" id=67]
+[ext_resource path="res://scripts/MouseUI.gd" type="Script" id=68]
+[ext_resource path="res://sprites/mouse/pointer.png" type="Texture" id=69]
+[ext_resource path="res://sprites/traps/knock1.png" type="Texture" id=70]
+[ext_resource path="res://sprites/traps/knock2.png" type="Texture" id=71]
+[ext_resource path="res://sprites/traps/knock3.png" type="Texture" id=72]
+[ext_resource path="res://sprites/gui/score_icon_prototype.png" type="Texture" id=73]
+[ext_resource path="res://sprites/mouse/scissor.png" type="Texture" id=74]
+[ext_resource path="res://sprites/characters/male_1/dying/dying_1_down28.png" type="Texture" id=75]
+[ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=76]
+[ext_resource path="res://sprites/misc/art_test.png" type="Texture" id=77]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 25 )
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=7]
 animations = [ {
-"frames": [ ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ) ],
+"frames": [ ExtResource( 64 ) ],
 "loop": true,
-"name": "BUMP",
+"name": "Horizontal",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 70 ) ],
+"frames": [ ExtResource( 65 ) ],
+"loop": true,
+"name": "Vertical",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 69 ) ],
 "loop": true,
 "name": "DEFAULT",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ) ],
+"loop": true,
+"name": "BUMP",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -96,12 +111,12 @@ animations = [ {
 "name": "TRAP",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 71 ) ],
+"frames": [ ExtResource( 73 ) ],
 "loop": true,
 "name": "MACHETE",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 72 ) ],
+"frames": [ ExtResource( 74 ) ],
 "loop": true,
 "name": "LIGHTCUT",
 "speed": 5.0
@@ -202,6 +217,7 @@ margin_bottom = 312.0
 rect_pivot_offset = Vector2( 49.1224, 53.5745 )
 
 [node name="background" type="Sprite" parent="Canvas/TeenagerInfo/Panel"]
+editor/display_folded = true
 position = Vector2( 48.4768, 48.8767 )
 texture = ExtResource( 3 )
 
@@ -294,7 +310,7 @@ autowrap = true
 [node name="Stat1" type="Label" parent="Canvas/TeenagerInfo/Panel"]
 margin_left = -1.0
 margin_top = 63.0
-margin_right = 48.0
+margin_right = 97.0
 margin_bottom = 77.0
 custom_fonts/font = ExtResource( 9 )
 autowrap = true
@@ -302,7 +318,7 @@ autowrap = true
 [node name="Stat2" type="Label" parent="Canvas/TeenagerInfo/Panel"]
 margin_left = -1.0
 margin_top = 73.0
-margin_right = 55.0
+margin_right = 98.0
 margin_bottom = 87.0
 custom_fonts/font = ExtResource( 9 )
 autowrap = true
@@ -310,7 +326,7 @@ autowrap = true
 [node name="Stat3" type="Label" parent="Canvas/TeenagerInfo/Panel"]
 margin_left = -1.0
 margin_top = 83.0
-margin_right = 48.0
+margin_right = 98.0
 margin_bottom = 97.0
 custom_fonts/font = ExtResource( 9 )
 autowrap = true
@@ -665,13 +681,13 @@ text = "CANCEL"
 
 [node name="InfoUI" type="Control" parent="Canvas"]
 pause_mode = 2
-editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 script = ExtResource( 38 )
 
 [node name="InfoPanel" type="Control" parent="Canvas/InfoUI"]
 pause_mode = 2
+editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
 
@@ -994,11 +1010,136 @@ value = 10.0
 texture_under = ExtResource( 62 )
 texture_progress = ExtResource( 63 )
 
+[node name="InfoPointers" type="Control" parent="Canvas/InfoUI"]
+editor/display_folded = true
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Pointer1" type="AnimatedSprite" parent="Canvas/InfoUI/InfoPointers"]
+visible = false
+position = Vector2( 588.295, 171.116 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 7 )
+animation = "Horizontal"
+flip_h = true
+
+[node name="Pointer2" type="AnimatedSprite" parent="Canvas/InfoUI/InfoPointers"]
+visible = false
+position = Vector2( 229.537, 135.357 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 7 )
+animation = "Horizontal"
+flip_h = true
+
+[node name="Pointer3" type="AnimatedSprite" parent="Canvas/InfoUI/InfoPointers"]
+visible = false
+position = Vector2( 255.529, 163.109 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 7 )
+animation = "Horizontal"
+flip_h = true
+
+[node name="Pointer4" type="AnimatedSprite" parent="Canvas/InfoUI/InfoPointers"]
+visible = false
+position = Vector2( 108.061, 102.235 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 7 )
+animation = "Horizontal"
+flip_h = true
+
+[node name="Pointer5" type="AnimatedSprite" parent="Canvas/InfoUI/InfoPointers"]
+visible = false
+position = Vector2( 171.506, 194.831 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 7 )
+animation = "Horizontal"
+flip_h = true
+
+[node name="Pointer6" type="AnimatedSprite" parent="Canvas/InfoUI/InfoPointers"]
+visible = false
+position = Vector2( 166.362, 82.5159 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 7 )
+animation = "Horizontal"
+flip_h = true
+
+[node name="Pointer7" type="AnimatedSprite" parent="Canvas/InfoUI/InfoPointers"]
+visible = false
+position = Vector2( 302.684, 239.414 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 7 )
+animation = "Horizontal"
+flip_h = true
+
+[node name="Pointer8" type="AnimatedSprite" parent="Canvas/InfoUI/InfoPointers"]
+visible = false
+position = Vector2( 12.0356, 158.822 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 7 )
+animation = "Horizontal"
+flip_h = true
+
+[node name="Pointer9" type="AnimatedSprite" parent="Canvas/InfoUI/InfoPointers"]
+visible = false
+position = Vector2( 12.0356, 158.822 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 7 )
+animation = "Horizontal"
+flip_h = true
+
+[node name="Pointer10" type="AnimatedSprite" parent="Canvas/InfoUI/InfoPointers"]
+visible = false
+position = Vector2( 12.0356, 158.822 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 7 )
+animation = "Horizontal"
+flip_h = true
+
+[node name="Pointer11" type="AnimatedSprite" parent="Canvas/InfoUI/InfoPointers"]
+visible = false
+position = Vector2( 12.0356, 158.822 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 7 )
+animation = "Horizontal"
+flip_h = true
+
+[node name="Pointer12" type="AnimatedSprite" parent="Canvas/InfoUI/InfoPointers"]
+visible = false
+position = Vector2( 12.0356, 158.822 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 7 )
+animation = "Horizontal"
+flip_h = true
+
+[node name="Pointer13" type="AnimatedSprite" parent="Canvas/InfoUI/InfoPointers"]
+visible = false
+position = Vector2( 12.0356, 158.822 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 7 )
+animation = "Horizontal"
+flip_h = true
+
+[node name="Pointer14" type="AnimatedSprite" parent="Canvas/InfoUI/InfoPointers"]
+visible = false
+position = Vector2( 12.0356, 158.822 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 7 )
+animation = "Horizontal"
+flip_h = true
+
+[node name="Pointer15" type="AnimatedSprite" parent="Canvas/InfoUI/InfoPointers"]
+visible = false
+position = Vector2( 12.0356, 158.822 )
+scale = Vector2( 1.5, 1.5 )
+frames = SubResource( 7 )
+animation = "Horizontal"
+flip_h = true
+
 [node name="GameOverUI" type="Control" parent="Canvas"]
 editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 64 )
+script = ExtResource( 66 )
 
 [node name="Panel" type="Control" parent="Canvas/GameOverUI"]
 editor/display_folded = true
@@ -1031,7 +1172,7 @@ text = "GAME OVER"
 editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 65 )
+script = ExtResource( 67 )
 
 [node name="Panel" type="Control" parent="Canvas/WinningUI"]
 editor/display_folded = true
@@ -1105,7 +1246,7 @@ text = "RESTART"
 editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 66 )
+script = ExtResource( 68 )
 
 [node name="MouseAnims" type="AnimatedSprite" parent="Canvas/MouseUI"]
 frames = SubResource( 2 )
@@ -1160,16 +1301,17 @@ anims/misc = SubResource( 5 )
 visible = false
 position = Vector2( 117.28, 314.042 )
 z_index = 4
-texture = ExtResource( 73 )
+texture = ExtResource( 75 )
 
 [node name="LabelAnims" type="AnimationPlayer" parent="Canvas/Animations"]
 playback_speed = 1.4
 anims/score = SubResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="Canvas/Animations"]
+editor/display_folded = true
 visible = false
 position = Vector2( 300.047, 328.028 )
-texture = ExtResource( 74 )
+texture = ExtResource( 76 )
 
 [node name="Label" type="Label" parent="Canvas/Animations/Sprite"]
 margin_left = -216.0
@@ -1192,7 +1334,7 @@ autowrap = true
 [node name="Sprite" type="Sprite" parent="Canvas"]
 visible = false
 position = Vector2( 299.297, 64.5994 )
-texture = ExtResource( 74 )
+texture = ExtResource( 76 )
 
 [node name="Sprite2" type="Sprite" parent="Canvas"]
 editor/display_folded = true
@@ -1200,7 +1342,7 @@ visible = false
 position = Vector2( 299.297, 184.599 )
 z_index = 9
 z_as_relative = false
-texture = ExtResource( 75 )
+texture = ExtResource( 77 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Canvas/Sprite2"]
 visible = false

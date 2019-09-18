@@ -223,6 +223,10 @@ func check_requirements(teenager):
 			return false
 		elif requirement == 'FINALGIRL' and teenager.traits.keys().find(teenager.TRAITS.FINAL_GIRL) != -1:
 			return false
+		elif requirement == 'NIGHT' and not base.is_night():
+			return false
+		elif requirement == 'CHICKENPHOBIC' and teenager.traits.keys().find(teenager.TRAITS.CHICKENPHOBIC) == -1:
+			return false
 			
 	return true
 
@@ -238,7 +242,7 @@ func get_trap_position():
 func is_teenager_seeing_trap():
 	var is_seeing = false
 	for teen in base.get_teenagers():
-		if teen.global_position.distance_to(get_trap_position()) < 80:
+		if teen.global_position.distance_to(get_trap_position()) < 100:
 			is_seeing = teen.is_object_visible(child.detection_wall)
 			
 	return is_seeing

@@ -131,15 +131,19 @@ func fill_traits(hide=false):
 			var txt_trait = ""
 			match trait:
 				selected_teenager.TRAITS.HORNY:
-					txt_trait = "horny"
+					txt_trait = "-horny"
 				selected_teenager.TRAITS.SLOW:
-					txt_trait = "slow"
+					txt_trait = "-slow"
 				selected_teenager.TRAITS.FAST:
-					txt_trait = "fast"
+					txt_trait = "-fast"
 				selected_teenager.TRAITS.FINAL_GIRL:
-					txt_trait = "final girl"
+					txt_trait = "-final girl"
 				selected_teenager.TRAITS.DIARRHEA:
-					txt_trait = "diarrhea"
+					txt_trait = "-diarrhea"
+				selected_teenager.TRAITS.TOUGH:
+					txt_trait = "-tough"
+				selected_teenager.TRAITS.CHICKENPHOBIC:
+					txt_trait = "-chickenphobic"
 					
 			stats[trait_id].text = txt_trait
 			

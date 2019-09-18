@@ -70,7 +70,9 @@ enum TRAITS {
 	FAST = 2,
 	HORNY = 3,
 	DIARRHEA = 4,
-	FINAL_GIRL = 5
+	FINAL_GIRL = 5,
+	TOUGH = 6,
+	CHICKENPHOBIC = 7
 }
 
 #it's true when the teen needs to execute an animation from a state 'activity'
@@ -744,6 +746,10 @@ func add_traits(traits,permanent=false):
 				set_fast(true)
 			TRAITS.FINAL_GIRL:
 				self.traits[TRAITS.FINAL_GIRL] = slow_effect_duration
+			TRAITS.TOUGH:
+				self.traits[TRAITS.TOUGH] = slow_effect_duration
+			TRAITS.CHICKENPHOBIC:
+				self.traits[TRAITS.CHICKENPHOBIC] = slow_effect_duration
 			_:
 				#this teen don't have any traits
 				return

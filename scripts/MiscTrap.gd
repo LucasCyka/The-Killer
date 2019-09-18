@@ -24,7 +24,8 @@ onready var detection_wall = $Texture/VisibilityDetection
 var effects = {
 	0:[funcref(self,"enter_panic")],
 	1:[funcref(self,"cripple")],
-	2:[funcref(self,"cripple")],
+	2:[funcref(self,"enter_panic")],
+	3:[funcref(self,"enter_panic")],
 	666:[funcref(self,"enter_panic")]#DEATH TRAP
 	
 }

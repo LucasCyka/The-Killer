@@ -222,6 +222,10 @@ func get_doors():
 	
 	return doors
 
+#returns the tilemap that shows the location where player can spawn
+func get_spawn_points():
+	return $Tiles/SpawnPoints
+
 #change the current game mode
 func set_current_mode(value):
 	if current_mode != MODE.GAMEOVER:
@@ -296,6 +300,13 @@ func get_escaped_teens():
 			teenagers.append(teen)
 			
 	return teenagers
+
+#return true when is night or false when is daylight
+func is_night():
+	if time/60 > 6 and time/60 < 19:
+		return false
+	else:
+		return true
 
 #update the number of teens that died and check for winning conditions
 func set_teen_dead_num(value):
@@ -827,8 +838,6 @@ func update_ambience():
 		audio_system.start_play_list(['Tension','Tension2','MoreTension',
 		'Scary'],true)
 	
-
-
 
 
 
