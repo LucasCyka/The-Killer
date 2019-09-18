@@ -75,7 +75,8 @@ enum TRAITS {
 	TOUGH = 6,
 	CHICKENPHOBIC = 7,
 	PERVERT = 8,
-	NERD = 9
+	NERD = 9,
+	HEAVYSLEEPER = 10
 }
 
 #it's true when the teen needs to execute an animation from a state 'activity'
@@ -760,6 +761,8 @@ func add_traits(traits,permanent=false):
 				self.traits[TRAITS.PERVERT] = slow_effect_duration
 			TRAITS.NERD:
 				self.traits[TRAITS.NERD] = slow_effect_duration
+			TRAITS.HEAVYSLEEPER:
+				self.traits[TRAITS.HEAVYSLEEPER] = slow_effect_duration
 			_:
 				#this teen don't have any traits
 				return
@@ -837,7 +840,7 @@ func get_dead_teen_texture():
 
 #call other teens into escaping if they are close and can see this 
 #teen in panic.
-func call_into_escaping():
+func call_into_escaping(modifier=120):
 	var game = get_parent().get_parent()
 	var teenagers = game.get_teenagers_alive()
 	
@@ -854,9 +857,9 @@ func call_into_escaping():
 		
 		var dis = teen.global_position.distance_to(self.global_position)
 		
-		if dis < 120:
+		if dis < modifier:
 			if teen.is_object_visible(detection_area):
 				teen.state_machine.force_state('Escaping')
-
-
-
+#TODO: teen's close than modifier must enter on startled state
+func call_into_startle(modifier,pos):
+	pass

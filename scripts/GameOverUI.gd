@@ -20,6 +20,9 @@ func show_screen():
 	panel.show()
 	
 func restart():
+	for teen in get_tree().get_nodes_in_group("AI"):
+		teen.queue_free()
+	
 	star.clear()
 	get_tree().reload_current_scene()
 	

@@ -251,6 +251,10 @@ func get_pathfinding_tile():
 func get_indoor_detection():
 	return $Tiles/IndoorDetection
 
+#return the tilemap with the points where the AI can barricade himself.
+func get_barricading_points():
+	return $Tiles/BarricadingPoints
+
 #return all doors in game
 func get_doors():
 	var objects = get_tree().get_nodes_in_group('Object')

@@ -40,6 +40,7 @@ func init(base,state_position,state_time):
 func update(delta):
 	if base == null:
 		return
+		
 	teen_pos = teenager.global_position
 	var player = get_tree().get_nodes_in_group("Player")
 	

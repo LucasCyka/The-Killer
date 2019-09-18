@@ -54,7 +54,7 @@ var activated = false
 #when a door is locked the player can't pass throught it...
 var is_door_locked = false setget set_door_locked
 #unless he reduces the door health to zero points
-var door_health = 100 setget set_door_health, get_door_health
+var door_health = 1000 setget set_door_health, get_door_health
 
 #effects this object can cause when activated
 var effects = {

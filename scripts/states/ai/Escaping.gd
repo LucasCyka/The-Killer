@@ -186,7 +186,7 @@ func is_path_free(pos):
 #check if the teenager can enter a building and barricade himself
 func is_building_free(pos):
 	if buildings_tiles == null: 
-		buildings_tiles = game.get_indoor_detection()
+		buildings_tiles = game.get_barricading_points()
 		buildings_tiles = common.convert_to_world(buildings_tiles.get_used_cells(),buildings_tiles)
 		buildings_tiles = common.order_by_distance(buildings_tiles,kinematic_teenager.global_position)
 	
@@ -260,6 +260,8 @@ func leave_object(timer=false):
 		escape_timer.one_shot = true
 		add_child(escape_timer)
 		escape_timer.start()
+		#update the escape point
+		self.escape_point = game.get_escaping_point(base.teenager.get_position())
 
 
 #destructor

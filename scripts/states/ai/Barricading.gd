@@ -161,7 +161,7 @@ func is_path_free(pos):
 #check if the teenager can enter a building and barricade himself
 func is_building_free():
 	if building_tiles == null: 
-		building_tiles = game.get_indoor_detection()
+		building_tiles = game.get_barricading_points()
 		building_tiles = common.convert_to_world(building_tiles.get_used_cells(),building_tiles)
 		building_tiles = common.order_by_distance(building_tiles,kinematic_teenager.global_position)
 	

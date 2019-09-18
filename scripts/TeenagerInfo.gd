@@ -149,6 +149,8 @@ func fill_traits(hide=false):
 					txt_trait = "-pervert"
 				selected_teenager.TRAITS.NERD:
 					txt_trait = "-nerd"
+				selected_teenager.TRAITS.HEAVYSLEEPER:
+					txt_trait = "-heavy sleeper"
 					
 			stats[trait_id].text = txt_trait
 			

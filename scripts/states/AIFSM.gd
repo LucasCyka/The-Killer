@@ -155,7 +155,7 @@ func check_forced_state(state):
 	if current_state.name == 'Dead':
 		return false
 	if state == 'Panic' and current_state.name == 'Escaping':
-		state_time = 2
+		state_time = 1
 		force_state("Shock")
 		return false
 	if state == 'OnVice' and current_state.name == 'Panic' or (current_state.name == 'Escaping' and state == 'OnVice'):
@@ -163,7 +163,7 @@ func check_forced_state(state):
 	if state =='Panic' and current_state.name == 'Crippled':
 		return false 
 	if state == 'Panic' and current_state.name == 'Barricading':
-		state_time = 2
+		state_time = 1
 		force_state("Shock")
 		return false
 	if state == 'Escaping' and current_state.name == 'Crippled':
@@ -172,6 +172,8 @@ func check_forced_state(state):
 		return false
 	if state == 'Startled' and current_state.name == 'Panic':
 		return false
+	if state == 'Startled' and current_state.name == 'Sleeping':
+		if teenager.traits.keys().find(10) != -1: return false
 	if state == 'Lured' and current_state.name == 'Panic':
 		return false
 	if state == 'Lured' and current_state.name == 'Escaping':
