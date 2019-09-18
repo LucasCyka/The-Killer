@@ -41,7 +41,8 @@ var routine_dictionary = {
 		41:"OnPicNic",
 		42:"EatingTable",
 		43:"SittingFloor",
-		44:"Fishing"
+		44:"Fishing",
+		46:"Naked"
 		
 	},
 	"time":{
@@ -72,7 +73,9 @@ enum TRAITS {
 	DIARRHEA = 4,
 	FINAL_GIRL = 5,
 	TOUGH = 6,
-	CHICKENPHOBIC = 7
+	CHICKENPHOBIC = 7,
+	PERVERT = 8,
+	NERD = 9
 }
 
 #it's true when the teen needs to execute an animation from a state 'activity'
@@ -182,7 +185,7 @@ func _process(delta):
 	check_love()
 	check_lights()
 	check_bowels()
-	init_indoor_detection()
+	#init_indoor_detection()
 #	print(speed)
 #	print(traps)
 	#updates the debug label
@@ -220,6 +223,7 @@ func init_routine():
 	routines[id]["time"][current_routine])
 
 #initialize the system that checks if a teen is indoor or outdoor
+#OLD INDOOR DETECTION CODE REMOVE IT LATER
 func init_indoor_detection():
 	var game = get_parent().get_parent()
 	var tiles = game.get_pathfinding_tile()
@@ -298,6 +302,7 @@ func walk(to):
 	var distance = kinematic_teenager.global_position.distance_to(to)
 	var from = kinematic_teenager.global_position
 	var dir = Vector2(0,0)
+	#print(current_path.size())
 	
 	if distance > 10:
 		if current_target != to:
@@ -574,6 +579,7 @@ func check_bowels():
 #check if this teenager is at the same tile that another one.
 #when that happens, the teenager with the higher id number should wait
 #on the tile while the smaller one moves away.
+#TODO: this function is really slowing the game down... Try to fix this later.
 func check_overlapping_teens():
 	var game = get_parent().get_parent()
 	
@@ -750,6 +756,10 @@ func add_traits(traits,permanent=false):
 				self.traits[TRAITS.TOUGH] = slow_effect_duration
 			TRAITS.CHICKENPHOBIC:
 				self.traits[TRAITS.CHICKENPHOBIC] = slow_effect_duration
+			TRAITS.PERVERT:
+				self.traits[TRAITS.PERVERT] = slow_effect_duration
+			TRAITS.NERD:
+				self.traits[TRAITS.NERD] = slow_effect_duration
 			_:
 				#this teen don't have any traits
 				return
@@ -779,7 +789,7 @@ func remove_traits(traits,timer=null):
 			TRAITS.FAST:
 				set_fast(false)
 			_:
-				print("tried to remove a trait that doesn't exist")
+				print("tried to remove a trait that doesn't exist or can't be removed")
 				return
 		self.traits.erase(trait)
 	

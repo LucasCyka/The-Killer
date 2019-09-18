@@ -108,7 +108,6 @@ align = 1
 valign = 1
 
 [node name="IndoorLabel" type="Label" parent="."]
-visible = false
 margin_left = -40.0
 margin_top = -46.0
 margin_right = 39.0

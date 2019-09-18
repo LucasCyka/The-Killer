@@ -46,7 +46,8 @@ func _ready():
 		$Fishing:$Fishing.name,
 		$InLove:$InLove.name,
 		$CheckingLight:$CheckingLight.name,
-		$Barricading:$Barricading.name
+		$Barricading:$Barricading.name,
+		$Naked:$Naked.name
 	}
 	
 	for state in states:

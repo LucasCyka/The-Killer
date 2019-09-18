@@ -26,10 +26,10 @@
 	"OnSpot":["false","false","false"],
 	"Walkable":["true","true","true"],
 	"Name":["Underwear","Porn","Blood Trail"],
-	"Desc":["A trail of women's underwear.","Lure 2.","Lure 3."],
+	"Desc":["A trail of women's underwear.","A trail of nude photos.","Fake blood trail."],
 	"Placement":["WORLD","WORLD","WORLD"],
 	"Sound":["Laughter","Laughter","MedFear"],
-	"Requirements":[["MEN","HORNY"],["MEN"],["NULL"]]
+	"Requirements":[["MEN","HORNY"],["MEN","HORNY"],["NULL"]]
   },
   
   "MISC":{

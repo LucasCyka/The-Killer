@@ -219,7 +219,7 @@ func check_requirements(teenager):
 		elif requirement == 'MIN10' and teenager.get_curiosity() < 10:
 			#not enough curiosity points
 			return false
-		elif requirement == 'HORNY' and teenager.traits.keys().find(teenager.TRAITS.HORNY) == -1:
+		elif requirement == 'HORNY' and teenager.traits.keys().find(teenager.TRAITS.HORNY) == -1 and teenager.traits.keys().find(teenager.TRAITS.PERVERT) == -1:
 			return false
 		elif requirement == 'FINALGIRL' and teenager.traits.keys().find(teenager.TRAITS.FINAL_GIRL) != -1:
 			return false

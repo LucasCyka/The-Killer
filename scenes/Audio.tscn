@@ -59,6 +59,7 @@ stream = ExtResource( 7 )
 stream = ExtResource( 8 )
 
 [node name="Sound" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Click" type="AudioStreamPlayer" parent="Sound"]
 pause_mode = 2

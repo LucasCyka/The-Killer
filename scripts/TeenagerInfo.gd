@@ -58,6 +58,7 @@ func _input(event):
 
 #show the panel with the information for one teenager
 func show_panel(teenager):
+	fill_traits(true)
 	if base.game.get_current_mode() == base.game.MODE.HUNTING:
 		return
 	
@@ -144,6 +145,10 @@ func fill_traits(hide=false):
 					txt_trait = "-tough"
 				selected_teenager.TRAITS.CHICKENPHOBIC:
 					txt_trait = "-chickenphobic"
+				selected_teenager.TRAITS.PERVERT:
+					txt_trait = "-pervert"
+				selected_teenager.TRAITS.NERD:
+					txt_trait = "-nerd"
 					
 			stats[trait_id].text = txt_trait
 			

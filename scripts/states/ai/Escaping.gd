@@ -83,7 +83,8 @@ func update(delta):
 				
 				if is_path_free(escape_object.global_position) and not tried_escape_object:
 					#just for debug
-					print("The AI should go check the car")
+					pass
+					#print("The AI should go check the car")
 				elif is_building_free(teen_pos):
 					#try to escape to a building
 					base.teenager.is_escaping = false

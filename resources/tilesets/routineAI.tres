@@ -463,4 +463,14 @@
 45/navigation_offset = Vector2( 0, 0 )
 45/shapes = [  ]
 45/z_index = 0
+46/name = "Naked"
+46/texture = ExtResource( 1 )
+46/tex_offset = Vector2( 0, 0 )
+46/modulate = Color( 1, 1, 1, 1 )
+46/region = Rect2( 225, 0, 25, 25 )
+46/tile_mode = 0
+46/occluder_offset = Vector2( 0, 0 )
+46/navigation_offset = Vector2( 0, 0 )
+46/shapes = [  ]
+46/z_index = 0
 

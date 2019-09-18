@@ -13,6 +13,9 @@ var sound_db = 0 setget set_sound_db, get_sound_db
 var music_db = -10 setget set_music_db, get_music_db
 var background_db = 5 setget set_background_db, get_background_db
 
+#debugging. don't ship with this
+var global_paths = 0 
+
 #shortcut for entering in full screen
 func _input(event):
 	if Input.is_action_just_pressed("FullScreen"):

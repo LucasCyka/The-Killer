@@ -18,7 +18,7 @@
 	
 	"res://scenes/Level1.tscn":{
 		"BUMP":["0","1"],
-		"LURE":["0","1"],
+		"LURE":["1"],
 		"MISC":["0","1","2"],
 		"VICE":["0"]
 		

@@ -130,6 +130,20 @@ func get_teenagers_alive():
 	
 	return teens
 
+#return all teenagers that have a given trait
+func get_teenagers_by_trait(trait):
+	var teenagers = get_teenagers()
+	if teenagers == []: return teenagers
+	var teenagers_by_trait = []
+	
+	var traits_enum = teenagers[0].TRAITS
+	
+	for teen in teenagers:
+		if teen.traits.keys().find(trait) != -1:
+			teenagers_by_trait.append(teen)
+	
+	return teenagers_by_trait
+
 #get the player if the game is on the hunting mode
 func get_player():
 	if get_tree().get_nodes_in_group("Player").size() != 0:
@@ -166,6 +180,32 @@ func get_closest_tile(tilemap,pos,limit=100):
 				break
 	
 	return closest
+	
+#like get_closest_tile but only search for tiles of a given id
+func get_closest_tile_by_id(tilemap,pos,id,limit=100):
+	var map_tiles = tilemap.get_used_cells_by_id(id)
+	var world_tiles = []
+	var distance = [] 
+	var closest = pos
+	
+	#convert all tiles map positions their positions in the real world
+	for tile in map_tiles:
+		world_tiles.append(tilemap.map_to_world(tile))
+		
+	#get the distance from 'pos' for each tile
+	for tile in world_tiles:
+		distance.append(tile.distance_to(pos))
+	distance.sort()
+	
+	#if the distance is less than the limit, return the closest tile
+	if distance.front() < limit:
+		for tile in world_tiles:
+			if tile.distance_to(pos) == distance.front():
+				closest = tile
+				break
+	
+	return closest
+
 
 #return the tilemap of containing floor tiles. It's used by traps.
 func get_floor_tile():

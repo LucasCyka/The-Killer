@@ -70,7 +70,10 @@ func update(delta):
 			#animations
 			base.teenager.custom_animation = null
 			base.teenager.state_animation = true
-
+	
+	#call other teens into escaping aswell.
+	base.teenager.call_into_escaping()
+	
 	#print(is_desperado)
 	teen_pos = kinematic_teenager.global_position
 	#since the animations speed can be changed by the clock feature
