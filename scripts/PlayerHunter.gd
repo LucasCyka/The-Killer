@@ -127,7 +127,7 @@ func _input(event):
 		
 		if state_machine.get_current_state() != 'Spawning' and state_machine.get_current_state() != 'Deployment' and state_machine.get_current_state() != 'EndingSpawn':
 			#exit the hunter mode when the player hits 'escape'
-			if Input.is_key_pressed(KEY_ESCAPE):
+			if Input.is_key_pressed(KEY_ESCAPE) or Input.is_key_pressed(KEY_X):
 				#TODO: confirm if the player really wants to exit
 				_free()
 	elif Input.is_action_just_pressed("ok_input"):

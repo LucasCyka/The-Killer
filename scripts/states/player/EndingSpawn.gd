@@ -48,6 +48,13 @@ func init(base,state_position,state_time):
 	final_spawn_position = common.order_by_distance(player_neighbours,base.player.global_position)[0]
 	final_spawn_position = star.get_closest_tile(final_spawn_position)
 	
+	
+	#hunting mode
+	if self.game.get_current_mode() != game.MODE.HUNTING and !base.player.exiting:
+		if self.game.get_current_mode() == game.MODE.WON: return
+		if self.game.get_current_mode() == game.MODE.GAMEOVER: return
+		self.game.set_current_mode(game.MODE.HUNTING)
+	
 	#floor_tiles = common.convert_to_world(floor_tiles,tilemap)
 		
 	#final_spawn_position = common.order_by_distance(floor_tiles,base.player.global_position)[0]

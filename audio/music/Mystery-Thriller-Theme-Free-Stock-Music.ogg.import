@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Mystery-Thriller-Theme-Free-Stock-Music.ogg-ce384ffd07755aef805f8c7f62c81149.oggstr"
+
+[deps]
+
+source_file="res://audio/music/Mystery-Thriller-Theme-Free-Stock-Music.ogg"
+dest_files=[ "res://.import/Mystery-Thriller-Theme-Free-Stock-Music.ogg-ce384ffd07755aef805f8c7f62c81149.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

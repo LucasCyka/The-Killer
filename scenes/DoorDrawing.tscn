@@ -1,4 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://sprites/world_objects/door_bar.png" type="Texture" id=1]
+[ext_resource path="res://sprites/world_objects/door_progress.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 12.1356, 12.4263 )
@@ -12,10 +15,20 @@ position = Vector2( -0.257023, 1.02809 )
 shape = SubResource( 1 )
 
 [node name="DoorCollision" type="Area2D" parent="."]
+editor/display_folded = true
 collision_layer = 524288
 collision_mask = 524288
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorCollision"]
 shape = SubResource( 2 )
 disabled = true
+
+[node name="DoorProgress" type="TextureProgress" parent="."]
+visible = false
+margin_left = -13.0
+margin_top = -12.0
+margin_right = 12.0
+margin_bottom = -7.0
+texture_under = ExtResource( 1 )
+texture_progress = ExtResource( 2 )
 

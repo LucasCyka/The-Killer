@@ -17,19 +17,19 @@
   },
   
   "LURE":{
-    "ID": ["0","1","2"],
-    "Icon":["lure1.png","porn.png","blood.png"],
-	"Fear":["1","1","20"],
-	"Curiosity":["15","40","6"],
-    "Price": ["1500","1500","2000"],
-	"OneShot":["true","true","false"],
-	"OnSpot":["false","false","false"],
-	"Walkable":["true","true","true"],
-	"Name":["Underwear","Porn","Blood Trail"],
-	"Desc":["A trail of women's underwear.","A trail of nude photos.","Fake blood trail."],
-	"Placement":["WORLD","WORLD","WORLD"],
-	"Sound":["Laughter","Laughter","MedFear"],
-	"Requirements":[["MEN","HORNY"],["MEN","HORNY"],["NULL"]]
+    "ID": ["0","1","2","3"],
+    "Icon":["lure1.png","porn.png","blood.png","lipstick.png"],
+	"Fear":["1","1","20","10"],
+	"Curiosity":["15","40","6","20"],
+    "Price": ["1500","1500","2000","1500"],
+	"OneShot":["true","true","false","true"],
+	"OnSpot":["false","false","false","false"],
+	"Walkable":["true","true","true","true"],
+	"Name":["Underwear","Porn","Blood Trail","Makeup"],
+	"Desc":["A trail of women's underwear.","A trail of nude photos.","Fake blood trail.","Very expanse makeup."],
+	"Placement":["WORLD","WORLD","WORLD","WORLD"],
+	"Sound":["Laughter","Laughter","MedFear","NULL"],
+	"Requirements":[["MEN","HORNY"],["MEN","HORNY"],["NULL"],["NARCISSISTIC"]]
   },
   
   "MISC":{
@@ -37,7 +37,7 @@
     "Icon":["misc1.png","bear_trap.png","chicken.png","fake_dead_body.png"],
 	"Fear":["100","50","60","100"],
 	"Curiosity":["0","0","20","0"],
-    "Price": ["1500","1000","200","1500"],
+    "Price": ["1500","5000","200","1500"],
 	"OneShot":["false","true","false","false"],
 	"OnSpot":["false","true","false","false"],
 	"Walkable":["false","true","false","false"],
@@ -49,19 +49,19 @@
   },
   
   "VICE":{
-    "ID": ["0","1"],
-    "Icon":["cigarette1.png","cigarette1.png"],
-	"Fear":["1","1"],
-	"Curiosity":["10","10"],
-    "Price": ["1000","2000"],
-	"OneShot":["true","true"],
-	"OnSpot":["false","false"],
-	"Walkable":["true","true"],
-	"Name":["Cigarret","Diarrhea cigarette"],
-	"Desc":["Will slow down the teen who smoke it.","Will cause explosive diarrhea on the teen who smoke it."],
-	"Placement":["WORLD","WORLD"],
-	"Sound":["NULL","NULL"],
-	"Requirements":[["NULL"],["NULL"]]
+    "ID": ["0","1","2","3"],
+    "Icon":["cigarette1.png","cigarette1.png","pizza.png","magazine.png"],
+	"Fear":["1","1","1","1"],
+	"Curiosity":["10","10","10","30"],
+    "Price": ["1000","2000","500","1000"],
+	"OneShot":["true","true","true","true"],
+	"OnSpot":["false","false","false","false"],
+	"Walkable":["true","true","true","true"],
+	"Name":["Cigarret","Diarrhea cigarette","A pizza...","Dirty magazine."],
+	"Desc":["Will slow down the teen who smoke it.","Will cause explosive diarrhea on the teen who smoke it.","...Spiked with laxatives.","Cat's Paw"],
+	"Placement":["WORLD","WORLD","WORLD","WORLD"],
+	"Sound":["NULL","NULL","Burp","Laughter"],
+	"Requirements":[["NULL"],["NULL"],["GLUTTON"],["FINALGIRL"]]
   }
   
 }}

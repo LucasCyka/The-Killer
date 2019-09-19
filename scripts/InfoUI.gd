@@ -42,6 +42,7 @@ func init(base):
 	score.connect("score_changed",self,"update_score")
 	score.connect("killing_score_changed",self,"update_killing_score")
 	base.game.connect('changed_points',self,'update_points')
+	update_points()
 	
 func _process(delta):
 	if base == null:

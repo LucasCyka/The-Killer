@@ -7,7 +7,9 @@ extends "res://scripts/Traps.gd"
 
 var effects = {
 	0:[funcref(self,"decrease_speed")],
-	1:[funcref(self,"cause_diarrhea")]
+	1:[funcref(self,"cause_diarrhea")],
+	2:[funcref(self,"cause_diarrhea")],
+	3:[funcref(self,"make_horny")]
 	
 }
 var is_used = false
@@ -19,7 +21,9 @@ onready var radius = $Texture/DetectionRadius
 onready var detection_wall = $Texture/VisibilityDetection
 
 func _ready():
-	#TODO: change the textures acording to its ID
+	#change the textures acording to its ID
+	texture.play(str(id))
+	
 	#on radius signal
 	type = TYPES.VICE
 	radius.connect("area_entered",self,"_on_radius")
@@ -69,7 +73,7 @@ func _on_radius(area):
 	var teenager = null
 	if area.name == "DetectionArea":
 		teenager = area.get_parent()
-		if !check_requirements(area.get_parent().get_parent()): return
+		if !check_requirements(teenager): return
 		
 	if area.name == "DetectionArea" and is_placed and !is_used:
 		#check if the teenager can see the trap
@@ -81,6 +85,8 @@ func _on_radius(area):
 		#set_process(false)
 #		body.get_parent().set_trap(self)
 		if activate_vice(teenager):
+			if sound != 'NULL':
+				base.audio_system.play_2d_sound(sound,teenager.global_position)
 			deactivate_trap()
 			#is_used = true
 			#set_process(false)

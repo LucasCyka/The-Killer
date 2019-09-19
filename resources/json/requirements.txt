@@ -8,4 +8,6 @@ MIN30 = This trap can only affect a person with 30 curiosity points.
 HORNY = This can only affect people with the "horny" trait/effect.
 FINALGIRL = This trap can't affect "final girls".
 NIGHT = This trap only work at night
-CHICKENPHOBIC = This traps only work with chickenphobic teens.
+CHICKENPHOBIC = This trap only work with chickenphobic teens.
+GLUTTON = This trap only affect gluttons.
+NARCISSISTIC = This trap only affect narcissistics teens.

@@ -20,3 +20,19 @@ func show_panel():
 	panel.show()
 	
 	#TODO: fill points, score etc...
+	
+#goes to the main menu
+func menu_btn():
+	for teen in get_tree().get_nodes_in_group("AI"):
+		teen.queue_free()
+	
+	star.clear()
+	get_tree().change_scene("res://scenes/MainMenu.tscn")
+	
+#restarts game
+func restart_btn():
+	for teen in get_tree().get_nodes_in_group("AI"):
+		teen.queue_free()
+	
+	star.clear()
+	get_tree().reload_current_scene()

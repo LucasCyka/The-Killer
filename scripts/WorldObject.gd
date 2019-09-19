@@ -50,6 +50,7 @@ var current_teen = []
 var current_player = null
 var is_broken = false
 var activated = false
+var door_bar
 
 #when a door is locked the player can't pass throught it...
 var is_door_locked = false setget set_door_locked
@@ -91,6 +92,11 @@ func init_door():
 	add_child(area)
 	area.global_position = self.global_position
 	
+	#progress bar
+	area.get_node('DoorProgress').set_min(0)
+	area.get_node('DoorProgress').set_max(door_health)
+	area.get_node('DoorProgress').set_value(0)
+	
 func open_door(area):
 	if is_door_locked: return 
 	
@@ -100,7 +106,9 @@ func open_door(area):
 
 func set_door_health(value):
 	door_health = value
-	print(door_health)
+	get_node('DoorDrawing/DoorProgress').set_value(door_health)
+	get_node('DoorDrawing/DoorProgress').show()
+	
 	if door_health == 0:
 		if current_player != null:
 			current_player.set_attacking_door(false)
@@ -108,6 +116,7 @@ func set_door_health(value):
 			if has_node('DoorDrawing'):
 				get_node('DoorDrawing').queue_free()
 			current_player.door_collision = Vector2(0,0)
+			hide()
 
 func get_door_health():
 	return door_health
@@ -157,7 +166,7 @@ func startle():
 	if current_teen == []:return
 	
 	var pos = star.get_closest_tile(self.global_position)
-	pos = star.get_closest_tile(Vector2(pos.x,pos.y+50))
+	pos = star.get_closest_tile(Vector2(pos.x+75,pos.y))
 	
 	for teenager in current_teen:
 		if teenager.state_machine.check_forced_state('Startled'):

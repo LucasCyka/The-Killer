@@ -227,6 +227,10 @@ func check_requirements(teenager):
 			return false
 		elif requirement == 'CHICKENPHOBIC' and teenager.traits.keys().find(teenager.TRAITS.CHICKENPHOBIC) == -1:
 			return false
+		elif requirement == 'GLUTTON' and teenager.traits.keys().find(teenager.TRAITS.GLUTTON) == -1:
+			return false
+		elif requirement == 'NARCISSISTIC' and teenager.traits.keys().find(teenager.TRAITS.NARCISSISTIC) == -1:
+			return false
 			
 	return true
 

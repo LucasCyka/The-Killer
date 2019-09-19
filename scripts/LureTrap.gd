@@ -157,8 +157,7 @@ func on_radius(area):
 					 deactivate_trap()
 				#play sound effect
 				if sound != 'NULL':
-					var game = teenager.get_parent().get_parent()
-					game.audio_system.play_2d_sound(sound,teenager.global_position)
+					base.audio_system.play_2d_sound(sound,teenager.global_position)
 				#is_used = true
 		else:
 			#the teen can't fall for this trap

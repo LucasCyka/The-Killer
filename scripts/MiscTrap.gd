@@ -26,6 +26,7 @@ var effects = {
 	1:[funcref(self,"cripple")],
 	2:[funcref(self,"enter_panic")],
 	3:[funcref(self,"enter_panic")],
+	4:[funcref(self,"cause_diarrhea")],
 	666:[funcref(self,"enter_panic")]#DEATH TRAP
 	
 }

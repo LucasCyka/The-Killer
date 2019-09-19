@@ -68,10 +68,10 @@
 [ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=66]
 [ext_resource path="res://scripts/WinningUI.gd" type="Script" id=67]
 [ext_resource path="res://scripts/MouseUI.gd" type="Script" id=68]
-[ext_resource path="res://sprites/traps/knock1.png" type="Texture" id=69]
-[ext_resource path="res://sprites/traps/knock2.png" type="Texture" id=70]
-[ext_resource path="res://sprites/traps/knock3.png" type="Texture" id=71]
-[ext_resource path="res://sprites/mouse/pointer.png" type="Texture" id=72]
+[ext_resource path="res://sprites/mouse/pointer.png" type="Texture" id=69]
+[ext_resource path="res://sprites/traps/knock1.png" type="Texture" id=70]
+[ext_resource path="res://sprites/traps/knock2.png" type="Texture" id=71]
+[ext_resource path="res://sprites/traps/knock3.png" type="Texture" id=72]
 [ext_resource path="res://sprites/gui/score_icon_prototype.png" type="Texture" id=73]
 [ext_resource path="res://sprites/mouse/scissor.png" type="Texture" id=74]
 [ext_resource path="res://sprites/characters/male_1/dying/dying_1_down28.png" type="Texture" id=75]
@@ -96,14 +96,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ) ],
-"loop": true,
-"name": "BUMP",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 72 ) ],
+"frames": [ ExtResource( 69 ) ],
 "loop": true,
 "name": "DEFAULT",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ) ],
+"loop": true,
+"name": "BUMP",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -1143,7 +1143,6 @@ margin_bottom = 40.0
 script = ExtResource( 66 )
 
 [node name="Panel" type="Control" parent="Canvas/GameOverUI"]
-editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -1176,72 +1175,29 @@ margin_bottom = 40.0
 script = ExtResource( 67 )
 
 [node name="Panel" type="Control" parent="Canvas/WinningUI"]
-editor/display_folded = true
-visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="Background" type="Panel" parent="Canvas/WinningUI/Panel"]
-margin_left = 200.0
-margin_top = 80.0
-margin_right = 400.0
-margin_bottom = 249.0
-
-[node name="Points" type="Label" parent="Canvas/WinningUI/Panel"]
-margin_left = 202.668
-margin_top = 85.6692
-margin_right = 250.668
-margin_bottom = 99.6692
-text = "Points:  00014567"
-
-[node name="Boredom" type="Label" parent="Canvas/WinningUI/Panel"]
-margin_left = 202.668
-margin_top = 115.669
-margin_right = 269.668
-margin_bottom = 129.669
-text = "Boredom: 77%"
-
-[node name="Time" type="Label" parent="Canvas/WinningUI/Panel"]
-margin_left = 202.668
-margin_top = 145.669
-margin_right = 269.668
-margin_bottom = 159.669
-text = "Time: 13:10"
-
-[node name="Budget" type="Label" parent="Canvas/WinningUI/Panel"]
-margin_left = 202.668
-margin_top = 185.669
-margin_right = 269.668
-margin_bottom = 199.669
-text = "Budget: $ 100"
-
-[node name="Total" type="Label" parent="Canvas/WinningUI/Panel"]
-margin_left = 202.668
-margin_top = 225.669
-margin_right = 269.668
-margin_bottom = 239.669
-text = "TOTAL: 180054"
-
-[node name="Score" type="Label" parent="Canvas/WinningUI/Panel"]
-margin_left = 342.668
-margin_top = 165.669
-margin_right = 409.668
-margin_bottom = 179.669
-text = "B++"
-
 [node name="MenuBtn" type="Button" parent="Canvas/WinningUI/Panel"]
 margin_left = 201.0
-margin_top = 253.0
+margin_top = 153.0
 margin_right = 296.0
-margin_bottom = 283.0
+margin_bottom = 183.0
 text = "MENU"
 
 [node name="RestartBtn" type="Button" parent="Canvas/WinningUI/Panel"]
 margin_left = 306.0
-margin_top = 253.0
+margin_top = 153.0
 margin_right = 401.0
-margin_bottom = 283.0
+margin_bottom = 183.0
 text = "RESTART"
+
+[node name="Label2" type="Label" parent="Canvas/WinningUI/Panel"]
+margin_left = 259.003
+margin_top = 123.884
+margin_right = 335.003
+margin_bottom = 137.884
+text = "YOU WON!"
 
 [node name="MouseUI" type="Control" parent="Canvas"]
 editor/display_folded = true

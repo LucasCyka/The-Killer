@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://scripts/LureTrap.gd" type="Script" id=1]
 [ext_resource path="res://sprites/traps/lure1.png" type="Texture" id=2]
 [ext_resource path="res://sprites/traps/blood.png" type="Texture" id=3]
 [ext_resource path="res://sprites/traps/porn.png" type="Texture" id=4]
+[ext_resource path="res://sprites/traps/lipstick.png" type="Texture" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -20,6 +21,11 @@ animations = [ {
 "frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "1",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "3",
 "speed": 5.0
 } ]
 
@@ -58,6 +64,7 @@ editor/display_folded = true
 shape = SubResource( 3 )
 
 [node name="AreaSpot" type="Area2D" parent="Texture"]
+editor/display_folded = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Texture/AreaSpot"]
 shape = SubResource( 4 )

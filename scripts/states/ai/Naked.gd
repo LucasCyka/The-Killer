@@ -60,6 +60,9 @@ func exit():
 		base._on_routine = false
 	else: base._on_routine = true
 	teenagers = null
+	if base.is_connected("timer_finished",self,"exit"):
+		base.disconnect("timer_finished",self,"exit")
+	
 	emit_signal("finished")
 
 
