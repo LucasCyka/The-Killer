@@ -15,6 +15,8 @@ var body_on_radius = null
 #It goes from 0 to 10.
 var priotity = [10]
 
+var last_mouse_position = null
+
 #world nodes
 onready var current_texture = $Texture
 onready var detection_radius = $Texture/Area2D
@@ -66,7 +68,11 @@ func _process(delta):
 					on_radius(body_on_radius)
 					body_on_radius = null
 		return
-		
+	
+	#get_closest_tile() is slow as fuck!
+	if last_mouse_position == get_global_mouse_position():
+		return
+	
 	var closest = base.get_closest_tile(tiles,get_global_mouse_position(),20)
 	if closest == get_global_mouse_position() or is_teenager_seeing_trap():
 		#the player can't place the trap here
@@ -74,7 +80,8 @@ func _process(delta):
 	else: set_is_invalid_tile(false)
 	
 	current_texture.global_position = Vector2(closest.x+25/2,closest.y+25/2)
-		
+	last_mouse_position = get_global_mouse_position()
+	
 #place or cancel traps
 func _input(event):
 	if Input.is_action_just_pressed("ok_input"):

@@ -26,7 +26,7 @@
 	"OnSpot":["false","false","false","false"],
 	"Walkable":["true","true","true","true"],
 	"Name":["Underwear","Porn","Blood Trail","Makeup"],
-	"Desc":["A trail of women's underwear.","A trail of nude photos.","Fake blood trail.","Very expanse makeup."],
+	"Desc":["A trail of women's underwear.","A trail of nude photos.","Fake blood trail.","Very expensive makeup."],
 	"Placement":["WORLD","WORLD","WORLD","WORLD"],
 	"Sound":["Laughter","Laughter","MedFear","NULL"],
 	"Requirements":[["MEN","HORNY"],["MEN","HORNY"],["NULL"],["NARCISSISTIC"]]

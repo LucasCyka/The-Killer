@@ -1175,6 +1175,8 @@ margin_bottom = 40.0
 script = ExtResource( 67 )
 
 [node name="Panel" type="Control" parent="Canvas/WinningUI"]
+editor/display_folded = true
+visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 

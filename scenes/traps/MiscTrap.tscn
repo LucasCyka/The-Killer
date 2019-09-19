@@ -1,23 +1,23 @@
 [gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://scripts/MiscTrap.gd" type="Script" id=1]
-[ext_resource path="res://sprites/traps/misc1.png" type="Texture" id=2]
-[ext_resource path="res://sprites/traps/chicken.png" type="Texture" id=3]
-[ext_resource path="res://sprites/traps/chicken2.png" type="Texture" id=4]
+[ext_resource path="res://sprites/traps/chicken.png" type="Texture" id=2]
+[ext_resource path="res://sprites/traps/chicken2.png" type="Texture" id=3]
+[ext_resource path="res://sprites/traps/misc1.png" type="Texture" id=4]
 [ext_resource path="res://sprites/traps/bear_trap.png" type="Texture" id=5]
 [ext_resource path="res://sprites/traps/fake_dead_trap.png" type="Texture" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "0",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 3 ), ExtResource( 3 ), ExtResource( 3 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 2 ), ExtResource( 2 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "2",
 "speed": 3.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "0",
+"speed": 5.0
 }, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,

@@ -8,7 +8,7 @@ extends TileMap
 #initialize
 func _ready():
 	if get_parent().get_parent().debug_mode:
-		#it will spend things a bit
+		#it will speed up things a bit
 		return
 	
 	var shape = RectangleShape2D.new()
