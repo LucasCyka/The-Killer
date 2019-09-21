@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=352 format=2]
+[gd_resource type="SpriteFrames" load_steps=389 format=2]
 
 [ext_resource path="res://sprites/prototype/characters/male_iteration1.png" type="Texture" id=1]
 [ext_resource path="res://sprites/prototype/characters/male_iteration1_side.png" type="Texture" id=2]
@@ -351,6 +351,43 @@
 [ext_resource path="res://sprites/characters/female_5/walking_side3.png" type="Texture" id=349]
 [ext_resource path="res://sprites/characters/female_5/walking_side4.png" type="Texture" id=350]
 [ext_resource path="res://sprites/characters/male_1/shock_down2.png" type="Texture" id=351]
+[ext_resource path="res://sprites/characters/male_2/working_anims1.png" type="Texture" id=352]
+[ext_resource path="res://sprites/characters/male_2/working_anims2.png" type="Texture" id=353]
+[ext_resource path="res://sprites/characters/male_2/working_anims3.png" type="Texture" id=354]
+[ext_resource path="res://sprites/characters/male_2/working_anims4.png" type="Texture" id=355]
+[ext_resource path="res://sprites/characters/male_2/working_anims5.png" type="Texture" id=356]
+[ext_resource path="res://sprites/characters/male_2/working_anims6.png" type="Texture" id=357]
+[ext_resource path="res://sprites/characters/male_2/working_anims7.png" type="Texture" id=358]
+[ext_resource path="res://sprites/characters/female_5/talking_side1.png" type="Texture" id=359]
+[ext_resource path="res://sprites/characters/female_5/talking_side2.png" type="Texture" id=360]
+[ext_resource path="res://sprites/characters/female_5/talking_side3.png" type="Texture" id=361]
+[ext_resource path="res://sprites/characters/female_5/talking_side4.png" type="Texture" id=362]
+[ext_resource path="res://sprites/characters/female_5/talking_downn1.png" type="Texture" id=363]
+[ext_resource path="res://sprites/characters/female_5/talking_downn2.png" type="Texture" id=364]
+[ext_resource path="res://sprites/characters/female_5/talking_downn3.png" type="Texture" id=365]
+[ext_resource path="res://sprites/characters/female_5/talking_downn4.png" type="Texture" id=366]
+[ext_resource path="res://sprites/characters/female_4/talking_sides1.png" type="Texture" id=367]
+[ext_resource path="res://sprites/characters/female_4/talking_sides2.png" type="Texture" id=368]
+[ext_resource path="res://sprites/characters/female_4/talking_sides3.png" type="Texture" id=369]
+[ext_resource path="res://sprites/characters/female_4/talking_sides4.png" type="Texture" id=370]
+[ext_resource path="res://sprites/characters/female_3/working_anims1.png" type="Texture" id=371]
+[ext_resource path="res://sprites/characters/female_3/working_anims2.png" type="Texture" id=372]
+[ext_resource path="res://sprites/characters/female_3/working_anims3.png" type="Texture" id=373]
+[ext_resource path="res://sprites/characters/female_3/working_anims4.png" type="Texture" id=374]
+[ext_resource path="res://sprites/characters/female_3/working_anims5.png" type="Texture" id=375]
+[ext_resource path="res://sprites/characters/female_3/working_anims6.png" type="Texture" id=376]
+[ext_resource path="res://sprites/characters/female_3/working_anims7.png" type="Texture" id=377]
+[ext_resource path="res://sprites/characters/female_3/working_anims8.png" type="Texture" id=378]
+[ext_resource path="res://sprites/characters/female_3/working_anims9.png" type="Texture" id=379]
+[ext_resource path="res://sprites/characters/female_3/working_anims10.png" type="Texture" id=380]
+[ext_resource path="res://sprites/characters/female_3/working_anims11.png" type="Texture" id=381]
+[ext_resource path="res://sprites/characters/female_3/working_anims12.png" type="Texture" id=382]
+[ext_resource path="res://sprites/characters/female_3/working_anims13.png" type="Texture" id=383]
+[ext_resource path="res://sprites/characters/female_3/working_anims14.png" type="Texture" id=384]
+[ext_resource path="res://sprites/characters/female_4/talking_down1.png" type="Texture" id=385]
+[ext_resource path="res://sprites/characters/female_4/talking_down2.png" type="Texture" id=386]
+[ext_resource path="res://sprites/characters/female_4/talking_down3.png" type="Texture" id=387]
+[ext_resource path="res://sprites/characters/female_4/talking_down4.png" type="Texture" id=388]
 
 [resource]
 animations = [ {
@@ -1522,6 +1559,66 @@ animations = [ {
 "frames": [ ExtResource( 295 ), ExtResource( 296 ), ExtResource( 297 ), ExtResource( 298 ) ],
 "loop": true,
 "name": "4:Panic-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 352 ), ExtResource( 353 ), ExtResource( 354 ), ExtResource( 355 ), ExtResource( 356 ), ExtResource( 357 ), ExtResource( 358 ) ],
+"loop": true,
+"name": "2:Working-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 352 ), ExtResource( 353 ), ExtResource( 354 ), ExtResource( 355 ), ExtResource( 356 ), ExtResource( 357 ), ExtResource( 358 ) ],
+"loop": true,
+"name": "2:Working-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 352 ), ExtResource( 353 ), ExtResource( 354 ), ExtResource( 355 ), ExtResource( 356 ), ExtResource( 357 ), ExtResource( 358 ) ],
+"loop": true,
+"name": "2:Working-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 359 ), ExtResource( 360 ), ExtResource( 361 ), ExtResource( 362 ) ],
+"loop": true,
+"name": "7:Talking-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 363 ), ExtResource( 364 ), ExtResource( 365 ), ExtResource( 366 ) ],
+"loop": true,
+"name": "7:Talking-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 328 ) ],
+"loop": true,
+"name": "7:Talking-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 367 ), ExtResource( 368 ), ExtResource( 369 ), ExtResource( 370 ) ],
+"loop": true,
+"name": "6:Talking-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 371 ), ExtResource( 372 ), ExtResource( 373 ), ExtResource( 374 ), ExtResource( 375 ), ExtResource( 376 ), ExtResource( 377 ), ExtResource( 378 ), ExtResource( 379 ), ExtResource( 380 ), ExtResource( 381 ), ExtResource( 382 ), ExtResource( 383 ), ExtResource( 384 ) ],
+"loop": true,
+"name": "4:Working-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 371 ), ExtResource( 372 ), ExtResource( 373 ), ExtResource( 374 ), ExtResource( 375 ), ExtResource( 376 ), ExtResource( 377 ), ExtResource( 378 ), ExtResource( 379 ), ExtResource( 380 ), ExtResource( 381 ), ExtResource( 382 ), ExtResource( 383 ), ExtResource( 384 ) ],
+"loop": true,
+"name": "4:Working-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 385 ), ExtResource( 386 ), ExtResource( 387 ), ExtResource( 388 ) ],
+"loop": true,
+"name": "6:Talking-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 290 ) ],
+"loop": true,
+"name": "6:Talking-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 371 ), ExtResource( 372 ), ExtResource( 373 ), ExtResource( 374 ), ExtResource( 375 ), ExtResource( 376 ), ExtResource( 377 ), ExtResource( 378 ), ExtResource( 379 ), ExtResource( 380 ), ExtResource( 381 ), ExtResource( 382 ), ExtResource( 383 ), ExtResource( 384 ) ],
+"loop": true,
+"name": "4:Working-Down",
 "speed": 5.0
 } ]
 

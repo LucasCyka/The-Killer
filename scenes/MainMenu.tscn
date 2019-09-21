@@ -64,7 +64,6 @@ margin_bottom = 40.0
 
 [node name="StartLabel" type="Node2D" parent="."]
 editor/display_folded = true
-visible = false
 
 [node name="BlackBackground2" type="Sprite" parent="StartLabel"]
 position = Vector2( 312.697, 230.511 )

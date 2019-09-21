@@ -328,7 +328,7 @@ z_index = 2
 tile_set = ExtResource( 13 )
 cell_size = Vector2( 25, 25 )
 format = 1
-tile_data = PoolIntArray( 458820, 5, 0, 458821, 27, 0, 458822, 40, 0, 524324, 4, 0, 524325, 27, 0, 524326, 40, 0, 786486, 0, 0, 786487, 27, 0, 786488, 40, 0, 1114148, 2, 0, 1114149, 27, 0, 1114150, 38, 0, 1245234, 3, 0, 1245235, 27, 0, 1245236, 40, 0, 3735556, 1, 0, 3735557, 27, 0, 3735558, 40, 0 )
+tile_data = PoolIntArray( 458820, 5, 0, 458821, 27, 0, 458822, 40, 0, 524324, 4, 0, 524325, 27, 0, 524326, 40, 0, 786486, 0, 0, 786487, 47, 0, 786488, 40, 0, 1114148, 2, 0, 1114149, 27, 0, 1114150, 38, 0, 1245234, 3, 0, 1245235, 27, 0, 1245236, 40, 0, 3735556, 1, 0, 3735557, 27, 0, 3735558, 40, 0 )
 
 [node name="Teenager4" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -357,7 +357,6 @@ format = 1
 tile_data = PoolIntArray( 786474, 0, 0, 786475, 27, 0, 786476, 40, 0, 1048614, 2, 0, 1048615, 27, 0, 1048616, 40, 0, 1179693, 3, 0, 1179694, 27, 0, 1179695, 38, 0, 1638465, 4, 0, 1638466, 27, 0, 1638467, 40, 0, 3538972, 1, 0, 3538973, 27, 0, 3538974, 40, 0 )
 
 [node name="Teenager5" parent="AI" instance=ExtResource( 4 )]
-editor/display_folded = true
 position = Vector2( 251.055, 145.65 )
 gender = 1
 id = 4
@@ -381,7 +380,7 @@ z_index = 2
 tile_set = ExtResource( 13 )
 cell_size = Vector2( 25, 25 )
 format = 1
-tile_data = PoolIntArray( 393223, 0, 0, 393224, 27, 0, 393225, 45, 0, 1114147, 1, 0, 1114148, 27, 0, 1114149, 40, 0 )
+tile_data = PoolIntArray( 393223, 0, 0, 393224, 47, 0, 393225, 45, 0, 1114147, 1, 0, 1114148, 27, 0, 1114149, 40, 0 )
 
 [node name="Teenager6" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -410,7 +409,6 @@ format = 1
 tile_data = PoolIntArray( 458818, 2, 0, 458819, 27, 0, 458820, 45, 0, 524354, 3, 0, 524355, 27, 0, 524356, 40, 0, 589890, 4, 0, 589891, 27, 0, 589892, 40, 0, 655426, 5, 0, 655427, 27, 0, 655428, 38, 0, 786502, 6, 0, 786503, 26, 0, 786504, 30, 0, 917574, 7, 0, 917575, 27, 0, 917576, 38, 0, 1310785, 0, 0, 1310786, 26, 0, 1310787, 30, 0, 1507393, 1, 0, 1507394, 27, 0, 1507395, 40, 0 )
 
 [node name="Teenager7" parent="AI" instance=ExtResource( 4 )]
-editor/display_folded = true
 position = Vector2( 1645.93, 638.976 )
 gender = 1
 id = 6
@@ -433,7 +431,7 @@ z_index = 2
 tile_set = ExtResource( 13 )
 cell_size = Vector2( 25, 25 )
 format = 1
-tile_data = PoolIntArray( 1114149, 2, 0, 1114150, 27, 0, 1114151, 40, 0, 1638463, 7, 0, 1638464, 27, 0, 1638465, 40, 0, 1638466, 6, 0, 1638467, 27, 0, 1638468, 38, 0, 1704002, 0, 0, 1704003, 27, 0, 1704004, 40, 0, 1769538, 1, 0, 1769539, 27, 0, 1769540, 30, 0, 1966143, 5, 0, 1966144, 26, 0, 1966145, 30, 0, 3866696, 3, 0, 3866697, 46, 0, 3866698, 45, 0, 3932232, 4, 0, 3932233, 46, 0, 3932234, 40, 0 )
+tile_data = PoolIntArray( 1114149, 2, 0, 1114150, 33, 0, 1114151, 40, 0, 1638463, 7, 0, 1638464, 27, 0, 1638465, 40, 0, 1638466, 6, 0, 1638467, 27, 0, 1638468, 38, 0, 1704002, 0, 0, 1704003, 27, 0, 1704004, 40, 0, 1769538, 1, 0, 1769539, 27, 0, 1769540, 30, 0, 1966143, 5, 0, 1966144, 26, 0, 1966145, 30, 0, 3866696, 3, 0, 3866697, 46, 0, 3866698, 45, 0, 3932232, 4, 0, 3932233, 46, 0, 3932234, 40, 0 )
 
 [node name="Teenager8" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -460,7 +458,7 @@ z_index = 2
 tile_set = ExtResource( 13 )
 cell_size = Vector2( 25, 25 )
 format = 1
-tile_data = PoolIntArray( 786483, 0, 0, 786484, 27, 0, 786485, 40, 0, 1114150, 1, 0, 1114151, 27, 0, 1114152, 40, 0, 1179686, 2, 0, 1179687, 27, 0, 1179688, 37, 0, 1704003, 4, 0, 1704004, 27, 0, 1704005, 40, 0, 3801090, 3, 0, 3801091, 27, 0, 3801092, 40, 0 )
+tile_data = PoolIntArray( 720947, 0, 0, 720948, 33, 0, 720949, 40, 0, 1114150, 1, 0, 1114151, 33, 0, 1114152, 40, 0, 1179686, 2, 0, 1179687, 33, 0, 1179688, 37, 0, 1704003, 4, 0, 1704004, 27, 0, 1704005, 40, 0, 3801090, 3, 0, 3801091, 27, 0, 3801092, 40, 0 )
 
 [node name="Car" parent="AI" instance=ExtResource( 55 )]
 position = Vector2( 179.68, -157.877 )
@@ -1133,10 +1131,12 @@ obj_desc = "A bathroom"
 [node name="Workbench" parent="AI" instance=ExtResource( 55 )]
 position = Vector2( 1394.24, 289.198 )
 scale = Vector2( 1.01296, 1 )
-z_index = 4
+z_index = 2
 animation = "Workbench"
 playing = false
-type = 6
+type = 10
+owner_id = 2
+owner_id_2 = 2
 can_activated_when_using = false
 obj_desc = "A bathroom"
 
@@ -1214,10 +1214,12 @@ obj_desc = "A bathroom"
 
 [node name="OfficeTable2" parent="AI" instance=ExtResource( 55 )]
 position = Vector2( 216.638, 115.185 )
-scale = Vector2( 1.1748, 1.18827 )
 z_index = 2
 animation = "OfficeTable2"
 playing = false
+type = 10
+owner_id = 4
+owner_id_2 = 4
 can_activated_when_using = false
 obj_desc = "A bathroom"
 
@@ -1298,7 +1300,6 @@ obj_desc = "A bathroom"
 
 [node name="Water" parent="AI" instance=ExtResource( 55 )]
 position = Vector2( 190.504, 111.581 )
-scale = Vector2( 1.1748, 1.18827 )
 z_index = 2
 animation = "Water"
 playing = false
@@ -1391,6 +1392,7 @@ obj_desc = "A bathroom"
 [node name="CanvasLayer" type="CanvasLayer" parent="AI"]
 
 [node name="Tiles" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Floor" type="TileMap" parent="Tiles"]
 z_index = -2

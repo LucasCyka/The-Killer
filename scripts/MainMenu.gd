@@ -18,7 +18,7 @@ func _input(event):
 	if Input.is_action_just_pressed("Enter"):
 		$StartLabel.hide()
 		set_process_input(false)
-		$Audio.play_sound('Panic')
+		$Audio.play_sound('Panic2')
 		start_timer()
 		
 func start_anim():

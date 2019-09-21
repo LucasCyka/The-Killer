@@ -42,7 +42,8 @@ var routine_dictionary = {
 		42:"EatingTable",
 		43:"SittingFloor",
 		44:"Fishing",
-		46:"Naked"
+		46:"Naked",
+		47:"Working"
 		
 	},
 	"time":{

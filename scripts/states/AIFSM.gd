@@ -47,7 +47,8 @@ func _ready():
 		$InLove:$InLove.name,
 		$CheckingLight:$CheckingLight.name,
 		$Barricading:$Barricading.name,
-		$Naked:$Naked.name
+		$Naked:$Naked.name,
+		$Working:$Working.name
 	}
 	
 	for state in states:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://scripts/Audio.gd" type="Script" id=1]
 [ext_resource path="res://audio/music/Mystery-Thriller-Theme-Free-Stock-Music.ogg" type="AudioStream" id=2]
@@ -12,31 +12,31 @@
 [ext_resource path="res://audio/sounds/click.wav" type="AudioStream" id=10]
 [ext_resource path="res://audio/sounds/taking.wav" type="AudioStream" id=11]
 [ext_resource path="res://audio/sounds/panic.wav" type="AudioStream" id=12]
-[ext_resource path="res://audio/sounds/money.wav" type="AudioStream" id=13]
-[ext_resource path="res://audio/sounds/slash.wav" type="AudioStream" id=14]
-[ext_resource path="res://audio/sounds/blood.wav" type="AudioStream" id=15]
-[ext_resource path="res://audio/sounds/falling.wav" type="AudioStream" id=16]
-[ext_resource path="res://audio/sounds/small_fear.wav" type="AudioStream" id=17]
-[ext_resource path="res://audio/sounds/med_fear.wav" type="AudioStream" id=18]
-[ext_resource path="res://audio/sounds/high_fear.wav" type="AudioStream" id=19]
-[ext_resource path="res://audio/sounds/hahahah.wav" type="AudioStream" id=20]
-[ext_resource path="res://audio/sounds/screaming2.wav" type="AudioStream" id=21]
-[ext_resource path="res://audio/sounds/knockknock.wav" type="AudioStream" id=22]
-[ext_resource path="res://audio/sounds/car_running.wav" type="AudioStream" id=23]
-[ext_resource path="res://audio/sounds/car_door2.wav" type="AudioStream" id=24]
-[ext_resource path="res://audio/sounds/turn_off.wav" type="AudioStream" id=25]
-[ext_resource path="res://audio/sounds/turn_on.wav" type="AudioStream" id=26]
-[ext_resource path="res://audio/sounds/trying_car.wav" type="AudioStream" id=27]
-[ext_resource path="res://audio/sounds/iloveu.wav" type="AudioStream" id=28]
-[ext_resource path="res://audio/sounds/burp.wav" type="AudioStream" id=29]
-[ext_resource path="res://audio/sounds/daylight_far.wav" type="AudioStream" id=30]
-[ext_resource path="res://audio/sounds/night_loop.ogg" type="AudioStream" id=31]
+[ext_resource path="res://audio/sounds/panic2.wav" type="AudioStream" id=13]
+[ext_resource path="res://audio/sounds/money.wav" type="AudioStream" id=14]
+[ext_resource path="res://audio/sounds/slash.wav" type="AudioStream" id=15]
+[ext_resource path="res://audio/sounds/blood.wav" type="AudioStream" id=16]
+[ext_resource path="res://audio/sounds/falling.wav" type="AudioStream" id=17]
+[ext_resource path="res://audio/sounds/small_fear.wav" type="AudioStream" id=18]
+[ext_resource path="res://audio/sounds/med_fear.wav" type="AudioStream" id=19]
+[ext_resource path="res://audio/sounds/high_fear.wav" type="AudioStream" id=20]
+[ext_resource path="res://audio/sounds/hahahah.wav" type="AudioStream" id=21]
+[ext_resource path="res://audio/sounds/screaming2.wav" type="AudioStream" id=22]
+[ext_resource path="res://audio/sounds/knockknock.wav" type="AudioStream" id=23]
+[ext_resource path="res://audio/sounds/car_running.wav" type="AudioStream" id=24]
+[ext_resource path="res://audio/sounds/car_door2.wav" type="AudioStream" id=25]
+[ext_resource path="res://audio/sounds/turn_off.wav" type="AudioStream" id=26]
+[ext_resource path="res://audio/sounds/turn_on.wav" type="AudioStream" id=27]
+[ext_resource path="res://audio/sounds/trying_car.wav" type="AudioStream" id=28]
+[ext_resource path="res://audio/sounds/iloveu.wav" type="AudioStream" id=29]
+[ext_resource path="res://audio/sounds/burp.wav" type="AudioStream" id=30]
+[ext_resource path="res://audio/sounds/daylight_far.wav" type="AudioStream" id=31]
+[ext_resource path="res://audio/sounds/night_loop.ogg" type="AudioStream" id=32]
 
 [node name="Audio" type="Node"]
 script = ExtResource( 1 )
 
 [node name="Music" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="Menu" type="AudioStreamPlayer" parent="Music"]
 stream = ExtResource( 2 )
@@ -63,6 +63,7 @@ stream = ExtResource( 8 )
 stream = ExtResource( 9 )
 
 [node name="Sound" type="Node" parent="."]
+editor/display_folded = true
 
 [node name="Click" type="AudioStreamPlayer" parent="Sound"]
 pause_mode = 2
@@ -80,75 +81,78 @@ pitch_scale = 1.5
 [node name="Panic" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource( 12 )
 
-[node name="Money" type="AudioStreamPlayer" parent="Sound"]
+[node name="Panic2" type="AudioStreamPlayer" parent="Sound"]
 stream = ExtResource( 13 )
+
+[node name="Money" type="AudioStreamPlayer" parent="Sound"]
+stream = ExtResource( 14 )
 
 [node name="Sound2D" type="Node" parent="."]
 editor/display_folded = true
 
 [node name="PlayerSlash" type="AudioStreamPlayer2D" parent="Sound2D"]
-stream = ExtResource( 14 )
+stream = ExtResource( 15 )
 pitch_scale = 0.5
 
 [node name="Blood" type="AudioStreamPlayer2D" parent="Sound2D"]
-stream = ExtResource( 15 )
+stream = ExtResource( 16 )
 pitch_scale = 1.2
 
 [node name="Falling" type="AudioStreamPlayer2D" parent="Sound2D"]
-stream = ExtResource( 16 )
+stream = ExtResource( 17 )
 
 [node name="Panic" type="AudioStreamPlayer2D" parent="Sound2D"]
 stream = ExtResource( 12 )
 attenuation = 1.03526
 
 [node name="SmallFear" type="AudioStreamPlayer2D" parent="Sound2D"]
-stream = ExtResource( 17 )
-
-[node name="MedFear" type="AudioStreamPlayer2D" parent="Sound2D"]
 stream = ExtResource( 18 )
 
-[node name="HighFear" type="AudioStreamPlayer2D" parent="Sound2D"]
+[node name="MedFear" type="AudioStreamPlayer2D" parent="Sound2D"]
 stream = ExtResource( 19 )
 
-[node name="Laughter" type="AudioStreamPlayer2D" parent="Sound2D"]
+[node name="HighFear" type="AudioStreamPlayer2D" parent="Sound2D"]
 stream = ExtResource( 20 )
+
+[node name="Laughter" type="AudioStreamPlayer2D" parent="Sound2D"]
+stream = ExtResource( 21 )
 pitch_scale = 1.5
 
 [node name="Screaming" type="AudioStreamPlayer2D" parent="Sound2D"]
-stream = ExtResource( 21 )
-
-[node name="Knock" type="AudioStreamPlayer2D" parent="Sound2D"]
 stream = ExtResource( 22 )
 
-[node name="CarRunning" type="AudioStreamPlayer2D" parent="Sound2D"]
+[node name="Knock" type="AudioStreamPlayer2D" parent="Sound2D"]
 stream = ExtResource( 23 )
 
-[node name="CarDoor" type="AudioStreamPlayer2D" parent="Sound2D"]
+[node name="CarRunning" type="AudioStreamPlayer2D" parent="Sound2D"]
 stream = ExtResource( 24 )
 
-[node name="TurnOff" type="AudioStreamPlayer2D" parent="Sound2D"]
+[node name="CarDoor" type="AudioStreamPlayer2D" parent="Sound2D"]
 stream = ExtResource( 25 )
 
-[node name="TurnOn" type="AudioStreamPlayer2D" parent="Sound2D"]
+[node name="TurnOff" type="AudioStreamPlayer2D" parent="Sound2D"]
 stream = ExtResource( 26 )
 
-[node name="BrokenCar" type="AudioStreamPlayer2D" parent="Sound2D"]
+[node name="TurnOn" type="AudioStreamPlayer2D" parent="Sound2D"]
 stream = ExtResource( 27 )
 
-[node name="Loveu" type="AudioStreamPlayer2D" parent="Sound2D"]
+[node name="BrokenCar" type="AudioStreamPlayer2D" parent="Sound2D"]
 stream = ExtResource( 28 )
 
-[node name="Burp" type="AudioStreamPlayer2D" parent="Sound2D"]
+[node name="Loveu" type="AudioStreamPlayer2D" parent="Sound2D"]
 stream = ExtResource( 29 )
+
+[node name="Burp" type="AudioStreamPlayer2D" parent="Sound2D"]
+stream = ExtResource( 30 )
 
 [node name="Background" type="Node" parent="."]
 editor/display_folded = true
 
 [node name="DaylightBackground" type="AudioStreamPlayer" parent="Background"]
-stream = ExtResource( 30 )
+stream = ExtResource( 31 )
 volume_db = 5.0
 
 [node name="NightTimeBackground" type="AudioStreamPlayer" parent="Background"]
-stream = ExtResource( 31 )
+stream = ExtResource( 32 )
 volume_db = 5.0
 

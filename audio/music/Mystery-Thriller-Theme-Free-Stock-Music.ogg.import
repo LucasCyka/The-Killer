@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Mystery-Thriller-Theme-Free-Stock-Music.ogg-ce384ffd
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0
