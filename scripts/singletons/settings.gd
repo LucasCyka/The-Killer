@@ -16,11 +16,14 @@ var background_db = 5 setget set_background_db, get_background_db
 #when the player opened the game for the first time
 var first_time = true
 
+#this singleton must run all the time
+func _ready():
+	set_pause_mode(Node.PAUSE_MODE_PROCESS)
+
 #shortcut for entering in full screen
 func _input(event):
 	if Input.is_action_just_pressed("FullScreen"):
 		OS.set_window_fullscreen(!OS.is_window_fullscreen())
-	pass
 
 func set_sound_db(value):
 	sound_db = value

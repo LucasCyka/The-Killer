@@ -15,379 +15,379 @@
 [ext_resource path="res://sprites/characters/male_1/walking_sides3.png" type="Texture" id=13]
 [ext_resource path="res://sprites/characters/male_1/walking_sides4.png" type="Texture" id=14]
 [ext_resource path="res://sprites/prototype/characters/male_iteration1_up.png" type="Texture" id=15]
-[ext_resource path="res://sprites/characters/female_3/shock_up.png" type="Texture" id=16]
-[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed4.png" type="Texture" id=17]
-[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed5.png" type="Texture" id=18]
-[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed6.png" type="Texture" id=19]
-[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed7.png" type="Texture" id=20]
-[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed8.png" type="Texture" id=21]
-[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed9.png" type="Texture" id=22]
-[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed10.png" type="Texture" id=23]
-[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed11.png" type="Texture" id=24]
-[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed12.png" type="Texture" id=25]
-[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed1.png" type="Texture" id=26]
-[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed2.png" type="Texture" id=27]
-[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed3.png" type="Texture" id=28]
-[ext_resource path="res://sprites/characters/female_1/female_anims8/sleeping1.png" type="Texture" id=29]
-[ext_resource path="res://sprites/characters/female_1/female_anims8/sleeping2.png" type="Texture" id=30]
-[ext_resource path="res://sprites/characters/female_1/female_anims8/sleeping3.png" type="Texture" id=31]
-[ext_resource path="res://sprites/characters/female_1/female_anims8/sleeping4.png" type="Texture" id=32]
-[ext_resource path="res://sprites/characters/female_1/female_anims8/sleeping5.png" type="Texture" id=33]
-[ext_resource path="res://sprites/characters/female_1/female_anims8/sleeping6.png" type="Texture" id=34]
-[ext_resource path="res://sprites/characters/female_1/crippled_down11.png" type="Texture" id=35]
-[ext_resource path="res://sprites/characters/female_1/crippled_down12.png" type="Texture" id=36]
-[ext_resource path="res://sprites/characters/female_1/crippled_down13.png" type="Texture" id=37]
-[ext_resource path="res://sprites/characters/female_1/crippled_down14.png" type="Texture" id=38]
-[ext_resource path="res://sprites/characters/female_1/crippled_down15.png" type="Texture" id=39]
-[ext_resource path="res://sprites/characters/female_4/sleeping1.png" type="Texture" id=40]
-[ext_resource path="res://sprites/characters/female_4/sleeping2.png" type="Texture" id=41]
-[ext_resource path="res://sprites/characters/female_4/sleeping3.png" type="Texture" id=42]
-[ext_resource path="res://sprites/characters/female_4/sleeping4.png" type="Texture" id=43]
-[ext_resource path="res://sprites/characters/female_4/sleeping5.png" type="Texture" id=44]
-[ext_resource path="res://sprites/characters/female_4/sleeping6.png" type="Texture" id=45]
-[ext_resource path="res://sprites/characters/female_5/panic_down1.png" type="Texture" id=46]
-[ext_resource path="res://sprites/characters/female_5/panic_down2.png" type="Texture" id=47]
-[ext_resource path="res://sprites/characters/female_5/panic_down3.png" type="Texture" id=48]
-[ext_resource path="res://sprites/characters/female_5/panic_down4.png" type="Texture" id=49]
-[ext_resource path="res://sprites/characters/male_2/shock_down.png" type="Texture" id=50]
-[ext_resource path="res://sprites/characters/female_5/shock_up.png" type="Texture" id=51]
-[ext_resource path="res://sprites/characters/male_2/walking_down1.png" type="Texture" id=52]
-[ext_resource path="res://sprites/characters/male_2/idle_side.png" type="Texture" id=53]
-[ext_resource path="res://sprites/characters/male_3/crippled_down1.png" type="Texture" id=54]
-[ext_resource path="res://sprites/characters/male_3/crippled_down2.png" type="Texture" id=55]
-[ext_resource path="res://sprites/characters/male_3/crippled_down3.png" type="Texture" id=56]
-[ext_resource path="res://sprites/characters/male_3/crippled_down4.png" type="Texture" id=57]
-[ext_resource path="res://sprites/characters/male_3/crippled_down5.png" type="Texture" id=58]
-[ext_resource path="res://sprites/prototype/characters/female_iteration1_side.png" type="Texture" id=59]
-[ext_resource path="res://sprites/characters/male_3/idle_side.png" type="Texture" id=60]
-[ext_resource path="res://sprites/characters/male_1/onbed.png" type="Texture" id=61]
-[ext_resource path="res://sprites/characters/female_3/idle_down.png" type="Texture" id=62]
-[ext_resource path="res://sprites/prototype/characters/female_iteration1_up.png" type="Texture" id=63]
-[ext_resource path="res://sprites/characters/female_1/generic_dead.png" type="Texture" id=64]
-[ext_resource path="res://sprites/characters/female_4/shock_up.png" type="Texture" id=65]
-[ext_resource path="res://sprites/characters/female_3/shock_side.png" type="Texture" id=66]
-[ext_resource path="res://sprites/characters/male_3/crippled_spinning1.png" type="Texture" id=67]
-[ext_resource path="res://sprites/characters/male_3/crippled_spinning2.png" type="Texture" id=68]
-[ext_resource path="res://sprites/characters/male_3/crippled_spinning3.png" type="Texture" id=69]
-[ext_resource path="res://sprites/characters/male_3/crippled_spinning4.png" type="Texture" id=70]
-[ext_resource path="res://sprites/characters/male_3/crippled_spinning5.png" type="Texture" id=71]
-[ext_resource path="res://sprites/characters/male_3/crippled_spinning6.png" type="Texture" id=72]
-[ext_resource path="res://sprites/characters/male_3/crippled_spinning7.png" type="Texture" id=73]
-[ext_resource path="res://sprites/characters/female_2/idle_down.png" type="Texture" id=74]
-[ext_resource path="res://sprites/characters/female_1/shock_up2.png" type="Texture" id=75]
-[ext_resource path="res://sprites/characters/female_1/female_anims7.png" type="Texture" id=76]
-[ext_resource path="res://sprites/characters/female_5/idle_down.png" type="Texture" id=77]
-[ext_resource path="res://sprites/characters/male_1/shock_side2.png" type="Texture" id=78]
-[ext_resource path="res://sprites/characters/male_1/sitting_floor.png" type="Texture" id=79]
-[ext_resource path="res://sprites/characters/male_1/crippled_down8.png" type="Texture" id=80]
-[ext_resource path="res://sprites/characters/male_1/crippled_down9.png" type="Texture" id=81]
-[ext_resource path="res://sprites/characters/male_1/crippled_down10.png" type="Texture" id=82]
-[ext_resource path="res://sprites/characters/male_1/crippled_down11.png" type="Texture" id=83]
-[ext_resource path="res://sprites/characters/male_1/crippled_down12.png" type="Texture" id=84]
-[ext_resource path="res://sprites/characters/female_4/shock_down.png" type="Texture" id=85]
-[ext_resource path="res://sprites/characters/male_1/shock_up2.png" type="Texture" id=86]
-[ext_resource path="res://sprites/characters/male_3/idle_up.png" type="Texture" id=87]
-[ext_resource path="res://sprites/characters/female_4/walking_up1.png" type="Texture" id=88]
-[ext_resource path="res://sprites/characters/female_4/walking_up2.png" type="Texture" id=89]
-[ext_resource path="res://sprites/characters/female_4/walking_up3.png" type="Texture" id=90]
-[ext_resource path="res://sprites/characters/female_4/walking_up4.png" type="Texture" id=91]
-[ext_resource path="res://sprites/characters/female_5/sleeping1.png" type="Texture" id=92]
-[ext_resource path="res://sprites/characters/female_5/sleeping2.png" type="Texture" id=93]
-[ext_resource path="res://sprites/characters/female_5/sleeping3.png" type="Texture" id=94]
-[ext_resource path="res://sprites/characters/female_5/sleeping4.png" type="Texture" id=95]
-[ext_resource path="res://sprites/characters/female_5/sleeping5.png" type="Texture" id=96]
-[ext_resource path="res://sprites/characters/female_5/sleeping6.png" type="Texture" id=97]
-[ext_resource path="res://sprites/characters/female_4/panic_down1.png" type="Texture" id=98]
-[ext_resource path="res://sprites/characters/female_4/panic_down2.png" type="Texture" id=99]
-[ext_resource path="res://sprites/characters/female_4/panic_down3.png" type="Texture" id=100]
-[ext_resource path="res://sprites/characters/female_4/panic_down4.png" type="Texture" id=101]
-[ext_resource path="res://sprites/characters/female_2/shock_up.png" type="Texture" id=102]
-[ext_resource path="res://sprites/characters/female_1/shock_down2.png" type="Texture" id=103]
-[ext_resource path="res://sprites/characters/male_3/sleepin g1.png" type="Texture" id=104]
-[ext_resource path="res://sprites/characters/male_3/sleepin g2.png" type="Texture" id=105]
-[ext_resource path="res://sprites/characters/male_3/sleepin g3.png" type="Texture" id=106]
-[ext_resource path="res://sprites/characters/male_3/sleepin g4.png" type="Texture" id=107]
-[ext_resource path="res://sprites/characters/male_3/sleepin g5.png" type="Texture" id=108]
-[ext_resource path="res://sprites/characters/male_3/sleepin g6.png" type="Texture" id=109]
-[ext_resource path="res://sprites/characters/female_2/shock_down.png" type="Texture" id=110]
-[ext_resource path="res://sprites/characters/male_3/walking_down1.png" type="Texture" id=111]
-[ext_resource path="res://sprites/characters/male_3/walking_down2.png" type="Texture" id=112]
-[ext_resource path="res://sprites/characters/male_3/walking_down3.png" type="Texture" id=113]
-[ext_resource path="res://sprites/characters/male_3/walking_down4.png" type="Texture" id=114]
-[ext_resource path="res://sprites/characters/female_1/talking_down3.png" type="Texture" id=115]
-[ext_resource path="res://sprites/characters/female_1/talking_down4.png" type="Texture" id=116]
-[ext_resource path="res://sprites/characters/female_1/talking_down5.png" type="Texture" id=117]
-[ext_resource path="res://sprites/characters/female_1/talking_down6.png" type="Texture" id=118]
-[ext_resource path="res://sprites/characters/female_5/idle_side.png" type="Texture" id=119]
-[ext_resource path="res://sprites/characters/female_3/panic_down1.png" type="Texture" id=120]
-[ext_resource path="res://sprites/characters/female_3/panic_down2.png" type="Texture" id=121]
-[ext_resource path="res://sprites/characters/female_3/panic_down3.png" type="Texture" id=122]
-[ext_resource path="res://sprites/characters/female_3/panic_down4.png" type="Texture" id=123]
-[ext_resource path="res://sprites/characters/male_3/walking_side1.png" type="Texture" id=124]
-[ext_resource path="res://sprites/characters/male_3/walking_side2.png" type="Texture" id=125]
-[ext_resource path="res://sprites/characters/male_3/walking_side3.png" type="Texture" id=126]
-[ext_resource path="res://sprites/characters/male_3/walking_side4.png" type="Texture" id=127]
-[ext_resource path="res://sprites/characters/male_1/panic_down8.png" type="Texture" id=128]
-[ext_resource path="res://sprites/characters/male_1/panic_down9.png" type="Texture" id=129]
-[ext_resource path="res://sprites/characters/male_1/panic_down10.png" type="Texture" id=130]
-[ext_resource path="res://sprites/characters/male_1/panic_down11.png" type="Texture" id=131]
-[ext_resource path="res://sprites/characters/female_1/talking_right3.png" type="Texture" id=132]
-[ext_resource path="res://sprites/characters/female_1/talking_right4.png" type="Texture" id=133]
-[ext_resource path="res://sprites/characters/female_1/talking_right5.png" type="Texture" id=134]
-[ext_resource path="res://sprites/characters/female_1/talking_right6.png" type="Texture" id=135]
-[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims5.png" type="Texture" id=136]
-[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims6.png" type="Texture" id=137]
-[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims7.png" type="Texture" id=138]
-[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims8.png" type="Texture" id=139]
-[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims9.png" type="Texture" id=140]
-[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims10.png" type="Texture" id=141]
-[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims11.png" type="Texture" id=142]
-[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims12.png" type="Texture" id=143]
-[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims13.png" type="Texture" id=144]
-[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims14.png" type="Texture" id=145]
-[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims15.png" type="Texture" id=146]
-[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims16.png" type="Texture" id=147]
-[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims17.png" type="Texture" id=148]
-[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims18.png" type="Texture" id=149]
-[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims19.png" type="Texture" id=150]
-[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims20.png" type="Texture" id=151]
-[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims21.png" type="Texture" id=152]
-[ext_resource path="res://sprites/characters/female_1/panic_down10.png" type="Texture" id=153]
-[ext_resource path="res://sprites/characters/female_1/panic_down11.png" type="Texture" id=154]
-[ext_resource path="res://sprites/characters/female_1/panic_down12.png" type="Texture" id=155]
-[ext_resource path="res://sprites/characters/female_1/panic_down13.png" type="Texture" id=156]
-[ext_resource path="res://sprites/characters/female_2/idle_side.png" type="Texture" id=157]
-[ext_resource path="res://sprites/characters/female_3/sleeping1.png" type="Texture" id=158]
-[ext_resource path="res://sprites/characters/female_3/sleeping2.png" type="Texture" id=159]
-[ext_resource path="res://sprites/characters/female_3/sleeping3.png" type="Texture" id=160]
-[ext_resource path="res://sprites/characters/female_3/sleeping4.png" type="Texture" id=161]
-[ext_resource path="res://sprites/characters/female_3/sleeping5.png" type="Texture" id=162]
-[ext_resource path="res://sprites/characters/female_3/sleeping6.png" type="Texture" id=163]
-[ext_resource path="res://sprites/characters/female_1/shock_side2.png" type="Texture" id=164]
-[ext_resource path="res://sprites/characters/male_1/crippled_down13.png" type="Texture" id=165]
-[ext_resource path="res://sprites/characters/male_1/crippled_down14.png" type="Texture" id=166]
-[ext_resource path="res://sprites/characters/male_1/crippled_down15.png" type="Texture" id=167]
-[ext_resource path="res://sprites/characters/male_1/crippled_down16.png" type="Texture" id=168]
-[ext_resource path="res://sprites/characters/male_1/crippled_down17.png" type="Texture" id=169]
-[ext_resource path="res://sprites/characters/male_1/crippled_down18.png" type="Texture" id=170]
-[ext_resource path="res://sprites/characters/male_1/crippled_down19.png" type="Texture" id=171]
-[ext_resource path="res://sprites/characters/female_2/shock_side.png" type="Texture" id=172]
-[ext_resource path="res://sprites/characters/male_2/shock_up.png" type="Texture" id=173]
-[ext_resource path="res://sprites/characters/male_1/generic_dead.png" type="Texture" id=174]
-[ext_resource path="res://sprites/characters/male_3/walking_up1.png" type="Texture" id=175]
-[ext_resource path="res://sprites/characters/male_3/walking_up2.png" type="Texture" id=176]
-[ext_resource path="res://sprites/characters/male_3/walking_up3.png" type="Texture" id=177]
-[ext_resource path="res://sprites/characters/male_3/walking_up4.png" type="Texture" id=178]
-[ext_resource path="res://sprites/characters/female_4/shock_side.png" type="Texture" id=179]
-[ext_resource path="res://sprites/characters/female_1/panic_side10.png" type="Texture" id=180]
-[ext_resource path="res://sprites/characters/female_1/panic_side11.png" type="Texture" id=181]
-[ext_resource path="res://sprites/characters/female_1/panic_side12.png" type="Texture" id=182]
-[ext_resource path="res://sprites/characters/female_1/panic_side13.png" type="Texture" id=183]
-[ext_resource path="res://sprites/characters/female_1/crippled_down16.png" type="Texture" id=184]
-[ext_resource path="res://sprites/characters/female_1/crippled_down17.png" type="Texture" id=185]
-[ext_resource path="res://sprites/characters/female_1/crippled_down18.png" type="Texture" id=186]
-[ext_resource path="res://sprites/characters/female_1/crippled_down19.png" type="Texture" id=187]
-[ext_resource path="res://sprites/characters/female_1/crippled_down20.png" type="Texture" id=188]
-[ext_resource path="res://sprites/characters/female_1/crippled_down21.png" type="Texture" id=189]
-[ext_resource path="res://sprites/characters/female_1/crippled_down22.png" type="Texture" id=190]
-[ext_resource path="res://sprites/characters/male_3/idle_down.png" type="Texture" id=191]
-[ext_resource path="res://sprites/characters/female_5/walking_up1.png" type="Texture" id=192]
-[ext_resource path="res://sprites/characters/female_5/walking_up2.png" type="Texture" id=193]
-[ext_resource path="res://sprites/characters/female_5/walking_up3.png" type="Texture" id=194]
-[ext_resource path="res://sprites/characters/female_5/walking_up4.png" type="Texture" id=195]
-[ext_resource path="res://sprites/characters/female_4/idle_side.png" type="Texture" id=196]
-[ext_resource path="res://sprites/characters/male_2/panic_sides1.png" type="Texture" id=197]
-[ext_resource path="res://sprites/characters/male_2/panic_sides2.png" type="Texture" id=198]
-[ext_resource path="res://sprites/characters/male_2/panic_sides3.png" type="Texture" id=199]
-[ext_resource path="res://sprites/characters/male_2/panic_sides4.png" type="Texture" id=200]
-[ext_resource path="res://sprites/characters/female_2/panic_down1.png" type="Texture" id=201]
-[ext_resource path="res://sprites/characters/female_2/panic_down2.png" type="Texture" id=202]
-[ext_resource path="res://sprites/characters/female_2/panic_down3.png" type="Texture" id=203]
-[ext_resource path="res://sprites/characters/female_2/panic_down4.png" type="Texture" id=204]
-[ext_resource path="res://sprites/characters/male_1/sleeping.1.png" type="Texture" id=205]
-[ext_resource path="res://sprites/characters/male_1/sleeping.2.png" type="Texture" id=206]
-[ext_resource path="res://sprites/characters/male_1/sleeping.3.png" type="Texture" id=207]
-[ext_resource path="res://sprites/characters/male_1/sleeping.4.png" type="Texture" id=208]
-[ext_resource path="res://sprites/characters/male_1/sleeping.5.png" type="Texture" id=209]
-[ext_resource path="res://sprites/characters/male_1/panic_side12.png" type="Texture" id=210]
-[ext_resource path="res://sprites/characters/male_1/ontable.png" type="Texture" id=211]
-[ext_resource path="res://sprites/characters/male_2/walking_up_anims1.png" type="Texture" id=212]
-[ext_resource path="res://sprites/characters/male_2/walking_up_anims2.png" type="Texture" id=213]
-[ext_resource path="res://sprites/characters/male_2/walking_up_anims3.png" type="Texture" id=214]
-[ext_resource path="res://sprites/characters/male_2/walking_up_anims4.png" type="Texture" id=215]
-[ext_resource path="res://sprites/characters/male_1/male_fishing1.png" type="Texture" id=216]
-[ext_resource path="res://sprites/characters/male_1/male_fishing2.png" type="Texture" id=217]
-[ext_resource path="res://sprites/characters/male_1/male_fishing3.png" type="Texture" id=218]
-[ext_resource path="res://sprites/characters/male_1/male_fishing4.png" type="Texture" id=219]
-[ext_resource path="res://sprites/characters/male_1/male_fishing5.png" type="Texture" id=220]
-[ext_resource path="res://sprites/characters/male_1/male_fishing6.png" type="Texture" id=221]
-[ext_resource path="res://sprites/characters/male_1/male_fishing7.png" type="Texture" id=222]
-[ext_resource path="res://sprites/characters/male_1/male_fishing8.png" type="Texture" id=223]
-[ext_resource path="res://sprites/characters/male_1/male_fishing9.png" type="Texture" id=224]
-[ext_resource path="res://sprites/characters/male_1/male_fishing10.png" type="Texture" id=225]
-[ext_resource path="res://sprites/characters/male_1/onpicnic.png" type="Texture" id=226]
-[ext_resource path="res://sprites/characters/female_3/idle_side.png" type="Texture" id=227]
-[ext_resource path="res://sprites/characters/female_3/panic_side1.png" type="Texture" id=228]
-[ext_resource path="res://sprites/characters/female_3/panic_side2.png" type="Texture" id=229]
-[ext_resource path="res://sprites/characters/female_3/panic_side3.png" type="Texture" id=230]
-[ext_resource path="res://sprites/characters/female_3/panic_side4.png" type="Texture" id=231]
-[ext_resource path="res://sprites/characters/male_2/shock_sides.png" type="Texture" id=232]
-[ext_resource path="res://sprites/characters/female_4/idle_down.png" type="Texture" id=233]
-[ext_resource path="res://sprites/characters/female_2/walking_side1.png" type="Texture" id=234]
-[ext_resource path="res://sprites/characters/female_2/walking_side2.png" type="Texture" id=235]
-[ext_resource path="res://sprites/characters/female_2/walking_side3.png" type="Texture" id=236]
-[ext_resource path="res://sprites/characters/female_2/walking_side4.png" type="Texture" id=237]
-[ext_resource path="res://sprites/characters/female_1/female_anims6/female_anims6.png" type="Texture" id=238]
-[ext_resource path="res://sprites/characters/female_1/female_anims6/female_anims7.png" type="Texture" id=239]
-[ext_resource path="res://sprites/characters/female_1/female_anims6/female_anims8.png" type="Texture" id=240]
-[ext_resource path="res://sprites/characters/female_1/female_anims6/female_anims9.png" type="Texture" id=241]
-[ext_resource path="res://sprites/characters/female_1/female_anims6/female_anims10.png" type="Texture" id=242]
-[ext_resource path="res://sprites/characters/female_1/female_anims6/female_anims11.png" type="Texture" id=243]
-[ext_resource path="res://sprites/characters/female_2/panic_side1.png" type="Texture" id=244]
-[ext_resource path="res://sprites/characters/female_2/panic_side2.png" type="Texture" id=245]
-[ext_resource path="res://sprites/characters/female_2/panic_side3.png" type="Texture" id=246]
-[ext_resource path="res://sprites/characters/female_2/panic_side4.png" type="Texture" id=247]
-[ext_resource path="res://sprites/characters/male_2/sleeping1.png" type="Texture" id=248]
-[ext_resource path="res://sprites/characters/male_2/sleeping2.png" type="Texture" id=249]
-[ext_resource path="res://sprites/characters/male_2/sleeping3.png" type="Texture" id=250]
-[ext_resource path="res://sprites/characters/male_2/sleeping4.png" type="Texture" id=251]
-[ext_resource path="res://sprites/characters/male_2/sleeping5.png" type="Texture" id=252]
-[ext_resource path="res://sprites/characters/male_2/sleeping6.png" type="Texture" id=253]
-[ext_resource path="res://sprites/characters/male_2/panic_down1.png" type="Texture" id=254]
-[ext_resource path="res://sprites/characters/male_2/panic_down2.png" type="Texture" id=255]
-[ext_resource path="res://sprites/characters/male_2/panic_down3.png" type="Texture" id=256]
-[ext_resource path="res://sprites/characters/male_2/panic_down4.png" type="Texture" id=257]
-[ext_resource path="res://sprites/characters/female_3/idle_up.png" type="Texture" id=258]
-[ext_resource path="res://sprites/characters/male_1/talking_right3.png" type="Texture" id=259]
-[ext_resource path="res://sprites/characters/male_1/talking_right4.png" type="Texture" id=260]
-[ext_resource path="res://sprites/characters/male_1/talking_right5.png" type="Texture" id=261]
-[ext_resource path="res://sprites/characters/male_1/talking_right6.png" type="Texture" id=262]
-[ext_resource path="res://sprites/characters/female_1/walking_down1.png" type="Texture" id=263]
-[ext_resource path="res://sprites/characters/female_1/walking_down2.png" type="Texture" id=264]
-[ext_resource path="res://sprites/characters/female_1/walking_down3.png" type="Texture" id=265]
-[ext_resource path="res://sprites/characters/female_1/walking_down4.png" type="Texture" id=266]
-[ext_resource path="res://sprites/characters/female_2/sleeping1.png" type="Texture" id=267]
-[ext_resource path="res://sprites/characters/female_2/sleeping2.png" type="Texture" id=268]
-[ext_resource path="res://sprites/characters/female_2/sleeping3.png" type="Texture" id=269]
-[ext_resource path="res://sprites/characters/female_2/sleeping4.png" type="Texture" id=270]
-[ext_resource path="res://sprites/characters/female_2/sleeping5.png" type="Texture" id=271]
-[ext_resource path="res://sprites/characters/female_2/sleeping6.png" type="Texture" id=272]
-[ext_resource path="res://sprites/characters/female_2/idle_up.png" type="Texture" id=273]
-[ext_resource path="res://sprites/characters/female_4/walking_down1.png" type="Texture" id=274]
-[ext_resource path="res://sprites/characters/female_4/walking_down2.png" type="Texture" id=275]
-[ext_resource path="res://sprites/characters/female_4/walking_down3.png" type="Texture" id=276]
-[ext_resource path="res://sprites/characters/female_4/walking_down4.png" type="Texture" id=277]
-[ext_resource path="res://sprites/characters/female_4/panic_side1.png" type="Texture" id=278]
-[ext_resource path="res://sprites/characters/female_4/panic_side2.png" type="Texture" id=279]
-[ext_resource path="res://sprites/characters/female_4/panic_side3.png" type="Texture" id=280]
-[ext_resource path="res://sprites/characters/female_4/panic_side4.png" type="Texture" id=281]
-[ext_resource path="res://sprites/characters/female_4/naked.png" type="Texture" id=282]
-[ext_resource path="res://sprites/characters/male_1/panic_side8.png" type="Texture" id=283]
-[ext_resource path="res://sprites/characters/male_1/panic_side9.png" type="Texture" id=284]
-[ext_resource path="res://sprites/characters/male_1/panic_side10.png" type="Texture" id=285]
-[ext_resource path="res://sprites/characters/male_1/panic_side11.png" type="Texture" id=286]
-[ext_resource path="res://sprites/characters/female_3/shock_down.png" type="Texture" id=287]
-[ext_resource path="res://sprites/characters/female_5/shock_down.png" type="Texture" id=288]
-[ext_resource path="res://sprites/prototype/characters/female_iteration1.png" type="Texture" id=289]
-[ext_resource path="res://sprites/characters/female_4/idle_up.png" type="Texture" id=290]
-[ext_resource path="res://sprites/characters/female_3/walking_down1.png" type="Texture" id=291]
-[ext_resource path="res://sprites/characters/female_3/walking_down2.png" type="Texture" id=292]
-[ext_resource path="res://sprites/characters/female_3/walking_down3.png" type="Texture" id=293]
-[ext_resource path="res://sprites/characters/female_3/walking_down4.png" type="Texture" id=294]
-[ext_resource path="res://sprites/characters/female_3/walking_up1.png" type="Texture" id=295]
-[ext_resource path="res://sprites/characters/female_3/walking_up2.png" type="Texture" id=296]
-[ext_resource path="res://sprites/characters/female_3/walking_up3.png" type="Texture" id=297]
-[ext_resource path="res://sprites/characters/female_3/walking_up4.png" type="Texture" id=298]
-[ext_resource path="res://sprites/characters/female_5/panic_side1.png" type="Texture" id=299]
-[ext_resource path="res://sprites/characters/female_5/panic_side2.png" type="Texture" id=300]
-[ext_resource path="res://sprites/characters/female_5/panic_side3.png" type="Texture" id=301]
-[ext_resource path="res://sprites/characters/female_5/panic_side4.png" type="Texture" id=302]
-[ext_resource path="res://sprites/characters/male_2/walking_sides1.png" type="Texture" id=303]
-[ext_resource path="res://sprites/characters/male_2/walking_sides2.png" type="Texture" id=304]
-[ext_resource path="res://sprites/characters/male_2/walking_sides3.png" type="Texture" id=305]
-[ext_resource path="res://sprites/characters/male_2/walking_sides4.png" type="Texture" id=306]
-[ext_resource path="res://sprites/characters/female_5/walking_down1.png" type="Texture" id=307]
-[ext_resource path="res://sprites/characters/female_5/walking_down2.png" type="Texture" id=308]
-[ext_resource path="res://sprites/characters/female_5/walking_down3.png" type="Texture" id=309]
-[ext_resource path="res://sprites/characters/female_5/walking_down4.png" type="Texture" id=310]
-[ext_resource path="res://sprites/characters/male_1/talking_down3.png" type="Texture" id=311]
-[ext_resource path="res://sprites/characters/male_1/talking_down4.png" type="Texture" id=312]
-[ext_resource path="res://sprites/characters/male_1/talking_down5.png" type="Texture" id=313]
-[ext_resource path="res://sprites/characters/male_1/talking_down6.png" type="Texture" id=314]
-[ext_resource path="res://sprites/characters/female_3/walking_side1.png" type="Texture" id=315]
-[ext_resource path="res://sprites/characters/female_3/walking_side2.png" type="Texture" id=316]
-[ext_resource path="res://sprites/characters/female_3/walking_side3.png" type="Texture" id=317]
-[ext_resource path="res://sprites/characters/female_3/walking_side4.png" type="Texture" id=318]
-[ext_resource path="res://sprites/characters/female_5/shock_side.png" type="Texture" id=319]
-[ext_resource path="res://sprites/characters/female_1/walking_up1.png" type="Texture" id=320]
-[ext_resource path="res://sprites/characters/female_1/walking_up2.png" type="Texture" id=321]
-[ext_resource path="res://sprites/characters/female_1/walking_up3.png" type="Texture" id=322]
-[ext_resource path="res://sprites/characters/female_1/walking_up4.png" type="Texture" id=323]
-[ext_resource path="res://sprites/characters/female_1/walking_side1.png" type="Texture" id=324]
-[ext_resource path="res://sprites/characters/female_1/walking_side2.png" type="Texture" id=325]
-[ext_resource path="res://sprites/characters/female_1/walking_side3.png" type="Texture" id=326]
-[ext_resource path="res://sprites/characters/female_1/walking_side4.png" type="Texture" id=327]
-[ext_resource path="res://sprites/characters/female_5/idle_up.png" type="Texture" id=328]
-[ext_resource path="res://sprites/characters/female_2/walking_up1.png" type="Texture" id=329]
-[ext_resource path="res://sprites/characters/female_2/walking_up2.png" type="Texture" id=330]
-[ext_resource path="res://sprites/characters/female_2/walking_up3.png" type="Texture" id=331]
-[ext_resource path="res://sprites/characters/female_2/walking_up4.png" type="Texture" id=332]
-[ext_resource path="res://sprites/characters/female_2/walking_down1.png" type="Texture" id=333]
-[ext_resource path="res://sprites/characters/female_2/walking_down2.png" type="Texture" id=334]
-[ext_resource path="res://sprites/characters/female_2/walking_down3.png" type="Texture" id=335]
-[ext_resource path="res://sprites/characters/female_2/walking_down4.png" type="Texture" id=336]
-[ext_resource path="res://sprites/characters/male_2/walking_down2.png" type="Texture" id=337]
-[ext_resource path="res://sprites/characters/male_2/walking_down3.png" type="Texture" id=338]
-[ext_resource path="res://sprites/characters/male_2/walking_down4.png" type="Texture" id=339]
-[ext_resource path="res://sprites/characters/female_4/walking_side1.png" type="Texture" id=340]
-[ext_resource path="res://sprites/characters/female_4/walking_side2.png" type="Texture" id=341]
-[ext_resource path="res://sprites/characters/female_4/walking_side3.png" type="Texture" id=342]
-[ext_resource path="res://sprites/characters/female_4/walking_side4.png" type="Texture" id=343]
-[ext_resource path="res://sprites/characters/male_1/panic_side13.png" type="Texture" id=344]
-[ext_resource path="res://sprites/characters/male_1/panic_side14.png" type="Texture" id=345]
-[ext_resource path="res://sprites/characters/male_1/panic_side15.png" type="Texture" id=346]
-[ext_resource path="res://sprites/characters/female_5/walking_side1.png" type="Texture" id=347]
-[ext_resource path="res://sprites/characters/female_5/walking_side2.png" type="Texture" id=348]
-[ext_resource path="res://sprites/characters/female_5/walking_side3.png" type="Texture" id=349]
-[ext_resource path="res://sprites/characters/female_5/walking_side4.png" type="Texture" id=350]
-[ext_resource path="res://sprites/characters/male_1/shock_down2.png" type="Texture" id=351]
-[ext_resource path="res://sprites/characters/male_2/working_anims1.png" type="Texture" id=352]
-[ext_resource path="res://sprites/characters/male_2/working_anims2.png" type="Texture" id=353]
-[ext_resource path="res://sprites/characters/male_2/working_anims3.png" type="Texture" id=354]
-[ext_resource path="res://sprites/characters/male_2/working_anims4.png" type="Texture" id=355]
-[ext_resource path="res://sprites/characters/male_2/working_anims5.png" type="Texture" id=356]
-[ext_resource path="res://sprites/characters/male_2/working_anims6.png" type="Texture" id=357]
-[ext_resource path="res://sprites/characters/male_2/working_anims7.png" type="Texture" id=358]
-[ext_resource path="res://sprites/characters/female_5/talking_side1.png" type="Texture" id=359]
-[ext_resource path="res://sprites/characters/female_5/talking_side2.png" type="Texture" id=360]
-[ext_resource path="res://sprites/characters/female_5/talking_side3.png" type="Texture" id=361]
-[ext_resource path="res://sprites/characters/female_5/talking_side4.png" type="Texture" id=362]
-[ext_resource path="res://sprites/characters/female_5/talking_downn1.png" type="Texture" id=363]
-[ext_resource path="res://sprites/characters/female_5/talking_downn2.png" type="Texture" id=364]
-[ext_resource path="res://sprites/characters/female_5/talking_downn3.png" type="Texture" id=365]
-[ext_resource path="res://sprites/characters/female_5/talking_downn4.png" type="Texture" id=366]
-[ext_resource path="res://sprites/characters/female_4/talking_sides1.png" type="Texture" id=367]
-[ext_resource path="res://sprites/characters/female_4/talking_sides2.png" type="Texture" id=368]
-[ext_resource path="res://sprites/characters/female_4/talking_sides3.png" type="Texture" id=369]
-[ext_resource path="res://sprites/characters/female_4/talking_sides4.png" type="Texture" id=370]
-[ext_resource path="res://sprites/characters/female_3/working_anims1.png" type="Texture" id=371]
-[ext_resource path="res://sprites/characters/female_3/working_anims2.png" type="Texture" id=372]
-[ext_resource path="res://sprites/characters/female_3/working_anims3.png" type="Texture" id=373]
-[ext_resource path="res://sprites/characters/female_3/working_anims4.png" type="Texture" id=374]
-[ext_resource path="res://sprites/characters/female_3/working_anims5.png" type="Texture" id=375]
-[ext_resource path="res://sprites/characters/female_3/working_anims6.png" type="Texture" id=376]
-[ext_resource path="res://sprites/characters/female_3/working_anims7.png" type="Texture" id=377]
-[ext_resource path="res://sprites/characters/female_3/working_anims8.png" type="Texture" id=378]
-[ext_resource path="res://sprites/characters/female_3/working_anims9.png" type="Texture" id=379]
-[ext_resource path="res://sprites/characters/female_3/working_anims10.png" type="Texture" id=380]
-[ext_resource path="res://sprites/characters/female_3/working_anims11.png" type="Texture" id=381]
-[ext_resource path="res://sprites/characters/female_3/working_anims12.png" type="Texture" id=382]
-[ext_resource path="res://sprites/characters/female_3/working_anims13.png" type="Texture" id=383]
-[ext_resource path="res://sprites/characters/female_3/working_anims14.png" type="Texture" id=384]
-[ext_resource path="res://sprites/characters/female_4/talking_down1.png" type="Texture" id=385]
-[ext_resource path="res://sprites/characters/female_4/talking_down2.png" type="Texture" id=386]
-[ext_resource path="res://sprites/characters/female_4/talking_down3.png" type="Texture" id=387]
-[ext_resource path="res://sprites/characters/female_4/talking_down4.png" type="Texture" id=388]
+[ext_resource path="res://sprites/characters/female_5/idle_up.png" type="Texture" id=16]
+[ext_resource path="res://sprites/characters/female_4/talking_sides1.png" type="Texture" id=17]
+[ext_resource path="res://sprites/characters/female_4/talking_sides2.png" type="Texture" id=18]
+[ext_resource path="res://sprites/characters/female_4/talking_sides3.png" type="Texture" id=19]
+[ext_resource path="res://sprites/characters/female_4/talking_sides4.png" type="Texture" id=20]
+[ext_resource path="res://sprites/characters/male_3/idle_side.png" type="Texture" id=21]
+[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed1.png" type="Texture" id=22]
+[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed2.png" type="Texture" id=23]
+[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed3.png" type="Texture" id=24]
+[ext_resource path="res://sprites/characters/female_2/sleeping1.png" type="Texture" id=25]
+[ext_resource path="res://sprites/characters/female_2/sleeping2.png" type="Texture" id=26]
+[ext_resource path="res://sprites/characters/female_2/sleeping3.png" type="Texture" id=27]
+[ext_resource path="res://sprites/characters/female_2/sleeping4.png" type="Texture" id=28]
+[ext_resource path="res://sprites/characters/female_2/sleeping5.png" type="Texture" id=29]
+[ext_resource path="res://sprites/characters/female_2/sleeping6.png" type="Texture" id=30]
+[ext_resource path="res://sprites/characters/female_2/shock_up.png" type="Texture" id=31]
+[ext_resource path="res://sprites/characters/female_3/working_anims1.png" type="Texture" id=32]
+[ext_resource path="res://sprites/characters/female_3/working_anims2.png" type="Texture" id=33]
+[ext_resource path="res://sprites/characters/female_3/working_anims3.png" type="Texture" id=34]
+[ext_resource path="res://sprites/characters/female_3/working_anims4.png" type="Texture" id=35]
+[ext_resource path="res://sprites/characters/female_3/working_anims5.png" type="Texture" id=36]
+[ext_resource path="res://sprites/characters/female_3/working_anims6.png" type="Texture" id=37]
+[ext_resource path="res://sprites/characters/female_3/working_anims7.png" type="Texture" id=38]
+[ext_resource path="res://sprites/characters/female_3/working_anims8.png" type="Texture" id=39]
+[ext_resource path="res://sprites/characters/female_3/working_anims9.png" type="Texture" id=40]
+[ext_resource path="res://sprites/characters/female_3/working_anims10.png" type="Texture" id=41]
+[ext_resource path="res://sprites/characters/female_3/working_anims11.png" type="Texture" id=42]
+[ext_resource path="res://sprites/characters/female_3/working_anims12.png" type="Texture" id=43]
+[ext_resource path="res://sprites/characters/female_3/working_anims13.png" type="Texture" id=44]
+[ext_resource path="res://sprites/characters/female_3/working_anims14.png" type="Texture" id=45]
+[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed4.png" type="Texture" id=46]
+[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed5.png" type="Texture" id=47]
+[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed6.png" type="Texture" id=48]
+[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed7.png" type="Texture" id=49]
+[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed8.png" type="Texture" id=50]
+[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed9.png" type="Texture" id=51]
+[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed10.png" type="Texture" id=52]
+[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed11.png" type="Texture" id=53]
+[ext_resource path="res://sprites/characters/female_1/female_anims4/onbed12.png" type="Texture" id=54]
+[ext_resource path="res://sprites/characters/female_5/walking_down1.png" type="Texture" id=55]
+[ext_resource path="res://sprites/characters/female_5/walking_down2.png" type="Texture" id=56]
+[ext_resource path="res://sprites/characters/female_5/walking_down3.png" type="Texture" id=57]
+[ext_resource path="res://sprites/characters/female_5/walking_down4.png" type="Texture" id=58]
+[ext_resource path="res://sprites/characters/female_4/idle_down.png" type="Texture" id=59]
+[ext_resource path="res://sprites/characters/male_3/idle_up.png" type="Texture" id=60]
+[ext_resource path="res://sprites/characters/male_1/sitting_floor.png" type="Texture" id=61]
+[ext_resource path="res://sprites/characters/female_3/sleeping1.png" type="Texture" id=62]
+[ext_resource path="res://sprites/characters/female_3/sleeping2.png" type="Texture" id=63]
+[ext_resource path="res://sprites/characters/female_3/sleeping3.png" type="Texture" id=64]
+[ext_resource path="res://sprites/characters/female_3/sleeping4.png" type="Texture" id=65]
+[ext_resource path="res://sprites/characters/female_3/sleeping5.png" type="Texture" id=66]
+[ext_resource path="res://sprites/characters/female_3/sleeping6.png" type="Texture" id=67]
+[ext_resource path="res://sprites/characters/male_2/working_anims1.png" type="Texture" id=68]
+[ext_resource path="res://sprites/characters/male_2/working_anims2.png" type="Texture" id=69]
+[ext_resource path="res://sprites/characters/male_2/working_anims3.png" type="Texture" id=70]
+[ext_resource path="res://sprites/characters/male_2/working_anims4.png" type="Texture" id=71]
+[ext_resource path="res://sprites/characters/male_2/working_anims5.png" type="Texture" id=72]
+[ext_resource path="res://sprites/characters/male_2/working_anims6.png" type="Texture" id=73]
+[ext_resource path="res://sprites/characters/male_2/working_anims7.png" type="Texture" id=74]
+[ext_resource path="res://sprites/characters/female_1/walking_side1.png" type="Texture" id=75]
+[ext_resource path="res://sprites/characters/female_1/walking_side2.png" type="Texture" id=76]
+[ext_resource path="res://sprites/characters/female_1/walking_side3.png" type="Texture" id=77]
+[ext_resource path="res://sprites/characters/female_1/walking_side4.png" type="Texture" id=78]
+[ext_resource path="res://sprites/characters/female_2/walking_up1.png" type="Texture" id=79]
+[ext_resource path="res://sprites/characters/female_2/walking_up2.png" type="Texture" id=80]
+[ext_resource path="res://sprites/characters/female_2/walking_up3.png" type="Texture" id=81]
+[ext_resource path="res://sprites/characters/female_2/walking_up4.png" type="Texture" id=82]
+[ext_resource path="res://sprites/characters/male_2/sleeping1.png" type="Texture" id=83]
+[ext_resource path="res://sprites/characters/male_2/sleeping2.png" type="Texture" id=84]
+[ext_resource path="res://sprites/characters/male_2/sleeping3.png" type="Texture" id=85]
+[ext_resource path="res://sprites/characters/male_2/sleeping4.png" type="Texture" id=86]
+[ext_resource path="res://sprites/characters/male_2/sleeping5.png" type="Texture" id=87]
+[ext_resource path="res://sprites/characters/male_2/sleeping6.png" type="Texture" id=88]
+[ext_resource path="res://sprites/characters/male_1/crippled_down8.png" type="Texture" id=89]
+[ext_resource path="res://sprites/characters/male_1/crippled_down9.png" type="Texture" id=90]
+[ext_resource path="res://sprites/characters/male_1/crippled_down10.png" type="Texture" id=91]
+[ext_resource path="res://sprites/characters/male_1/crippled_down11.png" type="Texture" id=92]
+[ext_resource path="res://sprites/characters/male_1/crippled_down12.png" type="Texture" id=93]
+[ext_resource path="res://sprites/characters/male_3/walking_down1.png" type="Texture" id=94]
+[ext_resource path="res://sprites/characters/male_3/walking_down2.png" type="Texture" id=95]
+[ext_resource path="res://sprites/characters/male_3/walking_down3.png" type="Texture" id=96]
+[ext_resource path="res://sprites/characters/male_3/walking_down4.png" type="Texture" id=97]
+[ext_resource path="res://sprites/characters/female_1/female_anims8/sleeping1.png" type="Texture" id=98]
+[ext_resource path="res://sprites/characters/female_1/female_anims8/sleeping2.png" type="Texture" id=99]
+[ext_resource path="res://sprites/characters/female_1/female_anims8/sleeping3.png" type="Texture" id=100]
+[ext_resource path="res://sprites/characters/female_1/female_anims8/sleeping4.png" type="Texture" id=101]
+[ext_resource path="res://sprites/characters/female_1/female_anims8/sleeping5.png" type="Texture" id=102]
+[ext_resource path="res://sprites/characters/female_1/female_anims8/sleeping6.png" type="Texture" id=103]
+[ext_resource path="res://sprites/characters/male_3/crippled_down1.png" type="Texture" id=104]
+[ext_resource path="res://sprites/characters/male_3/crippled_down2.png" type="Texture" id=105]
+[ext_resource path="res://sprites/characters/male_3/crippled_down3.png" type="Texture" id=106]
+[ext_resource path="res://sprites/characters/male_3/crippled_down4.png" type="Texture" id=107]
+[ext_resource path="res://sprites/characters/male_3/crippled_down5.png" type="Texture" id=108]
+[ext_resource path="res://sprites/characters/female_4/walking_up1.png" type="Texture" id=109]
+[ext_resource path="res://sprites/characters/female_4/walking_up2.png" type="Texture" id=110]
+[ext_resource path="res://sprites/characters/female_4/walking_up3.png" type="Texture" id=111]
+[ext_resource path="res://sprites/characters/female_4/walking_up4.png" type="Texture" id=112]
+[ext_resource path="res://sprites/characters/female_4/walking_down1.png" type="Texture" id=113]
+[ext_resource path="res://sprites/characters/female_4/walking_down2.png" type="Texture" id=114]
+[ext_resource path="res://sprites/characters/female_4/walking_down3.png" type="Texture" id=115]
+[ext_resource path="res://sprites/characters/female_4/walking_down4.png" type="Texture" id=116]
+[ext_resource path="res://sprites/characters/female_4/walking_side1.png" type="Texture" id=117]
+[ext_resource path="res://sprites/characters/female_4/walking_side2.png" type="Texture" id=118]
+[ext_resource path="res://sprites/characters/female_4/walking_side3.png" type="Texture" id=119]
+[ext_resource path="res://sprites/characters/female_4/walking_side4.png" type="Texture" id=120]
+[ext_resource path="res://sprites/characters/female_5/shock_up.png" type="Texture" id=121]
+[ext_resource path="res://sprites/characters/female_3/idle_side.png" type="Texture" id=122]
+[ext_resource path="res://sprites/characters/female_2/walking_side1.png" type="Texture" id=123]
+[ext_resource path="res://sprites/characters/female_2/walking_side2.png" type="Texture" id=124]
+[ext_resource path="res://sprites/characters/female_2/walking_side3.png" type="Texture" id=125]
+[ext_resource path="res://sprites/characters/female_2/walking_side4.png" type="Texture" id=126]
+[ext_resource path="res://sprites/characters/male_2/walking_down1.png" type="Texture" id=127]
+[ext_resource path="res://sprites/characters/male_2/walking_down2.png" type="Texture" id=128]
+[ext_resource path="res://sprites/characters/male_2/walking_down3.png" type="Texture" id=129]
+[ext_resource path="res://sprites/characters/male_2/walking_down4.png" type="Texture" id=130]
+[ext_resource path="res://sprites/characters/female_1/shock_up2.png" type="Texture" id=131]
+[ext_resource path="res://sprites/characters/female_3/shock_side.png" type="Texture" id=132]
+[ext_resource path="res://sprites/characters/male_2/shock_down.png" type="Texture" id=133]
+[ext_resource path="res://sprites/characters/female_5/idle_down.png" type="Texture" id=134]
+[ext_resource path="res://sprites/characters/male_1/shock_up2.png" type="Texture" id=135]
+[ext_resource path="res://sprites/characters/female_2/idle_side.png" type="Texture" id=136]
+[ext_resource path="res://sprites/characters/female_5/talking_downn1.png" type="Texture" id=137]
+[ext_resource path="res://sprites/characters/female_5/talking_downn2.png" type="Texture" id=138]
+[ext_resource path="res://sprites/characters/female_5/talking_downn3.png" type="Texture" id=139]
+[ext_resource path="res://sprites/characters/female_5/talking_downn4.png" type="Texture" id=140]
+[ext_resource path="res://sprites/characters/male_1/generic_dead.png" type="Texture" id=141]
+[ext_resource path="res://sprites/characters/male_3/idle_down.png" type="Texture" id=142]
+[ext_resource path="res://sprites/characters/female_5/shock_side.png" type="Texture" id=143]
+[ext_resource path="res://sprites/prototype/characters/female_iteration1.png" type="Texture" id=144]
+[ext_resource path="res://sprites/characters/male_1/onbed.png" type="Texture" id=145]
+[ext_resource path="res://sprites/characters/female_1/walking_down1.png" type="Texture" id=146]
+[ext_resource path="res://sprites/characters/female_1/walking_down2.png" type="Texture" id=147]
+[ext_resource path="res://sprites/characters/female_1/walking_down3.png" type="Texture" id=148]
+[ext_resource path="res://sprites/characters/female_1/walking_down4.png" type="Texture" id=149]
+[ext_resource path="res://sprites/characters/male_3/walking_side1.png" type="Texture" id=150]
+[ext_resource path="res://sprites/characters/male_3/walking_side2.png" type="Texture" id=151]
+[ext_resource path="res://sprites/characters/male_3/walking_side3.png" type="Texture" id=152]
+[ext_resource path="res://sprites/characters/male_3/walking_side4.png" type="Texture" id=153]
+[ext_resource path="res://sprites/characters/female_5/shock_down.png" type="Texture" id=154]
+[ext_resource path="res://sprites/characters/male_3/crippled_spinning1.png" type="Texture" id=155]
+[ext_resource path="res://sprites/characters/male_3/crippled_spinning2.png" type="Texture" id=156]
+[ext_resource path="res://sprites/characters/male_3/crippled_spinning3.png" type="Texture" id=157]
+[ext_resource path="res://sprites/characters/male_3/crippled_spinning4.png" type="Texture" id=158]
+[ext_resource path="res://sprites/characters/male_3/crippled_spinning5.png" type="Texture" id=159]
+[ext_resource path="res://sprites/characters/male_3/crippled_spinning6.png" type="Texture" id=160]
+[ext_resource path="res://sprites/characters/male_3/crippled_spinning7.png" type="Texture" id=161]
+[ext_resource path="res://sprites/characters/female_4/naked.png" type="Texture" id=162]
+[ext_resource path="res://sprites/characters/female_4/idle_up.png" type="Texture" id=163]
+[ext_resource path="res://sprites/characters/female_3/shock_up.png" type="Texture" id=164]
+[ext_resource path="res://sprites/characters/male_2/panic_sides1.png" type="Texture" id=165]
+[ext_resource path="res://sprites/characters/male_2/panic_sides2.png" type="Texture" id=166]
+[ext_resource path="res://sprites/characters/male_2/panic_sides3.png" type="Texture" id=167]
+[ext_resource path="res://sprites/characters/male_2/panic_sides4.png" type="Texture" id=168]
+[ext_resource path="res://sprites/characters/male_1/male_fishing1.png" type="Texture" id=169]
+[ext_resource path="res://sprites/characters/male_1/male_fishing2.png" type="Texture" id=170]
+[ext_resource path="res://sprites/characters/male_1/male_fishing3.png" type="Texture" id=171]
+[ext_resource path="res://sprites/characters/male_1/male_fishing4.png" type="Texture" id=172]
+[ext_resource path="res://sprites/characters/male_1/male_fishing5.png" type="Texture" id=173]
+[ext_resource path="res://sprites/characters/male_1/male_fishing6.png" type="Texture" id=174]
+[ext_resource path="res://sprites/characters/male_1/male_fishing7.png" type="Texture" id=175]
+[ext_resource path="res://sprites/characters/male_1/male_fishing8.png" type="Texture" id=176]
+[ext_resource path="res://sprites/characters/male_1/male_fishing9.png" type="Texture" id=177]
+[ext_resource path="res://sprites/characters/male_1/male_fishing10.png" type="Texture" id=178]
+[ext_resource path="res://sprites/characters/female_5/walking_side1.png" type="Texture" id=179]
+[ext_resource path="res://sprites/characters/female_5/walking_side2.png" type="Texture" id=180]
+[ext_resource path="res://sprites/characters/female_5/walking_side3.png" type="Texture" id=181]
+[ext_resource path="res://sprites/characters/female_5/walking_side4.png" type="Texture" id=182]
+[ext_resource path="res://sprites/characters/female_5/panic_side1.png" type="Texture" id=183]
+[ext_resource path="res://sprites/characters/female_5/panic_side2.png" type="Texture" id=184]
+[ext_resource path="res://sprites/characters/female_5/panic_side3.png" type="Texture" id=185]
+[ext_resource path="res://sprites/characters/female_5/panic_side4.png" type="Texture" id=186]
+[ext_resource path="res://sprites/characters/female_4/idle_side.png" type="Texture" id=187]
+[ext_resource path="res://sprites/characters/female_3/idle_up.png" type="Texture" id=188]
+[ext_resource path="res://sprites/characters/female_1/panic_side10.png" type="Texture" id=189]
+[ext_resource path="res://sprites/characters/female_1/panic_side11.png" type="Texture" id=190]
+[ext_resource path="res://sprites/characters/female_1/panic_side12.png" type="Texture" id=191]
+[ext_resource path="res://sprites/characters/female_1/panic_side13.png" type="Texture" id=192]
+[ext_resource path="res://sprites/characters/male_1/panic_side12.png" type="Texture" id=193]
+[ext_resource path="res://sprites/characters/male_1/panic_side13.png" type="Texture" id=194]
+[ext_resource path="res://sprites/characters/male_1/panic_side14.png" type="Texture" id=195]
+[ext_resource path="res://sprites/characters/male_1/panic_side15.png" type="Texture" id=196]
+[ext_resource path="res://sprites/characters/female_4/panic_side1.png" type="Texture" id=197]
+[ext_resource path="res://sprites/characters/female_4/panic_side2.png" type="Texture" id=198]
+[ext_resource path="res://sprites/characters/female_4/panic_side3.png" type="Texture" id=199]
+[ext_resource path="res://sprites/characters/female_4/panic_side4.png" type="Texture" id=200]
+[ext_resource path="res://sprites/characters/female_1/crippled_down16.png" type="Texture" id=201]
+[ext_resource path="res://sprites/characters/female_1/crippled_down17.png" type="Texture" id=202]
+[ext_resource path="res://sprites/characters/female_1/crippled_down18.png" type="Texture" id=203]
+[ext_resource path="res://sprites/characters/female_1/crippled_down19.png" type="Texture" id=204]
+[ext_resource path="res://sprites/characters/female_1/crippled_down20.png" type="Texture" id=205]
+[ext_resource path="res://sprites/characters/female_1/crippled_down21.png" type="Texture" id=206]
+[ext_resource path="res://sprites/characters/female_1/crippled_down22.png" type="Texture" id=207]
+[ext_resource path="res://sprites/characters/male_1/sleeping.1.png" type="Texture" id=208]
+[ext_resource path="res://sprites/characters/male_1/sleeping.2.png" type="Texture" id=209]
+[ext_resource path="res://sprites/characters/male_1/sleeping.3.png" type="Texture" id=210]
+[ext_resource path="res://sprites/characters/male_1/sleeping.4.png" type="Texture" id=211]
+[ext_resource path="res://sprites/characters/male_1/sleeping.5.png" type="Texture" id=212]
+[ext_resource path="res://sprites/characters/male_2/walking_up_anims3.png" type="Texture" id=213]
+[ext_resource path="res://sprites/characters/male_3/walking_up1.png" type="Texture" id=214]
+[ext_resource path="res://sprites/characters/male_3/walking_up2.png" type="Texture" id=215]
+[ext_resource path="res://sprites/characters/male_3/walking_up3.png" type="Texture" id=216]
+[ext_resource path="res://sprites/characters/male_3/walking_up4.png" type="Texture" id=217]
+[ext_resource path="res://sprites/characters/female_4/sleeping1.png" type="Texture" id=218]
+[ext_resource path="res://sprites/characters/female_4/sleeping2.png" type="Texture" id=219]
+[ext_resource path="res://sprites/characters/female_4/sleeping3.png" type="Texture" id=220]
+[ext_resource path="res://sprites/characters/female_4/sleeping4.png" type="Texture" id=221]
+[ext_resource path="res://sprites/characters/female_4/sleeping5.png" type="Texture" id=222]
+[ext_resource path="res://sprites/characters/female_4/sleeping6.png" type="Texture" id=223]
+[ext_resource path="res://sprites/characters/female_1/female_anims7.png" type="Texture" id=224]
+[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims5.png" type="Texture" id=225]
+[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims6.png" type="Texture" id=226]
+[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims7.png" type="Texture" id=227]
+[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims8.png" type="Texture" id=228]
+[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims9.png" type="Texture" id=229]
+[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims10.png" type="Texture" id=230]
+[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims11.png" type="Texture" id=231]
+[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims12.png" type="Texture" id=232]
+[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims13.png" type="Texture" id=233]
+[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims14.png" type="Texture" id=234]
+[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims15.png" type="Texture" id=235]
+[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims16.png" type="Texture" id=236]
+[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims17.png" type="Texture" id=237]
+[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims18.png" type="Texture" id=238]
+[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims19.png" type="Texture" id=239]
+[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims20.png" type="Texture" id=240]
+[ext_resource path="res://sprites/characters/female_1/female_anims5/female_anims21.png" type="Texture" id=241]
+[ext_resource path="res://sprites/characters/male_1/panic_down10.png" type="Texture" id=242]
+[ext_resource path="res://sprites/characters/male_1/ontable.png" type="Texture" id=243]
+[ext_resource path="res://sprites/characters/female_5/panic_down1.png" type="Texture" id=244]
+[ext_resource path="res://sprites/characters/female_5/panic_down2.png" type="Texture" id=245]
+[ext_resource path="res://sprites/characters/female_5/panic_down3.png" type="Texture" id=246]
+[ext_resource path="res://sprites/characters/female_5/panic_down4.png" type="Texture" id=247]
+[ext_resource path="res://sprites/characters/female_3/walking_side1.png" type="Texture" id=248]
+[ext_resource path="res://sprites/characters/female_3/walking_side2.png" type="Texture" id=249]
+[ext_resource path="res://sprites/characters/female_3/walking_side3.png" type="Texture" id=250]
+[ext_resource path="res://sprites/characters/female_3/walking_side4.png" type="Texture" id=251]
+[ext_resource path="res://sprites/characters/female_1/generic_dead.png" type="Texture" id=252]
+[ext_resource path="res://sprites/characters/female_1/walking_up1.png" type="Texture" id=253]
+[ext_resource path="res://sprites/characters/female_1/walking_up2.png" type="Texture" id=254]
+[ext_resource path="res://sprites/characters/female_1/walking_up3.png" type="Texture" id=255]
+[ext_resource path="res://sprites/characters/female_1/walking_up4.png" type="Texture" id=256]
+[ext_resource path="res://sprites/characters/female_2/idle_down.png" type="Texture" id=257]
+[ext_resource path="res://sprites/characters/male_3/sleepin g1.png" type="Texture" id=258]
+[ext_resource path="res://sprites/characters/male_3/sleepin g2.png" type="Texture" id=259]
+[ext_resource path="res://sprites/characters/male_3/sleepin g3.png" type="Texture" id=260]
+[ext_resource path="res://sprites/characters/male_3/sleepin g4.png" type="Texture" id=261]
+[ext_resource path="res://sprites/characters/male_3/sleepin g5.png" type="Texture" id=262]
+[ext_resource path="res://sprites/characters/male_3/sleepin g6.png" type="Texture" id=263]
+[ext_resource path="res://sprites/characters/female_2/idle_up.png" type="Texture" id=264]
+[ext_resource path="res://sprites/characters/female_1/crippled_down11.png" type="Texture" id=265]
+[ext_resource path="res://sprites/characters/female_1/crippled_down12.png" type="Texture" id=266]
+[ext_resource path="res://sprites/characters/female_1/crippled_down13.png" type="Texture" id=267]
+[ext_resource path="res://sprites/characters/female_1/crippled_down14.png" type="Texture" id=268]
+[ext_resource path="res://sprites/characters/female_1/crippled_down15.png" type="Texture" id=269]
+[ext_resource path="res://sprites/characters/male_1/onpicnic.png" type="Texture" id=270]
+[ext_resource path="res://sprites/characters/male_1/panic_side8.png" type="Texture" id=271]
+[ext_resource path="res://sprites/characters/male_1/panic_side9.png" type="Texture" id=272]
+[ext_resource path="res://sprites/characters/male_1/panic_side10.png" type="Texture" id=273]
+[ext_resource path="res://sprites/characters/male_1/panic_side11.png" type="Texture" id=274]
+[ext_resource path="res://sprites/characters/female_5/walking_up1.png" type="Texture" id=275]
+[ext_resource path="res://sprites/characters/female_5/walking_up2.png" type="Texture" id=276]
+[ext_resource path="res://sprites/characters/female_5/walking_up3.png" type="Texture" id=277]
+[ext_resource path="res://sprites/characters/female_5/walking_up4.png" type="Texture" id=278]
+[ext_resource path="res://sprites/characters/female_5/sleeping1.png" type="Texture" id=279]
+[ext_resource path="res://sprites/characters/female_5/sleeping2.png" type="Texture" id=280]
+[ext_resource path="res://sprites/characters/female_5/sleeping3.png" type="Texture" id=281]
+[ext_resource path="res://sprites/characters/female_5/sleeping4.png" type="Texture" id=282]
+[ext_resource path="res://sprites/characters/female_5/sleeping5.png" type="Texture" id=283]
+[ext_resource path="res://sprites/characters/female_5/sleeping6.png" type="Texture" id=284]
+[ext_resource path="res://sprites/characters/male_2/shock_up.png" type="Texture" id=285]
+[ext_resource path="res://sprites/characters/female_1/shock_side2.png" type="Texture" id=286]
+[ext_resource path="res://sprites/prototype/characters/female_iteration1_up.png" type="Texture" id=287]
+[ext_resource path="res://sprites/characters/female_1/talking_down3.png" type="Texture" id=288]
+[ext_resource path="res://sprites/characters/female_1/talking_down4.png" type="Texture" id=289]
+[ext_resource path="res://sprites/characters/female_1/talking_down5.png" type="Texture" id=290]
+[ext_resource path="res://sprites/characters/female_1/talking_down6.png" type="Texture" id=291]
+[ext_resource path="res://sprites/characters/female_1/female_anims6/female_anims6.png" type="Texture" id=292]
+[ext_resource path="res://sprites/characters/female_1/female_anims6/female_anims7.png" type="Texture" id=293]
+[ext_resource path="res://sprites/characters/female_1/female_anims6/female_anims8.png" type="Texture" id=294]
+[ext_resource path="res://sprites/characters/female_1/female_anims6/female_anims9.png" type="Texture" id=295]
+[ext_resource path="res://sprites/characters/female_1/female_anims6/female_anims10.png" type="Texture" id=296]
+[ext_resource path="res://sprites/characters/female_1/female_anims6/female_anims11.png" type="Texture" id=297]
+[ext_resource path="res://sprites/characters/male_1/talking_right3.png" type="Texture" id=298]
+[ext_resource path="res://sprites/characters/male_1/talking_right4.png" type="Texture" id=299]
+[ext_resource path="res://sprites/characters/male_1/talking_right5.png" type="Texture" id=300]
+[ext_resource path="res://sprites/characters/male_1/talking_right6.png" type="Texture" id=301]
+[ext_resource path="res://sprites/characters/female_4/shock_up.png" type="Texture" id=302]
+[ext_resource path="res://sprites/characters/female_3/walking_up1.png" type="Texture" id=303]
+[ext_resource path="res://sprites/characters/female_3/walking_up2.png" type="Texture" id=304]
+[ext_resource path="res://sprites/characters/female_3/walking_up3.png" type="Texture" id=305]
+[ext_resource path="res://sprites/characters/female_3/walking_up4.png" type="Texture" id=306]
+[ext_resource path="res://sprites/characters/female_5/talking_side1.png" type="Texture" id=307]
+[ext_resource path="res://sprites/characters/female_5/talking_side2.png" type="Texture" id=308]
+[ext_resource path="res://sprites/characters/female_5/talking_side3.png" type="Texture" id=309]
+[ext_resource path="res://sprites/characters/female_5/talking_side4.png" type="Texture" id=310]
+[ext_resource path="res://sprites/characters/male_2/walking_sides1.png" type="Texture" id=311]
+[ext_resource path="res://sprites/characters/male_2/walking_sides2.png" type="Texture" id=312]
+[ext_resource path="res://sprites/characters/male_2/walking_sides3.png" type="Texture" id=313]
+[ext_resource path="res://sprites/characters/male_2/walking_sides4.png" type="Texture" id=314]
+[ext_resource path="res://sprites/characters/female_4/shock_side.png" type="Texture" id=315]
+[ext_resource path="res://sprites/characters/female_3/panic_down1.png" type="Texture" id=316]
+[ext_resource path="res://sprites/characters/female_3/panic_down2.png" type="Texture" id=317]
+[ext_resource path="res://sprites/characters/female_3/panic_down3.png" type="Texture" id=318]
+[ext_resource path="res://sprites/characters/female_3/panic_down4.png" type="Texture" id=319]
+[ext_resource path="res://sprites/characters/female_2/shock_side.png" type="Texture" id=320]
+[ext_resource path="res://sprites/characters/male_2/panic_down1.png" type="Texture" id=321]
+[ext_resource path="res://sprites/characters/male_2/panic_down2.png" type="Texture" id=322]
+[ext_resource path="res://sprites/characters/male_2/panic_down3.png" type="Texture" id=323]
+[ext_resource path="res://sprites/characters/male_2/panic_down4.png" type="Texture" id=324]
+[ext_resource path="res://sprites/characters/male_1/shock_down2.png" type="Texture" id=325]
+[ext_resource path="res://sprites/characters/female_1/shock_down2.png" type="Texture" id=326]
+[ext_resource path="res://sprites/characters/female_3/idle_down.png" type="Texture" id=327]
+[ext_resource path="res://sprites/characters/male_1/crippled_down13.png" type="Texture" id=328]
+[ext_resource path="res://sprites/characters/male_1/crippled_down14.png" type="Texture" id=329]
+[ext_resource path="res://sprites/characters/male_1/crippled_down15.png" type="Texture" id=330]
+[ext_resource path="res://sprites/characters/male_1/crippled_down16.png" type="Texture" id=331]
+[ext_resource path="res://sprites/characters/male_1/crippled_down17.png" type="Texture" id=332]
+[ext_resource path="res://sprites/characters/male_1/crippled_down18.png" type="Texture" id=333]
+[ext_resource path="res://sprites/characters/male_1/crippled_down19.png" type="Texture" id=334]
+[ext_resource path="res://sprites/characters/female_4/shock_down.png" type="Texture" id=335]
+[ext_resource path="res://sprites/characters/male_2/walking_up_anims1.png" type="Texture" id=336]
+[ext_resource path="res://sprites/characters/male_2/walking_up_anims2.png" type="Texture" id=337]
+[ext_resource path="res://sprites/characters/male_2/walking_up_anims4.png" type="Texture" id=338]
+[ext_resource path="res://sprites/characters/female_1/panic_down10.png" type="Texture" id=339]
+[ext_resource path="res://sprites/characters/male_2/idle_side.png" type="Texture" id=340]
+[ext_resource path="res://sprites/characters/female_2/panic_down1.png" type="Texture" id=341]
+[ext_resource path="res://sprites/characters/female_2/panic_down2.png" type="Texture" id=342]
+[ext_resource path="res://sprites/characters/female_2/panic_down3.png" type="Texture" id=343]
+[ext_resource path="res://sprites/characters/female_2/panic_down4.png" type="Texture" id=344]
+[ext_resource path="res://sprites/characters/female_3/shock_down.png" type="Texture" id=345]
+[ext_resource path="res://sprites/characters/female_1/talking_right3.png" type="Texture" id=346]
+[ext_resource path="res://sprites/characters/female_1/talking_right4.png" type="Texture" id=347]
+[ext_resource path="res://sprites/characters/female_1/talking_right5.png" type="Texture" id=348]
+[ext_resource path="res://sprites/characters/female_1/talking_right6.png" type="Texture" id=349]
+[ext_resource path="res://sprites/characters/male_1/panic_down8.png" type="Texture" id=350]
+[ext_resource path="res://sprites/characters/male_1/panic_down9.png" type="Texture" id=351]
+[ext_resource path="res://sprites/characters/male_1/panic_down11.png" type="Texture" id=352]
+[ext_resource path="res://sprites/characters/female_4/talking_down1.png" type="Texture" id=353]
+[ext_resource path="res://sprites/characters/female_4/talking_down2.png" type="Texture" id=354]
+[ext_resource path="res://sprites/characters/female_4/talking_down3.png" type="Texture" id=355]
+[ext_resource path="res://sprites/characters/female_4/talking_down4.png" type="Texture" id=356]
+[ext_resource path="res://sprites/characters/female_2/shock_down.png" type="Texture" id=357]
+[ext_resource path="res://sprites/prototype/characters/female_iteration1_side.png" type="Texture" id=358]
+[ext_resource path="res://sprites/characters/female_5/idle_side.png" type="Texture" id=359]
+[ext_resource path="res://sprites/characters/male_1/talking_down3.png" type="Texture" id=360]
+[ext_resource path="res://sprites/characters/male_1/talking_down4.png" type="Texture" id=361]
+[ext_resource path="res://sprites/characters/male_1/talking_down5.png" type="Texture" id=362]
+[ext_resource path="res://sprites/characters/male_1/talking_down6.png" type="Texture" id=363]
+[ext_resource path="res://sprites/characters/male_2/shock_sides.png" type="Texture" id=364]
+[ext_resource path="res://sprites/characters/female_3/panic_side1.png" type="Texture" id=365]
+[ext_resource path="res://sprites/characters/female_3/panic_side2.png" type="Texture" id=366]
+[ext_resource path="res://sprites/characters/female_3/panic_side3.png" type="Texture" id=367]
+[ext_resource path="res://sprites/characters/female_3/panic_side4.png" type="Texture" id=368]
+[ext_resource path="res://sprites/characters/male_1/shock_side2.png" type="Texture" id=369]
+[ext_resource path="res://sprites/characters/female_4/panic_down1.png" type="Texture" id=370]
+[ext_resource path="res://sprites/characters/female_4/panic_down2.png" type="Texture" id=371]
+[ext_resource path="res://sprites/characters/female_4/panic_down3.png" type="Texture" id=372]
+[ext_resource path="res://sprites/characters/female_4/panic_down4.png" type="Texture" id=373]
+[ext_resource path="res://sprites/characters/female_3/walking_down1.png" type="Texture" id=374]
+[ext_resource path="res://sprites/characters/female_3/walking_down2.png" type="Texture" id=375]
+[ext_resource path="res://sprites/characters/female_3/walking_down3.png" type="Texture" id=376]
+[ext_resource path="res://sprites/characters/female_3/walking_down4.png" type="Texture" id=377]
+[ext_resource path="res://sprites/characters/female_1/panic_down11.png" type="Texture" id=378]
+[ext_resource path="res://sprites/characters/female_1/panic_down12.png" type="Texture" id=379]
+[ext_resource path="res://sprites/characters/female_1/panic_down13.png" type="Texture" id=380]
+[ext_resource path="res://sprites/characters/female_2/panic_side1.png" type="Texture" id=381]
+[ext_resource path="res://sprites/characters/female_2/panic_side2.png" type="Texture" id=382]
+[ext_resource path="res://sprites/characters/female_2/panic_side3.png" type="Texture" id=383]
+[ext_resource path="res://sprites/characters/female_2/panic_side4.png" type="Texture" id=384]
+[ext_resource path="res://sprites/characters/female_2/walking_down1.png" type="Texture" id=385]
+[ext_resource path="res://sprites/characters/female_2/walking_down2.png" type="Texture" id=386]
+[ext_resource path="res://sprites/characters/female_2/walking_down3.png" type="Texture" id=387]
+[ext_resource path="res://sprites/characters/female_2/walking_down4.png" type="Texture" id=388]
 
 [resource]
 animations = [ {
@@ -423,672 +423,62 @@ animations = [ {
 }, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
-"name": "4:Shock-Up",
+"name": "7:Waiting-Up",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 16 ) ],
 "loop": true,
-"name": "4:Screaming-Up",
+"name": "7:Idle-Up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
+"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ) ],
 "loop": true,
-"name": "1:OnBedReading-Side",
+"name": "6:Talking-Side",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ],
-"loop": true,
-"name": "1:OnBed-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ) ],
-"loop": true,
-"name": "1:Sleeping-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ) ],
-"loop": false,
-"name": "1:Crippled-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ],
-"loop": true,
-"name": "6:Sleeping-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ) ],
-"loop": true,
-"name": "7:Panic-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 50 ) ],
-"loop": true,
-"name": "2:Screaming-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 51 ) ],
-"loop": true,
-"name": "7:Shock-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 52 ) ],
-"loop": true,
-"name": "2:Waiting-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 53 ) ],
-"loop": true,
-"name": "2:Waiting-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ) ],
-"loop": true,
-"name": "5:Crippled-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 59 ) ],
-"loop": true,
-"name": "1:Waiting-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ) ],
-"loop": true,
-"name": "1:Sleeping-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 60 ) ],
-"loop": true,
-"name": "5:Screaming-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 61 ) ],
-"loop": true,
-"name": "0:OnBed-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 62 ) ],
-"loop": true,
-"name": "4:Waiting-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 63 ) ],
-"loop": true,
-"name": "1:Waiting-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 64 ) ],
-"loop": true,
-"name": "1:Dead1-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 65 ) ],
-"loop": true,
-"name": "6:Screaming-Up",
-"speed": 5.0
-}, {
-"frames": [  ],
-"loop": true,
-"name": "0:Fishing-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 66 ) ],
-"loop": true,
-"name": "4:Screaming-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ) ],
-"loop": true,
-"name": "5:Crippled2-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 74 ) ],
-"loop": true,
-"name": "3:Waiting-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 75 ) ],
-"loop": true,
-"name": "1:Screaming-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 76 ) ],
-"loop": true,
-"name": "1:SittingFloor-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 77 ) ],
-"loop": true,
-"name": "7:Waiting-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 78 ) ],
-"loop": true,
-"name": "0:Shock-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 79 ) ],
-"loop": true,
-"name": "0:SittingFloor-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ) ],
-"loop": false,
-"name": "0:Crippled-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 85 ) ],
-"loop": true,
-"name": "6:Shock-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 61 ) ],
-"loop": true,
-"name": "0:OnBedReading-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 86 ) ],
-"loop": true,
-"name": "0:Shock-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 87 ) ],
-"loop": true,
-"name": "5:Shock-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ) ],
-"loop": true,
-"name": "6:Panic-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 97 ) ],
-"loop": true,
-"name": "7:Sleeping-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 98 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ) ],
-"loop": true,
-"name": "6:Panic-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 102 ) ],
-"loop": true,
-"name": "3:Screaming-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 103 ) ],
-"loop": true,
-"name": "1:Shock-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 66 ) ],
-"loop": true,
-"name": "4:Shock-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 104 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 109 ) ],
-"loop": true,
-"name": "5:Sleeping-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 110 ) ],
-"loop": true,
-"name": "3:Shock-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 111 ), ExtResource( 112 ), ExtResource( 113 ), ExtResource( 114 ) ],
-"loop": true,
-"name": "5:Panic-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ],
-"loop": true,
-"name": "1:OnBed-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 115 ), ExtResource( 116 ), ExtResource( 117 ), ExtResource( 118 ) ],
-"loop": true,
-"name": "1:Talking-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 119 ) ],
-"loop": true,
-"name": "7:Waiting-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 60 ) ],
+"frames": [ ExtResource( 21 ) ],
 "loop": true,
 "name": "5:Idle-Side",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 120 ), ExtResource( 121 ), ExtResource( 122 ), ExtResource( 123 ) ],
-"loop": true,
-"name": "4:Panic-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 124 ), ExtResource( 125 ), ExtResource( 126 ), ExtResource( 127 ) ],
-"loop": true,
-"name": "5:Panic-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 104 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 109 ) ],
-"loop": true,
-"name": "5:Sleeping-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 79 ) ],
-"loop": true,
-"name": "0:SittingFloor-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 88 ), ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ) ],
-"loop": true,
-"name": "6:Moving-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 128 ), ExtResource( 129 ), ExtResource( 130 ), ExtResource( 131 ) ],
-"loop": true,
-"name": "0:Panic-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 62 ) ],
-"loop": true,
-"name": "4:Idle-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ) ],
-"loop": true,
-"name": "1:Sleeping-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ) ],
-"loop": true,
-"name": "5:Crippled-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 132 ), ExtResource( 133 ), ExtResource( 134 ), ExtResource( 135 ) ],
-"loop": true,
-"name": "1:Talking-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 64 ) ],
-"loop": true,
-"name": "1:Dead1-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 136 ), ExtResource( 137 ), ExtResource( 138 ), ExtResource( 139 ), ExtResource( 140 ), ExtResource( 141 ), ExtResource( 142 ), ExtResource( 143 ), ExtResource( 144 ), ExtResource( 145 ), ExtResource( 146 ), ExtResource( 147 ), ExtResource( 148 ), ExtResource( 149 ), ExtResource( 150 ), ExtResource( 151 ), ExtResource( 152 ) ],
-"loop": true,
-"name": "1:OnPicNic-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 153 ), ExtResource( 154 ), ExtResource( 155 ), ExtResource( 156 ) ],
-"loop": true,
-"name": "1:Panic-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 97 ) ],
-"loop": true,
-"name": "7:Sleeping-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 157 ) ],
-"loop": true,
-"name": "3:Idle-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 64 ) ],
-"loop": true,
-"name": "1:Dead1-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 158 ), ExtResource( 159 ), ExtResource( 160 ), ExtResource( 161 ), ExtResource( 162 ), ExtResource( 163 ) ],
-"loop": true,
-"name": "4:Sleeping-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 87 ) ],
-"loop": true,
-"name": "5:Waiting-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 164 ) ],
-"loop": true,
-"name": "1:Shock-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 74 ) ],
-"loop": true,
-"name": "3:Idle-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 76 ) ],
-"loop": true,
-"name": "1:SittingFloor-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 165 ), ExtResource( 166 ), ExtResource( 167 ), ExtResource( 168 ), ExtResource( 169 ), ExtResource( 170 ), ExtResource( 171 ) ],
-"loop": true,
-"name": "0:Crippled2-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 111 ), ExtResource( 112 ), ExtResource( 113 ), ExtResource( 114 ) ],
-"loop": true,
-"name": "5:Moving-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 172 ) ],
-"loop": true,
-"name": "3:Shock-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 173 ) ],
-"loop": true,
-"name": "2:Screaming-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 174 ) ],
-"loop": true,
-"name": "0:Dead1-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 102 ) ],
-"loop": true,
-"name": "3:Shock-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 175 ), ExtResource( 176 ), ExtResource( 177 ), ExtResource( 178 ) ],
-"loop": true,
-"name": "5:Panic-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ],
-"loop": true,
-"name": "6:Sleeping-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 179 ) ],
-"loop": true,
-"name": "6:Screaming-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ) ],
-"loop": false,
-"name": "0:Crippled-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 180 ), ExtResource( 181 ), ExtResource( 182 ), ExtResource( 183 ) ],
-"loop": true,
-"name": "1:Panic-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 174 ) ],
-"loop": true,
-"name": "0:Dead1-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 184 ), ExtResource( 185 ), ExtResource( 186 ), ExtResource( 187 ), ExtResource( 188 ), ExtResource( 189 ), ExtResource( 190 ) ],
-"loop": true,
-"name": "1:Crippled2-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 61 ) ],
-"loop": true,
-"name": "0:OnBed-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 158 ), ExtResource( 159 ), ExtResource( 160 ), ExtResource( 161 ), ExtResource( 162 ), ExtResource( 163 ) ],
-"loop": true,
-"name": "4:Sleeping-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 50 ) ],
-"loop": true,
-"name": "2:Shock-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 191 ) ],
-"loop": true,
-"name": "5:Shock-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 192 ), ExtResource( 193 ), ExtResource( 194 ), ExtResource( 195 ) ],
-"loop": true,
-"name": "7:Moving-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 196 ) ],
-"loop": true,
-"name": "6:Idle-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 130 ) ],
-"loop": true,
-"name": "0:Screaming-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 61 ) ],
-"loop": true,
-"name": "0:OnBedReading-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 197 ), ExtResource( 198 ), ExtResource( 199 ), ExtResource( 200 ) ],
-"loop": true,
-"name": "2:Panic-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 63 ) ],
-"loop": true,
-"name": "1:Idle-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 201 ), ExtResource( 202 ), ExtResource( 203 ), ExtResource( 204 ) ],
-"loop": true,
-"name": "3:Panic-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 61 ) ],
-"loop": true,
-"name": "0:OnBed-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 205 ), ExtResource( 206 ), ExtResource( 207 ), ExtResource( 208 ), ExtResource( 209 ) ],
-"loop": true,
-"name": "0:Sleeping-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 210 ) ],
-"loop": true,
-"name": "0:Screaming-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 211 ) ],
-"loop": true,
-"name": "0:EatingTable-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 212 ), ExtResource( 213 ), ExtResource( 214 ), ExtResource( 215 ) ],
-"loop": true,
-"name": "2:Panic-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 216 ), ExtResource( 217 ), ExtResource( 218 ), ExtResource( 219 ), ExtResource( 220 ), ExtResource( 221 ), ExtResource( 222 ), ExtResource( 223 ), ExtResource( 224 ), ExtResource( 225 ) ],
-"loop": true,
-"name": "0:Fishing-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 196 ) ],
-"loop": true,
-"name": "6:Waiting-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 226 ) ],
-"loop": true,
-"name": "0:OnPicNic-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 227 ) ],
-"loop": true,
-"name": "4:Idle-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 104 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 108 ), ExtResource( 109 ) ],
-"loop": true,
-"name": "5:Sleeping-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 228 ), ExtResource( 229 ), ExtResource( 230 ), ExtResource( 231 ) ],
-"loop": true,
-"name": "4:Panic-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 232 ) ],
-"loop": true,
-"name": "2:Shock-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 77 ) ],
-"loop": true,
-"name": "7:Idle-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 233 ) ],
-"loop": true,
-"name": "6:Waiting-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
-"loop": true,
-"name": "1:OnBedReading-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 232 ) ],
-"loop": true,
-"name": "2:Screaming-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 234 ), ExtResource( 235 ), ExtResource( 236 ), ExtResource( 237 ) ],
-"loop": true,
-"name": "3:Moving-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 205 ), ExtResource( 206 ), ExtResource( 207 ), ExtResource( 208 ), ExtResource( 209 ) ],
-"loop": true,
-"name": "0:Sleeping-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 191 ) ],
-"loop": true,
-"name": "5:Screaming-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 238 ), ExtResource( 239 ), ExtResource( 240 ), ExtResource( 241 ), ExtResource( 242 ), ExtResource( 243 ) ],
-"loop": true,
-"name": "1:EatingTable-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 244 ), ExtResource( 245 ), ExtResource( 246 ), ExtResource( 247 ) ],
-"loop": true,
-"name": "3:Panic-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 248 ), ExtResource( 249 ), ExtResource( 250 ), ExtResource( 251 ), ExtResource( 252 ), ExtResource( 253 ) ],
-"loop": true,
-"name": "2:Sleeping-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 254 ), ExtResource( 255 ), ExtResource( 256 ), ExtResource( 257 ) ],
-"loop": true,
-"name": "2:Panic-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ],
-"loop": true,
-"name": "6:Sleeping-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 226 ) ],
-"loop": true,
-"name": "0:OnPicNic-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 214 ) ],
-"loop": true,
-"name": "2:Waiting-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 258 ) ],
-"loop": true,
-"name": "4:Idle-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 259 ), ExtResource( 260 ), ExtResource( 261 ), ExtResource( 262 ) ],
-"loop": true,
-"name": "0:Talking-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ],
+"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
 "loop": true,
 "name": "1:OnBed-Down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 53 ) ],
+"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
 "loop": true,
-"name": "2:Idle-Side",
+"name": "3:Sleeping-Down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 263 ), ExtResource( 264 ), ExtResource( 265 ), ExtResource( 266 ) ],
+"frames": [ ExtResource( 31 ) ],
 "loop": true,
-"name": "1:Moving-Down",
+"name": "3:Shock-Up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ) ],
-"loop": false,
-"name": "1:Crippled-Side",
+"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ],
+"loop": true,
+"name": "4:Working-Side",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ) ],
 "loop": true,
-"name": "0:Talking-Up",
+"name": "1:OnBedReading-Side",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 267 ), ExtResource( 268 ), ExtResource( 269 ), ExtResource( 270 ), ExtResource( 271 ), ExtResource( 272 ) ],
+"frames": [ ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ) ],
 "loop": true,
-"name": "3:Sleeping-Side",
+"name": "7:Moving-Down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 273 ) ],
+"frames": [ ExtResource( 59 ) ],
 "loop": true,
-"name": "3:Waiting-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 274 ), ExtResource( 275 ), ExtResource( 276 ), ExtResource( 277 ) ],
-"loop": true,
-"name": "6:Moving-Down",
+"name": "6:Waiting-Down",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 60 ) ],
 "loop": true,
-"name": "5:Shock-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 278 ), ExtResource( 279 ), ExtResource( 280 ), ExtResource( 281 ) ],
-"loop": true,
-"name": "6:Panic-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 282 ) ],
-"loop": true,
-"name": "6:Naked-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 283 ), ExtResource( 284 ), ExtResource( 285 ), ExtResource( 286 ) ],
-"loop": true,
-"name": "0:Panic-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 238 ), ExtResource( 239 ), ExtResource( 240 ), ExtResource( 241 ), ExtResource( 242 ), ExtResource( 243 ) ],
-"loop": true,
-"name": "1:EatingTable-Down",
+"name": "5:Waiting-Up",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 15 ) ],
@@ -1096,439 +486,1004 @@ animations = [ {
 "name": "0:Waiting-Up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 287 ) ],
-"loop": true,
-"name": "4:Shock-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 288 ) ],
-"loop": true,
-"name": "7:Screaming-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 110 ) ],
-"loop": true,
-"name": "3:Screaming-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 173 ) ],
-"loop": true,
-"name": "2:Shock-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 267 ), ExtResource( 268 ), ExtResource( 269 ), ExtResource( 270 ), ExtResource( 271 ), ExtResource( 272 ) ],
-"loop": true,
-"name": "3:Sleeping-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 233 ) ],
-"loop": true,
-"name": "6:Idle-Down",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 60 ) ],
 "loop": true,
-"name": "5:Waiting-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 289 ) ],
-"loop": true,
-"name": "1:Waiting-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 290 ) ],
-"loop": true,
-"name": "6:Idle-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 291 ), ExtResource( 292 ), ExtResource( 293 ), ExtResource( 294 ) ],
-"loop": true,
-"name": "4:Moving-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 295 ), ExtResource( 296 ), ExtResource( 297 ), ExtResource( 298 ) ],
-"loop": true,
-"name": "4:Moving-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 124 ), ExtResource( 125 ), ExtResource( 126 ), ExtResource( 127 ) ],
-"loop": true,
-"name": "5:Moving-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 85 ) ],
-"loop": true,
-"name": "6:Screaming-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 299 ), ExtResource( 300 ), ExtResource( 301 ), ExtResource( 302 ) ],
-"loop": true,
-"name": "7:Panic-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 303 ), ExtResource( 304 ), ExtResource( 305 ), ExtResource( 306 ) ],
-"loop": true,
-"name": "2:Moving-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 227 ) ],
-"loop": true,
-"name": "4:Waiting-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 211 ) ],
-"loop": true,
-"name": "0:EatingTable-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 273 ) ],
-"loop": true,
-"name": "3:Idle-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 76 ) ],
-"loop": true,
-"name": "1:SittingFloor-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 157 ) ],
-"loop": true,
-"name": "3:Waiting-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 307 ), ExtResource( 308 ), ExtResource( 309 ), ExtResource( 310 ) ],
-"loop": true,
-"name": "7:Moving-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ) ],
-"loop": true,
-"name": "0:Waiting-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 290 ) ],
-"loop": true,
-"name": "6:Waiting-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 191 ) ],
-"loop": true,
-"name": "5:Waiting-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 248 ), ExtResource( 249 ), ExtResource( 250 ), ExtResource( 251 ), ExtResource( 252 ), ExtResource( 253 ), ExtResource( 248 ), ExtResource( 249 ), ExtResource( 250 ), ExtResource( 251 ), ExtResource( 252 ), ExtResource( 253 ) ],
-"loop": true,
-"name": "2:Sleeping-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 258 ) ],
-"loop": true,
-"name": "4:Waiting-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 75 ) ],
-"loop": true,
-"name": "1:Shock-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 192 ), ExtResource( 193 ), ExtResource( 194 ), ExtResource( 195 ) ],
-"loop": true,
-"name": "7:Panic-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 311 ), ExtResource( 312 ), ExtResource( 313 ), ExtResource( 314 ) ],
-"loop": true,
-"name": "0:Talking-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 51 ) ],
-"loop": true,
-"name": "7:Screaming-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 315 ), ExtResource( 316 ), ExtResource( 317 ), ExtResource( 318 ) ],
-"loop": true,
-"name": "4:Moving-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ), ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ), ExtResource( 25 ) ],
-"loop": true,
-"name": "1:OnBedReading-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 226 ) ],
-"loop": true,
-"name": "0:OnPicNic-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 282 ) ],
-"loop": true,
-"name": "6:Naked-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 319 ) ],
-"loop": true,
-"name": "7:Screaming-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 158 ), ExtResource( 159 ), ExtResource( 160 ), ExtResource( 161 ), ExtResource( 162 ), ExtResource( 163 ) ],
-"loop": true,
-"name": "4:Sleeping-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 320 ), ExtResource( 321 ), ExtResource( 322 ), ExtResource( 323 ) ],
-"loop": true,
-"name": "1:Panic-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 191 ) ],
-"loop": true,
-"name": "5:Idle-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 184 ), ExtResource( 185 ), ExtResource( 186 ), ExtResource( 187 ), ExtResource( 188 ), ExtResource( 189 ), ExtResource( 190 ) ],
-"loop": true,
-"name": "1:Crippled2-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 324 ), ExtResource( 325 ), ExtResource( 326 ), ExtResource( 327 ) ],
-"loop": true,
-"name": "1:Moving-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 165 ), ExtResource( 166 ), ExtResource( 167 ), ExtResource( 168 ), ExtResource( 169 ), ExtResource( 170 ), ExtResource( 171 ) ],
-"loop": true,
-"name": "0:Crippled2-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 328 ) ],
-"loop": true,
-"name": "7:Idle-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 174 ) ],
-"loop": true,
-"name": "0:Dead1-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 319 ) ],
-"loop": true,
-"name": "7:Shock-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 329 ), ExtResource( 330 ), ExtResource( 331 ), ExtResource( 332 ) ],
-"loop": true,
-"name": "3:Moving-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 328 ) ],
-"loop": true,
-"name": "7:Waiting-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 54 ), ExtResource( 55 ), ExtResource( 56 ), ExtResource( 57 ), ExtResource( 58 ) ],
-"loop": true,
-"name": "5:Crippled-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 333 ), ExtResource( 334 ), ExtResource( 335 ), ExtResource( 336 ) ],
-"loop": true,
-"name": "3:Moving-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 175 ), ExtResource( 176 ), ExtResource( 177 ), ExtResource( 178 ) ],
-"loop": true,
-"name": "5:Moving-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 238 ), ExtResource( 239 ), ExtResource( 240 ), ExtResource( 241 ), ExtResource( 242 ), ExtResource( 243 ) ],
-"loop": true,
-"name": "1:EatingTable-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 136 ), ExtResource( 137 ), ExtResource( 138 ), ExtResource( 139 ), ExtResource( 140 ), ExtResource( 141 ), ExtResource( 142 ), ExtResource( 143 ), ExtResource( 144 ), ExtResource( 145 ), ExtResource( 146 ), ExtResource( 147 ), ExtResource( 148 ), ExtResource( 149 ), ExtResource( 150 ), ExtResource( 151 ), ExtResource( 152 ) ],
-"loop": true,
-"name": "1:OnPicNic-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 214 ) ],
-"loop": true,
-"name": "2:Idle-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ) ],
-"loop": true,
-"name": "5:Crippled2-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 153 ) ],
-"loop": true,
-"name": "1:Screaming-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 52 ), ExtResource( 337 ), ExtResource( 338 ), ExtResource( 339 ) ],
-"loop": true,
-"name": "2:Moving-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 119 ) ],
-"loop": true,
-"name": "7:Idle-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 165 ), ExtResource( 166 ), ExtResource( 167 ), ExtResource( 168 ), ExtResource( 169 ), ExtResource( 170 ), ExtResource( 171 ) ],
-"loop": true,
-"name": "0:Crippled2-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 67 ), ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ) ],
-"loop": true,
-"name": "5:Crippled2-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 59 ) ],
-"loop": true,
-"name": "1:Idle-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 283 ) ],
-"loop": true,
-"name": "0:Screaming-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 180 ) ],
-"loop": true,
-"name": "1:Screaming-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 65 ) ],
-"loop": true,
-"name": "6:Shock-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 92 ), ExtResource( 93 ), ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 97 ) ],
-"loop": true,
-"name": "7:Sleeping-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 267 ), ExtResource( 268 ), ExtResource( 269 ), ExtResource( 270 ), ExtResource( 271 ), ExtResource( 272 ) ],
-"loop": true,
-"name": "3:Sleeping-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 340 ), ExtResource( 341 ), ExtResource( 342 ), ExtResource( 343 ) ],
-"loop": true,
-"name": "6:Moving-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 87 ) ],
-"loop": true,
-"name": "5:Screaming-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 289 ) ],
-"loop": true,
-"name": "1:Idle-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 282 ) ],
-"loop": true,
-"name": "6:Naked-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ), ExtResource( 83 ), ExtResource( 84 ) ],
-"loop": false,
-"name": "0:Crippled-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 329 ), ExtResource( 330 ), ExtResource( 331 ), ExtResource( 332 ) ],
-"loop": true,
-"name": "3:Panic-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 172 ) ],
-"loop": true,
-"name": "3:Screaming-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 210 ), ExtResource( 344 ), ExtResource( 345 ), ExtResource( 346 ) ],
-"loop": true,
-"name": "0:Panic-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 52 ) ],
-"loop": true,
-"name": "2:Idle-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 179 ) ],
-"loop": true,
-"name": "6:Shock-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 347 ), ExtResource( 348 ), ExtResource( 349 ), ExtResource( 350 ) ],
-"loop": true,
-"name": "7:Moving-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 79 ) ],
-"loop": true,
-"name": "0:SittingFloor-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 211 ) ],
-"loop": true,
-"name": "0:EatingTable-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 320 ), ExtResource( 321 ), ExtResource( 322 ), ExtResource( 323 ) ],
-"loop": true,
-"name": "1:Moving-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 320 ) ],
-"loop": true,
-"name": "1:Talking-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 216 ), ExtResource( 217 ), ExtResource( 218 ), ExtResource( 219 ), ExtResource( 220 ), ExtResource( 221 ), ExtResource( 222 ), ExtResource( 223 ), ExtResource( 224 ), ExtResource( 225 ) ],
-"loop": true,
-"name": "0:Fishing-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 351 ) ],
-"loop": true,
-"name": "0:Shock-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 287 ) ],
-"loop": true,
-"name": "4:Screaming-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 212 ), ExtResource( 213 ), ExtResource( 214 ), ExtResource( 215 ) ],
-"loop": true,
-"name": "2:Moving-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 205 ), ExtResource( 206 ), ExtResource( 207 ), ExtResource( 208 ), ExtResource( 209 ) ],
-"loop": true,
-"name": "0:Sleeping-Side",
+"name": "5:Idle-Up",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 61 ) ],
 "loop": true,
+"name": "0:SittingFloor-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ) ],
+"loop": true,
+"name": "4:Sleeping-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ) ],
+"loop": true,
+"name": "2:Working-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ) ],
+"loop": true,
+"name": "1:Moving-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ) ],
+"loop": true,
+"name": "3:Moving-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 88 ) ],
+"loop": true,
+"name": "2:Sleeping-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 93 ) ],
+"loop": false,
+"name": "0:Crippled-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 97 ) ],
+"loop": true,
+"name": "5:Moving-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 98 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 103 ) ],
+"loop": true,
+"name": "1:Sleeping-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 104 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 108 ) ],
+"loop": true,
+"name": "5:Crippled-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 109 ), ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ) ],
+"loop": true,
+"name": "6:Panic-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 113 ), ExtResource( 114 ), ExtResource( 115 ), ExtResource( 116 ) ],
+"loop": true,
+"name": "6:Moving-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ) ],
+"loop": true,
+"name": "4:Sleeping-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 117 ), ExtResource( 118 ), ExtResource( 119 ), ExtResource( 120 ) ],
+"loop": true,
+"name": "6:Moving-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 121 ) ],
+"loop": true,
+"name": "7:Shock-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 121 ) ],
+"loop": true,
+"name": "7:Screaming-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 122 ) ],
+"loop": true,
+"name": "4:Waiting-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 123 ), ExtResource( 124 ), ExtResource( 125 ), ExtResource( 126 ) ],
+"loop": true,
+"name": "3:Moving-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "1:OnBed-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 127 ), ExtResource( 128 ), ExtResource( 129 ), ExtResource( 130 ) ],
+"loop": true,
+"name": "2:Moving-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 131 ) ],
+"loop": true,
+"name": "1:Screaming-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 132 ) ],
+"loop": true,
+"name": "4:Screaming-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 133 ) ],
+"loop": true,
+"name": "2:Screaming-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 134 ) ],
+"loop": true,
+"name": "7:Idle-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 109 ), ExtResource( 110 ), ExtResource( 111 ), ExtResource( 112 ) ],
+"loop": true,
+"name": "6:Moving-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 135 ) ],
+"loop": true,
+"name": "0:Shock-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 136 ) ],
+"loop": true,
+"name": "3:Idle-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 137 ), ExtResource( 138 ), ExtResource( 139 ), ExtResource( 140 ) ],
+"loop": true,
+"name": "7:Talking-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 141 ) ],
+"loop": true,
+"name": "0:Dead1-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 142 ) ],
+"loop": true,
+"name": "5:Waiting-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 143 ) ],
+"loop": true,
+"name": "7:Screaming-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 59 ) ],
+"loop": true,
+"name": "6:Idle-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 144 ) ],
+"loop": true,
+"name": "1:Waiting-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 145 ) ],
+"loop": true,
 "name": "0:OnBedReading-Down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ) ],
+"frames": [ ExtResource( 146 ), ExtResource( 147 ), ExtResource( 148 ), ExtResource( 149 ) ],
+"loop": true,
+"name": "1:Moving-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 150 ), ExtResource( 151 ), ExtResource( 152 ), ExtResource( 153 ) ],
+"loop": true,
+"name": "5:Moving-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 154 ) ],
+"loop": true,
+"name": "7:Shock-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 155 ), ExtResource( 156 ), ExtResource( 157 ), ExtResource( 158 ), ExtResource( 159 ), ExtResource( 160 ), ExtResource( 161 ) ],
+"loop": true,
+"name": "5:Crippled2-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 162 ) ],
+"loop": true,
+"name": "6:Naked-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 163 ) ],
+"loop": true,
+"name": "6:Talking-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 164 ) ],
+"loop": true,
+"name": "4:Shock-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 165 ), ExtResource( 166 ), ExtResource( 167 ), ExtResource( 168 ) ],
+"loop": true,
+"name": "2:Panic-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 169 ), ExtResource( 170 ), ExtResource( 171 ), ExtResource( 172 ), ExtResource( 173 ), ExtResource( 174 ), ExtResource( 175 ), ExtResource( 176 ), ExtResource( 177 ), ExtResource( 178 ) ],
+"loop": true,
+"name": "0:Fishing-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 163 ) ],
+"loop": true,
+"name": "6:Waiting-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 179 ), ExtResource( 180 ), ExtResource( 181 ), ExtResource( 182 ) ],
+"loop": true,
+"name": "7:Moving-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 145 ) ],
+"loop": true,
+"name": "0:OnBedReading-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 183 ), ExtResource( 184 ), ExtResource( 185 ), ExtResource( 186 ) ],
+"loop": true,
+"name": "7:Panic-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 187 ) ],
+"loop": true,
+"name": "6:Idle-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 188 ) ],
+"loop": true,
+"name": "4:Idle-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 189 ), ExtResource( 190 ), ExtResource( 191 ), ExtResource( 192 ) ],
+"loop": true,
+"name": "1:Panic-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 131 ) ],
+"loop": true,
+"name": "1:Shock-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 193 ), ExtResource( 194 ), ExtResource( 195 ), ExtResource( 196 ) ],
+"loop": true,
+"name": "0:Panic-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 197 ), ExtResource( 198 ), ExtResource( 199 ), ExtResource( 200 ) ],
+"loop": true,
+"name": "6:Panic-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 16 ) ],
+"loop": true,
+"name": "7:Talking-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 189 ) ],
+"loop": true,
+"name": "1:Screaming-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 201 ), ExtResource( 202 ), ExtResource( 203 ), ExtResource( 204 ), ExtResource( 205 ), ExtResource( 206 ), ExtResource( 207 ) ],
+"loop": true,
+"name": "1:Crippled2-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 208 ), ExtResource( 209 ), ExtResource( 210 ), ExtResource( 211 ), ExtResource( 212 ) ],
+"loop": true,
+"name": "0:Sleeping-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 213 ) ],
+"loop": true,
+"name": "2:Idle-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 93 ) ],
+"loop": false,
+"name": "0:Crippled-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 133 ) ],
+"loop": true,
+"name": "2:Shock-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 214 ), ExtResource( 215 ), ExtResource( 216 ), ExtResource( 217 ) ],
+"loop": true,
+"name": "5:Panic-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 218 ), ExtResource( 219 ), ExtResource( 220 ), ExtResource( 221 ), ExtResource( 222 ), ExtResource( 223 ) ],
+"loop": true,
+"name": "6:Sleeping-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 224 ) ],
+"loop": true,
+"name": "1:SittingFloor-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 98 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 103 ) ],
+"loop": true,
+"name": "1:Sleeping-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 225 ), ExtResource( 226 ), ExtResource( 227 ), ExtResource( 228 ), ExtResource( 229 ), ExtResource( 230 ), ExtResource( 231 ), ExtResource( 232 ), ExtResource( 233 ), ExtResource( 234 ), ExtResource( 235 ), ExtResource( 236 ), ExtResource( 237 ), ExtResource( 238 ), ExtResource( 239 ), ExtResource( 240 ), ExtResource( 241 ) ],
+"loop": true,
+"name": "1:OnPicNic-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ) ],
+"loop": true,
+"name": "2:Working-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 208 ), ExtResource( 209 ), ExtResource( 210 ), ExtResource( 211 ), ExtResource( 212 ) ],
+"loop": true,
+"name": "0:Sleeping-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 155 ), ExtResource( 156 ), ExtResource( 157 ), ExtResource( 158 ), ExtResource( 159 ), ExtResource( 160 ), ExtResource( 161 ) ],
+"loop": true,
+"name": "5:Crippled2-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 242 ) ],
+"loop": true,
+"name": "0:Screaming-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "5:Shock-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 243 ) ],
+"loop": true,
+"name": "0:EatingTable-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 218 ), ExtResource( 219 ), ExtResource( 220 ), ExtResource( 221 ), ExtResource( 222 ), ExtResource( 223 ) ],
+"loop": true,
+"name": "6:Sleeping-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 244 ), ExtResource( 245 ), ExtResource( 246 ), ExtResource( 247 ) ],
+"loop": true,
+"name": "7:Panic-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 248 ), ExtResource( 249 ), ExtResource( 250 ), ExtResource( 251 ) ],
+"loop": true,
+"name": "4:Moving-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 224 ) ],
+"loop": true,
+"name": "1:SittingFloor-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 252 ) ],
+"loop": true,
+"name": "1:Dead1-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 253 ), ExtResource( 254 ), ExtResource( 255 ), ExtResource( 256 ) ],
+"loop": true,
+"name": "1:Panic-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 142 ) ],
+"loop": true,
+"name": "5:Shock-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 21 ) ],
+"loop": true,
+"name": "5:Screaming-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 257 ) ],
+"loop": true,
+"name": "3:Waiting-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 252 ) ],
+"loop": true,
+"name": "1:Dead1-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 258 ), ExtResource( 259 ), ExtResource( 260 ), ExtResource( 261 ), ExtResource( 262 ), ExtResource( 263 ) ],
+"loop": true,
+"name": "5:Sleeping-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 214 ), ExtResource( 215 ), ExtResource( 216 ), ExtResource( 217 ) ],
+"loop": true,
+"name": "5:Moving-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 264 ) ],
+"loop": true,
+"name": "3:Waiting-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 134 ) ],
+"loop": true,
+"name": "7:Waiting-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 89 ), ExtResource( 90 ), ExtResource( 91 ), ExtResource( 92 ), ExtResource( 93 ) ],
+"loop": false,
+"name": "0:Crippled-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 265 ), ExtResource( 266 ), ExtResource( 267 ), ExtResource( 268 ), ExtResource( 269 ) ],
+"loop": false,
+"name": "1:Crippled-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 270 ) ],
+"loop": true,
+"name": "0:OnPicNic-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 271 ), ExtResource( 272 ), ExtResource( 273 ), ExtResource( 274 ) ],
+"loop": true,
+"name": "0:Panic-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 275 ), ExtResource( 276 ), ExtResource( 277 ), ExtResource( 278 ) ],
+"loop": true,
+"name": "7:Panic-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 162 ) ],
+"loop": true,
+"name": "6:Naked-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 279 ), ExtResource( 280 ), ExtResource( 281 ), ExtResource( 282 ), ExtResource( 283 ), ExtResource( 284 ) ],
+"loop": true,
+"name": "7:Sleeping-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 271 ) ],
+"loop": true,
+"name": "0:Screaming-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 285 ) ],
+"loop": true,
+"name": "2:Shock-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 286 ) ],
+"loop": true,
+"name": "1:Shock-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 60 ) ],
+"loop": true,
+"name": "5:Shock-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 62 ), ExtResource( 63 ), ExtResource( 64 ), ExtResource( 65 ), ExtResource( 66 ), ExtResource( 67 ) ],
+"loop": true,
+"name": "4:Sleeping-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ],
+"loop": true,
+"name": "4:Working-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 225 ), ExtResource( 226 ), ExtResource( 227 ), ExtResource( 228 ), ExtResource( 229 ), ExtResource( 230 ), ExtResource( 231 ), ExtResource( 232 ), ExtResource( 233 ), ExtResource( 234 ), ExtResource( 235 ), ExtResource( 236 ), ExtResource( 237 ), ExtResource( 238 ), ExtResource( 239 ), ExtResource( 240 ), ExtResource( 241 ) ],
+"loop": true,
+"name": "1:OnPicNic-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 163 ) ],
+"loop": true,
+"name": "6:Idle-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 285 ) ],
+"loop": true,
+"name": "2:Screaming-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 187 ) ],
+"loop": true,
+"name": "6:Waiting-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 279 ), ExtResource( 280 ), ExtResource( 281 ), ExtResource( 282 ), ExtResource( 283 ), ExtResource( 284 ) ],
+"loop": true,
+"name": "7:Sleeping-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 287 ) ],
+"loop": true,
+"name": "1:Waiting-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 288 ), ExtResource( 289 ), ExtResource( 290 ), ExtResource( 291 ) ],
+"loop": true,
+"name": "1:Talking-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 292 ), ExtResource( 293 ), ExtResource( 294 ), ExtResource( 295 ), ExtResource( 296 ), ExtResource( 297 ) ],
+"loop": true,
+"name": "1:EatingTable-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 298 ), ExtResource( 299 ), ExtResource( 300 ), ExtResource( 301 ) ],
+"loop": true,
+"name": "0:Talking-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 127 ) ],
+"loop": true,
+"name": "2:Waiting-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 302 ) ],
+"loop": true,
+"name": "6:Shock-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 303 ), ExtResource( 304 ), ExtResource( 305 ), ExtResource( 306 ) ],
+"loop": true,
+"name": "4:Panic-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 307 ), ExtResource( 308 ), ExtResource( 309 ), ExtResource( 310 ) ],
+"loop": true,
+"name": "7:Talking-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 311 ), ExtResource( 312 ), ExtResource( 313 ), ExtResource( 314 ) ],
+"loop": true,
+"name": "2:Moving-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 315 ) ],
+"loop": true,
+"name": "6:Screaming-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 316 ), ExtResource( 317 ), ExtResource( 318 ), ExtResource( 319 ) ],
+"loop": true,
+"name": "4:Panic-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 79 ), ExtResource( 80 ), ExtResource( 81 ), ExtResource( 82 ) ],
+"loop": true,
+"name": "3:Panic-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 320 ) ],
+"loop": true,
+"name": "3:Shock-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 22 ), ExtResource( 23 ), ExtResource( 24 ) ],
+"loop": true,
+"name": "1:OnBed-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 321 ), ExtResource( 322 ), ExtResource( 323 ), ExtResource( 324 ) ],
+"loop": true,
+"name": "2:Panic-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 61 ) ],
+"loop": true,
+"name": "0:SittingFloor-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 279 ), ExtResource( 280 ), ExtResource( 281 ), ExtResource( 282 ), ExtResource( 283 ), ExtResource( 284 ) ],
+"loop": true,
+"name": "7:Sleeping-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 127 ) ],
+"loop": true,
+"name": "2:Idle-Down",
+"speed": 5.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "0:Fishing-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 270 ) ],
+"loop": true,
+"name": "0:OnPicNic-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 154 ) ],
+"loop": true,
+"name": "7:Screaming-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 325 ) ],
+"loop": true,
+"name": "0:Shock-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 302 ) ],
+"loop": true,
+"name": "6:Screaming-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 88 ) ],
+"loop": true,
+"name": "2:Sleeping-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 326 ) ],
+"loop": true,
+"name": "1:Shock-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 292 ), ExtResource( 293 ), ExtResource( 294 ), ExtResource( 295 ), ExtResource( 296 ), ExtResource( 297 ) ],
+"loop": true,
+"name": "1:EatingTable-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 143 ) ],
+"loop": true,
+"name": "7:Shock-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 252 ) ],
+"loop": true,
+"name": "1:Dead1-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 265 ), ExtResource( 266 ), ExtResource( 267 ), ExtResource( 268 ), ExtResource( 269 ) ],
+"loop": false,
+"name": "1:Crippled-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 327 ) ],
+"loop": true,
+"name": "4:Idle-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 208 ), ExtResource( 209 ), ExtResource( 210 ), ExtResource( 211 ), ExtResource( 212 ) ],
+"loop": true,
+"name": "0:Sleeping-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ) ],
+"loop": true,
+"name": "1:OnBedReading-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 201 ), ExtResource( 202 ), ExtResource( 203 ), ExtResource( 204 ), ExtResource( 205 ), ExtResource( 206 ), ExtResource( 207 ) ],
+"loop": true,
+"name": "1:Crippled2-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 265 ), ExtResource( 266 ), ExtResource( 267 ), ExtResource( 268 ), ExtResource( 269 ) ],
 "loop": false,
 "name": "1:Crippled-Down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 136 ), ExtResource( 137 ), ExtResource( 138 ), ExtResource( 139 ), ExtResource( 140 ), ExtResource( 141 ), ExtResource( 142 ), ExtResource( 143 ), ExtResource( 144 ), ExtResource( 145 ), ExtResource( 146 ), ExtResource( 147 ), ExtResource( 148 ), ExtResource( 149 ), ExtResource( 150 ), ExtResource( 151 ), ExtResource( 152 ) ],
+"frames": [ ExtResource( 328 ), ExtResource( 329 ), ExtResource( 330 ), ExtResource( 331 ), ExtResource( 332 ), ExtResource( 333 ), ExtResource( 334 ) ],
 "loop": true,
-"name": "1:OnPicNic-Up",
+"name": "0:Crippled2-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 162 ) ],
+"loop": true,
+"name": "6:Naked-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 335 ) ],
+"loop": true,
+"name": "6:Screaming-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 336 ), ExtResource( 337 ), ExtResource( 213 ), ExtResource( 338 ) ],
+"loop": true,
+"name": "2:Moving-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 213 ) ],
+"loop": true,
+"name": "2:Waiting-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 339 ) ],
+"loop": true,
+"name": "1:Screaming-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 340 ) ],
+"loop": true,
+"name": "2:Idle-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 258 ), ExtResource( 259 ), ExtResource( 260 ), ExtResource( 261 ), ExtResource( 262 ), ExtResource( 263 ) ],
+"loop": true,
+"name": "5:Sleeping-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 104 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 108 ) ],
+"loop": true,
+"name": "5:Crippled-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 341 ), ExtResource( 342 ), ExtResource( 343 ), ExtResource( 344 ) ],
+"loop": true,
+"name": "3:Panic-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 345 ) ],
+"loop": true,
+"name": "4:Screaming-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 104 ), ExtResource( 105 ), ExtResource( 106 ), ExtResource( 107 ), ExtResource( 108 ) ],
+"loop": true,
+"name": "5:Crippled-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 336 ), ExtResource( 337 ), ExtResource( 213 ), ExtResource( 338 ) ],
+"loop": true,
+"name": "2:Panic-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 327 ) ],
+"loop": true,
+"name": "4:Waiting-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 346 ), ExtResource( 347 ), ExtResource( 348 ), ExtResource( 349 ) ],
+"loop": true,
+"name": "1:Talking-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 350 ), ExtResource( 351 ), ExtResource( 242 ), ExtResource( 352 ) ],
+"loop": true,
+"name": "0:Panic-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 224 ) ],
+"loop": true,
+"name": "1:SittingFloor-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 88 ), ExtResource( 83 ), ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 87 ), ExtResource( 88 ) ],
+"loop": true,
+"name": "2:Sleeping-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 94 ), ExtResource( 95 ), ExtResource( 96 ), ExtResource( 97 ) ],
+"loop": true,
+"name": "5:Panic-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 335 ) ],
+"loop": true,
+"name": "6:Shock-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 353 ), ExtResource( 354 ), ExtResource( 355 ), ExtResource( 356 ) ],
+"loop": true,
+"name": "6:Talking-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 357 ) ],
+"loop": true,
+"name": "3:Shock-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 136 ) ],
+"loop": true,
+"name": "3:Waiting-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 358 ) ],
+"loop": true,
+"name": "1:Waiting-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 315 ) ],
+"loop": true,
+"name": "6:Shock-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 270 ) ],
+"loop": true,
+"name": "0:OnPicNic-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "0:Talking-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 359 ) ],
+"loop": true,
+"name": "7:Waiting-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 360 ), ExtResource( 361 ), ExtResource( 362 ), ExtResource( 363 ) ],
+"loop": true,
+"name": "0:Talking-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 145 ) ],
+"loop": true,
+"name": "0:OnBedReading-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 243 ) ],
+"loop": true,
+"name": "0:EatingTable-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 264 ) ],
+"loop": true,
+"name": "3:Idle-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 292 ), ExtResource( 293 ), ExtResource( 294 ), ExtResource( 295 ), ExtResource( 296 ), ExtResource( 297 ) ],
+"loop": true,
+"name": "1:EatingTable-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 243 ) ],
+"loop": true,
+"name": "0:EatingTable-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 345 ) ],
+"loop": true,
+"name": "4:Shock-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 257 ) ],
+"loop": true,
+"name": "3:Idle-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 60 ) ],
+"loop": true,
+"name": "5:Screaming-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 303 ), ExtResource( 304 ), ExtResource( 305 ), ExtResource( 306 ) ],
+"loop": true,
+"name": "4:Moving-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 188 ) ],
+"loop": true,
+"name": "4:Waiting-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 145 ) ],
+"loop": true,
+"name": "0:OnBed-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 253 ), ExtResource( 254 ), ExtResource( 255 ), ExtResource( 256 ) ],
+"loop": true,
+"name": "1:Moving-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 364 ) ],
+"loop": true,
+"name": "2:Shock-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 328 ), ExtResource( 329 ), ExtResource( 330 ), ExtResource( 331 ), ExtResource( 332 ), ExtResource( 333 ), ExtResource( 334 ) ],
+"loop": true,
+"name": "0:Crippled2-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 155 ), ExtResource( 156 ), ExtResource( 157 ), ExtResource( 158 ), ExtResource( 159 ), ExtResource( 160 ), ExtResource( 161 ) ],
+"loop": true,
+"name": "5:Crippled2-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 365 ), ExtResource( 366 ), ExtResource( 367 ), ExtResource( 368 ) ],
+"loop": true,
+"name": "4:Panic-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 61 ) ],
+"loop": true,
+"name": "0:SittingFloor-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 369 ) ],
+"loop": true,
+"name": "0:Shock-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 132 ) ],
+"loop": true,
+"name": "4:Shock-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "3:Sleeping-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ) ],
+"loop": true,
+"name": "3:Sleeping-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 193 ) ],
+"loop": true,
+"name": "0:Screaming-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 364 ) ],
+"loop": true,
+"name": "2:Screaming-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 145 ) ],
+"loop": true,
+"name": "0:OnBed-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 340 ) ],
+"loop": true,
+"name": "2:Waiting-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 150 ), ExtResource( 151 ), ExtResource( 152 ), ExtResource( 153 ) ],
+"loop": true,
+"name": "5:Panic-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 218 ), ExtResource( 219 ), ExtResource( 220 ), ExtResource( 221 ), ExtResource( 222 ), ExtResource( 223 ) ],
+"loop": true,
+"name": "6:Sleeping-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 370 ), ExtResource( 371 ), ExtResource( 372 ), ExtResource( 373 ) ],
+"loop": true,
+"name": "6:Panic-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 374 ), ExtResource( 375 ), ExtResource( 376 ), ExtResource( 377 ) ],
+"loop": true,
+"name": "4:Moving-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 144 ) ],
+"loop": true,
+"name": "1:Idle-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 142 ) ],
+"loop": true,
+"name": "5:Idle-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 169 ), ExtResource( 170 ), ExtResource( 171 ), ExtResource( 172 ), ExtResource( 173 ), ExtResource( 174 ), ExtResource( 175 ), ExtResource( 176 ), ExtResource( 177 ), ExtResource( 178 ) ],
+"loop": true,
+"name": "0:Fishing-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 287 ) ],
+"loop": true,
+"name": "1:Idle-Up",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 1 ) ],
@@ -1536,89 +1491,134 @@ animations = [ {
 "name": "0:Waiting-Down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 288 ) ],
+"frames": [ ExtResource( 253 ) ],
 "loop": true,
-"name": "7:Shock-Down",
+"name": "1:Talking-Up",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 248 ), ExtResource( 249 ), ExtResource( 250 ), ExtResource( 251 ), ExtResource( 252 ), ExtResource( 253 ) ],
+"frames": [ ExtResource( 339 ), ExtResource( 378 ), ExtResource( 379 ), ExtResource( 380 ) ],
 "loop": true,
-"name": "2:Sleeping-Up",
+"name": "1:Panic-Down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 87 ) ],
+"frames": [ ExtResource( 98 ), ExtResource( 99 ), ExtResource( 100 ), ExtResource( 101 ), ExtResource( 102 ), ExtResource( 103 ) ],
 "loop": true,
-"name": "5:Idle-Up",
+"name": "1:Sleeping-Down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 184 ), ExtResource( 185 ), ExtResource( 186 ), ExtResource( 187 ), ExtResource( 188 ), ExtResource( 189 ), ExtResource( 190 ) ],
+"frames": [ ExtResource( 21 ) ],
 "loop": true,
-"name": "1:Crippled2-Down",
+"name": "5:Waiting-Side",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 295 ), ExtResource( 296 ), ExtResource( 297 ), ExtResource( 298 ) ],
+"frames": [ ExtResource( 320 ) ],
 "loop": true,
-"name": "4:Panic-Up",
+"name": "3:Screaming-Side",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 352 ), ExtResource( 353 ), ExtResource( 354 ), ExtResource( 355 ), ExtResource( 356 ), ExtResource( 357 ), ExtResource( 358 ) ],
+"frames": [ ExtResource( 358 ) ],
 "loop": true,
-"name": "2:Working-Side",
+"name": "1:Idle-Side",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 352 ), ExtResource( 353 ), ExtResource( 354 ), ExtResource( 355 ), ExtResource( 356 ), ExtResource( 357 ), ExtResource( 358 ) ],
+"frames": [ ExtResource( 381 ), ExtResource( 382 ), ExtResource( 383 ), ExtResource( 384 ) ],
 "loop": true,
-"name": "2:Working-Up",
+"name": "3:Panic-Side",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 352 ), ExtResource( 353 ), ExtResource( 354 ), ExtResource( 355 ), ExtResource( 356 ), ExtResource( 357 ), ExtResource( 358 ) ],
+"frames": [ ExtResource( 141 ) ],
 "loop": true,
-"name": "2:Working-Down",
+"name": "0:Dead1-Side",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 359 ), ExtResource( 360 ), ExtResource( 361 ), ExtResource( 362 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
-"name": "7:Talking-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 363 ), ExtResource( 364 ), ExtResource( 365 ), ExtResource( 366 ) ],
-"loop": true,
-"name": "7:Talking-Down",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 328 ) ],
-"loop": true,
-"name": "7:Talking-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 367 ), ExtResource( 368 ), ExtResource( 369 ), ExtResource( 370 ) ],
-"loop": true,
-"name": "6:Talking-Side",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 371 ), ExtResource( 372 ), ExtResource( 373 ), ExtResource( 374 ), ExtResource( 375 ), ExtResource( 376 ), ExtResource( 377 ), ExtResource( 378 ), ExtResource( 379 ), ExtResource( 380 ), ExtResource( 381 ), ExtResource( 382 ), ExtResource( 383 ), ExtResource( 384 ) ],
-"loop": true,
-"name": "4:Working-Up",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 371 ), ExtResource( 372 ), ExtResource( 373 ), ExtResource( 374 ), ExtResource( 375 ), ExtResource( 376 ), ExtResource( 377 ), ExtResource( 378 ), ExtResource( 379 ), ExtResource( 380 ), ExtResource( 381 ), ExtResource( 382 ), ExtResource( 383 ), ExtResource( 384 ) ],
-"loop": true,
-"name": "4:Working-Side",
+"name": "0:Waiting-Side",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 385 ), ExtResource( 386 ), ExtResource( 387 ), ExtResource( 388 ) ],
 "loop": true,
-"name": "6:Talking-Down",
+"name": "3:Moving-Down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 290 ) ],
+"frames": [ ExtResource( 258 ), ExtResource( 259 ), ExtResource( 260 ), ExtResource( 261 ), ExtResource( 262 ), ExtResource( 263 ) ],
 "loop": true,
-"name": "6:Talking-Up",
+"name": "5:Sleeping-Down",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 371 ), ExtResource( 372 ), ExtResource( 373 ), ExtResource( 374 ), ExtResource( 375 ), ExtResource( 376 ), ExtResource( 377 ), ExtResource( 378 ), ExtResource( 379 ), ExtResource( 380 ), ExtResource( 381 ), ExtResource( 382 ), ExtResource( 383 ), ExtResource( 384 ) ],
+"frames": [ ExtResource( 142 ) ],
+"loop": true,
+"name": "5:Screaming-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 31 ) ],
+"loop": true,
+"name": "3:Screaming-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 145 ) ],
+"loop": true,
+"name": "0:OnBed-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 68 ), ExtResource( 69 ), ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ), ExtResource( 73 ), ExtResource( 74 ) ],
+"loop": true,
+"name": "2:Working-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 46 ), ExtResource( 47 ), ExtResource( 48 ), ExtResource( 49 ), ExtResource( 50 ), ExtResource( 51 ), ExtResource( 52 ), ExtResource( 53 ), ExtResource( 54 ) ],
+"loop": true,
+"name": "1:OnBedReading-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ), ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ), ExtResource( 40 ), ExtResource( 41 ), ExtResource( 42 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 45 ) ],
 "loop": true,
 "name": "4:Working-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 122 ) ],
+"loop": true,
+"name": "4:Idle-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 275 ), ExtResource( 276 ), ExtResource( 277 ), ExtResource( 278 ) ],
+"loop": true,
+"name": "7:Moving-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 328 ), ExtResource( 329 ), ExtResource( 330 ), ExtResource( 331 ), ExtResource( 332 ), ExtResource( 333 ), ExtResource( 334 ) ],
+"loop": true,
+"name": "0:Crippled2-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 201 ), ExtResource( 202 ), ExtResource( 203 ), ExtResource( 204 ), ExtResource( 205 ), ExtResource( 206 ), ExtResource( 207 ) ],
+"loop": true,
+"name": "1:Crippled2-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 225 ), ExtResource( 226 ), ExtResource( 227 ), ExtResource( 228 ), ExtResource( 229 ), ExtResource( 230 ), ExtResource( 231 ), ExtResource( 232 ), ExtResource( 233 ), ExtResource( 234 ), ExtResource( 235 ), ExtResource( 236 ), ExtResource( 237 ), ExtResource( 238 ), ExtResource( 239 ), ExtResource( 240 ), ExtResource( 241 ) ],
+"loop": true,
+"name": "1:OnPicNic-Up",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 141 ) ],
+"loop": true,
+"name": "0:Dead1-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 357 ) ],
+"loop": true,
+"name": "3:Screaming-Down",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 359 ) ],
+"loop": true,
+"name": "7:Idle-Side",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 164 ) ],
+"loop": true,
+"name": "4:Screaming-Up",
 "speed": 5.0
 } ]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=85 format=2]
+[gd_scene load_steps=91 format=2]
 
 [ext_resource path="res://scripts/GameUI.gd" type="Script" id=1]
 [ext_resource path="res://scripts/TeenagerInfo.gd" type="Script" id=2]
@@ -63,20 +63,26 @@
 [ext_resource path="res://sprites/gui/fc_progress_bar.png" type="Texture" id=61]
 [ext_resource path="res://sprites/prototype/ui/fear_progress_background.png" type="Texture" id=62]
 [ext_resource path="res://sprites/prototype/ui/fear_progress.png" type="Texture" id=63]
-[ext_resource path="res://sprites/prototype/misc/side_point.png" type="Texture" id=64]
-[ext_resource path="res://sprites/prototype/misc/vertical_point.png" type="Texture" id=65]
+[ext_resource path="res://sprites/prototype/misc/vertical_point.png" type="Texture" id=64]
+[ext_resource path="res://sprites/prototype/misc/side_point.png" type="Texture" id=65]
 [ext_resource path="res://scripts/GameOverUI.gd" type="Script" id=66]
-[ext_resource path="res://scripts/WinningUI.gd" type="Script" id=67]
-[ext_resource path="res://scripts/MouseUI.gd" type="Script" id=68]
-[ext_resource path="res://sprites/mouse/pointer.png" type="Texture" id=69]
-[ext_resource path="res://sprites/traps/knock1.png" type="Texture" id=70]
-[ext_resource path="res://sprites/traps/knock2.png" type="Texture" id=71]
-[ext_resource path="res://sprites/traps/knock3.png" type="Texture" id=72]
-[ext_resource path="res://sprites/gui/score_icon_prototype.png" type="Texture" id=73]
-[ext_resource path="res://sprites/mouse/scissor.png" type="Texture" id=74]
-[ext_resource path="res://sprites/characters/male_1/dying/dying_1_down28.png" type="Texture" id=75]
-[ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=76]
-[ext_resource path="res://sprites/misc/art_test.png" type="Texture" id=77]
+[ext_resource path="res://sprites/gui/exit_normal.png" type="Texture" id=67]
+[ext_resource path="res://sprites/gui/exit_pressed.png" type="Texture" id=68]
+[ext_resource path="res://sprites/gui/exit_hover.png" type="Texture" id=69]
+[ext_resource path="res://sprites/gui/restart_normal.png" type="Texture" id=70]
+[ext_resource path="res://sprites/gui/restart_pressed.png" type="Texture" id=71]
+[ext_resource path="res://sprites/gui/restart_hover.png" type="Texture" id=72]
+[ext_resource path="res://scripts/WinningUI.gd" type="Script" id=73]
+[ext_resource path="res://scripts/MouseUI.gd" type="Script" id=74]
+[ext_resource path="res://sprites/mouse/pointer.png" type="Texture" id=75]
+[ext_resource path="res://sprites/traps/knock1.png" type="Texture" id=76]
+[ext_resource path="res://sprites/traps/knock2.png" type="Texture" id=77]
+[ext_resource path="res://sprites/traps/knock3.png" type="Texture" id=78]
+[ext_resource path="res://sprites/mouse/scissor.png" type="Texture" id=79]
+[ext_resource path="res://sprites/gui/score_icon_prototype.png" type="Texture" id=80]
+[ext_resource path="res://sprites/characters/male_1/dying/dying_1_down28.png" type="Texture" id=81]
+[ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=82]
+[ext_resource path="res://sprites/misc/art_test.png" type="Texture" id=83]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 25 )
@@ -85,23 +91,23 @@ font_data = ExtResource( 25 )
 animations = [ {
 "frames": [ ExtResource( 64 ) ],
 "loop": true,
-"name": "Horizontal",
+"name": "Vertical",
 "speed": 5.0
 }, {
 "frames": [ ExtResource( 65 ) ],
 "loop": true,
-"name": "Vertical",
+"name": "Horizontal",
 "speed": 5.0
 } ]
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 69 ) ],
+"frames": [ ExtResource( 75 ) ],
 "loop": true,
 "name": "DEFAULT",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 70 ), ExtResource( 71 ), ExtResource( 72 ) ],
+"frames": [ ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ) ],
 "loop": true,
 "name": "BUMP",
 "speed": 5.0
@@ -111,14 +117,14 @@ animations = [ {
 "name": "TRAP",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 73 ) ],
-"loop": true,
-"name": "MACHETE",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 74 ) ],
+"frames": [ ExtResource( 79 ) ],
 "loop": true,
 "name": "LIGHTCUT",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 80 ) ],
+"loop": true,
+"name": "MACHETE",
 "speed": 5.0
 } ]
 
@@ -1147,32 +1153,37 @@ visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="Quit" type="Button" parent="Canvas/GameOverUI/Panel"]
-margin_left = 300.0
+[node name="Exit" type="TextureButton" parent="Canvas/GameOverUI/Panel"]
+margin_left = 310.0
 margin_top = 160.0
-margin_right = 374.0
-margin_bottom = 186.0
-text = "QUIT"
+margin_right = 440.0
+margin_bottom = 203.0
+texture_normal = ExtResource( 67 )
+texture_pressed = ExtResource( 68 )
+texture_hover = ExtResource( 69 )
 
-[node name="Restart" type="Button" parent="Canvas/GameOverUI/Panel"]
-margin_left = 220.0
+[node name="Restart" type="TextureButton" parent="Canvas/GameOverUI/Panel"]
+margin_left = 170.0
 margin_top = 160.0
-margin_right = 294.0
-margin_bottom = 186.0
-text = "RESTART"
+margin_right = 300.0
+margin_bottom = 203.0
+texture_normal = ExtResource( 70 )
+texture_pressed = ExtResource( 71 )
+texture_hover = ExtResource( 72 )
 
-[node name="Label" type="Label" parent="Canvas/GameOverUI/Panel"]
-margin_left = 259.003
+[node name="OverLabel" type="Label" parent="Canvas/GameOverUI/Panel"]
+margin_left = 229.003
 margin_top = 123.884
-margin_right = 335.003
-margin_bottom = 137.884
+margin_right = 373.003
+margin_bottom = 139.884
+custom_fonts/font = ExtResource( 43 )
 text = "GAME OVER"
 
 [node name="WinningUI" type="Control" parent="Canvas"]
 editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 67 )
+script = ExtResource( 73 )
 
 [node name="Panel" type="Control" parent="Canvas/WinningUI"]
 editor/display_folded = true
@@ -1180,32 +1191,37 @@ visible = false
 margin_right = 40.0
 margin_bottom = 40.0
 
-[node name="MenuBtn" type="Button" parent="Canvas/WinningUI/Panel"]
-margin_left = 201.0
-margin_top = 153.0
-margin_right = 296.0
-margin_bottom = 183.0
-text = "MENU"
+[node name="MenuBtn" type="TextureButton" parent="Canvas/WinningUI/Panel"]
+margin_left = 311.147
+margin_top = 160.991
+margin_right = 441.147
+margin_bottom = 203.991
+texture_normal = ExtResource( 67 )
+texture_pressed = ExtResource( 68 )
+texture_hover = ExtResource( 69 )
 
-[node name="RestartBtn" type="Button" parent="Canvas/WinningUI/Panel"]
-margin_left = 306.0
-margin_top = 153.0
-margin_right = 401.0
-margin_bottom = 183.0
-text = "RESTART"
+[node name="RestartBtn" type="TextureButton" parent="Canvas/WinningUI/Panel"]
+margin_left = 172.147
+margin_top = 160.991
+margin_right = 302.147
+margin_bottom = 203.991
+texture_normal = ExtResource( 70 )
+texture_pressed = ExtResource( 71 )
+texture_hover = ExtResource( 72 )
 
-[node name="Label2" type="Label" parent="Canvas/WinningUI/Panel"]
-margin_left = 259.003
+[node name="WonLabel" type="Label" parent="Canvas/WinningUI/Panel"]
+margin_left = 249.003
 margin_top = 123.884
-margin_right = 335.003
-margin_bottom = 137.884
+margin_right = 377.003
+margin_bottom = 139.884
+custom_fonts/font = ExtResource( 43 )
 text = "YOU WON!"
 
 [node name="MouseUI" type="Control" parent="Canvas"]
 editor/display_folded = true
 margin_right = 40.0
 margin_bottom = 40.0
-script = ExtResource( 68 )
+script = ExtResource( 74 )
 
 [node name="MouseAnims" type="AnimatedSprite" parent="Canvas/MouseUI"]
 frames = SubResource( 3 )
@@ -1260,7 +1276,7 @@ anims/misc = SubResource( 6 )
 visible = false
 position = Vector2( 117.28, 314.042 )
 z_index = 4
-texture = ExtResource( 75 )
+texture = ExtResource( 81 )
 
 [node name="LabelAnims" type="AnimationPlayer" parent="Canvas/Animations"]
 playback_speed = 1.4
@@ -1270,7 +1286,7 @@ anims/score = SubResource( 7 )
 editor/display_folded = true
 visible = false
 position = Vector2( 300.047, 328.028 )
-texture = ExtResource( 76 )
+texture = ExtResource( 82 )
 
 [node name="Label" type="Label" parent="Canvas/Animations/Sprite"]
 margin_left = -216.0
@@ -1293,7 +1309,7 @@ autowrap = true
 [node name="Sprite" type="Sprite" parent="Canvas"]
 visible = false
 position = Vector2( 299.297, 64.5994 )
-texture = ExtResource( 76 )
+texture = ExtResource( 82 )
 
 [node name="Sprite2" type="Sprite" parent="Canvas"]
 editor/display_folded = true
@@ -1301,7 +1317,7 @@ visible = false
 position = Vector2( 299.297, 184.599 )
 z_index = 9
 z_as_relative = false
-texture = ExtResource( 77 )
+texture = ExtResource( 83 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Canvas/Sprite2"]
 visible = false
@@ -1374,5 +1390,7 @@ texture = ExtResource( 24 )
 [connection signal="pressed" from="Canvas/InfoUI/Clock/NormalSpdBtn" to="Canvas/InfoUI" method="normal_btn"]
 [connection signal="pressed" from="Canvas/InfoUI/Clock/FastSpdBtn" to="Canvas/InfoUI" method="fast_btn"]
 [connection signal="pressed" from="Canvas/InfoUI/Clock/FastSpdBtn2" to="Canvas/InfoUI" method="fast_btn2"]
-[connection signal="pressed" from="Canvas/GameOverUI/Panel/Quit" to="Canvas/GameOverUI" method="quit"]
+[connection signal="pressed" from="Canvas/GameOverUI/Panel/Exit" to="Canvas/GameOverUI" method="quit"]
 [connection signal="pressed" from="Canvas/GameOverUI/Panel/Restart" to="Canvas/GameOverUI" method="restart"]
+[connection signal="pressed" from="Canvas/WinningUI/Panel/MenuBtn" to="Canvas/WinningUI" method="menu_btn"]
+[connection signal="pressed" from="Canvas/WinningUI/Panel/RestartBtn" to="Canvas/WinningUI" method="restart_btn"]

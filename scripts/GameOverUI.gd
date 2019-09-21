@@ -21,10 +21,16 @@ func show_screen():
 	
 func restart():
 	for teen in get_tree().get_nodes_in_group("AI"):
-		teen.queue_free()
+		teen.free()
 	
-	star.clear()
+	#TODO: loading screen
 	get_tree().reload_current_scene()
+	star.clear()
 	
 func quit():
-	get_tree().quit()
+	for teen in get_tree().get_nodes_in_group("AI"):
+		teen.free()
+	
+	get_tree().change_scene("res://scenes/MainMenu.tscn")
+	star.clear()
+	

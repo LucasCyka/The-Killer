@@ -24,15 +24,16 @@ func show_panel():
 #goes to the main menu
 func menu_btn():
 	for teen in get_tree().get_nodes_in_group("AI"):
-		teen.queue_free()
+		teen.free()
 	
-	star.clear()
 	get_tree().change_scene("res://scenes/MainMenu.tscn")
+	star.clear()
 	
 #restarts game
 func restart_btn():
 	for teen in get_tree().get_nodes_in_group("AI"):
-		teen.queue_free()
+		teen.free()
 	
-	star.clear()
+	#TODO: loading screen
 	get_tree().reload_current_scene()
+	star.clear()
