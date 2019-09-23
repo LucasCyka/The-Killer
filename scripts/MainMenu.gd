@@ -4,15 +4,20 @@ extends Node2D
 	Controls the main menu and intro of the game.
 """
 
+onready var mouse = $Mouse
+
 func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	
 	if settings.first_time:
 		$StartLabel.show()
-		$MenuPanel.hide()
+		$OptionsMenu.hide()
 		settings.first_time = false
 	else:
 		set_process_input(false)
 		start_anim()
 		start_music()
+		$StartLabel.hide()
 
 func _input(event):
 	if Input.is_action_just_pressed("Enter"):
@@ -20,7 +25,16 @@ func _input(event):
 		set_process_input(false)
 		$Audio.play_sound('Panic2')
 		start_timer()
+
+func _process(delta):
+	if not $BackgroundAnimation.is_visible(): 
+		mouse.hide()
+		return
+	else:
+		mouse.show()
 		
+	mouse.global_position = get_global_mouse_position()
+
 func start_anim():
 	$BackgroundAnimation/AnimationPlayer.play("New Anim")
 	
@@ -48,7 +62,7 @@ func start_timer():
 	timer2.start()
 	
 func show_menu():
-	$MenuPanel.show()
+	$OptionsMenu.show()
 	
 	print('show panel')
 	

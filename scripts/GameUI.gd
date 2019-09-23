@@ -17,6 +17,7 @@ var info_ui = null
 var gameover_ui = null
 var mouse_ui = null
 var winning_ui = null
+var pause_ui = null
 var game = null
 
 #only initialize the UI when the game is fully loaded
@@ -33,6 +34,7 @@ func init():
 	gameover_ui = get_node("Canvas/GameOverUI")
 	mouse_ui = get_node("Canvas/MouseUI")
 	winning_ui = get_node("Canvas/WinningUI")
+	pause_ui = get_node("Canvas/PauseMenu")
 	
 	teenager_panel.init(self)
 	traps_ui.init(self)
@@ -41,6 +43,7 @@ func init():
 	gameover_ui.init(self)
 	mouse_ui.init(self)
 	winning_ui.init(self)
+	pause_ui.init(self)
 	
 	#detect when a element in the ui is used and hovered
 	var buttons = get_buttons()

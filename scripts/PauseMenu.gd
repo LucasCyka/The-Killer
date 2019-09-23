@@ -1,21 +1,26 @@
 extends Control
 
 """
-	Controll the buttons of the option menu screen.
+	Control the in-game pause menu
 """
 
-onready var btns = [$Start,$Options,$Credits,$Exit]
+var base = null
+
+onready var btns = [$RestartBtn,$OptionsBtn,$CreditsBtn,$ExitBtn]
 var selected_btn = 0
 var _selected_normal = null
 
 #initialize
-func _ready():
+func init(base):
+	self.base = base
+	
 	btns[selected_btn].get_child(0).show()
 	_selected_normal = btns[selected_btn].texture_normal
 	btns[selected_btn].texture_normal = btns[selected_btn].texture_hover
 	
 	for btn in btns:
 		btn.connect('mouse_entered',self,'_on_hover',[btn])
+
 
 #when the button is hovered with the mouse
 func _on_hover(btn):
@@ -29,6 +34,13 @@ func _on_hover(btn):
 	btns[selected_btn].texture_normal = btns[selected_btn].texture_hover
 
 func _input(event):
+	if Input.is_key_pressed(KEY_ESCAPE):
+		if not is_visible() and base.game.get_current_mode() != base.game.MODE.HUNTING:
+			if get_tree().get_nodes_in_group("Player").size() == 0:
+				show()
+		elif is_visible():
+			hide()
+	
 	if not self.is_visible(): return
 	
 	var changed = false
@@ -45,10 +57,10 @@ func _input(event):
 		new_btn -= 1
 		changed = true
 	elif Input.is_action_just_pressed("Enter"):
-		if btns[selected_btn] == $Start: on_start()
-		elif btns[selected_btn] == $Options: on_options()
-		elif btns[selected_btn] == $Credits: on_credits()
-		elif btns[selected_btn] == $Exit: exit()
+		if btns[selected_btn] == $RestartBtn: on_restart()
+		elif btns[selected_btn] == $OptionsBtn: on_options()
+		elif btns[selected_btn] == $CreditsBtn: on_credits()
+		elif btns[selected_btn] == $ExitBtn: exit()
 		else: return
 	else:
 		return
@@ -63,30 +75,35 @@ func _input(event):
 		btns[selected_btn].texture_normal = btns[selected_btn].texture_hover
 	
 
-#start button pressed event
-func on_start():
-	self.hide()
+#restart button pressed event
+func on_restart():
+	get_tree().paused = false
+	for teen in get_tree().get_nodes_in_group("AI"):
+		teen.free()
 	
-	var level_selection = preload("res://scenes/LevelsSelection.tscn").instance()
-	get_parent().add_child(level_selection)
-	level_selection.connect('closed',self,'show')
+	#TODO: loading screen
+	get_tree().reload_current_scene()
+	star.clear()
 
 #credits button pressed event
 func on_credits():
-	self.hide()
-	
 	var credits = preload("res://scenes/Credits.tscn").instance()
 	get_parent().add_child(credits)
 	credits.connect('closed',self,'show')
 
+#options button pressed event
 func on_options():
-	self.hide()
-	
-	var settings = preload("res://scenes/SettingsMenu.tscn").instance()
-	get_parent().add_child(settings)
-	settings.connect('closed',self,'show')
+	var options = preload("res://scenes/SettingsMenu.tscn").instance()
+	get_parent().add_child(options)
+	options.connect('closed',self,'show')
 
 func exit():
+	get_tree().paused = false
+	for teen in get_tree().get_nodes_in_group("AI"):
+		teen.free()
+	
+	#TODO: loading screen
 	get_tree().change_scene("res://scenes/MainMenu.tscn")
-	pass # Replace with function body.
+	star.clear()
+	
 

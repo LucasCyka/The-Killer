@@ -633,7 +633,7 @@ func check_misc_is_placed(pos):
 	
 	for misc in get_tree().get_nodes_in_group('Misc'):
 		if misc.is_placed:
-			if misc.id != 0:
+			if misc.id != 3:
 				#he put the wrong trap..
 				misc.call_deferred('free')
 				get_parent().points = 10000

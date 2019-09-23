@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=2]
+[gd_scene load_steps=103 format=2]
 
 [ext_resource path="res://scripts/GameUI.gd" type="Script" id=1]
 [ext_resource path="res://scripts/TeenagerInfo.gd" type="Script" id=2]
@@ -82,7 +82,18 @@
 [ext_resource path="res://sprites/gui/score_icon_prototype.png" type="Texture" id=80]
 [ext_resource path="res://sprites/characters/male_1/dying/dying_1_down28.png" type="Texture" id=81]
 [ext_resource path="res://sprites/gui/tutorial_mockup.png" type="Texture" id=82]
-[ext_resource path="res://sprites/misc/art_test.png" type="Texture" id=83]
+[ext_resource path="res://scripts/PauseMenu.gd" type="Script" id=83]
+[ext_resource path="res://sprites/gui/machete1.png" type="Texture" id=84]
+[ext_resource path="res://sprites/gui/machete2.png" type="Texture" id=85]
+[ext_resource path="res://sprites/gui/machete3.png" type="Texture" id=86]
+[ext_resource path="res://sprites/gui/machete4.png" type="Texture" id=87]
+[ext_resource path="res://sprites/gui/options_normal.png" type="Texture" id=88]
+[ext_resource path="res://sprites/gui/options_pressed.png" type="Texture" id=89]
+[ext_resource path="res://sprites/gui/options_hover.png" type="Texture" id=90]
+[ext_resource path="res://sprites/gui/credits_normal.png" type="Texture" id=91]
+[ext_resource path="res://sprites/gui/credits_pressed.png" type="Texture" id=92]
+[ext_resource path="res://sprites/gui/credits_hover.png" type="Texture" id=93]
+[ext_resource path="res://sprites/misc/art_test.png" type="Texture" id=94]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 25 )
@@ -196,6 +207,14 @@ tracks/0/keys = {
 "update": 0,
 "values": [ 0.0, 3.0, -3.0, 3.0, -3.0, 0.0 ]
 }
+
+[sub_resource type="SpriteFrames" id=8]
+animations = [ {
+"frames": [ ExtResource( 84 ), ExtResource( 85 ), ExtResource( 86 ), ExtResource( 87 ) ],
+"loop": true,
+"name": "default",
+"speed": 7.0
+} ]
 
 [node name="GameUI" type="Control"]
 pause_mode = 2
@@ -1224,6 +1243,7 @@ margin_bottom = 40.0
 script = ExtResource( 74 )
 
 [node name="MouseAnims" type="AnimatedSprite" parent="Canvas/MouseUI"]
+z_index = 2
 frames = SubResource( 3 )
 animation = "DEFAULT"
 
@@ -1306,6 +1326,120 @@ custom_fonts/font = ExtResource( 8 )
 text = "<ENTER>"
 autowrap = true
 
+[node name="PauseMenu" type="Control" parent="Canvas"]
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 83 )
+
+[node name="Sprite" type="Sprite" parent="Canvas/PauseMenu"]
+position = Vector2( 313.617, 177.34 )
+scale = Vector2( 8.46707, 12.0838 )
+texture = ExtResource( 44 )
+
+[node name="RestartBtn" type="TextureButton" parent="Canvas/PauseMenu"]
+editor/display_folded = true
+margin_left = 240.0
+margin_top = 100.0
+margin_right = 370.0
+margin_bottom = 143.0
+texture_normal = ExtResource( 70 )
+texture_pressed = ExtResource( 71 )
+texture_hover = ExtResource( 72 )
+
+[node name="Machete" type="AnimatedSprite" parent="Canvas/PauseMenu/RestartBtn"]
+visible = false
+position = Vector2( -27.1472, 21.6766 )
+frames = SubResource( 8 )
+frame = 1
+playing = true
+
+[node name="Machete2" type="AnimatedSprite" parent="Canvas/PauseMenu/RestartBtn/Machete"]
+position = Vector2( 185, 0 )
+frames = SubResource( 8 )
+playing = true
+flip_h = true
+
+[node name="OptionsBtn" type="TextureButton" parent="Canvas/PauseMenu"]
+editor/display_folded = true
+margin_left = 240.0
+margin_top = 160.0
+margin_right = 370.0
+margin_bottom = 203.0
+texture_normal = ExtResource( 88 )
+texture_pressed = ExtResource( 89 )
+texture_hover = ExtResource( 90 )
+
+[node name="Machete3" type="AnimatedSprite" parent="Canvas/PauseMenu/OptionsBtn"]
+visible = false
+position = Vector2( -27.1472, 21.6766 )
+frames = SubResource( 8 )
+playing = true
+
+[node name="Machete4" type="AnimatedSprite" parent="Canvas/PauseMenu/OptionsBtn/Machete3"]
+position = Vector2( 185, 0 )
+frames = SubResource( 8 )
+frame = 3
+playing = true
+flip_h = true
+
+[node name="CreditsBtn" type="TextureButton" parent="Canvas/PauseMenu"]
+editor/display_folded = true
+margin_left = 240.0
+margin_top = 220.0
+margin_right = 370.0
+margin_bottom = 263.0
+texture_normal = ExtResource( 91 )
+texture_pressed = ExtResource( 92 )
+texture_hover = ExtResource( 93 )
+
+[node name="Machete5" type="AnimatedSprite" parent="Canvas/PauseMenu/CreditsBtn"]
+visible = false
+position = Vector2( -27.1472, 21.6766 )
+frames = SubResource( 8 )
+playing = true
+
+[node name="Machete6" type="AnimatedSprite" parent="Canvas/PauseMenu/CreditsBtn/Machete5"]
+position = Vector2( 185, 0 )
+frames = SubResource( 8 )
+frame = 3
+playing = true
+flip_h = true
+
+[node name="ExitBtn" type="TextureButton" parent="Canvas/PauseMenu"]
+editor/display_folded = true
+margin_left = 240.0
+margin_top = 280.0
+margin_right = 370.0
+margin_bottom = 323.0
+texture_normal = ExtResource( 67 )
+texture_pressed = ExtResource( 68 )
+texture_hover = ExtResource( 69 )
+
+[node name="Machete7" type="AnimatedSprite" parent="Canvas/PauseMenu/ExitBtn"]
+visible = false
+position = Vector2( -27.1472, 21.6766 )
+frames = SubResource( 8 )
+frame = 3
+playing = true
+
+[node name="Machete8" type="AnimatedSprite" parent="Canvas/PauseMenu/ExitBtn/Machete7"]
+position = Vector2( 185, 0 )
+frames = SubResource( 8 )
+frame = 2
+playing = true
+flip_h = true
+
+[node name="Label" type="Label" parent="Canvas/PauseMenu"]
+margin_left = 240.0
+margin_top = 75.0
+margin_right = 370.0
+margin_bottom = 91.0
+custom_fonts/font = ExtResource( 43 )
+text = "MENU"
+align = 1
+valign = 1
+
 [node name="Sprite" type="Sprite" parent="Canvas"]
 visible = false
 position = Vector2( 299.297, 64.5994 )
@@ -1317,7 +1451,7 @@ visible = false
 position = Vector2( 299.297, 184.599 )
 z_index = 9
 z_as_relative = false
-texture = ExtResource( 83 )
+texture = ExtResource( 94 )
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="Canvas/Sprite2"]
 visible = false
@@ -1394,3 +1528,7 @@ texture = ExtResource( 24 )
 [connection signal="pressed" from="Canvas/GameOverUI/Panel/Restart" to="Canvas/GameOverUI" method="restart"]
 [connection signal="pressed" from="Canvas/WinningUI/Panel/MenuBtn" to="Canvas/WinningUI" method="menu_btn"]
 [connection signal="pressed" from="Canvas/WinningUI/Panel/RestartBtn" to="Canvas/WinningUI" method="restart_btn"]
+[connection signal="pressed" from="Canvas/PauseMenu/RestartBtn" to="Canvas/PauseMenu" method="on_restart"]
+[connection signal="pressed" from="Canvas/PauseMenu/OptionsBtn" to="Canvas/PauseMenu" method="on_options"]
+[connection signal="pressed" from="Canvas/PauseMenu/CreditsBtn" to="Canvas/PauseMenu" method="on_credits"]
+[connection signal="pressed" from="Canvas/PauseMenu/ExitBtn" to="Canvas/PauseMenu" method="exit"]
