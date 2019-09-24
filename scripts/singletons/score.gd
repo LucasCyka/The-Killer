@@ -21,6 +21,11 @@ var killing_scores = {
 	"res://scenes/Level1.tscn":0
 }
 
+var scores_id = {
+	"res://scenes/prototype2.tscn":8708,
+	"res://scenes/Level1.tscn":8709
+}
+
 func set_score(stage,value):
 	scores[stage] = value
 	emit_signal("score_changed")

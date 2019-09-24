@@ -246,7 +246,6 @@ min_constraints = Vector2( -894, -419 )
 [node name="GameTimer" type="Timer" parent="."]
 
 [node name="AI" type="YSort" parent="."]
-editor/display_folded = true
 
 [node name="Teenager" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -1533,7 +1532,7 @@ texture = ExtResource( 74 )
 [node name="Boat" type="AnimatedSprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 687.594, 1325.05 )
 frames = SubResource( 8 )
-frame = 4
+frame = 5
 playing = true
 
 [node name="CustomTimer" parent="." instance=ExtResource( 81 )]

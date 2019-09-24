@@ -8,7 +8,7 @@ onready var mouse = $Mouse
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	newgrounds_test()
+	#newgrounds_test()
 	if settings.first_time:
 		$StartLabel.show()
 		$OptionsMenu.hide()

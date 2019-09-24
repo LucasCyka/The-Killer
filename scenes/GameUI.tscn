@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=2]
+[gd_scene load_steps=105 format=2]
 
 [ext_resource path="res://scripts/GameUI.gd" type="Script" id=1]
 [ext_resource path="res://scripts/TeenagerInfo.gd" type="Script" id=2]
@@ -74,10 +74,10 @@
 [ext_resource path="res://sprites/gui/restart_hover.png" type="Texture" id=72]
 [ext_resource path="res://scripts/WinningUI.gd" type="Script" id=73]
 [ext_resource path="res://scripts/MouseUI.gd" type="Script" id=74]
-[ext_resource path="res://sprites/mouse/pointer.png" type="Texture" id=75]
-[ext_resource path="res://sprites/traps/knock1.png" type="Texture" id=76]
-[ext_resource path="res://sprites/traps/knock2.png" type="Texture" id=77]
-[ext_resource path="res://sprites/traps/knock3.png" type="Texture" id=78]
+[ext_resource path="res://sprites/traps/knock1.png" type="Texture" id=75]
+[ext_resource path="res://sprites/traps/knock2.png" type="Texture" id=76]
+[ext_resource path="res://sprites/traps/knock3.png" type="Texture" id=77]
+[ext_resource path="res://sprites/mouse/pointer.png" type="Texture" id=78]
 [ext_resource path="res://sprites/mouse/scissor.png" type="Texture" id=79]
 [ext_resource path="res://sprites/gui/score_icon_prototype.png" type="Texture" id=80]
 [ext_resource path="res://sprites/characters/male_1/dying/dying_1_down28.png" type="Texture" id=81]
@@ -94,6 +94,8 @@
 [ext_resource path="res://sprites/gui/credits_pressed.png" type="Texture" id=92]
 [ext_resource path="res://sprites/gui/credits_hover.png" type="Texture" id=93]
 [ext_resource path="res://sprites/misc/art_test.png" type="Texture" id=94]
+[ext_resource path="res://addons/newgrounds/NewGroundsAPI.gd" type="Script" id=95]
+[ext_resource path="res://addons/newgrounds/ng16.png" type="Texture" id=96]
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 25 )
@@ -113,14 +115,14 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 75 ) ],
-"loop": true,
-"name": "DEFAULT",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 76 ), ExtResource( 77 ), ExtResource( 78 ) ],
+"frames": [ ExtResource( 75 ), ExtResource( 76 ), ExtResource( 77 ) ],
 "loop": true,
 "name": "BUMP",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 78 ) ],
+"loop": true,
+"name": "DEFAULT",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -1327,6 +1329,7 @@ text = "<ENTER>"
 autowrap = true
 
 [node name="PauseMenu" type="Control" parent="Canvas"]
+editor/display_folded = true
 visible = false
 margin_right = 40.0
 margin_bottom = 40.0
@@ -1351,12 +1354,13 @@ texture_hover = ExtResource( 72 )
 visible = false
 position = Vector2( -27.1472, 21.6766 )
 frames = SubResource( 8 )
+frame = 2
 playing = true
 
 [node name="Machete2" type="AnimatedSprite" parent="Canvas/PauseMenu/RestartBtn/Machete"]
 position = Vector2( 185, 0 )
 frames = SubResource( 8 )
-frame = 3
+frame = 1
 playing = true
 flip_h = true
 
@@ -1374,13 +1378,12 @@ texture_hover = ExtResource( 90 )
 visible = false
 position = Vector2( -27.1472, 21.6766 )
 frames = SubResource( 8 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="Machete4" type="AnimatedSprite" parent="Canvas/PauseMenu/OptionsBtn/Machete3"]
 position = Vector2( 185, 0 )
 frames = SubResource( 8 )
-frame = 2
 playing = true
 flip_h = true
 
@@ -1398,13 +1401,12 @@ texture_hover = ExtResource( 93 )
 visible = false
 position = Vector2( -27.1472, 21.6766 )
 frames = SubResource( 8 )
-frame = 3
+frame = 1
 playing = true
 
 [node name="Machete6" type="AnimatedSprite" parent="Canvas/PauseMenu/CreditsBtn/Machete5"]
 position = Vector2( 185, 0 )
 frames = SubResource( 8 )
-frame = 2
 playing = true
 flip_h = true
 
@@ -1422,13 +1424,12 @@ texture_hover = ExtResource( 69 )
 visible = false
 position = Vector2( -27.1472, 21.6766 )
 frames = SubResource( 8 )
-frame = 2
 playing = true
 
 [node name="Machete8" type="AnimatedSprite" parent="Canvas/PauseMenu/ExitBtn/Machete7"]
 position = Vector2( 185, 0 )
 frames = SubResource( 8 )
-frame = 1
+frame = 3
 playing = true
 flip_h = true
 
@@ -1510,6 +1511,13 @@ scale = Vector2( 7.22993, 4.32975 )
 z_index = 4
 z_as_relative = false
 texture = ExtResource( 24 )
+
+[node name="NewGroundsAPI" type="HTTPRequest" parent="."]
+script = ExtResource( 95 )
+__meta__ = {
+"_editor_icon": ExtResource( 96 )
+}
+applicationId = "49623:wi13IyPW"
 
 [connection signal="mouse_entered" from="Canvas/TeenagerInfo/Panel" to="Canvas/TeenagerInfo" method="mouse_entered"]
 [connection signal="mouse_exited" from="Canvas/TeenagerInfo/Panel" to="Canvas/TeenagerInfo" method="mouse_exited"]
