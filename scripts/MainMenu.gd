@@ -8,7 +8,7 @@ onready var mouse = $Mouse
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
-	
+	newgrounds_test()
 	if settings.first_time:
 		$StartLabel.show()
 		$OptionsMenu.hide()
@@ -66,7 +66,21 @@ func show_menu():
 	
 	print('show panel')
 	
-	
+func newgrounds_test():
+	"""
+	$NewGroundsAPI.Gateway.getDatetime()
+	var result = yield($NewGroundsAPI, 'ng_request_complete')
+	if $NewGroundsAPI.is_ok(result):
+		print('Datetime: ' + str(result.response.datetime))
+	else:
+		print('Error: ' + result.error)
+	"""
+	$NewGroundsAPI.App.checkSession()
+	var result = yield($NewGroundsAPI, 'ng_request_complete')
+	if $NewGroundsAPI.is_ok(result):
+		print('Session: ' + str(result.response))
+	else:
+		print('Error: ' + result.error)
 	
 
 

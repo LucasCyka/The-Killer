@@ -1351,12 +1351,12 @@ texture_hover = ExtResource( 72 )
 visible = false
 position = Vector2( -27.1472, 21.6766 )
 frames = SubResource( 8 )
-frame = 1
 playing = true
 
 [node name="Machete2" type="AnimatedSprite" parent="Canvas/PauseMenu/RestartBtn/Machete"]
 position = Vector2( 185, 0 )
 frames = SubResource( 8 )
+frame = 3
 playing = true
 flip_h = true
 
@@ -1374,12 +1374,13 @@ texture_hover = ExtResource( 90 )
 visible = false
 position = Vector2( -27.1472, 21.6766 )
 frames = SubResource( 8 )
+frame = 3
 playing = true
 
 [node name="Machete4" type="AnimatedSprite" parent="Canvas/PauseMenu/OptionsBtn/Machete3"]
 position = Vector2( 185, 0 )
 frames = SubResource( 8 )
-frame = 3
+frame = 2
 playing = true
 flip_h = true
 
@@ -1397,12 +1398,13 @@ texture_hover = ExtResource( 93 )
 visible = false
 position = Vector2( -27.1472, 21.6766 )
 frames = SubResource( 8 )
+frame = 3
 playing = true
 
 [node name="Machete6" type="AnimatedSprite" parent="Canvas/PauseMenu/CreditsBtn/Machete5"]
 position = Vector2( 185, 0 )
 frames = SubResource( 8 )
-frame = 3
+frame = 2
 playing = true
 flip_h = true
 
@@ -1420,13 +1422,13 @@ texture_hover = ExtResource( 69 )
 visible = false
 position = Vector2( -27.1472, 21.6766 )
 frames = SubResource( 8 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="Machete8" type="AnimatedSprite" parent="Canvas/PauseMenu/ExitBtn/Machete7"]
 position = Vector2( 185, 0 )
 frames = SubResource( 8 )
-frame = 2
+frame = 1
 playing = true
 flip_h = true
 

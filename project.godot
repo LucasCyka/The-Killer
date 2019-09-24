@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="The Killer"
-run/main_scene="res://scenes/MainMenu.tscn"
+run/main_scene="res://scenes/Intro.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -36,6 +36,10 @@ gdscript/completion/autocomplete_setters_and_getters=true
 window/size/width=600
 window/size/height=375
 window/stretch/mode="viewport"
+
+[editor_plugins]
+
+enabled=PoolStringArray( "newgrounds" )
 
 [importer_defaults]
 
@@ -197,6 +201,10 @@ FullScreen={
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":70,"unicode":0,"echo":false,"script":null)
  ]
 }
+
+[network]
+
+ssl/certificates="res://addons/newgrounds/certs.pem"
 
 [rendering]
 
