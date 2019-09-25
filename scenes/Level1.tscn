@@ -1,4 +1,4 @@
-[gd_scene load_steps=92 format=2]
+[gd_scene load_steps=94 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/PlayerController.tscn" type="PackedScene" id=2]
@@ -83,6 +83,8 @@
 [ext_resource path="res://scenes/CustomTimer.tscn" type="PackedScene" id=81]
 [ext_resource path="res://scenes/Audio.tscn" type="PackedScene" id=82]
 [ext_resource path="res://sprites/misc/light2.png" type="Texture" id=83]
+[ext_resource path="res://addons/newgrounds/NewGroundsAPI.gd" type="Script" id=84]
+[ext_resource path="res://addons/newgrounds/ng16.png" type="Texture" id=85]
 
 [sub_resource type="TileSet" id=1]
 0/name = "higher_walls.png 0"
@@ -246,6 +248,7 @@ min_constraints = Vector2( -894, -419 )
 [node name="GameTimer" type="Timer" parent="."]
 
 [node name="AI" type="YSort" parent="."]
+editor/display_folded = true
 
 [node name="Teenager" parent="AI" instance=ExtResource( 4 )]
 editor/display_folded = true
@@ -1592,4 +1595,11 @@ texture = ExtResource( 83 )
 position = Vector2( 436.589, 154.517 )
 scale = Vector2( 0.402573, 0.383406 )
 texture = ExtResource( 83 )
+
+[node name="NewGroundsAPI" type="HTTPRequest" parent="."]
+script = ExtResource( 84 )
+__meta__ = {
+"_editor_icon": ExtResource( 85 )
+}
+applicationId = "49623:wi13IyPW"
 

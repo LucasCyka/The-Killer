@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=2]
+[gd_scene load_steps=67 format=2]
 
 [ext_resource path="res://scripts/Game.gd" type="Script" id=1]
 [ext_resource path="res://scenes/PlayerController.tscn" type="PackedScene" id=2]
@@ -56,6 +56,8 @@
 [ext_resource path="res://scenes/CustomTimer.tscn" type="PackedScene" id=54]
 [ext_resource path="res://scenes/Audio.tscn" type="PackedScene" id=55]
 [ext_resource path="res://scenes/Tutorial.tscn" type="PackedScene" id=56]
+[ext_resource path="res://addons/newgrounds/NewGroundsAPI.gd" type="Script" id=57]
+[ext_resource path="res://addons/newgrounds/ng16.png" type="Texture" id=58]
 
 [sub_resource type="TileSet" id=1]
 0/name = "higher_walls.png 0"
@@ -273,7 +275,7 @@ z_index = 2
 tile_set = ExtResource( 13 )
 cell_size = Vector2( 25, 25 )
 format = 1
-tile_data = PoolIntArray( 458782, 3, 0, 458783, 42, 0, 458784, 38, 0, 589854, 0, 0, 589855, 33, 0, 589856, 40, 0, 655401, 1, 0, 655402, 36, 0, 655403, 38, 0, 1179689, 2, 0, 1179690, 41, 0, 1179691, 40, 0, 2293790, 6, 0, 2293791, 44, 0, 2293792, 45, 0, 2293793, 5, 0, 2293794, 44, 0, 2293795, 45, 0, 2293797, 4, 0, 2293798, 43, 0, 2293799, 40, 0 )
+tile_data = PoolIntArray( 458782, 3, 0, 458783, 42, 0, 458784, 38, 0, 589854, 0, 0, 589855, 33, 0, 589856, 40, 0, 655401, 1, 0, 655402, 36, 0, 655403, 38, 0, 1179689, 2, 0, 1179690, 41, 0, 1179691, 40, 0, 2293790, 6, 0, 2293791, 44, 0, 2293792, 45, 0, 2293793, 5, 0, 2293794, 44, 0, 2293795, 48, 0, 2293797, 4, 0, 2293798, 43, 0, 2293799, 40, 0 )
 
 [node name="Bed" parent="AI" instance=ExtResource( 21 )]
 position = Vector2( 1024.33, 219.489 )
@@ -661,7 +663,7 @@ texture = ExtResource( 45 )
 [node name="Boat" type="AnimatedSprite" parent="WorldSprites(DEBUG)"]
 position = Vector2( 799.806, 848.917 )
 frames = SubResource( 8 )
-frame = 3
+frame = 2
 playing = true
 
 [node name="Table2" type="Sprite" parent="WorldSprites(DEBUG)"]
@@ -696,4 +698,11 @@ z_index = 5
 texture = ExtResource( 40 )
 
 [node name="Tutorial" parent="." instance=ExtResource( 56 )]
+
+[node name="NewGroundsAPI" type="HTTPRequest" parent="."]
+script = ExtResource( 57 )
+__meta__ = {
+"_editor_icon": ExtResource( 58 )
+}
+applicationId = "49623:wi13IyPW"
 

@@ -620,6 +620,9 @@ func check_lure_is_placed(trail):
 					
 					if _hidden_texts_id == _hidden_texts.size() -1:
 						print('give him a special achievement')
+						var api = get_parent().get_node('NewGroundsAPI')
+						medals.unlock(58132,api)
+						get_parent().ui.achievement.play_achievement(58132)
 					
 					_hidden_texts_id += 1
 				lure.call_deferred('free')

@@ -97,6 +97,8 @@ func _ready():
 	init_teenagers()
 	#initialize score
 	init_score()
+	#initialize medals
+	if not medals.checked_medals: medals.check_medals($NewGroundsAPI)
 	teen_num = get_teenagers().size()
 	connect("game_won",self,"set_current_mode",[MODE.WON])
 	emit_signal("loaded")
@@ -106,6 +108,7 @@ func _ready():
 func _process(delta):
 	daynightcycle()
 	update_ambience()
+	check_medals()
 	
 	if debug_mode:
 		#helps when listening to music while programming
@@ -284,6 +287,7 @@ func set_current_mode(value):
 				set_player_tiredness(player_tiredness + 2)
 		MODE.PLANNING:
 			ui.unlock()
+			ui.info_ui.normal_btn()
 		MODE.GAMEOVER:
 			ui.lock()
 			disable_spawn_points()
@@ -299,6 +303,8 @@ func set_current_mode(value):
 		MODE.WON:
 			ui.lock()
 			disable_spawn_points()
+			var player = get_player()
+			if player != null:player.queue_free()
 		_:
 			#the game is paused...
 			pass
@@ -794,6 +800,25 @@ func check_teenagers():
 				return true
 				
 	return false
+
+#unlock medals
+func check_medals():
+	if get_level() == 'res://scenes/prototype2.tscn' and not medals.medals_data[58135]:
+		if get_current_mode() == MODE.WON:
+			medals.unlock(58135,$NewGroundsAPI)
+			ui.achievement.play_achievement(58135)
+	
+	if not medals.medals_data[58134]:
+		for teen in get_teenagers():
+			if teen.state_machine.get_current_state() == 'Dead':
+				medals.unlock(58134,$NewGroundsAPI)
+				ui.achievement.play_achievement(58134)
+				
+	if get_level() == 'res://scenes/Level1.tscn' and not medals.medals_data[58136]:
+		if get_current_mode() == MODE.WON:
+			medals.unlock(58136,$NewGroundsAPI)
+			ui.achievement.play_achievement(58136)
+	
 
 #update the sounds/musics of the level.
 func update_ambience():

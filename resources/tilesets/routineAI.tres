@@ -483,4 +483,14 @@
 47/navigation_offset = Vector2( 0, 0 )
 47/shapes = [  ]
 47/z_index = 0
+48/name = "300s"
+48/texture = ExtResource( 1 )
+48/tex_offset = Vector2( 0, 0 )
+48/modulate = Color( 1, 1, 1, 1 )
+48/region = Rect2( 250, 75, 25, 25 )
+48/tile_mode = 0
+48/occluder_offset = Vector2( 0, 0 )
+48/navigation_offset = Vector2( 0, 0 )
+48/shapes = [  ]
+48/z_index = 0
 

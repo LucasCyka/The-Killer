@@ -25,6 +25,7 @@ common="*res://scripts/singletons/common.gd"
 score="*res://scripts/singletons/score.gd"
 star="*res://scripts/Pathfinding.gd"
 settings="*res://scripts/singletons/settings.gd"
+medals="*res://scripts/singletons/Medals.gd"
 
 [debug]
 
