@@ -25,10 +25,10 @@ func check_medals(newgrounds_api):
 		if medals['medals'][0].keys().find('unlocked') != -1:
 			#the player is logged, lets check everything
 			for medal in range(medals_data.keys().size()):
-				medals_data[medals['medals'][medal]['id']] = medals['medals'][medal]['unlocked']
+				medals_data[int(medals['medals'][medal]['id'])] = medals['medals'][medal]['unlocked']
 	else:
 		print(result.error)
-		
+	
 #unlock medal by id
 func unlock(id,newgrounds_api):
 	if medals_data[id] == true:

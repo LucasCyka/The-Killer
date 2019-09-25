@@ -33,6 +33,7 @@ func input(event):
 
 #detect transitions between states
 func transitions():
+	if get_tree().is_paused(): return
 	### IDLE TO MOVING ###
 	if base.player.target == null:
 		base.stack.append(base.get_node("Moving"))

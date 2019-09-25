@@ -24,6 +24,7 @@ func init(base,state_position,state_time):
 func update(delta):
 	if base == null or is_spawn_set:
 		if is_spawn_set and check_teenagers() and !transition:
+			
 			transition = true
 			transitions()
 			exit()

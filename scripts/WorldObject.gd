@@ -167,7 +167,7 @@ func startle():
 	if current_teen == []:return
 	
 	var pos = star.get_closest_tile(self.global_position)
-	pos = star.get_closest_tile(Vector2(pos.x+75,pos.y))
+	pos = star.get_closest_tile(Vector2(pos.x+100,pos.y))
 	
 	for teenager in current_teen:
 		if teenager.state_machine.check_forced_state('Startled'):

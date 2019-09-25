@@ -52,6 +52,8 @@ func update(delta):
 				#this prevents some crashes
 				var ref = weakref(teen)
 				if ref.get_ref() == null: continue
+				if teen is Area2D: continue
+				if teen.name == 'PlayerHunter': continue
 				
 				if not teen.is_object_visible(base.teenager.detection_area): continue
 				
