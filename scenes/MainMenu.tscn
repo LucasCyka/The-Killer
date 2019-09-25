@@ -57,6 +57,13 @@ text = "THE SLASHER"
 root_node = NodePath("../..")
 "anims/New Anim" = SubResource( 2 )
 
+[node name="VERSION" type="Label" parent="BackgroundAnimation"]
+margin_left = 174.656
+margin_top = 108.348
+margin_right = 249.656
+margin_bottom = 122.348
+text = "0.0.5ALPHA"
+
 [node name="OptionsMenu" parent="." instance=ExtResource( 4 )]
 
 [node name="StartLabel" type="Node2D" parent="."]

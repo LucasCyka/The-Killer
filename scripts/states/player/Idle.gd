@@ -33,7 +33,9 @@ func input(event):
 
 #detect transitions between states
 func transitions():
-	if get_tree().is_paused(): return
+	if get_tree().is_paused():
+		if base.player.get_parent().get_parent().get_level() != 'res://scenes/prototype2.tscn':
+			return
 	### IDLE TO MOVING ###
 	if base.player.target == null:
 		base.stack.append(base.get_node("Moving"))

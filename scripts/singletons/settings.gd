@@ -6,6 +6,8 @@ extends Node
 	screen resolution etc...
 """
 
+const version = '0.0.5ALPHA'
+
 signal audio_changed
 
 #audio system

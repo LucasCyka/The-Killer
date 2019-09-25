@@ -18,6 +18,9 @@ func _ready():
 		start_anim()
 		start_music()
 		$StartLabel.hide()
+	
+	$BackgroundAnimation/VERSION.text = settings.version
+	
 
 func _input(event):
 	if Input.is_action_just_pressed("Enter"):
