@@ -77,7 +77,7 @@ func update_score():
 			if result.response['scores'] == [] or label+1 > result.response['scores'].size():
 				score_labels[label].text = str(label+1) + 'th -'
 			else:
-				var _name = str(result.response['scores'][0]['user']['name'])
+				var _name = str(result.response['scores'][label]['user']['name'])
 				score_labels[label].text = str(label+1) + 'th - ' + _name
 		
 		
